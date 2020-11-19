@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container bg-white">
     <div>
       <Logo />
       <h1 class="title">nuxt-experiment</h1>
@@ -36,8 +36,8 @@ export default {}
 }
 */
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
+  margin: 1em auto;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
