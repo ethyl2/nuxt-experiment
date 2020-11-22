@@ -2,13 +2,19 @@
   <div class="container">
     <div>
       <img src="../static/tree2.png" alt="logo" class="mx-auto" />
-      <h1 class="title">nuxt-experiment</h1>
+      <h1 class="title">Nuxt.js Experiments</h1>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'Home Page 🌳',
+    }
+  },
+}
 </script>
 
 <style>

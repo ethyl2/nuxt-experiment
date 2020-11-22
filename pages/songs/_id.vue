@@ -213,5 +213,10 @@ export default {
         .slice(0, 3)
     },
   },
+  head() {
+    return {
+      title: `${this.song.title} 🎼`,
+    }
+  },
 }
 </script>
