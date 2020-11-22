@@ -1,5 +1,13 @@
 # nuxt-experiment
 
+## This repo is a place for me to experiment with Nuxt.js.
+
+So far, it contains the start of my gratitude journal and my campfire songs collection.
+
+Deployed at https://nuxt-experiments.herokuapp.com/
+
+---
+
 ## Build Setup
 
 ```bash

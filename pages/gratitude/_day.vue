@@ -6,6 +6,12 @@
       <p class="text-base">{{ day.item }}</p>
       <h3 class="text-lg">because</h3>
       <p class="text-base">{{ day.reason }}.</p>
+      <img
+        v-if="day.image_url"
+        :src="`/${day.image_url}`"
+        :alt="`gratitude day ${day.number} reason`"
+        class="w-1/4 pt-4"
+      />
       <hr />
       <small>#GiveThanks</small>
     </div>

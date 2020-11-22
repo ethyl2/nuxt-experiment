@@ -1,5 +1,5 @@
 <template>
-  <div class="container bg-white">
+  <div class="container bg-gray-100">
     <div>
       <Logo />
       <h1 class="title">Nuxt.js</h1>
