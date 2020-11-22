@@ -5,9 +5,9 @@
       <nuxt-link
         v-for="day in days"
         :key="day"
-        :to="{ name: 'gratitude-day', params: { day: day } }"
+        :to="{ name: 'gratitude-day', params: { day: day.number } }"
         class="text-base px-4 py-2 border border-white rounded"
-        >{{ day }}</nuxt-link
+        >{{ day.number }}</nuxt-link
       >
     </nav>
     <a
@@ -28,8 +28,13 @@
 export default {
   data() {
     return {
-      days: ['one', 'two'],
+      originalDays: ['one', 'two'],
     }
+  },
+  computed: {
+    days() {
+      return this.$store.state.days.all
+    },
   },
 }
 </script>

@@ -1,12 +1,26 @@
 <template>
-  <div class="container flex flex-col space-y-2">
-    <h2 class="text-xl">DAY {{ day.number.toUpperCase() }}</h2>
-    <h3 class="text-lg">I'm thankful for</h3>
-    <p class="text-base">{{ day.item }}</p>
-    <h3 class="text-lg">because</h3>
-    <p class="text-base">{{ day.reason }}.</p>
-    <hr />
-    <small>#GiveThanks</small>
+  <div>
+    <div class="container flex flex-col space-y-2">
+      <h2 class="text-xl">DAY {{ day.number.toUpperCase() }}</h2>
+      <h3 class="text-lg">I'm thankful for</h3>
+      <p class="text-base">{{ day.item }}</p>
+      <h3 class="text-lg">because</h3>
+      <p class="text-base">{{ day.reason }}.</p>
+      <hr />
+      <small>#GiveThanks</small>
+    </div>
+    <nuxt-link to="/gratitude" class="flex items-center justify-center"
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="#4fb99f"
+        width="14px"
+        height="14px"
+      >
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z" /></svg
+      >Back
+    </nuxt-link>
   </div>
 </template>
 
@@ -33,7 +47,10 @@ export default {
   },
   computed: {
     day() {
-      return this.entries.find((entry) => entry.number === this.currentDay)
+      // return this.entries.find((entry) => entry.number === this.currentDay)
+      return this.$store.state.days.all.find(
+        (day) => day.number === this.currentDay
+      )
     },
   },
 }
