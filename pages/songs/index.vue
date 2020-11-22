@@ -48,7 +48,10 @@ export default {
           name: 'twitter:description ',
           content: "Selection of Heather Nuffer's favorite campfire songs",
         },
-        { name: 'twitter:image', content: '/campfire.png' },
+        {
+          name: 'twitter:image',
+          content: 'https://nuxt-experiments.herokuapp.com/campfire.png',
+        },
         { name: 'twitter:card', content: 'summary_large_image' },
       ],
     }
