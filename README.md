@@ -6,6 +6,8 @@ So far, it contains the start of my gratitude journal and my campfire songs coll
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 
+To learn about Nuxt.js, check out this course: [Nuxt.js Fundamentals](https://vueschool.io/courses/nuxtjs-fundamentals)
+
 ---
 
 ## Build Setup
