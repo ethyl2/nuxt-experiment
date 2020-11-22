@@ -216,6 +216,15 @@ export default {
   head() {
     return {
       title: `${this.song.title} 🎼`,
+      meta: [
+        { name: 'twitter:title', content: this.song.title },
+        {
+          name: 'twitter:description ',
+          content: `${this.song.title} Campfire Song`,
+        },
+        { name: 'twitter:image', content: `/${this.song.image_url}` },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
     }
   },
 }

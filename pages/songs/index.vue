@@ -36,5 +36,22 @@ export default {
       return this.$store.state.songs.all
     },
   },
+  head() {
+    return {
+      title: 'Campfire Songs 🎼',
+      meta: [
+        {
+          name: 'twitter:title',
+          content: 'Campfire Songs',
+        },
+        {
+          name: 'twitter:description ',
+          content: "Selection of Heather Nuffer's favorite campfire songs",
+        },
+        { name: 'twitter:image', content: '/campfire.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
+  },
 }
 </script>

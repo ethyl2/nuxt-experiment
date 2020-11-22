@@ -53,5 +53,22 @@ export default {
       )
     },
   },
+  head() {
+    return {
+      title: `Day of Gratitude 🍂 ${this.day.number}`,
+      meta: [
+        {
+          name: 'twitter:title',
+          content: `Day of Gratitude ${this.day.number}`,
+        },
+        {
+          name: 'twitter:description ',
+          content: "Heather Nuffer's gratitude journal",
+        },
+        { name: 'twitter:image', content: '../static/tree2.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
+  },
 }
 </script>

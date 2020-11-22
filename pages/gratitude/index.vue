@@ -36,5 +36,22 @@ export default {
       return this.$store.state.days.all
     },
   },
+  head() {
+    return {
+      title: 'Days of Gratitude 🍂',
+      meta: [
+        {
+          name: 'twitter:title',
+          content: 'Days of Gratitude',
+        },
+        {
+          name: 'twitter:description ',
+          content: "Heather Nuffer's gratitude journal",
+        },
+        { name: 'twitter:image', content: '../static/tree2.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
+  },
 }
 </script>

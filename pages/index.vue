@@ -12,6 +12,18 @@ export default {
   head() {
     return {
       title: 'Home Page 🌳',
+      meta: [
+        {
+          name: 'twitter:title',
+          content: "Heather Nuffer's Nuxt.js Experiment",
+        },
+        {
+          name: 'twitter:description ',
+          content: "Heather Nuffer's Nuxt.js Experiment",
+        },
+        { name: 'twitter:image', content: '../static/tree2.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
     }
   },
 }
