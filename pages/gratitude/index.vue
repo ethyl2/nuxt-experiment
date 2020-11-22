@@ -5,7 +5,7 @@
       <nuxt-link
         v-for="day in days"
         :key="day"
-        :to="`/gratitude/${day}`"
+        :to="{ name: 'gratitude-day', params: { day: day } }"
         class="text-base px-4 py-2 border border-white rounded"
         >{{ day }}</nuxt-link
       >
