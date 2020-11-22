@@ -202,10 +202,15 @@ export default {
   },
   computed: {
     song() {
-      return this.songs.find((song) => song.id === this.id)
+      // return this.songs.find((song) => song.id === this.id)
+      // To use the store instead:
+      return this.$store.state.songs.all.find((song) => song.id === this.id)
     },
     relatedSongs() {
-      return this.songs.filter((song) => song.id !== this.id).slice(0, 3)
+      // return this.songs.filter((song) => song.id !== this.id).slice(0, 3)
+      return this.$store.state.songs.all
+        .filter((song) => song.id !== this.id)
+        .slice(0, 3)
     },
   },
 }

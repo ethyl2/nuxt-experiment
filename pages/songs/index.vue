@@ -3,7 +3,7 @@
     <h1 class="text-xl">Campfire Songs</h1>
     <nav class="flex flex-col">
       <nuxt-link
-        v-for="song in songs"
+        v-for="song in allSongs"
         :key="song.id"
         :to="`/songs/${song.id}`"
         class="text-base"
@@ -17,6 +17,7 @@
 <script>
 export default {
   data() {
+    // Original way to access the song data. Now, use the store instead, in computed.
     return {
       songs: [
         { title: "I'm a Nut", id: 'nut' },
@@ -29,6 +30,11 @@ export default {
         { title: 'Cool and Creamy', id: 'cream' },
       ],
     }
+  },
+  computed: {
+    allSongs() {
+      return this.$store.state.songs.all
+    },
   },
 }
 </script>
