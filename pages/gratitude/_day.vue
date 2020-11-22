@@ -71,7 +71,10 @@ export default {
           name: 'twitter:description ',
           content: "Heather Nuffer's gratitude journal",
         },
-        { name: 'twitter:image', content: '../static/tree2.png' },
+        {
+          name: 'twitter:image',
+          content: `https://nuxt-experiments.herokuapp.com/${this.day.image_url}`,
+        },
         { name: 'twitter:card', content: 'summary_large_image' },
       ],
     }

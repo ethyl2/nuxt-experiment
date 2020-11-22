@@ -222,8 +222,23 @@ export default {
           name: 'twitter:description ',
           content: `${this.song.title} Campfire Song`,
         },
-        { name: 'twitter:image', content: `/${this.song.image_url}` },
+        {
+          name: 'twitter:image',
+          content: `https://nuxt-experiments.herokuapp.com/${this.song.image_url}`,
+        },
         { name: 'twitter:card', content: 'summary_large_image' },
+        // Facebook OpenGraph
+        { property: 'og:title', content: 'this.song.title' },
+        { property: 'og:site_name', content: 'Nuxt-Experiments' },
+        { property: 'og:type', content: 'website' },
+        {
+          property: 'og:image',
+          content: `https://nuxt-experiments.herokuapp.com/${this.song.image_url}`,
+        },
+        {
+          property: 'og:description',
+          content: 'Vue sample site showing off Twitter and Facebook Cards.',
+        },
       ],
     }
   },

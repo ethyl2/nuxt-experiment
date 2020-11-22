@@ -10,6 +10,7 @@
         >{{ day.number }}</nuxt-link
       >
     </nav>
+    <nuxt-link to="/gratitude/share">Share Your Gratitude</nuxt-link>
     <a
       href="https://www.churchofjesuschrist.org/inspiration/the-story-behind-my-global-prayer-of-gratitude?lang=eng"
       target="_blank"
@@ -48,7 +49,10 @@ export default {
           name: 'twitter:description ',
           content: "Heather Nuffer's gratitude journal",
         },
-        { name: 'twitter:image', content: '../static/tree2.png' },
+        {
+          name: 'twitter:image',
+          content: 'https://nuxt-experiments.herokuapp.com/tree2.png',
+        },
         { name: 'twitter:card', content: 'summary_large_image' },
       ],
     }
