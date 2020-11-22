@@ -11,6 +11,7 @@
 
     <div v-if="song.verses" class="mt-6">
       <hr />
+      <h4 v-if="song.verses.length > 1" class="text-lg mt-5 mb-2">Verses:</h4>
       <div
         v-for="(verse, index) in song.verses"
         :key="`verse-${index}`"
@@ -30,6 +31,16 @@
       :alt="song.title"
       class="w-1/4 pt-4"
     />
+    <aside>
+      <h3 class="text-xl mt-6">Other songs you might enjoy</h3>
+      <ul>
+        <li v-for="relatedSong in relatedSongs" :key="relatedSong.id">
+          <nuxt-link :to="`/songs/${relatedSong.id}`">{{
+            relatedSong.title
+          }}</nuxt-link>
+        </li>
+      </ul>
+    </aside>
   </div>
 </template>
 
@@ -55,6 +66,61 @@ export default {
             "And that's why I have no dough, dough, dough, dough. (Repeat)",
           ],
           image_url: 'rootbeer.png',
+        },
+        {
+          id: 'possum',
+          url:
+            'https://sites.google.com/site/1stbalcombeheightscubs/home/camps/campfire-songs/song-im-a-little-possum',
+          title: "I'm a Little Possum",
+          tune: "I'm a Little Teapot",
+          chorus: [
+            "I'm a little possum short and stout",
+            'Here is my tail (turn and point to your rear end)',
+            'and here is my snout (put your fingers on your nose)',
+            "If you pull my tail you'll hear me shout",
+            "Hey, I'm a possum, (Shake your fingers or fists angrily)",
+            'CUT THAT OUT!',
+          ],
+          image_url: 'possum.png',
+        },
+        {
+          id: 'cream',
+          url: 'https://scoutermom.com/17787/cool-and-creamy-skit-song/',
+          title: 'Cool and Creamy',
+          tune: 'Alouette',
+          chorus: [
+            'Cool and creamy',
+            'We like cool and creamy',
+            'Cool and creamy',
+            'We like it the best!',
+          ],
+          verses: [
+            [
+              'Would you like some on your head?',
+              'Yes, I’d like some on my head!',
+              'On your head?',
+              'On my head! (Spray whipped cream or shaving cream on the one who’d like it on their head)',
+            ],
+            [
+              'Would you like some on your shirt?',
+              'Yes, I’d like some on my shirt!',
+              'On your shirt?',
+              'On my shirt!',
+            ],
+            [
+              'Would you like some in your hair?',
+              'Yes, I’d like some in my hair!',
+              'In your hair?',
+              'In my hair!',
+            ],
+            [
+              'Would you like some in your shoes?',
+              'Yes, I’d like some in my shoes!',
+              'In your shoes?',
+              'In my shoes!',
+            ],
+          ],
+          image_url: 'cream.png',
         },
         {
           id: 'nerves',
@@ -137,6 +203,9 @@ export default {
   computed: {
     song() {
       return this.songs.find((song) => song.id === this.id)
+    },
+    relatedSongs() {
+      return this.songs.filter((song) => song.id !== this.id).slice(0, 3)
     },
   },
 }

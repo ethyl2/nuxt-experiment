@@ -24,7 +24,7 @@ export default {
         },
         {
           number: 'two',
-          item: 'jackbox games',
+          item: 'online games, such as jackbox games',
           reason:
             'it creates fun, memorable times with friends and family near and far',
         },

@@ -25,6 +25,8 @@ export default {
           id: 'nerves',
         },
         { title: 'The Rootbeer Song', id: 'rootbeer' },
+        { title: "I'm a Little Possum", id: 'possum' },
+        { title: 'Cool and Creamy', id: 'cream' },
       ],
     }
   },
