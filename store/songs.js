@@ -147,5 +147,45 @@ export const state = () => ({
         ],
       ],
     },
+    {
+      id: 'reindeer',
+      url: 'https://gstcsongs.wordpress.com/my-reindeer-flies-sideways/',
+      title: 'My Reindeer Flies Sideways',
+      tune: 'Pomp & Circumstance',
+      image_url: 'reindeer.png',
+      verses: [
+        [
+          `My reindeer flies sideways;`,
+          `she's better than yours.`,
+          `My reindeer can cha-cha;`,
+          `She can open up doors.`,
+        ],
+
+        [
+          `My reindeer is purple;`,
+          `Yours is a pea green.`,
+          `My reindeer's a Deer Scout;`,
+          `She can dig a latrine.`,
+        ],
+        [
+          `My reindeer wears pjs;`,
+          `She always looks cute.`,
+          `Your reindeer is stuffy;`,
+          `She always wears a suit.`,
+        ],
+        [
+          `My reindeer takes vitamins;`,
+          `Your reindeer gets wet.`,
+          `My reindeer is healthy;`,
+          `Yours goes to the vet.`,
+        ],
+        [
+          `My reindeer flies sideways;`,
+          `Yours flies upside down.`,
+          `My reindeer is perfect;`,
+          `Your reindeer's a clown.`,
+        ],
+      ],
+    },
   ],
 })
