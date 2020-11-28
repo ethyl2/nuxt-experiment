@@ -44,5 +44,11 @@ export const state = () => ({
         'we can dance, whistle, listen to it together, chuckle at corny or creative lyrics, and create',
       image_url: 'music.png',
     },
+    {
+      number: 'seven',
+      item: 'Christmas trees',
+      reason: 'they are magical',
+      image_url: 'christmas_tree.png',
+    },
   ],
 })
