@@ -187,5 +187,18 @@ export const state = () => ({
         ],
       ],
     },
+    {
+      id: 'galaxy',
+      url: '',
+      title: 'Galaxy Sing-A-Long',
+      tune: 'Frere Jacques',
+      chorus: [
+        'R2D2, R2D2',
+        'C3PO, C3PO.',
+        'Obi Wan Kenobi, Obi Wan Kenobi.',
+        'Han Solo, Han Solo.',
+      ],
+      image_url: 'galaxy.png',
+    },
   ],
 })
