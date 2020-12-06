@@ -200,5 +200,19 @@ export const state = () => ({
       ],
       image_url: 'galaxy.png',
     },
+    {
+      id: 'peanut',
+      url: 'https://www.mamalisa.com/?t=es&p=1754',
+      title: 'Peanut on a Railroad Track',
+      tune: 'Polly Wolly Doodle',
+      chorus: [
+        'A peanut sat on a railroad track.',
+        'His heart was all a-flutter.',
+        'Around the bend came number ten.',
+        'Toot! Toot! Peanut butter!',
+        'SQUISH!',
+      ],
+      image_url: 'peanut.png',
+    },
   ],
 })
