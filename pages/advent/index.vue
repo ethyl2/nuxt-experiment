@@ -19,6 +19,16 @@ export default {
   components: {
     AdventCard,
   },
+  data() {
+    return {
+      surpriseUrls: [
+        'cat.gif',
+        'christmas_tree.png',
+        'cat2.gif',
+        'pinkTree.png',
+      ],
+    }
+  },
   computed: {
     shuffledDates() {
       const dates = [...Array(25).keys()]
