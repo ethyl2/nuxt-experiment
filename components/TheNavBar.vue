@@ -1,12 +1,14 @@
 <template>
   <nav class="nav">
-    <div class="flex justify-between items-center">
+    <div class="flex flex-col md:flex-row justify-between items-center">
       <nuxt-link to="/" class="flex justify-start items-center">
-        <img src="../static/tree2.png" alt="logo" class="w-10" />
+        <img src="tree2.png" alt="logo" class="w-10" />
         <h1 class="logo text-lg">Nuxt Experiments</h1>
       </nuxt-link>
-      <div class="flex space-x-5">
-        <nuxt-link to="advent">Advent</nuxt-link>
+      <div
+        class="flex justify-between w-full md:w-auto md:space-x-5 border-t border-b py-2 mt-2 text-xs text-center md:text-base md:border-none"
+      >
+        <nuxt-link to="/advent">Advent</nuxt-link>
         <nuxt-link to="/songs">Campfire Songs</nuxt-link>
         <nuxt-link to="/gratitude">Gratitude</nuxt-link>
         <nuxt-link to="/aboutNuxt">About Nuxt</nuxt-link>

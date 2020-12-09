@@ -1,7 +1,7 @@
 <template>
-  <div class="container flex flex-col">
-    <h1 class="text-xl pb-6">Countdown to Christmas</h1>
-    <div class="grid grid-cols-5 gap-4">
+  <div class="container flex flex-col mx-auto">
+    <h1 class="text-3xl pb-6">Countdown to Christmas</h1>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
       <AdventCard
         v-for="index in shuffledDates"
         :key="index"

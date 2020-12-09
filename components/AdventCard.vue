@@ -9,7 +9,7 @@
       <span class="cursor-pointer">{{ date + 1 }}</span>
     </div>
     <div
-      v-else
+      v-else-if="isOpen"
       class="w-32 h-32 bg-white text-xs font-bold flex flex-col justify-center items-center rounded"
       :class="[date % 2 === 0 ? 'text-green-600' : 'text-red-600']"
       @click="handleClick"
@@ -52,17 +52,23 @@ export default {
       const today = new Date()
       return today.getDate()
     },
+    allowedToOpen() {
+      return this.date < this.currentDate
+    },
   },
   created() {
     setTimeout(this.openOldDoors, 1000)
-    // this.openOldDoors()
   },
   methods: {
     handleClick() {
-      this.isOpen = !this.isOpen
+      if (this.allowedToOpen) {
+        this.isOpen = !this.isOpen
+      }
+      console.log(this.allowedToOpen)
+      // this.isOpen = !this.isOpen
     },
     openOldDoors() {
-      if (this.date < this.currentDate) {
+      if (this.date < this.currentDate - 1) {
         this.isOpen = true
       }
     },
