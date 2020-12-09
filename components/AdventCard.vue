@@ -2,7 +2,7 @@
   <div>
     <div
       v-if="!isOpen"
-      class="w-32 h-32 text-white text-xl font-bold flex justify-center items-center rounded"
+      class="w-32 h-32 text-white text-3xl font-bold flex justify-center items-center rounded"
       :class="[date % 2 === 0 ? 'bg-green-600' : 'bg-red-600']"
       @click="handleClick"
     >
@@ -47,9 +47,24 @@ export default {
       isOpen: false,
     }
   },
+  computed: {
+    currentDate() {
+      const today = new Date()
+      return today.getDate()
+    },
+  },
+  created() {
+    setTimeout(this.openOldDoors, 1000)
+    // this.openOldDoors()
+  },
   methods: {
     handleClick() {
       this.isOpen = !this.isOpen
+    },
+    openOldDoors() {
+      if (this.date < this.currentDate) {
+        this.isOpen = true
+      }
     },
   },
 }
