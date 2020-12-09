@@ -6,8 +6,8 @@
         v-for="index in shuffledDates"
         :key="index"
         :date="index"
-        :message="index % 2 === 0 ? 'Ho ho ho' : 'Happy Day'"
-        :surprise-url="index % 2 === 0 ? 'cat2.gif' : 'cat.gif'"
+        :message="getRandomMessage()"
+        :surprise-url="surpriseUrls[index]"
       />
     </div>
   </div>
@@ -21,11 +21,57 @@ export default {
   },
   data() {
     return {
+      messages: [
+        'Ho Ho Ho',
+        'Happy Day',
+        'Greetings',
+        'Be Merry',
+        'Warm Wishes',
+        'Blessings',
+        'Hugs',
+        'Merry',
+        'Sparkle',
+        'Shine',
+        'Hooray!',
+        'Happiness',
+        'Stay warm!',
+        'Glad Tidings',
+        'Celebrate',
+        'You are loved',
+        'Wonder',
+        'Smile!',
+        'Good Tidings',
+        'Let it Snow',
+        'Be Jolly',
+        'Believe',
+        'Sugar & Spice',
+      ],
       surpriseUrls: [
         'cat.gif',
+        'donut.gif',
+        'sweaterDog.png',
+        'santaPenguin.png',
+        'love.gif',
         'christmas_tree.png',
         'cat2.gif',
         'pinkTree.png',
+        'snowflake.png',
+        'cupcake.gif',
+        'gingerbreadHouse.png',
+        'santaFox.png',
+        'catSnowman.png',
+        'heart.gif',
+        'candycaneCocoa2.png',
+        'santaAvocado.gif',
+        'reindeer.png',
+        'gingerbreadPeople.png',
+        'catWithLights.png',
+        'candles.png',
+        'santaPizza.gif',
+        'angel.png',
+        'santaDog.gif',
+        'holyFamily.png',
+        'stars.gif',
       ],
     }
   },
@@ -40,6 +86,11 @@ export default {
         dates[j] = k
       }
       return dates
+    },
+  },
+  methods: {
+    getRandomMessage() {
+      return this.messages[Math.floor(Math.random() * this.messages.length)]
     },
   },
 }

@@ -19,8 +19,8 @@
         alt="inside surprise"
         class="w-24 h-24 rounded"
       />
-      <span v-if="date !== 24" class="text-xs">{{ message }}</span>
-      <span v-else class="text-xs">Peace & Joy</span>
+      <span v-if="date !== 24" class="text-base">{{ message }}</span>
+      <span v-else class="text-base">Peace & Joy</span>
     </div>
   </div>
 </template>
