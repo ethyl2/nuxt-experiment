@@ -214,5 +214,33 @@ export const state = () => ({
       ],
       image_url: 'peanut.png',
     },
+    {
+      id: 'crazy',
+      url: 'http://www.drjean.org/html/monthly_act/act_2010/04_Apr/pg05.html',
+      title: 'I Am Slowly Going Crazy',
+      tune: "Reuben, Reuben, I've Been Thinking",
+      chorus: [
+        'I am slowly going crazy,',
+        '1, 2, 3, 4, 5, 6, switch.',
+        'Crazy going slowly am I?',
+        '6, 5, 4, 3, 2, 1, switch.',
+        '(Repeat faster and faster.)',
+      ],
+      image_url: 'crazedSnowman.gif',
+    },
+    {
+      id: 'fruit',
+      url: '',
+      title: 'I Like Bananas',
+      tune: 'Battle Hymn of the Republic',
+      chorus: [
+        'I like bananas, coconuts and grapes!',
+        'I like bananas, coconuts and grapes!',
+        'I like bananas, coconuts and grapes!',
+        "And that's why they call me (shout) Tarzan of the Apes!",
+        '(Repeat many, many times.)',
+      ],
+      image_url: 'banana.png',
+    },
   ],
 })

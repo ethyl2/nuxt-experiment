@@ -1,9 +1,9 @@
 <template>
-  <div class="container flex flex-col">
-    <h2 class="text-xl pt-4">{{ song.title }}</h2>
-    <h3 v-if="song.tune" class="text-xl">Tune: {{ song.tune }}</h3>
-    <div v-if="song.chorus">
-      <h4 class="text-lg mb-4">Chorus:</h4>
+  <div class="container flex flex-col space-y-2">
+    <h2 class="text-xl pt-4 font-bold">{{ song.title }}</h2>
+    <h3 v-if="song.tune" class="text-base italic">Tune: {{ song.tune }}</h3>
+    <div v-if="song.chorus" class="pb-2">
+      <h4 class="text-base font-bold mb-1">Chorus:</h4>
       <p v-for="(line, index) in song.chorus" :key="`chorus-line-${index}`">
         {{ line }}
       </p>
@@ -11,11 +11,13 @@
 
     <div v-if="song.verses" class="mt-6">
       <hr />
-      <h4 v-if="song.verses.length > 1" class="text-lg mt-5 mb-2">Verses:</h4>
+      <h4 v-if="song.verses.length > 1" class="text-base font-bold mt-4">
+        Verses:
+      </h4>
       <div
         v-for="(verse, index) in song.verses"
         :key="`verse-${index}`"
-        class="py-4"
+        class="py-2"
       >
         <p
           v-for="(line, lineIndex) in verse"
@@ -32,7 +34,7 @@
       class="w-1/4 pt-4"
     />
     <aside>
-      <h3 class="text-xl mt-6">Other songs you might enjoy</h3>
+      <h2 class="text-xl mt-6 mb-2">Other Songs You Might Enjoy</h2>
       <ul>
         <li v-for="relatedSong in relatedSongs" :key="relatedSong.id">
           <nuxt-link :to="`/songs/${relatedSong.id}`">{{
@@ -207,10 +209,19 @@ export default {
       return this.$store.state.songs.all.find((song) => song.id === this.id)
     },
     relatedSongs() {
-      // return this.songs.filter((song) => song.id !== this.id).slice(0, 3)
-      return this.$store.state.songs.all
-        .filter((song) => song.id !== this.id)
-        .slice(0, 3)
+      const filteredSongs = this.$store.state.songs.all.filter(
+        (song) => song.id !== this.id
+      )
+      const indexArr = []
+      while (indexArr.length < 3) {
+        const currentIndex = Math.floor(Math.random() * filteredSongs.length)
+        if (!indexArr.includes(currentIndex)) {
+          indexArr.push(currentIndex)
+        }
+      }
+      const featuredSongs = []
+      indexArr.forEach((index) => featuredSongs.push(filteredSongs[index]))
+      return featuredSongs
     },
   },
   head() {

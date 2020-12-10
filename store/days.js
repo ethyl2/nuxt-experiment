@@ -50,5 +50,12 @@ export const state = () => ({
       reason: 'they are magical',
       image_url: 'christmas_tree.png',
     },
+    {
+      number: 'eight',
+      item: "Food Network Magazine's Christmas issue",
+      reason:
+        'the cookies and treats make me want to bake festive Christmas goodies',
+      image_url: 'snowflakeCookie.png',
+    },
   ],
 })
