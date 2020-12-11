@@ -57,5 +57,12 @@ export const state = () => ({
         'the cookies and treats make me want to bake festive Christmas goodies',
       image_url: 'snowflakeCookie.png',
     },
+    {
+      number: 'nine',
+      item: 'generous, awesome helpers',
+      reason:
+        "sometimes there are things that cause me stress and keep me awake at night -- things I just can't solve by myself. But sometimes a miracle worker comes to my rescue",
+      image_url: 'angel.png',
+    },
   ],
 })

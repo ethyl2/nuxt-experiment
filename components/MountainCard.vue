@@ -5,8 +5,12 @@
       :style="{ backgroundImage: `url(${mountain.image}) ` }"
     ></div>
     <div class="w-full md:w-1/2">
-      <h2 class="text-xl font-bold">{{ mountain.title }}</h2>
-      <p class="pb-2">{{ mountain.description }}</p>
+      <nuxt-link :to="`/mountains/${mountain.slug}`">
+        <h2 class="text-xl font-bold">{{ mountain.title }}</h2>
+      </nuxt-link>
+      <p class="pb-2">
+        {{ mountain.description }}
+      </p>
       <div class="border rounded p-2 w-11/12 md:w-1/2 mx-auto bg-blue-900">
         <p class="flex justify-between">
           <span>Height:</span> <span>{{ mountain.height }}</span>

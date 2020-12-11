@@ -9,9 +9,10 @@
         class="flex justify-between w-full md:w-auto md:space-x-5 border-t border-b py-2 mt-2 text-xs text-center md:text-base md:border-none"
       >
         <nuxt-link to="/advent">Advent</nuxt-link>
-        <nuxt-link to="/songs">Campfire Songs</nuxt-link>
+        <nuxt-link to="/songs">Songs</nuxt-link>
         <nuxt-link to="/gratitude">Gratitude</nuxt-link>
-        <nuxt-link to="/aboutNuxt">About Nuxt</nuxt-link>
+        <nuxt-link to="/aboutNuxt">Nuxt</nuxt-link>
+        <nuxt-link to="/mountains">Mountains</nuxt-link>
       </div>
     </div>
   </nav>
