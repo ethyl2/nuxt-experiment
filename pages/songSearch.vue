@@ -15,7 +15,7 @@ input:checked ~ .toggle__dot {
   <div class="container flex flex-col space-y-2">
     <h1 class="text-4xl">Search the iTunes API</h1>
     <form
-      class="bg-teal-500 rounded py-4 px-2 w-1/2"
+      class="bg-teal-500 rounded py-4 px-2 w-full md:w-1/2"
       @submit.prevent="handleSubmit"
     >
       <label>Search term:</label>
@@ -64,18 +64,20 @@ input:checked ~ .toggle__dot {
       <div
         v-for="result in searchResults"
         :key="result.trackId"
-        class="flex flex-col justify-center items-center w-1/4 bg-black p-2 m-1 rounded"
+        class="flex flex-col justify-center items-center w-2/5 md:w-1/4 bg-black p-1 md:p-2 m-1 rounded"
       >
         <div class="flex flex-col justify-between items-center">
           <a
             v-if="result.trackViewUrl"
             :href="result.trackViewUrl"
             target="_blank"
-            class="text-base"
+            class="text-xs md:text-base"
           >
             {{ result.trackCensoredName }}
           </a>
-          <h2 v-else class="text-base">{{ result.trackCensoredName }}</h2>
+          <h2 v-else class="text-xs md:text-base">
+            {{ result.trackCensoredName }}
+          </h2>
           <a
             v-if="result.artistViewUrl"
             :href="result.artistViewUrl"
