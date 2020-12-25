@@ -1,16 +1,60 @@
+<style>
+.toggle__dot {
+  top: -0.25rem;
+  left: -0.25rem;
+  transition: all 0.3s ease-in-out;
+}
+
+input:checked ~ .toggle__dot {
+  transform: translateX(100%);
+  background-color: green;
+}
+</style>
+
 <template>
   <div class="container flex flex-col space-y-2">
     <h1 class="text-4xl">Search the itunes API</h1>
-    <form class="bg-pink-800 rounded py-4 px-2" @submit.prevent="handleSubmit">
+    <form
+      class="bg-teal-500 rounded py-4 px-2 w-1/2"
+      @submit.prevent="handleSubmit"
+    >
       <label>Search term:</label>
       <input
         v-model="searchTerm"
         type="text"
-        class="text-black rounded text-base p-1"
+        class="text-black rounded text-base p-1 w-3/5"
       />
       <button type="submit" class="bg-black rounded p-1">🔍</button>
       <p v-if="errorMessage">{{ errorMessage }}</p>
+
+      <div class="flex items-center justify-center w-full mt-3">
+        <!-- Toggle Button -->
+        <label for="toogleA" class="flex items-center cursor-pointer">
+          <!-- toggle -->
+          <div class="relative">
+            <!-- input -->
+            <input
+              id="toogleA"
+              v-model="allowAudio"
+              type="checkbox"
+              class="hidden"
+              @change="toggleAudioPermission"
+            />
+            <!-- line -->
+            <div
+              class="toggle__line w-10 h-4 bg-gray-400 rounded-full shadow-inner"
+            ></div>
+            <!-- dot -->
+            <div
+              class="toggle__dot absolute w-6 h-6 bg-white rounded-full shadow inset-y-0 left-0"
+            ></div>
+          </div>
+          <!-- label -->
+          <div class="ml-3 text-white">Allow Audio</div>
+        </label>
+      </div>
     </form>
+
     <div
       v-if="searchResults"
       class="flex flex-wrap w-full justify-evenly items-stretch"
@@ -18,35 +62,31 @@
       <div
         v-for="result in searchResults"
         :key="result.trackId"
-        class="w-1/4 bg-black p-2 m-1 rounded"
+        class="flex flex-col justify-center items-center w-1/4 bg-black p-2 m-1 rounded"
       >
-        <a
-          v-if="result.trackViewUrl"
-          :href="result.trackViewUrl"
-          target="_blank"
-        >
-          <div>
-            <h2>
-              {{ result.trackCensoredName }}
-            </h2>
-            <p>by {{ result.artistName }}</p>
-            <img
-              v-if="result.artworkUrl60"
-              :src="result.artworkUrl60"
-              :alt="result.trackCensoredName"
-              class="mx-auto"
-            />
-          </div>
-        </a>
-        <div v-else>
-          <h2>
+        <div class="flex flex-col justify-between items-center">
+          <a
+            v-if="result.trackViewUrl"
+            :href="result.trackViewUrl"
+            target="_blank"
+            class="text-base"
+          >
             {{ result.trackCensoredName }}
-          </h2>
-          <p>by {{ result.artistName }}</p>
+          </a>
+          <h2 v-else class="text-base">{{ result.trackCensoredName }}</h2>
+          <p class="text-xs">by {{ result.artistName }}</p>
+          <button
+            type="button"
+            :class="[allowAudio ? 'visible' : 'invisible']"
+            @click="play(result.previewUrl)"
+          >
+            🎵
+          </button>
           <img
             v-if="result.artworkUrl60"
             :src="result.artworkUrl60"
             :alt="result.trackCensoredName"
+            class="mx-auto mt-1"
           />
         </div>
       </div>
@@ -65,22 +105,39 @@ export default {
       searchTerm: '',
       searchResults: null,
       errorMessage: '',
+      audio: null,
+      allowAudio: false,
     }
   },
   methods: {
     async handleSubmit() {
       try {
-        console.log(
-          `https://itunes.apple.com/search/?term=${this.searchTerm}&limit=12`
-        )
         const response = await fetch(
           `https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search/?term=${this.searchTerm}&entity=song&limit=10`
         )
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
         this.searchResults = data.results
       } catch (error) {
         this.errorMessage = error
+      }
+    },
+    play(previewUrl) {
+      if (this.audio) {
+        this.audio.pause()
+        this.audio.currentTime = 0
+      }
+      if (this.allowAudio) {
+        this.audio = new Audio(previewUrl)
+        this.audio.play()
+      }
+    },
+    toggleAudioPermission() {
+      if (!this.allowAudio && this.audio) {
+        this.audio.pause()
+        this.audio.currentTime = 0
+      } else if (this.allowAudio && this.audio) {
+        this.audio.play()
       }
     },
   },
