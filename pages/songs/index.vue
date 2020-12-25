@@ -1,6 +1,8 @@
 <template>
   <div class="container flex flex-col">
-    <h1 class="text-xl">Campfire Songs</h1>
+    <h1 class="text-2xl">Songs</h1>
+    <nuxt-link to="/songSearch" class="mb-4">Search with iTunes API</nuxt-link>
+    <h2 class="text-xl">Campfire Songs</h2>
     <nav class="flex flex-col">
       <nuxt-link
         v-for="song in allSongs"

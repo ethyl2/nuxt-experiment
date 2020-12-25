@@ -2,7 +2,13 @@
 
 ## This repo is a place for me to experiment with Nuxt.js.
 
-So far, it contains the start of my gratitude journal and my campfire songs collection.
+So far, it contains:
+
+- my gratitude journal
+- my campfire songs collection
+- advent calendar
+- mountains info
+- song search using iTunes Search API
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 
@@ -28,3 +34,13 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+---
+
+## Useful Resources:
+
+Making a toggle using tailwind and minimal CSS: https://codepen.io/lhermann/pen/EBGZRZ
+
+Playing audio in a Vue app: https://www.raymondcamden.com/2019/09/18/an-itunes-audio-enabled-search-built-in-vuejs
+
+Discussion about dealing with CORS: https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe

@@ -13,7 +13,7 @@ input:checked ~ .toggle__dot {
 
 <template>
   <div class="container flex flex-col space-y-2">
-    <h1 class="text-4xl">Search the itunes API</h1>
+    <h1 class="text-4xl">Search the iTunes API</h1>
     <form
       class="bg-teal-500 rounded py-4 px-2 w-1/2"
       @submit.prevent="handleSubmit"
@@ -24,7 +24,9 @@ input:checked ~ .toggle__dot {
         type="text"
         class="text-black rounded text-base p-1 w-3/5"
       />
-      <button type="submit" class="bg-black rounded p-1">🔍</button>
+      <button type="submit" class="bg-black rounded p-1 hover:bg-gray-700">
+        🔍
+      </button>
       <p v-if="errorMessage">{{ errorMessage }}</p>
 
       <div class="flex items-center justify-center w-full mt-3">
@@ -74,10 +76,18 @@ input:checked ~ .toggle__dot {
             {{ result.trackCensoredName }}
           </a>
           <h2 v-else class="text-base">{{ result.trackCensoredName }}</h2>
-          <p class="text-xs">by {{ result.artistName }}</p>
+          <a
+            v-if="result.artistViewUrl"
+            :href="result.artistViewUrl"
+            target="_blank"
+            class="text-xs text-yellow-400 hover:text-yellow-600"
+            >by {{ result.artistName }}</a
+          >
+          <p v-else class="text-xs">by {{ result.artistName }}</p>
           <button
             type="button"
             :class="[allowAudio ? 'visible' : 'invisible']"
+            class="rounded hover:bg-white"
             @click="play(result.previewUrl)"
           >
             🎵
@@ -90,6 +100,9 @@ input:checked ~ .toggle__dot {
           />
         </div>
       </div>
+    </div>
+    <div v-else-if="searchIsPending">
+      <h2>Searching for songs...</h2>
     </div>
     <div v-else>
       <h2>No results yet</h2>
@@ -104,6 +117,7 @@ export default {
     return {
       searchTerm: '',
       searchResults: null,
+      searchIsPending: false,
       errorMessage: '',
       audio: null,
       allowAudio: false,
@@ -111,15 +125,18 @@ export default {
   },
   methods: {
     async handleSubmit() {
+      this.searchIsPending = true
       try {
         const response = await fetch(
-          `https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search/?term=${this.searchTerm}&entity=song&limit=10`
+          `https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search/?term=${this.searchTerm}&entity=song&limit=12`
         )
         const data = await response.json()
         // console.log(data)
         this.searchResults = data.results
+        this.searchIsPending = false
       } catch (error) {
-        this.errorMessage = error
+        this.errorMessage = error.message
+        this.searchIsPending = false
       }
     },
     play(previewUrl) {
