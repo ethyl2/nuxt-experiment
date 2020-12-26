@@ -22,11 +22,13 @@
         type="button"
         class="text-white font-bold m-1 p-1 text-lg rounded hover:text-black hover:bg-white"
         :style="{ border: `4px solid #${element.cpkHexColor}` }"
-        @click="selectElement(element.symbol)"
+        @click="selectElement(element)"
       >
         {{ element.symbol }}
       </button>
     </div>
+    <p v-if="elementString" class="text-white">{{ elementString }}</p>
+    <p v-if="numberString" class="text-white">{{ numberString }}</p>
   </div>
 </template>
 
@@ -2639,16 +2641,14 @@ export default {
       ],
     }
   },
-  computed: {
-    sortedElements(key = 'atomicNumber') {
-      return [...this.elements].sort(function (a, b) {
-        return a[key] - b[key]
-      })
-    },
-  },
   methods: {
     selectElement(element) {
       this.selectedElement = element
+      this.elementString += this.selectedElement.symbol
+      if (this.numberString.length > 0) {
+        this.numberString += '.'
+      }
+      this.numberString += this.selectedElement.atomicNumber
     },
     sortElementsBy(key) {
       this.elements.sort((a, b) => (a[key] > b[key] ? 1 : -1))
