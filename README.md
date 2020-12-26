@@ -44,3 +44,5 @@ Making a toggle using tailwind and minimal CSS: https://codepen.io/lhermann/pen/
 Playing audio in a Vue app: https://www.raymondcamden.com/2019/09/18/an-itunes-audio-enabled-search-built-in-vuejs
 
 Discussion about dealing with CORS: https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
+
+Example of copying to clipboard: https://codepen.io/PJCHENder/pen/jamJpj?editors=1010
