@@ -26,7 +26,7 @@
             toBinaryIsDisabled ? 'cursor-not-allowed' : 'cursor-pointer',
           ]"
           type="submit"
-          :disabled="toBinaryisDisabled"
+          :disabled="toBinaryIsDisabled"
         >
           Convert
         </button>
@@ -66,7 +66,12 @@
       </div>
     </div>
 
-    <img class="w-56 mx-auto" src="/binaryCoaster.jpg" alt="binary coaster" />
+    <img
+      class="w-56 mx-auto border rounded"
+      src="/binaryCoaster.jpg"
+      alt="binary coaster"
+    />
+    <figcaption>Awesome coaster made by Faith Bishop</figcaption>
   </div>
 </template>
 
@@ -99,12 +104,17 @@ export default {
         .join(' ')
     },
     handleBinarySubmit() {
-      this.textResult = this.inputBinary
-        .split(' ')
-        .map(function (char) {
-          return String.fromCharCode(parseInt(char, 2))
-        })
-        .join('')
+      const allowedChars = /^[01\s]+$/
+      if (this.inputBinary.match(allowedChars)) {
+        this.textResult = this.inputBinary
+          .split(' ')
+          .map(function (char) {
+            return String.fromCharCode(parseInt(char, 2))
+          })
+          .join('')
+      } else {
+        this.textResult = 'Sorry, input was not valid binary. Try again!'
+      }
     },
   },
 }
