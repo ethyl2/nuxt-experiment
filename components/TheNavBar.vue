@@ -13,6 +13,7 @@
         <nuxt-link to="/gratitude">Gratitude</nuxt-link>
         <nuxt-link to="/aboutNuxt">Nuxt</nuxt-link>
         <nuxt-link to="/mountains">Mountains</nuxt-link>
+        <nuxt-link to="/binary">Binary</nuxt-link>
       </div>
     </div>
   </nav>

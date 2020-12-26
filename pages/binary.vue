@@ -1,9 +1,9 @@
 <template>
   <div class="container flex flex-col">
     <h1 class="text-bold text-xl md:text-4xl pb-2">
-      Text to Binary & Binary to Text
+      Text and Binary Conversion
     </h1>
-    <h2 class="text-lg md:text-2xl italic pb-4">
+    <h2 class="text-lg md:text-2xl italic pb-12">
       Use binary to make secret messages or decorate crafts for your geeky
       friends!
     </h2>
@@ -37,13 +37,13 @@
         <p v-if="binaryResult" class="font-bold pb-1 text-lg text-teal-400">
           Binary Result:
         </p>
-        <p v-if="binaryResult" class="w-full overflow-y-auto h-24">
+        <p v-if="binaryResult" class="w-full overflow-y-auto">
           {{ binaryResult }}
         </p>
         <input id="text-results-box" v-model="binaryResult" type="hidden" />
         <button
           v-if="binaryResult.length > 0"
-          class="border border-white rounded p-1 bg-teal-700 hover:bg-teal-800"
+          class="border border-white rounded p-1 mt-2 bg-teal-700 hover:bg-teal-800"
           type="button"
           @click="selectAllText"
         >
@@ -82,7 +82,7 @@
     </div>
 
     <img
-      class="w-56 mx-auto border rounded"
+      class="w-56 mx-auto border rounded mt-6"
       src="/binaryCoaster.jpg"
       alt="binary coaster"
     />
