@@ -18,15 +18,19 @@ input:checked ~ .toggle__dot {
       class="bg-teal-500 rounded py-4 px-2 w-full md:w-1/2"
       @submit.prevent="handleSubmit"
     >
-      <label>Search term:</label>
-      <input
-        v-model="searchTerm"
-        type="text"
-        class="text-black rounded text-base p-1 w-3/5"
-      />
-      <button type="submit" class="bg-black rounded p-1 hover:bg-gray-700">
-        🔍
-      </button>
+      <div
+        class="flex flex-col md:flex-row justify-around items-center space-y-2"
+      >
+        <label>Search term:</label>
+        <input
+          v-model="searchTerm"
+          type="text"
+          class="text-black rounded text-base p-1 w-full md:w-3/5"
+        />
+        <button type="submit" class="bg-black rounded p-1 hover:bg-gray-700">
+          🔍
+        </button>
+      </div>
       <p v-if="errorMessage">{{ errorMessage }}</p>
 
       <div class="flex items-center justify-center w-full mt-3">
@@ -89,7 +93,7 @@ input:checked ~ .toggle__dot {
           <button
             type="button"
             :class="[allowAudio ? 'visible' : 'invisible']"
-            class="rounded hover:bg-white"
+            class="rounded bg-yellow-500 hover:bg-white m-1"
             @click="play(result.previewUrl)"
           >
             🎵
