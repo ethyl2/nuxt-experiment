@@ -118,7 +118,7 @@
 
     <!-- Convert Atomic Numbers to Symbols -->
     <form
-      class="flex flex-col justify-center items-center mt-6 pt-3 border-t"
+      class="flex flex-col justify-center items-center mt-8 pt-6 border-t"
       @submit.prevent="convertNumbersToElements"
     >
       <label
@@ -177,6 +177,34 @@
         </p>
       </div>
     </div>
+
+    <!-- Examples of words made with symbols -->
+    <div class="py-6 mt-8 border-t flex flex-col space-y-3">
+      <h2 class="text-xl font-bold text-center">A Few Examples</h2>
+      <div
+        v-for="(example, index) in examples"
+        :key="index"
+        class="flex flex-wrap justify-between items-center space-x-2 mx-auto w-1/3"
+      >
+        <p>{{ example.word }}</p>
+        <div class="flex flex-wrap items-center space-x-2">
+          <p
+            v-for="(symbol, symbolsIndex) in example.symbols"
+            :key="symbolsIndex"
+            class="border p-1 rounded font-bold"
+            :style="{ border: `4px solid #${getColor(symbol)}` }"
+          >
+            {{ symbol }}
+          </p>
+        </div>
+      </div>
+      <a
+        href="https://sciencenotes.org/list-words-made-periodic-table-element-symbols/"
+        target="_blank"
+        class="mx-auto"
+        >See More Examples</a
+      >
+    </div>
   </div>
 </template>
 
@@ -194,6 +222,32 @@ export default {
       numberResult: '',
       errorMessage: '',
       numberResultArray: [],
+      examples: [
+        {
+          word: 'PUFFS',
+          symbols: ['P', 'U', 'F', 'F', 'S'],
+        },
+        {
+          word: 'AtTeNTiON',
+          symbols: ['At', 'Te', 'N', 'Ti', 'O', 'N'],
+        },
+        {
+          word: 'BaCoN',
+          symbols: ['B', 'Ac', 'O', 'N'],
+        },
+        {
+          word: 'BaNaNa',
+          symbols: ['Ba', 'Na', 'Na'],
+        },
+        {
+          word: 'VAmPIRe',
+          symbols: ['V', 'Am', 'P', 'I', 'Re'],
+        },
+        {
+          word: 'DyNAmITe',
+          symbols: ['Dy', 'N', 'Am', 'I', 'Te'],
+        },
+      ],
       elements: [
         {
           atomicNumber: 1,
@@ -2867,6 +2921,12 @@ export default {
       this.numberResult = ''
       this.numberResultArray = []
       this.numberInput = ''
+    },
+    getColor(symbol) {
+      const currentElement = this.elements.find(
+        (element) => element.symbol === symbol
+      )
+      return currentElement.cpkHexColor
     },
   },
 }
