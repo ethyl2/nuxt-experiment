@@ -226,6 +226,39 @@
         >See More Examples</a
       >
     </div>
+
+    <!-- Play Periodic Table Song -->
+    <div class="py-6 mt-4 border-t">
+      <h2 class="text-center text-xl font-bold mb-4">
+        Celebrate the Periodic Table!
+      </h2>
+      <div class="flex justify-center">
+        <button
+          type="button"
+          class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
+          @click="playSong"
+        >
+          Play Song Snippet
+        </button>
+        <button
+          type="button"
+          class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
+          @click="stopSong"
+        >
+          Stop Song Snippet
+        </button>
+      </div>
+      <a
+        href="https://music.apple.com/us/album/the-new-periodic-table-song/647856204?i=647857505&uo=4"
+        target="_blank"
+      >
+        <img
+          src="https://is5-ssl.mzstatic.com/image/thumb/Music2/v4/c3/a7/94/c3a79499-1a87-1784-897d-ff1735bfee26/source/60x60bb.jpg"
+          alt="The New Periodic Table Song"
+          class="mx-auto mt-1"
+        />
+      </a>
+    </div>
   </div>
 </template>
 
@@ -243,6 +276,7 @@ export default {
       numberResult: '',
       errorMessage: '',
       numberResultArray: [],
+      audio: null,
       examples: [
         {
           word: 'PUFFS',
@@ -2948,6 +2982,22 @@ export default {
         (element) => element.symbol === symbol
       )
       return currentElement.cpkHexColor
+    },
+    playSong() {
+      if (this.audio) {
+        this.audio.pause()
+        this.audio.currentTime = 0
+      }
+      this.audio = new Audio(
+        'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview71/v4/82/1b/14/821b1416-b8dd-1757-470c-719a33f99d4b/mzaf_135016786046637505.plus.aac.p.m4a'
+      )
+      this.audio.play()
+    },
+    stopSong() {
+      if (this.audio) {
+        this.audio.pause()
+        this.audio.currentTime = 0
+      }
     },
   },
 }
