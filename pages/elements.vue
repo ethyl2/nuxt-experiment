@@ -1,20 +1,38 @@
 <template>
   <div class="m-4">
-    <h1 class="mx-auto text-lg text-center">Elements</h1>
-    <button
-      type="button"
-      class="bg-black text-white rounded p-1 m-1"
-      @click="sortElementsBy('symbol')"
-    >
-      Sort by Symbol
-    </button>
-    <button
-      type="button"
-      class="bg-black text-white rounded p-1 m-1"
-      @click="sortElementsBy('atomicNumber')"
-    >
-      Sort by Atomic Number
-    </button>
+    <h1 class="mx-auto text-xl font-bold text-center mb-2">Elements</h1>
+    <h2 class="mx-auto text-lg text-center mb-2">
+      Can you create words (real or imaginative) with symbols from the periodic
+      table?
+    </h2>
+    <h3 class="text-base text-center mb-2">
+      Click on the elements to make words -- and sequences of atomic numbers
+      (that might be handy for creating passwords).
+    </h3>
+    <div class="flex flex-wrap justify-center">
+      <button
+        type="button"
+        class="bg-black text-white rounded p-1 ml-3 mr-1 my-1 hover:bg-gray-700"
+        @click="sortElementsBy('symbol')"
+      >
+        Sort by Symbol
+      </button>
+      <button
+        type="button"
+        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700"
+        @click="sortElementsBy('atomicNumber')"
+      >
+        Sort by Atomic Number
+      </button>
+      <button
+        type="button"
+        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700"
+        @click="shuffle"
+      >
+        Shuffle
+      </button>
+    </div>
+
     <div class="flex flex-wrap justify-center">
       <button
         v-for="element in elements"
@@ -27,8 +45,53 @@
         {{ element.symbol }}
       </button>
     </div>
-    <p v-if="elementString" class="text-white">{{ elementString }}</p>
-    <p v-if="numberString" class="text-white">{{ numberString }}</p>
+
+    <div
+      v-if="elementString"
+      class="flex justify-center items-center space-x-4"
+    >
+      <h3 class="text-3xl text-center font-bold my-2">
+        {{ elementString }}
+      </h3>
+      <button
+        type="button"
+        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700"
+        @click="clear"
+      >
+        Clear
+      </button>
+    </div>
+
+    <div class="flex flex-wrap justify-center">
+      <div
+        v-for="element in selectedElements"
+        :key="element.atomicNumber"
+        class="relative bg-white rounded border-black border-2 p-1 m-1 w-32 h-32 flex flex-col"
+      >
+        <p
+          class="absolute text-right text-xs text-black my-0 ml-0 mr-1 p-0 top-0.5 right-0"
+        >
+          {{ element.atomicNumber }}
+        </p>
+        <p
+          class="text-black text-center text-5xl font-bold m-0 p-0 leading-tight"
+        >
+          {{ element.symbol }}
+        </p>
+        <p class="text-black text-center font-bold m-0 p-0">
+          {{ element.name }}
+        </p>
+        <p class="text-black text-center text-xs m-0 p-0">
+          {{ element.atomicMass }}
+        </p>
+        <p class="text-black text-center text-xs m-0 p-0 truncate">
+          {{ element.electronicConfiguration }}
+        </p>
+      </div>
+    </div>
+    <p v-if="numberString" class="text-white text-lg text-center font-bold">
+      {{ numberString }}
+    </p>
   </div>
 </template>
 
@@ -39,6 +102,7 @@ export default {
     return {
       selectedElement: '',
       sortBy: 'atomicNumber',
+      selectedElements: [],
       elementString: '',
       numberString: '',
       elements: [
@@ -2644,7 +2708,8 @@ export default {
   methods: {
     selectElement(element) {
       this.selectedElement = element
-      this.elementString += this.selectedElement.symbol
+      this.selectedElements.push(this.selectedElement)
+      this.elementString += this.selectedElement.symbol.toLowerCase()
       if (this.numberString.length > 0) {
         this.numberString += '.'
       }
@@ -2652,6 +2717,15 @@ export default {
     },
     sortElementsBy(key) {
       this.elements.sort((a, b) => (a[key] > b[key] ? 1 : -1))
+    },
+    shuffle() {
+      this.elements.sort(() => 0.5 - Math.random())
+    },
+    clear() {
+      this.selectedElement = null
+      this.selectedElements = []
+      this.numberString = ''
+      this.elementString = ''
     },
   },
 }

@@ -46,3 +46,9 @@ Playing audio in a Vue app: https://www.raymondcamden.com/2019/09/18/an-itunes-a
 Discussion about dealing with CORS: https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
 
 Example of copying to clipboard: https://codepen.io/PJCHENder/pen/jamJpj?editors=1010
+
+Sorting arrays of objects by property values: https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
+
+2 approaches for randomly shuffling arrays: https://css-tricks.com/snippets/javascript/shuffle-array/
+
+Data for periodic table elements: https://github.com/andrejewski/periodic-table/blob/master/data.json
