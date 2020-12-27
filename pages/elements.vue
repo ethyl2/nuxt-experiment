@@ -1,11 +1,13 @@
 <template>
-  <div class="m-4">
-    <h1 class="mx-auto text-5xl font-bold text-center mb-2">Elemental Words</h1>
-    <h2 class="mx-auto text-lg text-center mb-2">
+  <div class="m-2 md:m-4">
+    <h1 class="mx-auto text-xl md:text-5xl font-bold text-center mb-2">
+      Elemental Words
+    </h1>
+    <h2 class="mx-auto text-base md:text-lg text-center mb-2">
       Can you create words (real or imaginative) with symbols from the periodic
       table?
     </h2>
-    <h3 class="text-base text-center mb-4">
+    <h3 class="text-sm md:text-base text-center mb-4">
       Click on the elements to create words and sequences of atomic numbers --
       which might be handy for creating passwords.
     </h3>
@@ -14,21 +16,21 @@
     <div class="flex flex-wrap justify-center">
       <button
         type="button"
-        class="bg-black text-white rounded p-1 ml-3 mr-1 my-1 hover:bg-gray-700"
+        class="bg-black text-white rounded p-1 ml-3 mr-1 my-1 hover:bg-gray-700 text-xs md:text-base"
         @click="sortElementsBy('symbol')"
       >
         Sort by Symbol (Alphabetical)
       </button>
       <button
         type="button"
-        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700"
+        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
         @click="sortElementsBy('atomicNumber')"
       >
         Sort by Atomic Number
       </button>
       <button
         type="button"
-        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700"
+        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
         @click="shuffle"
       >
         Shuffle
@@ -41,7 +43,7 @@
         v-for="element in elements"
         :key="element.atomicNumber"
         type="button"
-        class="text-white font-bold m-1 p-1 text-lg rounded hover:text-black hover:bg-white"
+        class="text-white font-bold m-1 p-1 text-sm md:text-lg rounded hover:text-black hover:bg-white"
         :style="{ border: `4px solid #${element.cpkHexColor}` }"
         @click="selectElement(element)"
       >
@@ -51,21 +53,26 @@
 
     <!-- Display Results of Making Word -->
     <div v-if="elementString" class="flex flex-col justify-center items-center">
-      <h3 class="text-3xl text-center font-bold my-2">
+      <h3
+        class="text-center font-bold my-2"
+        :class="[
+          elementString.length < 18 ? 'text-3xl' : 'text-lg md:text-2xl',
+        ]"
+      >
         {{ elementString }}
       </h3>
       <input id="element-string" v-model="elementString" type="hidden" />
       <div class="flex flex-wrap justify-center items-center">
         <button
           type="button"
-          class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700"
+          class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
           @click="copyElementString"
         >
           Copy Word
         </button>
         <button
           type="button"
-          class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700"
+          class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
           @click="clear"
         >
           Clear
@@ -75,41 +82,51 @@
 
     <div class="flex flex-wrap justify-center my-2">
       <div
-        v-for="element in selectedElements"
-        :key="element.atomicNumber"
-        class="relative bg-white rounded p-1 m-1 w-32 h-32 flex flex-col"
+        v-for="(element, index) in selectedElements"
+        :key="`${element.atomicNumber}-${index}`"
+        class="relative bg-white rounded p-1 m-1 w-20 md:w-32 h-20 md:h-32 flex flex-col"
         :style="{ border: `2px solid #${element.cpkHexColor}` }"
       >
         <p
-          class="absolute text-right text-xs text-black my-0 ml-0 mr-1 p-0 top-0.5 right-0"
+          class="absolute text-right text-xs text-black my-0 ml-0 mr-px md:mr-1 p-0 top-0 md:top-0.5 right-0"
         >
           {{ element.atomicNumber }}
         </p>
         <p
-          class="text-black text-center text-5xl font-bold m-0 p-0 leading-tight"
+          class="text-black text-center text-3xl md:text-5xl font-bold m-0 p-0 md:leading-tight"
         >
           {{ element.symbol }}
         </p>
-        <p class="text-black text-center font-bold m-0 p-0">
+        <p
+          class="text-black text-center font-bold m-0 p-0 truncate text-xs md:text-base"
+        >
           {{ element.name }}
         </p>
-        <p class="text-black text-center text-xs m-0 p-0">
+        <p class="text-black text-center text-xs m-0 p-0 hidden md:block">
           {{ element.atomicMass }}
         </p>
-        <p class="text-black text-center text-xs m-0 p-0 truncate">
+        <p
+          class="text-black text-center text-xs m-0 p-0 hidden md:block truncate"
+        >
           {{ element.electronicConfiguration }}
         </p>
       </div>
     </div>
 
-    <div v-if="numberString" class="flex justify-center items-center space-x-4">
-      <p class="text-white text-lg text-center font-bold">
+    <div
+      v-if="numberString"
+      class="flex justify-center items-center md:space-x-4 flex-col md:flex-row"
+    >
+      <p
+        class="text-white text-center font-bold"
+        :class="[numberString.length < 18 ? 'text-lg' : 'text-sm md:text-lg']"
+      >
         {{ numberString }}
       </p>
       <input id="number-string" v-model="numberString" type="hidden" />
       <button
         type="button"
-        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700"
+        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
         @click="copyNumberString"
       >
         Copy Numbers
@@ -123,27 +140,31 @@
     >
       <label
         for="number-input"
-        class="text-center mx-auto w-full font-bold text-xl text-orange-400"
+        class="text-center mx-auto w-full font-bold text-base md:text-xl text-orange-400"
         >Convert a Number Sequence Back to Elements</label
       >
-      <div class="flex items-center justify-center space-x-2 w-full">
+      <div class="flex flex-wrap items-center justify-center space-x-2 w-full">
+        <p class="text-xs text-center p-2 md:hidden">
+          Type a number sequence here. Each atomic number should be separated by
+          periods, e.g. 5.88.53.110
+        </p>
         <input
           id="number-input"
           v-model="numberInput"
           type="text"
-          class="text-black p-1 w-4/6 rounded"
-          placeholder="Type a number sequence here. Each atomic number should be separated by periods, e.g. 5.88.53.110"
+          class="text-black p-1 w-full md:w-4/6 rounded"
+          placeholder="Each atomic number should be separated by periods, e.g. 5.88.53.110"
           required
         />
         <button
           type="submit"
-          class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700"
+          class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
         >
           Convert
         </button>
         <button
           type="button"
-          class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700"
+          class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
           @click="clearNumberInput"
         >
           Clear
@@ -184,14 +205,14 @@
       <div
         v-for="(example, index) in examples"
         :key="index"
-        class="flex flex-wrap justify-between items-center space-x-2 mx-auto w-1/3"
+        class="flex flex-wrap justify-between items-center space-x-2 mx-auto w-full md:w-1/3 flex-col md:flex-row"
       >
         <p>{{ example.word }}</p>
         <div class="flex flex-wrap items-center space-x-2">
           <p
             v-for="(symbol, symbolsIndex) in example.symbols"
             :key="symbolsIndex"
-            class="border p-1 rounded font-bold"
+            class="border p-1 rounded font-bold text-xs md:text-lg"
             :style="{ border: `4px solid #${getColor(symbol)}` }"
           >
             {{ symbol }}
