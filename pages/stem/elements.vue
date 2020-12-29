@@ -133,6 +133,14 @@
       </button>
     </div>
 
+    <!-- Make image to download -->
+    <canvas
+      ref="wordCanvas"
+      :width="canvasWidth"
+      :height="canvasHeight"
+      class="rounded mx-auto"
+    />
+
     <!-- Convert Atomic Numbers to Symbols -->
     <form
       class="flex flex-col justify-center items-center mt-8 pt-6 border-t"
@@ -277,6 +285,9 @@ export default {
       errorMessage: '',
       numberResultArray: [],
       audio: null,
+      canvas: null,
+      canvasWidth: 75,
+      canvasHeight: 75,
       examples: [
         {
           word: 'PUFFS',
@@ -314,6 +325,32 @@ export default {
     numberInput() {
       this.errorMessage = ''
     },
+    selectedElement() {
+      // Modify canvas
+      this.canvas.fillStyle = '#FFFFFF'
+      this.canvas.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
+      this.canvas.fillStyle = 'black'
+      this.canvas.font = '10px Arial'
+      this.canvas.fillText(this.selectedElement.atomicNumber, 55, 15)
+      this.canvas.font = '30px Arial'
+      this.canvas.textAlign = 'center'
+      this.canvas.fillText(
+        this.selectedElement.symbol,
+        this.canvasWidth / 2,
+        50
+      )
+      this.canvas.font = '10px Arial'
+      this.canvas.fillText(this.selectedElement.name, this.canvasWidth / 2, 65)
+      this.canvas.strokeStyle = `#${this.selectedElement.cpkHexColor}`
+      this.canvas.lineWidth = 5
+      this.canvas.strokeRect(0, 0, this.canvasWidth, this.canvasHeight)
+    },
+  },
+  mounted() {
+    const c = this.$refs.wordCanvas
+    this.canvas = c.getContext('2d')
+    this.canvas.fillStyle = '#FFFFFF'
+    this.canvas.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
   },
   methods: {
     selectElement(element) {

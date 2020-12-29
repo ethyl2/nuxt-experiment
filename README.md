@@ -58,3 +58,5 @@ Example of Vue.js image slider: https://www.digitalocean.com/community/tutorials
 Using refs with Vue.js: https://blog.logrocket.com/how-to-use-refs-to-access-your-application-dom-in-vue-js/
 
 Example of creating button for downloading canvas image: https://riptutorial.com/html5-canvas/example/31763/save-canvas-to-image-file
+
+Example of drawing on canvas with Vue.js: https://codepen.io/reiallenramos/pen/MWaEmpw https://dev.to/reiallenramos/drawing-in-vue-using-mousemove-event-34cg

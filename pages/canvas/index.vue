@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Let's draw!</h1>
+    <h1 class="text-xl">Let's Draw!</h1>
     <div class="flex">
       <div>
         <form class="pb-4 flex flex-col space-y-1">
@@ -67,11 +67,10 @@ export default {
     }
   },
   mounted() {
-    // const c = document.getElementById('myCanvas')
     const c = this.$refs.canvasForDrawing
     this.canvas = c.getContext('2d')
     this.canvas.fillStyle = '#FFFFFF'
-    this.canvas.fillRect(0, 0, 1000, 800)
+    this.canvas.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
   },
   methods: {
     drawLine(x1, y1, x2, y2) {
