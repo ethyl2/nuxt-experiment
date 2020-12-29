@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <p v-if="$fetchState.pending">Fetching mountains...</p>
     <p v-else-if="$fetchState.error">An error occurred :(</p>
     <div v-else>
@@ -7,7 +7,7 @@
         Mountains From Around the World
       </h1>
       <image-slider :images="images" />
-      <div class="container mt-8">
+      <div class="mt-8">
         <ul>
           <li v-for="mountain of mountains" :key="mountain.title">
             <mountain-card :mountain="mountain" />
