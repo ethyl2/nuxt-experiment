@@ -37,13 +37,13 @@ img {
       <a
         class="prev transition absolute font-bold text-white text-lg p-4 left-0 top-1/2 rounded no-underline select-none hover:bg-black"
         href="#"
-        @click="prev"
+        @click.prevent="prev"
         >&#10094; Previous</a
       >
       <a
         class="next transition absolute font-bold text-white text-lg p-4 right-0 top-1/2 rounded no-underline select-none hover:bg-black"
         href="#"
-        @click="next"
+        @click.prevent="next"
         >&#10095; Next</a
       >
     </div>

@@ -52,3 +52,5 @@ Sorting arrays of objects by property values: https://flaviocopes.com/how-to-sor
 2 approaches for randomly shuffling arrays: https://css-tricks.com/snippets/javascript/shuffle-array/
 
 Data for periodic table elements: https://github.com/andrejewski/periodic-table/blob/master/data.json
+
+Example of Vue.js image slider: https://www.digitalocean.com/community/tutorials/vuejs-create-image-slider

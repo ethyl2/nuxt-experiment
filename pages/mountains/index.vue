@@ -6,15 +6,15 @@
       <h1 class="text-3xl mt-2 mb-8 font-bold text-center">
         Mountains From Around the World
       </h1>
-      <image-slider :images="images" />
-      <div class="mt-8">
+      <div>
         <ul>
           <li v-for="mountain of mountains" :key="mountain.title">
             <mountain-card :mountain="mountain" />
           </li>
         </ul>
-        <button @click="$fetch">Refresh</button>
       </div>
+      <image-slider :images="images" class="mt-8" />
+      <button class="mt-8" @click="$fetch">Refresh</button>
     </div>
   </div>
 </template>
