@@ -54,3 +54,7 @@ Sorting arrays of objects by property values: https://flaviocopes.com/how-to-sor
 Data for periodic table elements: https://github.com/andrejewski/periodic-table/blob/master/data.json
 
 Example of Vue.js image slider: https://www.digitalocean.com/community/tutorials/vuejs-create-image-slider
+
+Using refs with Vue.js: https://blog.logrocket.com/how-to-use-refs-to-access-your-application-dom-in-vue-js/
+
+Example of creating button for downloading canvas image: https://riptutorial.com/html5-canvas/example/31763/save-canvas-to-image-file

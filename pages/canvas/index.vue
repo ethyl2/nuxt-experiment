@@ -29,7 +29,7 @@
           </datalist>
         </form>
         <a
-          id="download-button"
+          ref="buttonForDownload"
           download="canvas_image.png"
           href=""
           @click="downloadImage()"
@@ -38,6 +38,7 @@
       </div>
       <canvas
         id="myCanvas"
+        ref="canvasForDrawing"
         :width="canvasWidth"
         :height="canvasHeight"
         class="border border-black rounded mx-auto"
@@ -66,7 +67,8 @@ export default {
     }
   },
   mounted() {
-    const c = document.getElementById('myCanvas')
+    // const c = document.getElementById('myCanvas')
+    const c = this.$refs.canvasForDrawing
     this.canvas = c.getContext('2d')
     this.canvas.fillStyle = '#FFFFFF'
     this.canvas.fillRect(0, 0, 1000, 800)
@@ -106,9 +108,9 @@ export default {
       this.textColor = this.textColorInput
     },
     downloadImage() {
+      const c = this.$refs.canvasForDrawing
+      const button = this.$refs.buttonForDownload
       // get image URI from canvas object
-      const c = document.getElementById('myCanvas')
-      const button = document.getElementById('download-button')
       const imageUri = c.toDataURL('image/png')
       button.href = imageUri
     },
