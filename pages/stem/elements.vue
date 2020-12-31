@@ -101,8 +101,9 @@
       ref="wordCanvas"
       :width="canvasWidth"
       :height="canvasHeight"
-      class="rounded mx-auto"
+      class="rounded mx-auto border border-black"
     />
+    <button @click.prevent="redrawCanvas">Redraw</button>
 
     <!-- Convert Atomic Numbers to Symbols -->
     <numbers-to-elements />
@@ -137,6 +138,8 @@ export default {
       canvas: null,
       canvasWidth: 75,
       canvasHeight: 75,
+      tileSize: 75,
+      spaceWidth: 10,
     }
   },
   computed: {
@@ -148,27 +151,34 @@ export default {
     selectedElement() {
       // Modify canvas
       if (this.selectedElement) {
-        this.canvas.fillStyle = '#FFFFFF'
-        this.canvas.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
-        this.canvas.fillStyle = 'black'
-        this.canvas.font = '10px Arial'
-        this.canvas.fillText(this.selectedElement.atomicNumber, 55, 15)
-        this.canvas.font = '30px Arial'
-        this.canvas.textAlign = 'center'
-        this.canvas.fillText(
-          this.selectedElement.symbol,
-          this.canvasWidth / 2,
-          50
-        )
-        this.canvas.font = '10px Arial'
-        this.canvas.fillText(
-          this.selectedElement.name,
-          this.canvasWidth / 2,
-          65
-        )
-        this.canvas.strokeStyle = `#${this.selectedElement.cpkHexColor}`
-        this.canvas.lineWidth = 5
-        this.canvas.strokeRect(0, 0, this.canvasWidth, this.canvasHeight)
+        this.canvasWidth =
+          (this.tileSize + this.spaceWidth) * this.selectedElements.length -
+          this.spaceWidth
+        const c = this.$refs.wordCanvas
+        c.width = this.canvasWidth
+        // this.canvas = c.getContext('2d')
+        // this.canvas.fillStyle = '#FFFFFF'
+        // this.canvas.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
+        // this.canvas.fillRect(0, 0, this.tileSize, this.tileSize)
+        // this.canvas.fillStyle = '#000000'
+        // this.canvas.font = '10px Arial'
+        // this.canvas.fillText(this.selectedElement.atomicNumber, 55, 15)
+        // this.canvas.font = '30px Arial'
+        // this.canvas.textAlign = 'center'
+        // this.canvas.fillText(
+        //   this.selectedElement.symbol,
+        //   this.canvasWidth / 2,
+        //   50
+        // )
+        // this.canvas.font = '10px Arial'
+        // this.canvas.fillText(
+        //   this.selectedElement.name,
+        //   this.canvasWidth / 2,
+        //   65
+        // )
+        // this.canvas.strokeStyle = `#${this.selectedElement.cpkHexColor}`
+        // this.canvas.lineWidth = 5
+        // this.canvas.strokeRect(0, 0, this.tileSize, this.tileSize)
       }
     },
   },
@@ -179,6 +189,50 @@ export default {
     this.canvas.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
   },
   methods: {
+    redrawCanvas() {
+      const c = this.$refs.wordCanvas
+      this.canvas = c.getContext('2d')
+      let pos = 0
+      const xOffSet = this.tileSize / 2
+      this.selectedElements.forEach((element) => {
+        // Tile background
+        this.canvas.fillStyle = '#FFFFFF'
+        this.canvas.fillRect(pos, 0, this.tileSize, this.tileSize)
+        // Atomic num
+        this.canvas.fillStyle = '#000000'
+        this.canvas.font = '10px Arial'
+        this.canvas.fillText(element.atomicNumber, 55 + pos, 15)
+        // Symbol
+        this.canvas.font = '30px Arial'
+        this.canvas.textAlign = 'center'
+        this.canvas.fillText(element.symbol, pos + xOffSet, 50)
+        // Name
+        this.canvas.font = '10px Arial'
+        this.canvas.fillText(element.name, pos + xOffSet, 65)
+        // Border
+        this.canvas.strokeStyle = `#${element.cpkHexColor}`
+        this.canvas.lineWidth = 5
+        this.canvas.strokeRect(pos, 0, this.tileSize, this.tileSize)
+        pos += this.tileSize + this.spaceWidth
+      })
+      // this.canvas.fillStyle = '#FFFFFF'
+      // this.canvas.fillRect(0, 0, this.tileSize, this.tileSize)
+      // this.canvas.fillStyle = '#000000'
+      // this.canvas.font = '10px Arial'
+      // this.canvas.fillText(this.selectedElement.atomicNumber, 55, 15)
+      // this.canvas.font = '30px Arial'
+      // this.canvas.textAlign = 'center'
+      // this.canvas.fillText(
+      //   this.selectedElement.symbol,
+      //   this.canvasWidth / 2,
+      //   50
+      // )
+      // this.canvas.font = '10px Arial'
+      // this.canvas.fillText(this.selectedElement.name, this.canvasWidth / 2, 65)
+      // this.canvas.strokeStyle = `#${this.selectedElement.cpkHexColor}`
+      // this.canvas.lineWidth = 5
+      // this.canvas.strokeRect(0, 0, this.tileSize, this.tileSize)
+    },
     selectElement(element) {
       this.selectedElement = element
       this.selectedElements.push(this.selectedElement)
