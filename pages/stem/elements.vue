@@ -288,37 +288,14 @@ export default {
       canvas: null,
       canvasWidth: 75,
       canvasHeight: 75,
-      examples: [
-        {
-          word: 'PUFFS',
-          symbols: ['P', 'U', 'F', 'F', 'S'],
-        },
-        {
-          word: 'AtTeNTiON',
-          symbols: ['At', 'Te', 'N', 'Ti', 'O', 'N'],
-        },
-        {
-          word: 'BaCoN',
-          symbols: ['B', 'Ac', 'O', 'N'],
-        },
-        {
-          word: 'BaNaNa',
-          symbols: ['Ba', 'Na', 'Na'],
-        },
-        {
-          word: 'VAmPIRe',
-          symbols: ['V', 'Am', 'P', 'I', 'Re'],
-        },
-        {
-          word: 'DyNAmITe',
-          symbols: ['Dy', 'N', 'Am', 'I', 'Te'],
-        },
-      ],
     }
   },
   computed: {
     elements() {
       return this.$store.state.elements.all
+    },
+    examples() {
+      return this.$store.state.elements.examples
     },
   },
   watch: {
