@@ -1,4 +1,3 @@
-/* eslint-disable nuxt/no-globals-in-created */
 <template>
   <div>
     <div class="flex flex-col pb-4 justify-center lg:flex-row lg:space-x-4">

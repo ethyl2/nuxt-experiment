@@ -2,7 +2,7 @@
   <nav class="nav">
     <div class="flex flex-col md:flex-row justify-between items-center">
       <nuxt-link to="/" class="flex justify-start items-center">
-        <img src="tree2.png" alt="logo" class="w-10" />
+        <img src="/tree2.png" alt="logo" class="w-10" />
         <h1 class="logo text-lg">Nuxt Experiments</h1>
       </nuxt-link>
       <div

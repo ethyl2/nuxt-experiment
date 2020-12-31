@@ -1,6 +1,10 @@
 export const state = () => ({
   examples: [
     {
+      word: 'SmAsH',
+      symbols: ['Sm', 'As', 'H'],
+    },
+    {
       word: 'PUFFS',
       symbols: ['P', 'U', 'F', 'F', 'S'],
     },
