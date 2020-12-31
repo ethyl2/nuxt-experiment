@@ -83,3 +83,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 ### Vue.js
 
 - Getting window size (Note: use `mounted()` instead of `created()`): https://codepen.io/sethdavis512/pen/EvNKWw
+
+### Nuxt
+
+- To learn about Nuxt.js, check out this course: [Nuxt.js Fundamentals](https://vueschool.io/courses/nuxtjs-fundamentals)
