@@ -24,7 +24,7 @@
       >
         {{ elementString }}
       </h3>
-      <input id="element-string" v-model="elementString" type="hidden" />
+      <input ref="elementString" v-model="elementString" type="hidden" />
       <div class="flex flex-wrap justify-center items-center">
         <button
           type="button"
@@ -86,7 +86,7 @@
       >
         {{ numberString }}
       </p>
-      <input id="number-string" v-model="numberString" type="hidden" />
+      <input ref="numberString" v-model="numberString" type="hidden" />
       <button
         type="button"
         class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
@@ -195,7 +195,7 @@ export default {
       this.elementString = ''
     },
     copyElementString() {
-      const textToCopy = document.querySelector('#element-string')
+      const textToCopy = this.$refs.elementString
       textToCopy.setAttribute('type', 'text')
       textToCopy.select()
       document.execCommand('copy')
@@ -203,7 +203,7 @@ export default {
       window.getSelection().removeAllRanges()
     },
     copyNumberString() {
-      const textToCopy = document.querySelector('#number-string')
+      const textToCopy = this.$refs.numberString
       textToCopy.setAttribute('type', 'text')
       textToCopy.select()
       document.execCommand('copy')
