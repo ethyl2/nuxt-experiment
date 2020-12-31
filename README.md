@@ -9,6 +9,9 @@ So far, it contains:
 - advent calendar
 - mountains info
 - song search using iTunes Search API
+- drawing app that uses HTML Canvas with mouse and touch events; enables user to save their creations
+- binary/text conversion
+- text/elements conversion
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 
@@ -39,24 +42,44 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 ## Useful Resources:
 
-Making a toggle using tailwind and minimal CSS: https://codepen.io/lhermann/pen/EBGZRZ
+### JS
 
-Playing audio in a Vue app: https://www.raymondcamden.com/2019/09/18/an-itunes-audio-enabled-search-built-in-vuejs
+- Sorting arrays of objects by property values: https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
 
-Discussion about dealing with CORS: https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
+- 2 approaches for randomly shuffling arrays: https://css-tricks.com/snippets/javascript/shuffle-array/
 
-Example of copying to clipboard: https://codepen.io/PJCHENder/pen/jamJpj?editors=1010
+- Using comparisons in a switch statement: https://stackoverflow.com/questions/32576618/switch-statement-to-compare-values-greater-or-less-than-a-number/32576647
 
-Sorting arrays of objects by property values: https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
+### Data
 
-2 approaches for randomly shuffling arrays: https://css-tricks.com/snippets/javascript/shuffle-array/
+- Data for periodic table elements: https://github.com/andrejewski/periodic-table/blob/master/data.json
 
-Data for periodic table elements: https://github.com/andrejewski/periodic-table/blob/master/data.json
+- Mountains API: https://api.nuxtjs.dev/
 
-Example of Vue.js image slider: https://www.digitalocean.com/community/tutorials/vuejs-create-image-slider
+### Canvas
 
-Using refs with Vue.js: https://blog.logrocket.com/how-to-use-refs-to-access-your-application-dom-in-vue-js/
+- Using refs with Vue.js: https://blog.logrocket.com/how-to-use-refs-to-access-your-application-dom-in-vue-js/
 
-Example of creating button for downloading canvas image: https://riptutorial.com/html5-canvas/example/31763/save-canvas-to-image-file
+- Example of creating button for downloading canvas image: https://riptutorial.com/html5-canvas/example/31763/save-canvas-to-image-file
 
-Example of drawing on canvas with Vue.js: https://codepen.io/reiallenramos/pen/MWaEmpw https://dev.to/reiallenramos/drawing-in-vue-using-mousemove-event-34cg
+- Example of drawing on canvas with Vue.js: https://codepen.io/reiallenramos/pen/MWaEmpw https://dev.to/reiallenramos/drawing-in-vue-using-mousemove-event-34cg
+
+- Touch events documentation: https://developer.mozilla.org/en-US/docs/Web/API/Touch_events
+
+### Implementing UX
+
+- Making a toggle using tailwind and minimal CSS: https://codepen.io/lhermann/pen/EBGZRZ
+
+- Playing audio in a Vue app: https://www.raymondcamden.com/2019/09/18/an-itunes-audio-enabled-search-built-in-vuejs
+
+- Example of copying to clipboard: https://codepen.io/PJCHENder/pen/jamJpj?editors=1010
+
+- Example of Vue.js image slider: https://www.digitalocean.com/community/tutorials/vuejs-create-image-slider
+
+### CORS
+
+- Discussion about dealing with CORS: https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
+
+### Vue.js
+
+- Getting window size (Note: use `mounted()` instead of `created()`): https://codepen.io/sethdavis512/pen/EvNKWw
