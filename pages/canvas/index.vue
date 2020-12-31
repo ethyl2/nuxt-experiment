@@ -1,11 +1,16 @@
 <template>
   <div>
     <h1 class="text-xl">Let's Draw!</h1>
-    <div class="flex">
-      <div>
+    <div class="flex flex-col md:flex-row">
+      <div class="w-5/6 mx-auto">
         <form class="pb-4 flex flex-col space-y-1">
           <label for="color-picker">Change Color</label>
-          <input id="color-picker" v-model="textColor" type="color" />
+          <input
+            id="color-picker"
+            v-model="textColor"
+            type="color"
+            class="w-10"
+          />
           <label for="line-width-picker">Change Line Width</label>
           <input
             id="line-width-picker"
@@ -14,6 +19,7 @@
             min="1"
             max="10"
             list="tickmarks"
+            class="w-40"
           />
           <datalist id="tickmarks">
             <option value="1"></option>
@@ -41,13 +47,13 @@
         ref="canvasForDrawing"
         :width="canvasWidth"
         :height="canvasHeight"
-        class="border border-black rounded mx-auto"
+        class="border border-black rounded mx-auto p-0"
         @mousedown="beginDrawing"
         @mousemove="keepDrawing"
         @mouseup="stopDrawing"
-        @touchstart="beginDrawing"
-        @touchend="stopDrawing"
-        @touchmove="keepDrawing"
+        @touchstart.prevent="beginDrawing"
+        @touchend.prevent="stopDrawing"
+        @touchmove.prevent="keepDrawing"
       />
     </div>
   </div>
@@ -64,7 +70,7 @@ export default {
       canvas: null,
       textColor: 'black',
       lineWidth: 1,
-      canvasWidth: 700,
+      canvasWidth: 400,
       canvasHeight: 800,
       textColorInput: null,
     }
