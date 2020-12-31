@@ -78,7 +78,7 @@
 
     <div
       v-if="numberString"
-      class="flex justify-center items-center md:space-x-4 flex-col lg:flex-row"
+      class="flex justify-center items-center flex-col border-t pt-4 md:space-x-4 lg:flex-row"
     >
       <p
         class="text-white text-center font-bold"
@@ -98,15 +98,25 @@
 
     <!-- Make image to download -->
     <div
-      class="flex flex-col items-center justify-center space-y-2"
+      class="flex flex-col items-center justify-center space-y-2 mt-4 pt-4 border-t"
       :class="[selectedElements.length > 0 ? 'visible' : 'invisible']"
     >
       <button
-        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
+        v-if="showRevealButton"
+        class="bg-black text-white rounded p-1 m-1 text-xs hover:bg-gray-700 md:text-base"
         @click.prevent="redrawCanvas"
       >
         Reveal Downloadable Image
       </button>
+      <a
+        v-if="!showRevealButton"
+        ref="buttonForDownload"
+        download="canvas_image.png"
+        href=""
+        class="rounded p-1 bg-black text-xs text-white text-center hover:bg-gray-700 md:text-base"
+        @click="downloadImage"
+        >Download Image</a
+      >
       <canvas
         ref="wordCanvas"
         :width="canvasWidth"
@@ -144,12 +154,12 @@ export default {
       selectedElements: [],
       elementString: '',
       numberString: '',
-      audio: null,
       canvas: null,
       canvasWidth: 75,
       canvasHeight: 75,
       tileSize: 75,
       spaceWidth: 10,
+      showRevealButton: true,
     }
   },
   computed: {
@@ -193,6 +203,22 @@ export default {
           5,
           true
         )
+        // Border
+        this.canvas.strokeStyle = `#${element.cpkHexColor}`
+        if (
+          this.canvas.strokeStyle === '#ffffff' ||
+          this.canvas.strokeStyle === '#FFFFFF'
+        ) {
+          this.canvas.strokeStyle = '#D3D3D3'
+        }
+        this.canvas.lineWidth = 5
+        // this.canvas.strokeRect(pos, 0, this.tileSize, this.tileSize)
+        this.drawRoundedRect(
+          pos + 1.5,
+          1,
+          this.tileSize - 2.5,
+          this.tileSize - 2
+        )
         // Atomic num
         this.canvas.fillStyle = '#000000'
         this.canvas.font = '10px Arial'
@@ -204,18 +230,9 @@ export default {
         // Name
         this.canvas.font = '10px Arial'
         this.canvas.fillText(element.name, pos + xOffSet, 65)
-        // Border
-        this.canvas.strokeStyle = `#${element.cpkHexColor}`
-        this.canvas.lineWidth = 5
-        // this.canvas.strokeRect(pos, 0, this.tileSize, this.tileSize)
-        this.drawRoundedRect(
-          pos + 1.5,
-          1,
-          this.tileSize - 2.5,
-          this.tileSize - 2
-        )
         pos += this.tileSize + this.spaceWidth - 0.5
       })
+      this.showRevealButton = false
     },
     drawRoundedRect(x, y, width, height, radius, fill, stroke) {
       if (typeof stroke === 'undefined') {
@@ -263,6 +280,7 @@ export default {
         this.numberString += '.'
       }
       this.numberString += this.selectedElement.atomicNumber
+      this.showRevealButton = true
     },
     clear() {
       this.selectedElement = null
@@ -285,6 +303,13 @@ export default {
       document.execCommand('copy')
       textToCopy.setAttribute('type', 'hidden')
       window.getSelection().removeAllRanges()
+    },
+    downloadImage() {
+      const c = this.$refs.wordCanvas
+      const button = this.$refs.buttonForDownload
+      // get image URI from canvas object
+      const imageUri = c.toDataURL('image/png')
+      button.href = imageUri
     },
   },
 }
