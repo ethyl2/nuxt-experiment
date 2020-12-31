@@ -59,7 +59,7 @@ export default {
   data() {
     return {
       elements: [],
-      sortKey: null,
+      sortKey: 'atomicNumber',
     }
   },
   mounted() {
