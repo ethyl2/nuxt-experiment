@@ -64,6 +64,8 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 - Example of drawing on canvas with Vue.js: https://codepen.io/reiallenramos/pen/MWaEmpw https://dev.to/reiallenramos/drawing-in-vue-using-mousemove-event-34cg
 
+- Touch events with canvas example: http://bencentra.com//code/2014/12/05/html5-canvas-touch-events.html
+
 - Touch events documentation: https://developer.mozilla.org/en-US/docs/Web/API/Touch_events
 
 ### Implementing UX

@@ -2,6 +2,7 @@
   <div>
     <the-nav-bar />
     <Nuxt />
+    <the-footer />
   </div>
 </template>
 
@@ -9,6 +10,7 @@
 export default {
   components: {
     TheNavBar: () => import('~/components/TheNavBar'),
+    TheFooter: () => import('~/components/TheFooter'),
   },
 }
 </script>

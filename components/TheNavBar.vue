@@ -6,7 +6,7 @@
         <h1 class="logo text-lg">Nuxt Experiments</h1>
       </nuxt-link>
       <div
-        class="flex justify-between w-full md:w-auto md:space-x-5 border-t border-b py-2 mt-2 text-xs text-center md:text-base md:border-none"
+        class="flex justify-between w-full border-t border-b py-2 mt-2 px-2 text-xs text-center md:w-auto md:space-x-5 md:text-base md:border-none"
       >
         <nuxt-link to="/advent">Advent</nuxt-link>
         <nuxt-link to="/arts">Arts</nuxt-link>

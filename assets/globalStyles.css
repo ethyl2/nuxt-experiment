@@ -22,7 +22,6 @@ html {
   margin: 0;
 }
 body {
-  padding: 1rem;
   background: var(--navy);
   color: white;
 }
