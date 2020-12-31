@@ -74,6 +74,7 @@ export default {
       canvasWidth: 400,
       canvasHeight: 800,
       textColorInput: null,
+      rect: null,
     }
   },
   mounted() {
@@ -100,28 +101,30 @@ export default {
     },
     beginDrawingWithTouch(e) {
       const rect = this.$refs.canvasForDrawing.getBoundingClientRect()
-      // console.log(rect)
       const touch = e.touches[0]
       this.x = touch.clientX - rect.left
       this.y = touch.clientY - rect.top
       this.isDrawing = true
-      console.log('Started drawing with touch')
     },
     keepDrawing(e) {
       if (this.isDrawing === true) {
-        const rect = this.$refs.canvasForDrawing.getBoundingClientRect()
         this.drawLine(this.x, this.y, e.offsetX, e.offsetY)
-        this.x = e.offsetX - rect.left
-        this.y = e.offsetY - rect.top
+        this.x = e.offsetX
+        this.y = e.offsetY
       }
     },
     keepDrawingWithTouch(e) {
       if (this.isDrawing === true) {
+        const rect = this.$refs.canvasForDrawing.getBoundingClientRect()
         const touch = e.touches[0]
-        this.drawLine(this.x, this.y, touch.clientX, touch.clientY)
-        this.x = touch.clientX
-        this.y = touch.clientY
-        console.log('Keeping drawing with touch')
+        this.drawLine(
+          this.x,
+          this.y,
+          touch.clientX - rect.left,
+          touch.clientY - rect.top
+        )
+        this.x = touch.clientX - rect.left
+        this.y = touch.clientY - rect.top
       }
     },
     stopDrawing(e) {
@@ -134,7 +137,6 @@ export default {
     },
     stopDrawingWithTouch(e) {
       if (this.isDrawing === true) {
-        // const touch = e.touches[0]
         // console.log(e.touches)
         // this.drawLine(this.x, this.y, touch.clientX, touch.clientY)
         this.x = 0
