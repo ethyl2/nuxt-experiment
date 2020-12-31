@@ -45,6 +45,9 @@
         @mousedown="beginDrawing"
         @mousemove="keepDrawing"
         @mouseup="stopDrawing"
+        @touchstart="beginDrawing"
+        @touchend="stopDrawing"
+        @touchmove="keepDrawing"
       />
     </div>
   </div>
