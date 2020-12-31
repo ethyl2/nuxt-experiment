@@ -12,44 +12,7 @@
       which might be handy for creating passwords.
     </h3>
 
-    <!-- Sorting -->
-    <div class="flex flex-wrap justify-center">
-      <button
-        type="button"
-        class="bg-black text-white rounded p-1 ml-3 mr-1 my-1 hover:bg-gray-700 text-xs md:text-base"
-        @click="sortElementsBy('symbol')"
-      >
-        Sort by Symbol (Alphabetical)
-      </button>
-      <button
-        type="button"
-        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
-        @click="sortElementsBy('atomicNumber')"
-      >
-        Sort by Atomic Number
-      </button>
-      <button
-        type="button"
-        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
-        @click="shuffle"
-      >
-        Shuffle
-      </button>
-    </div>
-
-    <!-- Buttons for Periodic Elements -->
-    <div class="flex flex-wrap justify-center">
-      <button
-        v-for="element in elements"
-        :key="element.atomicNumber"
-        type="button"
-        class="text-white font-bold m-1 p-1 text-sm md:text-lg rounded hover:text-black hover:bg-white"
-        :style="{ border: `4px solid #${element.cpkHexColor}` }"
-        @click="selectElement(element)"
-      >
-        {{ element.symbol }}
-      </button>
-    </div>
+    <element-buttons @select-element="selectElement" />
 
     <!-- Display Results of Making Word -->
     <div v-if="elementString" class="flex flex-col justify-center items-center">
@@ -80,7 +43,7 @@
       </div>
     </div>
 
-    <div class="flex flex-wrap justify-center my-2">
+    <div v-if="selectedElements" class="flex flex-wrap justify-center my-2">
       <div
         v-for="(element, index) in selectedElements"
         :key="`${element.atomicNumber}-${index}`"
@@ -158,6 +121,7 @@
 export default {
   name: 'Elements',
   components: {
+    ElementButtons: () => import('~/components/elements/ElementButtons'),
     SongCard: () => import('~/components/SongCard'),
     NumbersToElements: () => import('~/components/elements/NumbersToElements'),
     WordExamples: () => import('~/components/elements/WordExamples'),
@@ -183,23 +147,29 @@ export default {
   watch: {
     selectedElement() {
       // Modify canvas
-      this.canvas.fillStyle = '#FFFFFF'
-      this.canvas.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
-      this.canvas.fillStyle = 'black'
-      this.canvas.font = '10px Arial'
-      this.canvas.fillText(this.selectedElement.atomicNumber, 55, 15)
-      this.canvas.font = '30px Arial'
-      this.canvas.textAlign = 'center'
-      this.canvas.fillText(
-        this.selectedElement.symbol,
-        this.canvasWidth / 2,
-        50
-      )
-      this.canvas.font = '10px Arial'
-      this.canvas.fillText(this.selectedElement.name, this.canvasWidth / 2, 65)
-      this.canvas.strokeStyle = `#${this.selectedElement.cpkHexColor}`
-      this.canvas.lineWidth = 5
-      this.canvas.strokeRect(0, 0, this.canvasWidth, this.canvasHeight)
+      if (this.selectedElement) {
+        this.canvas.fillStyle = '#FFFFFF'
+        this.canvas.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
+        this.canvas.fillStyle = 'black'
+        this.canvas.font = '10px Arial'
+        this.canvas.fillText(this.selectedElement.atomicNumber, 55, 15)
+        this.canvas.font = '30px Arial'
+        this.canvas.textAlign = 'center'
+        this.canvas.fillText(
+          this.selectedElement.symbol,
+          this.canvasWidth / 2,
+          50
+        )
+        this.canvas.font = '10px Arial'
+        this.canvas.fillText(
+          this.selectedElement.name,
+          this.canvasWidth / 2,
+          65
+        )
+        this.canvas.strokeStyle = `#${this.selectedElement.cpkHexColor}`
+        this.canvas.lineWidth = 5
+        this.canvas.strokeRect(0, 0, this.canvasWidth, this.canvasHeight)
+      }
     },
   },
   mounted() {
@@ -217,12 +187,6 @@ export default {
         this.numberString += '.'
       }
       this.numberString += this.selectedElement.atomicNumber
-    },
-    sortElementsBy(key) {
-      this.elements.sort((a, b) => (a[key] > b[key] ? 1 : -1))
-    },
-    shuffle() {
-      this.elements.sort(() => 0.5 - Math.random())
     },
     clear() {
       this.selectedElement = null
@@ -245,12 +209,6 @@ export default {
       document.execCommand('copy')
       textToCopy.setAttribute('type', 'hidden')
       window.getSelection().removeAllRanges()
-    },
-    getColor(symbol) {
-      const currentElement = this.elements.find(
-        (element) => element.symbol === symbol
-      )
-      return currentElement.cpkHexColor
     },
   },
 }
