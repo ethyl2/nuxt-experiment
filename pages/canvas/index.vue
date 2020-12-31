@@ -99,24 +99,29 @@ export default {
       this.isDrawing = true
     },
     beginDrawingWithTouch(e) {
+      const rect = this.$refs.canvasForDrawing.getBoundingClientRect()
+      // console.log(rect)
       const touch = e.touches[0]
-      this.x = touch.offsetX
-      this.y = touch.offsetY
+      this.x = touch.clientX - rect.left
+      this.y = touch.clientY - rect.top
       this.isDrawing = true
+      console.log('Started drawing with touch')
     },
     keepDrawing(e) {
       if (this.isDrawing === true) {
+        const rect = this.$refs.canvasForDrawing.getBoundingClientRect()
         this.drawLine(this.x, this.y, e.offsetX, e.offsetY)
-        this.x = e.offsetX
-        this.y = e.offsetY
+        this.x = e.offsetX - rect.left
+        this.y = e.offsetY - rect.top
       }
     },
     keepDrawingWithTouch(e) {
       if (this.isDrawing === true) {
         const touch = e.touches[0]
-        this.drawLine(this.x, this.y, touch.offsetX, touch.offsetY)
-        this.x = touch.offsetX
-        this.y = touch.offsetY
+        this.drawLine(this.x, this.y, touch.clientX, touch.clientY)
+        this.x = touch.clientX
+        this.y = touch.clientY
+        console.log('Keeping drawing with touch')
       }
     },
     stopDrawing(e) {
@@ -129,8 +134,9 @@ export default {
     },
     stopDrawingWithTouch(e) {
       if (this.isDrawing === true) {
-        const touch = e.touches[0]
-        this.drawLine(this.x, this.y, touch.offsetX, touch.offsetY)
+        // const touch = e.touches[0]
+        // console.log(e.touches)
+        // this.drawLine(this.x, this.y, touch.clientX, touch.clientY)
         this.x = 0
         this.y = 0
         this.isDrawing = false
@@ -146,11 +152,11 @@ export default {
       const imageUri = c.toDataURL('image/png')
       button.href = imageUri
     },
-    getTouchPos(canvasDom, touchEvent) {
-      const rect = canvasDom.getBoundingClientRect()
+    getTouchPos(e) {
+      const rect = this.$refs.canvasForDrawing.getBoundingClientRect()
       return {
-        x: touchEvent.touches[0].clientX - rect.left,
-        y: touchEvent.touches[0].clientY - rect.top,
+        x: e.touches[0].clientX - rect.left,
+        y: e.touches[0].clientY - rect.top,
       }
     },
   },
