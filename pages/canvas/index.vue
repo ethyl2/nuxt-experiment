@@ -1,10 +1,13 @@
+/* eslint-disable nuxt/no-globals-in-created */
 <template>
   <div>
     <h1 class="text-xl">Let's Draw!</h1>
-    <div class="flex flex-col md:flex-row">
-      <div class="w-5/6 mx-auto">
+    <div class="flex flex-col lg:flex-row">
+      <div class="mx-auto">
         <form class="pb-4 flex flex-col space-y-1">
-          <p>Test Touch</p>
+          <button type="button" @click.prevent="clear">
+            Clear Canvas/Make White Background
+          </button>
           <label for="color-picker">Change Color</label>
           <input
             id="color-picker"
@@ -71,19 +74,68 @@ export default {
       canvas: null,
       textColor: '#000000',
       lineWidth: 1,
-      canvasWidth: 400,
-      canvasHeight: 800,
+      canvasWidth: 1200,
+      canvasHeight: 600,
       textColorInput: null,
-      rect: null,
     }
   },
   mounted() {
+    window.addEventListener('resize', this.handleResize)
+    this.handleResize()
     const c = this.$refs.canvasForDrawing
     this.canvas = c.getContext('2d')
     this.canvas.fillStyle = '#FFFFFF'
     this.canvas.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
   },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize)
+  },
   methods: {
+    handleResize() {
+      const w = window.innerWidth
+      switch (true) {
+        case w <= 450:
+          // small mobile
+          this.canvasWidth = 325
+          this.canvasHeight = 800
+          break
+        case w <= 600:
+          // larger mobile
+          this.canvasWidth = 400
+          this.canvasHeight = 800
+          break
+        case w <= 768:
+          // tablet
+          this.canvasWidth = 550
+          this.canvasHeight = 600
+          break
+        case w <= 825:
+          // small desktop
+          this.canvasWidth = 700
+          this.canvasHeight = 600
+          break
+        case w <= 1075:
+          // md desktop
+          this.canvasWidth = 800
+          this.canvasHeight = 600
+          break
+        case w <= 1200:
+          // lg desktop
+          this.canvasWidth = 900
+          this.canvasHeight = 600
+          break
+        default:
+          // xl desktop
+          this.canvasWidth = 1000
+          this.canvasHeight = 600
+      }
+      const c = this.$refs.canvasForDrawing
+      c.width = this.canvasWidth
+      c.height = this.canvasHeight
+      this.canvas = c.getContext('2d')
+      this.canvas.fillStyle = '#FFFFFF'
+      this.canvas.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
+    },
     drawLine(x1, y1, x2, y2) {
       const ctx = this.canvas
       ctx.beginPath()
@@ -137,8 +189,6 @@ export default {
     },
     stopDrawingWithTouch(e) {
       if (this.isDrawing === true) {
-        // console.log(e.touches)
-        // this.drawLine(this.x, this.y, touch.clientX, touch.clientY)
         this.x = 0
         this.y = 0
         this.isDrawing = false
@@ -154,12 +204,9 @@ export default {
       const imageUri = c.toDataURL('image/png')
       button.href = imageUri
     },
-    getTouchPos(e) {
-      const rect = this.$refs.canvasForDrawing.getBoundingClientRect()
-      return {
-        x: e.touches[0].clientX - rect.left,
-        y: e.touches[0].clientY - rect.top,
-      }
+    clear() {
+      this.canvas.fillStyle = '#FFFFFF'
+      this.canvas.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
     },
   },
 }
