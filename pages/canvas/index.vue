@@ -1,57 +1,89 @@
 /* eslint-disable nuxt/no-globals-in-created */
 <template>
   <div>
-    <h1 class="text-xl">Let's Draw!</h1>
-    <div class="flex flex-col lg:flex-row">
-      <div class="mx-auto">
-        <form class="pb-4 flex flex-col space-y-1">
-          <button type="button" @click.prevent="clear">
-            Clear Canvas/Make White Background
-          </button>
-          <label for="color-picker">Change Color</label>
-          <input
-            id="color-picker"
-            v-model="textColor"
-            type="color"
-            class="w-10"
-          />
-          <label for="line-width-picker">Change Line Width</label>
-          <input
-            id="line-width-picker"
-            v-model="lineWidth"
-            type="range"
-            min="1"
-            max="10"
-            list="tickmarks"
-            class="w-40"
-          />
-          <datalist id="tickmarks">
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-            <option value="4"></option>
-            <option value="5"></option>
-            <option value="6"></option>
-            <option value="7"></option>
-            <option value="8"></option>
-            <option value="9"></option>
-            <option value="10"></option>
-          </datalist>
+    <div class="flex flex-col pb-4 justify-center lg:flex-row lg:space-x-4">
+      <!-- Controls -->
+      <div class="flex flex-col items-center justify-start pb-4">
+        <form class="pb-4 flex flex-col space-y-1 w-full">
+          <h1 class="text-lg text-center">Let's Draw!</h1>
+          <div class="flex justify-center space-x-2">
+            <button
+              type="button"
+              class="rounded p-1 bg-black text-xs text-center hover:bg-gray-700 md:text-sm"
+              @click.prevent="clear"
+            >
+              White Background
+            </button>
+            <button
+              type="button"
+              class="rounded p-1 bg-black text-xs text-center hover:bg-gray-700 md:text-sm"
+              @click.prevent="clear"
+            >
+              Clear
+            </button>
+            <a
+              ref="buttonForDownload"
+              download="canvas_image.png"
+              href=""
+              class="rounded p-1 bg-black text-xs text-white text-center hover:bg-gray-700 md:text-sm lg:hidden"
+              @click="downloadImage"
+              >Download Image</a
+            >
+          </div>
+
+          <div class="flex space-x-1 justify-center sm:space-x-2">
+            <div class="flex flex-col items-center">
+              <label for="color-picker" class="text-sm">Color</label>
+              <input
+                id="color-picker"
+                v-model="textColor"
+                type="color"
+                class="w-10 rounded"
+              />
+            </div>
+            <div class="flex flex-col items-center">
+              <label for="line-width-picker" class="text-sm">Line Width</label>
+              <input
+                id="line-width-picker"
+                v-model="lineWidth"
+                type="range"
+                min="1"
+                max="10"
+                list="tickmarks"
+                class="w-32"
+              />
+              <datalist id="tickmarks">
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
+                <option value="6"></option>
+                <option value="7"></option>
+                <option value="8"></option>
+                <option value="9"></option>
+                <option value="10"></option>
+              </datalist>
+            </div>
+          </div>
         </form>
         <a
           ref="buttonForDownload"
           download="canvas_image.png"
           href=""
+          class="hidden rounded p-1 bg-black text-sm text-white hover:bg-gray-700 lg:block"
           @click="downloadImage"
           >Download Image</a
         >
       </div>
+
+      <!-- Canvas -->
       <canvas
         id="myCanvas"
         ref="canvasForDrawing"
         :width="canvasWidth"
         :height="canvasHeight"
-        class="border border-black rounded mx-auto p-0"
+        class="border border-black rounded m-0 p-0"
         @mousedown="beginDrawing"
         @mousemove="keepDrawing"
         @mouseup="stopDrawing"
