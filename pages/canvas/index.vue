@@ -64,7 +64,7 @@ export default {
       canvas: null,
       textColor: 'black',
       lineWidth: 1,
-      canvasWidth: 1000,
+      canvasWidth: 700,
       canvasHeight: 800,
       textColorInput: null,
     }
