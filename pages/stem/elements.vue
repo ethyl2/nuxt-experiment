@@ -97,13 +97,23 @@
     </div>
 
     <!-- Make image to download -->
-    <canvas
-      ref="wordCanvas"
-      :width="canvasWidth"
-      :height="canvasHeight"
-      class="rounded mx-auto border border-black"
-    />
-    <button @click.prevent="redrawCanvas">Redraw</button>
+    <div
+      class="flex flex-col items-center justify-center space-y-2"
+      :class="[selectedElements.length > 0 ? 'visible' : 'invisible']"
+    >
+      <button
+        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
+        @click.prevent="redrawCanvas"
+      >
+        Reveal Downloadable Image
+      </button>
+      <canvas
+        ref="wordCanvas"
+        :width="canvasWidth"
+        :height="canvasHeight"
+        class="mx-auto rounded"
+      />
+    </div>
 
     <!-- Convert Atomic Numbers to Symbols -->
     <numbers-to-elements />
@@ -156,29 +166,6 @@ export default {
           this.spaceWidth
         const c = this.$refs.wordCanvas
         c.width = this.canvasWidth
-        // this.canvas = c.getContext('2d')
-        // this.canvas.fillStyle = '#FFFFFF'
-        // this.canvas.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
-        // this.canvas.fillRect(0, 0, this.tileSize, this.tileSize)
-        // this.canvas.fillStyle = '#000000'
-        // this.canvas.font = '10px Arial'
-        // this.canvas.fillText(this.selectedElement.atomicNumber, 55, 15)
-        // this.canvas.font = '30px Arial'
-        // this.canvas.textAlign = 'center'
-        // this.canvas.fillText(
-        //   this.selectedElement.symbol,
-        //   this.canvasWidth / 2,
-        //   50
-        // )
-        // this.canvas.font = '10px Arial'
-        // this.canvas.fillText(
-        //   this.selectedElement.name,
-        //   this.canvasWidth / 2,
-        //   65
-        // )
-        // this.canvas.strokeStyle = `#${this.selectedElement.cpkHexColor}`
-        // this.canvas.lineWidth = 5
-        // this.canvas.strokeRect(0, 0, this.tileSize, this.tileSize)
       }
     },
   },
@@ -197,11 +184,19 @@ export default {
       this.selectedElements.forEach((element) => {
         // Tile background
         this.canvas.fillStyle = '#FFFFFF'
-        this.canvas.fillRect(pos, 0, this.tileSize, this.tileSize)
+        // this.canvas.fillRect(pos, 0, this.tileSize, this.tileSize)
+        this.drawRoundedRect(
+          pos + 1.5,
+          1,
+          this.tileSize - 2.5,
+          this.tileSize - 2,
+          5,
+          true
+        )
         // Atomic num
         this.canvas.fillStyle = '#000000'
         this.canvas.font = '10px Arial'
-        this.canvas.fillText(element.atomicNumber, 55 + pos, 15)
+        this.canvas.fillText(element.atomicNumber, 58 + pos, 15)
         // Symbol
         this.canvas.font = '30px Arial'
         this.canvas.textAlign = 'center'
@@ -212,26 +207,53 @@ export default {
         // Border
         this.canvas.strokeStyle = `#${element.cpkHexColor}`
         this.canvas.lineWidth = 5
-        this.canvas.strokeRect(pos, 0, this.tileSize, this.tileSize)
-        pos += this.tileSize + this.spaceWidth
+        // this.canvas.strokeRect(pos, 0, this.tileSize, this.tileSize)
+        this.drawRoundedRect(
+          pos + 1.5,
+          1,
+          this.tileSize - 2.5,
+          this.tileSize - 2
+        )
+        pos += this.tileSize + this.spaceWidth - 0.5
       })
-      // this.canvas.fillStyle = '#FFFFFF'
-      // this.canvas.fillRect(0, 0, this.tileSize, this.tileSize)
-      // this.canvas.fillStyle = '#000000'
-      // this.canvas.font = '10px Arial'
-      // this.canvas.fillText(this.selectedElement.atomicNumber, 55, 15)
-      // this.canvas.font = '30px Arial'
-      // this.canvas.textAlign = 'center'
-      // this.canvas.fillText(
-      //   this.selectedElement.symbol,
-      //   this.canvasWidth / 2,
-      //   50
-      // )
-      // this.canvas.font = '10px Arial'
-      // this.canvas.fillText(this.selectedElement.name, this.canvasWidth / 2, 65)
-      // this.canvas.strokeStyle = `#${this.selectedElement.cpkHexColor}`
-      // this.canvas.lineWidth = 5
-      // this.canvas.strokeRect(0, 0, this.tileSize, this.tileSize)
+    },
+    drawRoundedRect(x, y, width, height, radius, fill, stroke) {
+      if (typeof stroke === 'undefined') {
+        stroke = true
+      }
+      if (typeof radius === 'undefined') {
+        radius = 5
+      }
+      if (typeof radius === 'number') {
+        radius = { tl: radius, tr: radius, br: radius, bl: radius }
+      } else {
+        const defaultRadius = { tl: 0, tr: 0, br: 0, bl: 0 }
+        for (const side in defaultRadius) {
+          radius[side] = radius[side] || defaultRadius[side]
+        }
+      }
+      this.canvas.beginPath()
+      this.canvas.moveTo(x + radius.tl, y)
+      this.canvas.lineTo(x + width - radius.tr, y)
+      this.canvas.quadraticCurveTo(x + width, y, x + width, y + radius.tr)
+      this.canvas.lineTo(x + width, y + height - radius.br)
+      this.canvas.quadraticCurveTo(
+        x + width,
+        y + height,
+        x + width - radius.br,
+        y + height
+      )
+      this.canvas.lineTo(x + radius.bl, y + height)
+      this.canvas.quadraticCurveTo(x, y + height, x, y + height - radius.bl)
+      this.canvas.lineTo(x, y + radius.tl)
+      this.canvas.quadraticCurveTo(x, y, x + radius.tl, y)
+      this.canvas.closePath()
+      if (fill) {
+        this.canvas.fill()
+      }
+      if (stroke) {
+        this.canvas.stroke()
+      }
     },
     selectElement(element) {
       this.selectedElement = element
