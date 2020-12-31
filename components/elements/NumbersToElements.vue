@@ -47,8 +47,8 @@
 
     <div class="flex flex-wrap justify-center">
       <div
-        v-for="element in numberResultArray"
-        :key="element.atomicNumber"
+        v-for="(element, index) in numberResultArray"
+        :key="`${element.atomicNumber}-${index}`"
         class="relative bg-white rounded p-1 m-1 w-20 h-20 flex flex-col"
         :style="{ border: `4px solid #${element.cpkHexColor}` }"
       >

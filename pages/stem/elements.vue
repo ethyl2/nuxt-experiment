@@ -145,32 +145,7 @@
     <numbers-to-elements />
 
     <!-- Examples of words made with symbols -->
-    <div class="py-6 mt-8 border-t flex flex-col space-y-3">
-      <h2 class="text-xl font-bold text-center">A Few Examples</h2>
-      <div
-        v-for="(example, index) in examples"
-        :key="index"
-        class="flex flex-wrap justify-between items-center space-x-2 mx-auto w-full md:w-1/3 flex-col md:flex-row"
-      >
-        <p>{{ example.word }}</p>
-        <div class="flex flex-wrap items-center space-x-2">
-          <p
-            v-for="(symbol, symbolsIndex) in example.symbols"
-            :key="symbolsIndex"
-            class="border p-1 rounded font-bold text-xs md:text-lg"
-            :style="{ border: `4px solid #${getColor(symbol)}` }"
-          >
-            {{ symbol }}
-          </p>
-        </div>
-      </div>
-      <a
-        href="https://sciencenotes.org/list-words-made-periodic-table-element-symbols/"
-        target="_blank"
-        class="mx-auto"
-        >See More Examples</a
-      >
-    </div>
+    <word-examples />
 
     <!-- Play Periodic Table Song -->
     <div class="mt-4 border-t">
@@ -185,6 +160,7 @@ export default {
   components: {
     SongCard: () => import('~/components/SongCard'),
     NumbersToElements: () => import('~/components/elements/NumbersToElements'),
+    WordExamples: () => import('~/components/elements/WordExamples'),
   },
   data() {
     return {
@@ -202,9 +178,6 @@ export default {
   computed: {
     elements() {
       return this.$store.state.elements.all
-    },
-    examples() {
-      return this.$store.state.elements.examples
     },
   },
   watch: {
@@ -279,22 +252,6 @@ export default {
       )
       return currentElement.cpkHexColor
     },
-    // playSong() {
-    //   if (this.audio) {
-    //     this.audio.pause()
-    //     this.audio.currentTime = 0
-    //   }
-    //   this.audio = new Audio(
-    //     'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview71/v4/82/1b/14/821b1416-b8dd-1757-470c-719a33f99d4b/mzaf_135016786046637505.plus.aac.p.m4a'
-    //   )
-    //   this.audio.play()
-    // },
-    // stopSong() {
-    //   if (this.audio) {
-    //     this.audio.pause()
-    //     this.audio.currentTime = 0
-    //   }
-    // },
   },
 }
 </script>
