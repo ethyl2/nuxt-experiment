@@ -4,6 +4,7 @@
     <div class="flex flex-col md:flex-row">
       <div class="w-5/6 mx-auto">
         <form class="pb-4 flex flex-col space-y-1">
+          <p>Test Touch</p>
           <label for="color-picker">Change Color</label>
           <input
             id="color-picker"
@@ -38,7 +39,7 @@
           ref="buttonForDownload"
           download="canvas_image.png"
           href=""
-          @click="downloadImage()"
+          @click="downloadImage"
           >Download Image</a
         >
       </div>
@@ -51,9 +52,9 @@
         @mousedown="beginDrawing"
         @mousemove="keepDrawing"
         @mouseup="stopDrawing"
-        @touchstart.prevent="beginDrawing"
-        @touchend.prevent="stopDrawing"
-        @touchmove.prevent="keepDrawing"
+        @touchstart.prevent="beginDrawingWithTouch"
+        @touchend.prevent="stopDrawingWithTouch"
+        @touchmove.prevent="keepDrawingWithTouch"
       />
     </div>
   </div>
@@ -68,7 +69,7 @@ export default {
       y: 0,
       isDrawing: false,
       canvas: null,
-      textColor: 'black',
+      textColor: '#000000',
       lineWidth: 1,
       canvasWidth: 400,
       canvasHeight: 800,
@@ -97,6 +98,12 @@ export default {
       this.y = e.offsetY
       this.isDrawing = true
     },
+    beginDrawingWithTouch(e) {
+      const touch = e.touches[0]
+      this.x = touch.offsetX
+      this.y = touch.offsetY
+      this.isDrawing = true
+    },
     keepDrawing(e) {
       if (this.isDrawing === true) {
         this.drawLine(this.x, this.y, e.offsetX, e.offsetY)
@@ -104,9 +111,26 @@ export default {
         this.y = e.offsetY
       }
     },
+    keepDrawingWithTouch(e) {
+      if (this.isDrawing === true) {
+        const touch = e.touches[0]
+        this.drawLine(this.x, this.y, touch.offsetX, touch.offsetY)
+        this.x = touch.offsetX
+        this.y = touch.offsetY
+      }
+    },
     stopDrawing(e) {
       if (this.isDrawing === true) {
         this.drawLine(this.x, this.y, e.offsetX, e.offsetY)
+        this.x = 0
+        this.y = 0
+        this.isDrawing = false
+      }
+    },
+    stopDrawingWithTouch(e) {
+      if (this.isDrawing === true) {
+        const touch = e.touches[0]
+        this.drawLine(this.x, this.y, touch.offsetX, touch.offsetY)
         this.x = 0
         this.y = 0
         this.isDrawing = false
@@ -121,6 +145,13 @@ export default {
       // get image URI from canvas object
       const imageUri = c.toDataURL('image/png')
       button.href = imageUri
+    },
+    getTouchPos(canvasDom, touchEvent) {
+      const rect = canvasDom.getBoundingClientRect()
+      return {
+        x: touchEvent.touches[0].clientX - rect.left,
+        y: touchEvent.touches[0].clientY - rect.top,
+      }
     },
   },
 }
