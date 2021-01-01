@@ -30,12 +30,17 @@
       class="mx-auto"
       >See Even More Examples</a
     >
+    <word-submission-form />
   </section>
 </template>
 
 <script>
 export default {
   name: 'WordExamples',
+  components: {
+    WordSubmissionForm: () =>
+      import('~/components/elements/WordSubmissionForm'),
+  },
   data() {
     return {
       showMore: false,

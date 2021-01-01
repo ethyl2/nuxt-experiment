@@ -68,6 +68,8 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 - Touch events documentation: https://developer.mozilla.org/en-US/docs/Web/API/Touch_events
 
+- Drawing rounded rectangles: https://stackoverflow.com/questions/1255512/how-to-draw-a-rounded-rectangle-on-html-canvas
+
 ### Implementing UX
 
 - Making a toggle using tailwind and minimal CSS: https://codepen.io/lhermann/pen/EBGZRZ
