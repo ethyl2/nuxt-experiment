@@ -18,11 +18,17 @@
         </p>
       </div>
     </div>
+    <button
+      class="rounded p-1 bg-black text-xs text-white text-center mx-auto hover:bg-gray-700 md:text-base"
+      @click="toggleShowMore"
+    >
+      {{ showMore ? 'See Less' : 'See More Examples' }}
+    </button>
     <a
       href="https://sciencenotes.org/list-words-made-periodic-table-element-symbols/"
       target="_blank"
       class="mx-auto"
-      >See More Examples</a
+      >See Even More Examples</a
     >
   </section>
 </template>
@@ -30,12 +36,21 @@
 <script>
 export default {
   name: 'WordExamples',
+  data() {
+    return {
+      showMore: false,
+    }
+  },
   computed: {
     elements() {
       return this.$store.state.elements.all
     },
     examples() {
-      return this.$store.state.elements.examples
+      if (this.showMore) {
+        return this.$store.state.elements.examples
+      } else {
+        return this.$store.state.elements.examples.slice(0, 4)
+      }
     },
   },
   methods: {
@@ -44,6 +59,9 @@ export default {
         (element) => element.symbol === symbol
       )
       return currentElement.cpkHexColor
+    },
+    toggleShowMore() {
+      this.showMore = !this.showMore
     },
   },
 }

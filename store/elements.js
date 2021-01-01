@@ -16,6 +16,7 @@ export const state = () => ({
       word: 'BaCoN',
       symbols: ['B', 'Ac', 'O', 'N'],
     },
+    { word: 'BaRfBAgS', symbols: ['Ba', 'Rf', 'B', 'Ag', 'S'] },
     {
       word: 'BaNaNa',
       symbols: ['Ba', 'Na', 'Na'],
@@ -23,6 +24,10 @@ export const state = () => ({
     {
       word: 'VAmPIRe',
       symbols: ['V', 'Am', 'P', 'I', 'Re'],
+    },
+    {
+      word: 'PaNCaKEs',
+      symbols: ['Pa', 'N', 'Ca', 'K', 'Es'],
     },
     {
       word: 'DyNAmITe',
