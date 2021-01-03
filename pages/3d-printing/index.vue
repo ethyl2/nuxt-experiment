@@ -5,15 +5,21 @@
       alt="abstract art"
       class="m-0 p-0 w-full"
     />
-    <h1 class="text-5xl text-center p-4">Order Your Custom 3D Prints</h1>
-    <div class="w-full flex justify-center items-center space-x-6 mx-auto">
+    <h1 class="text-xl md:text-5xl text-center p-4">
+      Order Your Custom 3D Prints
+    </h1>
+    <div
+      class="w-full flex flex-col space-y-4 justify-center items-center mx-auto md:flex-row md:space-x-6 md:space-y-0"
+    >
       <img
         src="/printing/tom.jpg"
         alt="Thomas Nuffer"
-        class="w-1/3 rounded border-4 border-white"
+        class="w-1/2 rounded border-4 border-white md:w-1/3"
       />
-      <div class="w-1/3 flex flex-col justify-center items-center space-y-6">
-        <p class="text-xl text-white">
+      <div
+        class="w-5/6 flex flex-col justify-center items-center space-y-6 md:w-1/3"
+      >
+        <p class="text-sm text-white md:text-xl">
           Thomas is eager to put our new 3D printer to work for you! Printing
           all kinds of interesting objects has been a fun adventure for him.
           Fill out the form to contact him about available designs, colors,
@@ -22,18 +28,20 @@
         <button
           class="bg-black px-3 py-2 my-2 rounded border-2 border-teal-700"
         >
-          <a href="#order-form" class="text-white font-bold text-2xl"
+          <a href="#order-form" class="text-white font-bold text-xl md:text-2xl"
             >Let's Print!</a
           >
         </button>
       </div>
     </div>
-    <div class="w-full flex justify-center items-center space-x-6 mx-auto pb-6">
-      <div class="w-1/3">
-        <p class="font-bold text-2xl mb-2">
+    <div
+      class="w-full flex flex-col justify-center items-center mx-auto pb-6 space-y-4 md:flex-row md:space-x-6 md:space-y-0"
+    >
+      <div class="w-5/6 md:w-1/3">
+        <p class="font-bold text-base mb-2 md:text-2xl">
           A Few of the Infinite Possibilities:
         </p>
-        <ul class="flex flex-col space-y-2 text-xl">
+        <ul class="flex flex-col space-y-2 text-sm md:text-xl">
           <li>
             🟠 Become mesmerized by the motion of an
             <a href="https://en.wikipedia.org/wiki/Oloid" target="_blank"
@@ -55,16 +63,16 @@
       <img
         src="/printing/3d_printer.jpg"
         alt="3D Printer"
-        class="w-1/4 rounded border border-black"
+        class="w-5/6 rounded border border-black md:w-1/4"
       />
     </div>
     <div
       id="order-form"
-      class="flex flex-col space-y-4 w-1/2 mx-auto bg-teal-700 p-4 rounded mt-6"
+      class="flex flex-col space-y-4 w-11/12 mx-auto bg-teal-700 p-2 rounded mt-6 md:p-4 md:w-1/2"
     >
       <h2 class="text-white text-xl text-center">Contact Us</h2>
       <form
-        class="flex flex-col space-y-4 mx-12 px-4"
+        class="flex flex-col space-y-4 md:mx-12 md:px-4"
         @submit.prevent="submitForm"
       >
         <input
