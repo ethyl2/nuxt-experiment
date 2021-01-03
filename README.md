@@ -40,6 +40,16 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 ---
 
+## Environment Variables
+
+In order for all features of this site to work correctly, you need to set up your own environment variables. Add an .env file containing the following:
+
+- MAIL_URL (Obtained from your formspree.io account)
+- LOCATION_APP_ID (Obtained from your developer.here.com account)
+- LOCATION_APP_CODE (Obtained from your developer.here.com account)
+
+---
+
 ## Useful Resources:
 
 ### JS

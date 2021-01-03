@@ -41,5 +41,7 @@ export default {
 
   env: {
     mailUrl: process.env.MAIL_URL,
+    locationAppId: process.env.LOCATION_APP_ID,
+    locationAppCode: process.env.LOCATION_APP_CODE,
   },
 }

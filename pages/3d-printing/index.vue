@@ -90,6 +90,17 @@
           placeholder="your phone"
           required
         />
+        <button
+          type="button"
+          class="w-full mx-auto rounded p-1 bg-black text-sm text-white text-center hover:bg-gray-700 md:text-base"
+          style="max-width: 160px"
+          @click.prevent="geolocate"
+        >
+          Get My Location
+        </button>
+        <p v-if="locationMessage" class="text-center text-sm text-white pt-1">
+          {{ locationMessage }}
+        </p>
         <input
           v-model="submission.location"
           type="tel"
@@ -131,8 +142,15 @@ export default {
         notes: '',
         location: '',
       },
+      userLocation: {
+        lat: null,
+        long: null,
+      },
       endpoint: process.env.mailUrl,
       message: '',
+      location_search_endpoint: `https://places.cit.api.here.com/places/v1/discover/around?at=`,
+      location_search_results: [],
+      locationMessage: '',
     }
   },
   methods: {
@@ -145,6 +163,44 @@ export default {
       } catch {
         this.message =
           'There was a problem sending your submission. Please try again later.'
+      }
+    },
+    geolocate() {
+      if (window.navigator && window.navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          this.onGeolocateSuccess,
+          this.onGeolocateError
+        )
+      }
+    },
+    onGeolocateSuccess(coordinates) {
+      const { latitude, longitude } = coordinates.coords
+      this.userLocation.lat = latitude
+      this.userLocation.long = longitude
+      this.getUserLocation()
+    },
+    // eslint-disable-next-line handle-callback-err
+    onGeolocateError(error) {
+      this.locationMessage =
+        'Sorry, there was an error getting your location. Please type your location in the box.'
+    },
+    async getUserLocation() {
+      try {
+        const completeLocationSearchEndpoint = `${this.location_search_endpoint}${this.userLocation.lat},${this.userLocation.long}&app_id=${process.env.locationAppId}&app_code=${process.env.locationAppCode}`
+        const response = await this.$axios.get(completeLocationSearchEndpoint)
+        this.location_search_results = response.data.results.items.map(
+          (result) => result.vicinity
+        )
+        if (this.location_search_results.length > 0) {
+          const separatedVicinity = this.location_search_results[0].split(
+            '<br/>'
+          )
+          this.submission.location =
+            separatedVicinity[separatedVicinity.length - 1]
+        }
+      } catch {
+        this.locationMessage =
+          'Sorry, there was an error getting your location. Please type your location in the box.'
       }
     },
   },
