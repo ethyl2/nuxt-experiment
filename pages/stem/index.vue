@@ -16,6 +16,7 @@
         <nuxt-link to="/stem/elements"
           >Creating Words and Passwords from Periodic Table Symbols</nuxt-link
         >
+        <nuxt-link to="/3d-printing">3D Printing Shop</nuxt-link>
       </nav>
     </div>
   </div>
