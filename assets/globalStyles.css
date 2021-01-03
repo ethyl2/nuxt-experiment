@@ -71,3 +71,18 @@ h4 {
   color: #fff;
   background-color: #35495e;
 }
+
+/* 3D Printing Pages Styles */
+.printing {
+  background-color: #2e2c2c;
+  padding: 0;
+  margin: 0;
+}
+
+.printing h1 {
+  color: #f58220;
+}
+
+.printing p {
+  color: #008e97;
+}

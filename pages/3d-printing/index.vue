@@ -1,0 +1,152 @@
+<template>
+  <div class="flex flex-col space-y-8">
+    <img
+      src="/printing/abstract.jpg"
+      alt="abstract art"
+      class="m-0 p-0 w-full"
+    />
+    <h1 class="text-5xl text-center p-4">Order Your Custom 3D Prints</h1>
+    <div class="w-full flex justify-center items-center space-x-6 mx-auto">
+      <img
+        src="/printing/tom.jpg"
+        alt="Thomas Nuffer"
+        class="w-1/3 rounded border-4 border-white"
+      />
+      <div class="w-1/3 flex flex-col justify-center items-center space-y-6">
+        <p class="text-xl text-white">
+          Thomas is eager to put our new 3D printer to work for you! Printing
+          all kinds of interesting objects has been a fun adventure for him.
+          Fill out the form to contact him about available designs, colors,
+          cost, and pickup/delivery/shipping options.
+        </p>
+        <button
+          class="bg-black px-3 py-2 my-2 rounded border-2 border-teal-700"
+        >
+          <a href="#order-form" class="text-white font-bold text-2xl"
+            >Let's Print!</a
+          >
+        </button>
+      </div>
+    </div>
+    <div class="w-full flex justify-center items-center space-x-6 mx-auto pb-6">
+      <div class="w-1/3">
+        <p class="font-bold text-2xl mb-2">
+          A Few of the Infinite Possibilities:
+        </p>
+        <ul class="flex flex-col space-y-2 text-xl">
+          <li>
+            🟠 Become mesmerized by the motion of an
+            <a href="https://en.wikipedia.org/wiki/Oloid" target="_blank"
+              >oloid</a
+            >
+          </li>
+          <li>🟠 Decorate with the cutest miniature vase</li>
+          <li>
+            🟠 You, too, can get a hippopotamus for Christmas, or whatever
+            holiday is next
+          </li>
+          <li>🟠 Top a wedding cake with a miniature model of a temple</li>
+          <li>
+            🟠 Prop up your phone with a nifty holder to free it from the morass
+            of chaos at your desk
+          </li>
+        </ul>
+      </div>
+      <img
+        src="/printing/3d_printer.jpg"
+        alt="3D Printer"
+        class="w-1/4 rounded border border-black"
+      />
+    </div>
+    <div
+      id="order-form"
+      class="flex flex-col space-y-4 w-1/2 mx-auto bg-teal-700 p-4 rounded mt-6"
+    >
+      <h2 class="text-white text-xl text-center">Contact Us</h2>
+      <form
+        class="flex flex-col space-y-4 mx-12 px-4"
+        @submit.prevent="submitForm"
+      >
+        <input
+          v-model="submission.name"
+          type="text"
+          class="text-black px-1 rounded leading-loose"
+          placeholder="your name"
+          required
+          max="100"
+          min="5"
+        />
+        <input
+          v-model="submission.email"
+          type="email"
+          class="text-black px-1 rounded leading-loose"
+          placeholder="your email"
+          required
+        />
+        <input
+          v-model="submission.phone"
+          type="tel"
+          class="text-black px-1 rounded leading-loose"
+          placeholder="your phone"
+          required
+        />
+        <input
+          v-model="submission.location"
+          type="tel"
+          class="text-black px-1 rounded leading-loose"
+          placeholder="your city and state"
+          required
+        />
+        <textarea
+          v-model="submission.notes"
+          type="tel"
+          class="text-black px-1 rounded leading-loose"
+          placeholder="your message - what object are you interested in, etc."
+          required
+        />
+        <button
+          type="submit"
+          class="w-full mx-auto rounded p-1 bg-black text-sm text-white text-center hover:bg-gray-700 md:text-base"
+          style="max-width: 160px"
+        >
+          Send
+        </button>
+        <p v-if="message" class="text-center text-sm text-white pt-1">
+          {{ message }}
+        </p>
+      </form>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  layout: 'printing',
+  data() {
+    return {
+      submission: {
+        name: '',
+        email: '',
+        phone: '',
+        notes: '',
+        location: '',
+      },
+      endpoint: process.env.mailUrl,
+      message: '',
+    }
+  },
+  methods: {
+    async submitForm() {
+      try {
+        const response = await this.$axios.post(this.endpoint, this.submission)
+        this.message = response.data.ok
+          ? 'Message sent successfully. Thomas will get back to you soon!'
+          : 'There was a problem sending your submission. Please try again later.'
+      } catch {
+        this.message =
+          'There was a problem sending your submission. Please try again later.'
+      }
+    },
+  },
+}
+</script>
