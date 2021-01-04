@@ -74,6 +74,8 @@
       <h2 class="text-white text-xl text-center">Contact Us</h2>
       <form
         class="flex flex-col space-y-4 md:mx-12 md:px-4"
+        enctype="multipart/form-data"
+        accept-charset="utf-8"
         @submit.prevent="submitForm"
       >
         <input
@@ -124,6 +126,18 @@
           placeholder="your message - what object are you interested in, etc."
           required
         />
+        <label for="upload"
+          >Please include the link to your image if you are interested in a
+          custom window:</label
+        >
+        <input
+          id="imgSrc"
+          v-model="submission.imgSrc"
+          type="url"
+          name="imgSrc"
+          class="text-black px-1 rounded leading-loose"
+          placeholder="your image's url"
+        />
         <button
           type="submit"
           class="w-full mx-auto rounded p-1 bg-black text-sm text-white text-center hover:bg-gray-700 md:text-base"
@@ -153,6 +167,7 @@ export default {
         phone: '',
         notes: '',
         location: '',
+        imgSrc: '',
       },
       userLocation: {
         lat: null,
