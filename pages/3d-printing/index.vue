@@ -66,6 +66,7 @@
         class="w-5/6 rounded border border-black md:w-1/4"
       />
     </div>
+    <images-section />
     <div
       id="order-form"
       class="flex flex-col space-y-4 w-11/12 mx-auto bg-teal-700 p-2 rounded mt-6 md:p-4 md:w-1/2"
@@ -141,6 +142,9 @@
 <script>
 export default {
   layout: 'printing',
+  components: {
+    ImagesSection: () => import('~/components/printing/ImagesSection'),
+  },
   data() {
     return {
       submission: {
