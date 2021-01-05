@@ -46,7 +46,9 @@
         class="text-black px-1 rounded leading-loose"
         placeholder="address line 2"
       />
-      <div class="flex space-x-2">
+      <div
+        class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0"
+      >
         <input
           name="city"
           type="text"
@@ -54,7 +56,7 @@
           placeholder="your city"
           required
         />
-        <select name="state" required class="text-black rounded py-1">
+        <select name="state" required class="text-black rounded py-1 w-1/4">
           <optgroup label="States">
             <option value="AL">AL</option>
             <option value="AK">AK</option>

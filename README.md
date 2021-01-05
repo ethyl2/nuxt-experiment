@@ -47,6 +47,7 @@ In order for all features of this site to work correctly, you need to set up you
 - MAIL_URL (Obtained from your formspree.io account)
 - LOCATION_APP_ID (Obtained from your developer.here.com account)
 - LOCATION_APP_CODE (Obtained from your developer.here.com account)
+- FORM_SUBMIT_URL (https://formsubmit.co/your@email.com, or once you make a submission, formsubmit will email you a random-like string to use instead of your email address. See https://formsubmit.co/ for more details.)
 
 ---
 
