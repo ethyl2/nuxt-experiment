@@ -46,14 +46,13 @@
       </p>
       <input
         v-model="submission.location"
-        type="tel"
+        type="text"
         class="text-black px-1 rounded leading-loose"
         placeholder="your city and state"
         required
       />
       <textarea
         v-model="submission.notes"
-        type="tel"
         class="text-black px-1 rounded leading-loose"
         placeholder="your message - what object are you interested in, etc."
         required

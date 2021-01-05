@@ -67,7 +67,7 @@
       />
     </div>
     <images-section />
-    <contact-form />
+    <contact-form-with-form-submit />
   </div>
 </template>
 
@@ -76,7 +76,8 @@ export default {
   layout: 'printing',
   components: {
     ImagesSection: () => import('~/components/printing/ImagesSection'),
-    ContactForm: () => import('~/components/printing/ContactForm'),
+    ContactFormWithFormSubmit: () =>
+      import('~/components/printing/ContactFormWithFormSubmit'),
   },
 }
 </script>
