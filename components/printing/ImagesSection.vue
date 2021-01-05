@@ -30,8 +30,8 @@ export default {
         { title: 'Oloid', url: '/oloid.jpg' },
         { title: 'Mount Timpanogos Temple', url: '/temple.jpg' },
         { title: 'Grabber', url: '/grabber.jpg' },
-        { title: 'Window (not backlit)', url: '/window.jpg' },
-        { title: 'Window (backlit)', url: '/window_lit.jpg' },
+        { title: 'Lithophane (not backlit)', url: '/window.jpg' },
+        { title: 'Lithophane (backlit)', url: '/window_lit.jpg' },
         { title: 'Hippo Head', url: '/hippo_head.jpg' },
       ],
     }
