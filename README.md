@@ -13,6 +13,7 @@ So far, it contains:
 - binary/text conversion
 - text/elements conversion
 - inspiration quotes page
+- landing page for my family's 3D printing shop
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 
