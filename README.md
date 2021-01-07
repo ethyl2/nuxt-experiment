@@ -12,7 +12,7 @@ So far, it contains:
 - drawing app that uses HTML Canvas with mouse and touch events; enables user to save their creations
 - binary/text conversion
 - text/elements conversion
-- inspiration quotes page
+- inspirational quotes page
 - landing page for my family's 3D printing shop
 
 Deployed at https://nuxt-experiments.herokuapp.com/
