@@ -12,6 +12,7 @@
       <nav class="flex flex-col text-lg space-y-4">
         <nuxt-link to="/canvas">Time to Draw</nuxt-link>
         <nuxt-link to="/songs">Find Songs</nuxt-link>
+        <nuxt-link to="/quotes">Become Inspired</nuxt-link>
       </nav>
     </div>
   </div>

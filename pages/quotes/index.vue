@@ -1,9 +1,10 @@
 <template>
-  <div class="m-20 flex flex-col items-center space-y-4 min-h-screen">
-    <h1 class="text-3xl">Inspirational Quotes</h1>
+  <div
+    class="m-10 flex flex-col items-center space-y-4 min-h-screen text-center md:m-20"
+  >
     <button
       type="button"
-      class="bg-teal-700 p-1 rounded hover:bg-teal-400"
+      class="text-xl bg-teal-700 py-1 px-2 rounded hover:bg-teal-400"
       @click="showQuote"
     >
       Get Inspiration
@@ -13,7 +14,7 @@
       class="flex flex-col items-center justify-center space-y-4"
     >
       <h2 class="text-xl">{{ currentQuote.text }}</h2>
-      <p v-if="currentQuote.author" class="self-end">
+      <p v-if="currentQuote.author" class="md:self-end">
         - {{ currentQuote.author }}
       </p>
       <img
@@ -57,9 +58,6 @@ export default {
       this.currentQuote = this.quotes[
         Math.floor(Math.random() * this.quotes.length - 1)
       ]
-      //   const currentImgOption = this.imgOptions[
-      //     Math.floor(Math.random() * this.imgOptions.length)
-      //   ]
       this.imgSrc = `https://picsum.photos${
         this.imgOptions[Math.floor(Math.random() * this.imgOptions.length)]
       }`
