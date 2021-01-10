@@ -8,7 +8,7 @@
       <p v-if="quote.author" class="md:self-end">- {{ quote.author }}</p>
     </div>
     <!-- Song Section -->
-    <div class="border-t w-full pt-6">
+    <div class="border-t w-full py-6">
       <h2 class="text-2xl font-bold mb-4">Tunes with Cats</h2>
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         <div
@@ -25,9 +25,13 @@
           />
         </div>
       </div>
-      <button type="button" @click.prevent="toggleSeeAllSongs">
+      <button type="button" class="mt-2" @click.prevent="toggleSeeAllSongs">
         {{ seeAllSongs ? 'See Less' : 'See All' }}
       </button>
+    </div>
+    <!-- Cat Clicker Section -->
+    <div class="mt-6 border-t w-full">
+      <cat-clicker />
     </div>
   </div>
 </template>
@@ -35,6 +39,9 @@
 <script>
 export default {
   name: 'Cats',
+  components: {
+    CatClicker: () => import('~/components/CatClicker'),
+  },
   data() {
     return {
       index: null,
@@ -59,14 +66,7 @@ export default {
   created() {
     this.index = Math.floor(Math.random() * this.quotes.length)
     this.quote = this.quotes[this.index]
-    const songIndices = []
-    while (songIndices.length < 3) {
-      const songIndex = Math.floor(Math.random() * this.songs.length)
-      if (!songIndices.includes(songIndex)) songIndices.push(songIndex)
-    }
-    songIndices.forEach((songIndex) => {
-      this.featuredSongs.push(this.songs[songIndex])
-    })
+    this.fetchThreeRandomSongs()
   },
   methods: {
     toggleSeeAllSongs() {
@@ -74,16 +74,19 @@ export default {
       if (this.seeAllSongs) {
         this.featuredSongs = this.songs
       } else {
-        this.featuredSongs = []
-        const songIndices = []
-        while (songIndices.length < 3) {
-          const songIndex = Math.floor(Math.random() * this.songs.length)
-          if (!songIndices.includes(songIndex)) songIndices.push(songIndex)
-        }
-        songIndices.forEach((songIndex) => {
-          this.featuredSongs.push(this.songs[songIndex])
-        })
+        this.fetchThreeRandomSongs()
       }
+    },
+    fetchThreeRandomSongs() {
+      this.featuredSongs = []
+      const songIndices = []
+      while (songIndices.length < 3) {
+        const songIndex = Math.floor(Math.random() * this.songs.length)
+        if (!songIndices.includes(songIndex)) songIndices.push(songIndex)
+      }
+      songIndices.forEach((songIndex) => {
+        this.featuredSongs.push(this.songs[songIndex])
+      })
     },
   },
 }

@@ -45,4 +45,15 @@ export default {
     locationAppCode: process.env.LOCATION_APP_CODE,
     formSubmitUrl: process.env.FORM_SUBMIT_URL,
   },
+
+  // Tailwind configuration
+  tailwindcss: {
+    config: {
+      variants: {
+        extend: {
+          backgroundColor: ['active'],
+        },
+      },
+    },
+  },
 }
