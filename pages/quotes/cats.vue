@@ -10,9 +10,9 @@
     <!-- Song Section -->
     <div class="border-t w-full pt-6">
       <h2 class="text-2xl font-bold mb-4">Tunes with Cats</h2>
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         <div
-          v-for="(song, songIndex) in songs"
+          v-for="(song, songIndex) in featuredSongs"
           :key="`song-${songIndex}`"
           class="bg-gray-700 bg-opacity-50 p-1 rounded"
         >
@@ -25,6 +25,9 @@
           />
         </div>
       </div>
+      <button type="button" @click.prevent="toggleSeeAllSongs">
+        {{ seeAllSongs ? 'See Less' : 'See All' }}
+      </button>
     </div>
   </div>
 </template>
@@ -36,6 +39,8 @@ export default {
     return {
       index: null,
       quote: null,
+      featuredSongs: [],
+      seeAllSongs: false,
     }
   },
   computed: {
@@ -54,6 +59,32 @@ export default {
   created() {
     this.index = Math.floor(Math.random() * this.quotes.length)
     this.quote = this.quotes[this.index]
+    const songIndices = []
+    while (songIndices.length < 3) {
+      const songIndex = Math.floor(Math.random() * this.songs.length)
+      if (!songIndices.includes(songIndex)) songIndices.push(songIndex)
+    }
+    songIndices.forEach((songIndex) => {
+      this.featuredSongs.push(this.songs[songIndex])
+    })
+  },
+  methods: {
+    toggleSeeAllSongs() {
+      this.seeAllSongs = !this.seeAllSongs
+      if (this.seeAllSongs) {
+        this.featuredSongs = this.songs
+      } else {
+        this.featuredSongs = []
+        const songIndices = []
+        while (songIndices.length < 3) {
+          const songIndex = Math.floor(Math.random() * this.songs.length)
+          if (!songIndices.includes(songIndex)) songIndices.push(songIndex)
+        }
+        songIndices.forEach((songIndex) => {
+          this.featuredSongs.push(this.songs[songIndex])
+        })
+      }
+    },
   },
 }
 </script>
