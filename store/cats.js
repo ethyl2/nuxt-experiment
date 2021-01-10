@@ -21,7 +21,7 @@ export const state = () => ({
     },
     {
       text:
-        'I have studied many philosophers and many cats. The wisdom of cats is infinitely superior.I have studied many philosophers and many cats. The wisdom of cats is infinitely superior.',
+        'I have studied many philosophers and many cats. The wisdom of cats is infinitely superior.',
       author: 'Hippolyte Taine',
     },
     {

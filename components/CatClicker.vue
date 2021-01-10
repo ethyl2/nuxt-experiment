@@ -17,7 +17,7 @@
       on your cat?
     </h2>
     <div v-if="!selectedName" class="flex flex-col space-y-2 mb-4">
-      <label for="name">Choose a Name for Your Cat</label>
+      <label for="name">First, Choose a Name for Your Cat</label>
       <select
         v-model="selectedName"
         class="text-black w-5/6 mx-auto rounded md:w-1/4"
@@ -44,7 +44,7 @@
       />
       <p>{{ selectedName }} says</p>
       <p>"{{ sound }}"</p>
-      <div class="rounded-full p-1 bg-black text-white w-12 mx-auto">
+      <div class="rounded-full p-1 my-1 bg-black text-white w-12 mx-auto">
         <span>{{ counter }}</span>
       </div>
       <p>{{ message }}</p>
