@@ -1,19 +1,21 @@
 <template>
-  <div class="py-6">
-    <h2 class="text-center text-xl font-bold mb-4">
-      Celebrate the Periodic Table!
+  <div class="py-1 md:py-6">
+    <h2 class="text-center text-lg font-bold mb-1 md:mb-4 md:text-xl">
+      {{ title }}
     </h2>
-    <div class="flex justify-center">
+    <div class="flex flex-col justify-center md:flex-row">
       <button
         type="button"
-        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
+        class="w-full mx-auto bg-black text-white rounded p-1 my-1 hover:bg-gray-700 text-xs md:text-base md:w-auto md:mx-2"
+        style="max-width: 160px"
         @click="playSong"
       >
         Play Song Snippet
       </button>
       <button
         type="button"
-        class="bg-black text-white rounded p-1 m-1 hover:bg-gray-700 text-xs md:text-base"
+        class="w-full mx-auto bg-black text-white rounded p-1 my-1 hover:bg-gray-700 text-xs md:text-base md:w-auto md:mx-2"
+        style="max-width: 160px"
         @click="stopSong"
       >
         Stop Song Snippet

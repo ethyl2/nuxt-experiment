@@ -132,8 +132,10 @@
     <word-examples />
 
     <!-- Play Periodic Table Song -->
-    <div class="mt-4 border-t">
-      <song-card />
+    <div class="mt-4 pt-4 border-t w-full">
+      <div class="mx-auto w-full md:w-1/2">
+        <song-card />
+      </div>
     </div>
   </div>
 </template>

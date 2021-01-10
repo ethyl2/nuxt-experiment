@@ -1,10 +1,10 @@
 <template>
   <section class="mx-auto">
-    <h3 class="text-xl font-bold text-center mb-1">
+    <h3 class="text-lg font-bold text-center mb-1 md:text-xl">
       Send me your favorite element word!
     </h3>
     <form
-      class="flex flex-row justify-center space-x-2"
+      class="flex flex-col justify-center space-y-2 md:space-x-2 md:flex-row md:space-y-0"
       @submit.prevent="submitForm"
     >
       <input
@@ -23,7 +23,8 @@
       />
       <button
         type="submit"
-        class="rounded p-1 bg-black text-xs text-white text-center hover:bg-gray-700 md:text-base"
+        class="w-full rounded p-1 mx-auto bg-black text-xs text-white text-center hover:bg-gray-700 md:text-base md:w-auto"
+        style="max-width: 120px"
       >
         Send
       </button>

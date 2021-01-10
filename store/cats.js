@@ -145,4 +145,26 @@ export const state = () => ({
       author: 'Eddie Izzard',
     },
   ],
+  songs: [
+    {
+      title: 'Here We Cats Are All Together',
+      trackUrl:
+        'https://music.apple.com/us/album/happy-birthday/30918057?i=30918047&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/Music/6c/8b/9c/mzm.xecxmira.aac.p.m4a',
+      imgUrl:
+        'https://is1-ssl.mzstatic.com/image/thumb/Music/v4/35/47/35/354735dc-288d-0ba8-4276-1d8b9f1d49d0/source/60x60bb.jpg',
+      imgAlt: 'Happy Birthday',
+    },
+    {
+      title: "There's a Cat Licking Your Birthday Cake",
+      trackUrl:
+        'https://music.apple.com/us/album/theres-a-cat-licking-your-birthday-cake/1014142123?i=1014142128&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/Music7/v4/07/85/bc/0785bc3d-ce78-e23b-55ff-272ad468276d/mzaf_5837098233580782602.plus.aac.p.m4a',
+      imgUrl:
+        'https://is4-ssl.mzstatic.com/image/thumb/Music7/v4/b0/59/ea/b059eac7-5fe1-17df-7c92-02ce3249d755/source/60x60bb.jpg',
+      imgAlt: "There's a Cat Licking Your Birthday Cake",
+    },
+  ],
 })
