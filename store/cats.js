@@ -328,7 +328,7 @@ export const state = () => ({
     },
   ],
   names: [
-    // http://www.huffingtonpost.com/richard-kronick/-punny-and-funny-cat-name_b_8661176.html
+    // https://www.huffpost.com/entry/-punny-and-funny-cat-name_b_8661176
     'Ali Cat',
     'Ali McClaw',
     'Angelicat',
