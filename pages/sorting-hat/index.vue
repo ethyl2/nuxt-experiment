@@ -53,11 +53,11 @@ export default {
         },
         { question: 'Dawn or Dusk?', options: ['Dawn', 'Dusk'] },
         {
-          question: 'Which kind of instrument most pleases your ear?',
+          question: 'Which kind of instrument most pleases my ear?',
           options: ['Violin', 'Trumpet', 'Piano', 'Drum'],
         },
         {
-          question: 'Which road tempts you the most?',
+          question: 'Which road tempts me the most?',
           options: [
             'The wide, sunny, grassy lane',
             'The narrow, dark, lantern-lit alley',
