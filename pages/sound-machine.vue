@@ -2,23 +2,75 @@
   <div class="min-h-screen m-4 text-center md:m-10">
     <h1 class="text-3xl pb-2">Sound Machine</h1>
     <div
-      class="grid grid-cols-3 w-full border border-black rounded p-2 mb-12 mx-auto md:w-1/2 md:grid-cols-4"
+      class="grid grid-cols-3 w-full border border-black rounded p-2 mb-8 mx-auto md:w-1/2 md:grid-cols-4"
     >
       <button
         v-for="sound in sounds"
         :key="sound.name"
-        class="border p-1 rounded m-2 text-sm hover:bg-teal-700 lg:p-2 lg:text-base"
-        :class="currentButton === sound.name ? 'bg-pink-600' : 'bg-teal-600'"
+        class="border p-1 rounded m-2 text-sm lg:p-2 lg:text-base"
+        :class="
+          currentButton === sound.name
+            ? 'bg-pink-600 hover:bg-pink-800'
+            : 'bg-teal-600 hover:bg-teal-800'
+        "
         type="button"
-        @click="play(sound.soundUrl)"
+        @click="play(sound)"
       >
         {{ sound.name }}
       </button>
     </div>
 
-    <button type="button" class="mb-12" @click="playAll">Play All</button>
+    <button
+      type="button"
+      class="mb-8 border p-1 rounded m-2 text-sm hover:bg-teal-900 lg:p-2 lg:text-base"
+      @click="togglePlayAll"
+    >
+      {{ !shouldPlayAll ? 'Play All' : 'Cancel Play All' }}
+    </button>
 
-    <h2 class="text-2xl pb-2">Sound Sources</h2>
+    <h2 class="text-2xl pb-2">Make a Sound Sentence</h2>
+    <p>Select which sounds you'd like to string together:</p>
+    <select v-model="selectedSound" name="sound-sentence" class="rounded m-2">
+      <option value="-" class="text-black" disabled>Choose a sound:</option>
+      <option
+        v-for="sound in sounds"
+        :key="sound.name"
+        :value="sound"
+        class="text-black"
+      >
+        {{ sound.name }}
+      </option>
+    </select>
+    <p class="text-xl text-yellow-400 mb-4">
+      <span
+        v-for="(sound, index) in soundSentence"
+        :key="sound.name"
+        :class="{
+          capitalize: index === 0,
+          'text-pink-600': currentButton === sound.name,
+        }"
+        >{{ sound.name }}{{ ' ' }}</span
+      >
+      <span v-if="soundSentence.length">.</span>
+    </p>
+    <button
+      v-if="soundSentence.length"
+      class="mb-8 border p-1 rounded m-2 text-sm hover:bg-teal-900 lg:p-2 lg:text-base"
+      type="button"
+      @click="playSentence"
+    >
+      Play Sentence
+    </button>
+    <button
+      v-if="soundSentence.length"
+      class="mb-8 border p-1 rounded m-2 text-sm hover:bg-teal-900 lg:p-2 lg:text-base"
+      type="button"
+      @click="clearSentence"
+    >
+      Clear Sentence
+    </button>
+
+    <h2 class="text-2xl py-2 border-t">Sound Sources</h2>
     <div class="text-center">
       <a
         v-for="(sound, index) in sounds"
@@ -39,6 +91,10 @@ export default {
   data() {
     return {
       currentButton: null,
+      timeouts: [],
+      shouldPlayAll: false,
+      selectedSound: null,
+      soundSentence: [],
       sounds: [
         {
           name: 'meow',
@@ -170,32 +226,79 @@ export default {
       audio: null,
     }
   },
+  watch: {
+    selectedSound(val) {
+      this.soundSentence.push(val)
+    },
+  },
   methods: {
-    play(soundUrl) {
+    play(sound) {
+      this.currentButton = sound.name
       if (this.audio) {
         this.audio.pause()
         this.audio.currentTime = 0
       }
-      this.audio = new Audio(soundUrl)
-
+      this.audio = new Audio(sound.soundUrl)
       this.audio.play()
-      setTimeout(() => console.log(this.audio.duration), 1000)
+      setTimeout(() => (this.currentButton = null), 1000)
     },
-    playAll() {
+    togglePlayAll() {
+      this.shouldPlayAll = !this.shouldPlayAll
+
+      if (this.shouldPlayAll) {
+        let time = 0
+        this.sounds.forEach((sound) => {
+          time += 800
+          this.timeouts.push(
+            setTimeout(() => {
+              if (this.audio) {
+                this.audio.pause()
+                this.audio.currentTime = 0
+              }
+              this.currentButton = sound.name
+              this.audio = new Audio(sound.soundUrl)
+              this.audio.play()
+            }, time)
+          )
+          setTimeout(() => {
+            this.currentButton = null
+            this.shouldPlayAll = false
+          }, 800 * (this.sounds.length + 1))
+        })
+      } else {
+        this.stopAll()
+      }
+    },
+    stopAll() {
+      this.timeouts.forEach((timeout) => clearTimeout(timeout))
+      this.currentButton = null
+    },
+    playSentence() {
       let time = 0
-      this.sounds.forEach((sound) => {
+      this.soundSentence.forEach((sound) => {
         time += 800
+        this.timeouts.push(
+          setTimeout(() => {
+            if (this.audio) {
+              this.audio.pause()
+              this.audio.currentTime = 0
+            }
+            this.currentButton = sound.name
+            this.audio = new Audio(sound.soundUrl)
+            this.audio.play()
+          }, time)
+        )
         setTimeout(() => {
-          if (this.audio) {
-            this.audio.pause()
-            this.audio.currentTime = 0
-          }
-          this.currentButton = sound.name
-          this.audio = new Audio(sound.soundUrl)
-          this.audio.play()
-        }, time)
-        setTimeout(() => (this.currentButton = null), time + 800)
+          this.currentButton = null
+        }, 800 * (this.soundSentence.length + 1))
       })
+    },
+    clearSentence() {
+      this.soundSentence = []
+      if (!this.shouldPlayAll) {
+        this.timeouts.forEach((timeout) => clearTimeout(timeout))
+        this.currentButton = null
+      }
     },
   },
 }
