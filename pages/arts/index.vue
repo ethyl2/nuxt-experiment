@@ -17,6 +17,7 @@
         <nuxt-link to="/quotes">Become Inspired</nuxt-link>
         <nuxt-link to="/quotes/cats">Celebrate Cats</nuxt-link>
         <nuxt-link to="/sorting-hat">Join a Hogwarts House</nuxt-link>
+        <nuxt-link to="/sound-machine">Make a Sound Sentence</nuxt-link>
       </nav>
     </div>
   </div>
