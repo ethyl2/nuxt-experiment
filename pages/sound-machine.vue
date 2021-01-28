@@ -7,13 +7,16 @@
       <button
         v-for="sound in sounds"
         :key="sound.name"
-        class="border p-1 rounded m-2 text-sm hover:bg-teal-600 lg:p-2 lg:text-base"
+        class="border p-1 rounded m-2 text-sm hover:bg-teal-700 lg:p-2 lg:text-base"
+        :class="currentButton === sound.name ? 'bg-pink-600' : 'bg-teal-600'"
         type="button"
         @click="play(sound.soundUrl)"
       >
         {{ sound.name }}
       </button>
     </div>
+
+    <button type="button" class="mb-12" @click="playAll">Play All</button>
 
     <h2 class="text-2xl pb-2">Sound Sources</h2>
     <div class="text-center">
@@ -35,6 +38,7 @@ export default {
   name: 'SoundMachine',
   data() {
     return {
+      currentButton: null,
       sounds: [
         {
           name: 'meow',
@@ -173,7 +177,25 @@ export default {
         this.audio.currentTime = 0
       }
       this.audio = new Audio(soundUrl)
+
       this.audio.play()
+      setTimeout(() => console.log(this.audio.duration), 1000)
+    },
+    playAll() {
+      let time = 0
+      this.sounds.forEach((sound) => {
+        time += 800
+        setTimeout(() => {
+          if (this.audio) {
+            this.audio.pause()
+            this.audio.currentTime = 0
+          }
+          this.currentButton = sound.name
+          this.audio = new Audio(sound.soundUrl)
+          this.audio.play()
+        }, time)
+        setTimeout(() => (this.currentButton = null), time + 800)
+      })
     },
   },
 }
