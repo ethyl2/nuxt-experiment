@@ -33,6 +33,11 @@
     <div class="mt-6 border-t w-full">
       <cat-clicker />
     </div>
+
+    <!-- Cat Sounds Section -->
+    <div class="mt-6 border-t w-full">
+      <cat-sounds />
+    </div>
   </div>
 </template>
 
@@ -40,7 +45,8 @@
 export default {
   name: 'Cats',
   components: {
-    CatClicker: () => import('~/components/CatClicker'),
+    CatClicker: () => import('~/components/cats/CatClicker'),
+    CatSounds: () => import('~/components/cats/CatSounds'),
   },
   data() {
     return {

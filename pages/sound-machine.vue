@@ -315,7 +315,7 @@ export default {
     playSentence() {
       let time = 0
       this.soundSentence.forEach((sound) => {
-        time += 800
+        time += 1000
         this.timeouts.push(
           setTimeout(() => {
             if (this.audio) {
@@ -329,7 +329,7 @@ export default {
         )
         setTimeout(() => {
           this.currentButton = null
-        }, 800 * (this.soundSentence.length + 1))
+        }, 1000 * (this.soundSentence.length + 1))
       })
     },
     clearSentence() {
