@@ -85,7 +85,7 @@
       <h2 class="text-lg py-2 border-t md:text-xl">Sound Sources</h2>
       <div class="text-center">
         <a
-          v-for="(sound, index) in sounds"
+          v-for="(sound, index) in orderedSounds"
           :key="sound.name"
           :href="sound.sourceUrl"
           target="_blank"

@@ -18,6 +18,21 @@
     >
       {{ sound.name }}
     </button>
+
+    <footer class="mt-2">
+      <h3 class="text-sm py-2 md:text-base">Sound Sources</h3>
+      <div class="text-center">
+        <a
+          v-for="(sound, index) in sounds"
+          :key="sound.name"
+          :href="sound.sourceUrl"
+          target="_blank"
+          class="text-xs md:text-sm"
+          >{{ sound.name }}
+          <span v-show="index !== sounds.length - 1"> | </span>
+        </a>
+      </div>
+    </footer>
   </div>
 </template>
 
