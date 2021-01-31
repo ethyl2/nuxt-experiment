@@ -88,6 +88,16 @@
       </div>
     </div>
 
+    <div class="flex justify-center align-center">
+      <button
+        type="button"
+        class="border rounded p-1 mx-auto hover:bg-gray-700"
+        @click="shuffleWords"
+      >
+        Shuffle Words
+      </button>
+    </div>
+
     <!-- Add Words Section -->
     <h2 id="add" class="text-lg text-center m-2 md:text-2xl">Add More Words</h2>
     <form
@@ -351,6 +361,11 @@ export default {
       this.items.push(newItem)
       this.newWord = ''
       this.listForNewWord = ''
+    },
+    shuffleWords() {
+      this.items.forEach(
+        (word) => (word.list = Math.floor(Math.random() * 4) + 1)
+      )
     },
   },
 }
