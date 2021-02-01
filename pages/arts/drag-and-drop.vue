@@ -249,6 +249,62 @@
         </form>
       </section>
     </div>
+
+    <!-- Definition Lookup Section -->
+    <section>
+      <h2 id="move" class="text-base text-center mt-3 mb-2 md:text-2xl">
+        Get Definition of Word
+      </h2>
+      <form
+        class="flex justify-center items-center mx-auto w-5/6 md:flex-row space-x-2"
+        @submit.prevent="getDefinition"
+      >
+        <select
+          v-model="wordToLookUp"
+          class="text-black p-1 rounded text-xs md:text-base md:p-2"
+          required
+        >
+          <option value="-" selected disabled class="text-xs md:text-base">
+            Pick a word:
+          </option>
+          <option
+            v-for="item in sortedItems"
+            :key="item.id"
+            :value="item.title"
+            class="text-xs md:text-base"
+          >
+            {{ item.title }}
+          </option>
+        </select>
+
+        <button
+          type="submit"
+          class="border rounded text-xs p-1 mx-1 hover:bg-gray-700 md:text-base"
+        >
+          Look Up
+        </button>
+      </form>
+      <div v-if="definitions.length" class="text-center pt-2">
+        <div
+          class="flex justify-center items-center mx-auto text-center space-x-1"
+        >
+          <button v-if="audioUrl.length" type="button" @click="playAudio">
+            🗨️
+          </button>
+          <h3 class="text-sm md:text-lg">{{ wordToLookUp }}</h3>
+        </div>
+        <ul>
+          <li
+            v-for="(definition, index) in definitions"
+            :key="`definition-${index}`"
+            class="text-xs md:text-base"
+          >
+            🟠 {{ definition }}
+          </li>
+        </ul>
+      </div>
+      <p v-if="errorMessage" class="text-center m-1">{{ errorMessage }}</p>
+    </section>
   </div>
 </template>
 
@@ -262,6 +318,12 @@ export default {
       wordToMove: '',
       listToMoveTo: '',
       wordToDelete: '',
+      wordToLookUp: '',
+      definitions: [],
+      lookUpIsPending: false,
+      errorMessage: '',
+      audioUrl: '',
+      audio: null,
       items: [
         {
           id: 0,
@@ -285,7 +347,7 @@ export default {
         },
         {
           id: 4,
-          title: 'Clogged',
+          title: 'Clog',
           list: 1,
         },
         {
@@ -334,26 +396,6 @@ export default {
           list: 2,
         },
         {
-          id: 13,
-          title: 'Defenestration',
-          list: 3,
-        },
-        {
-          id: 14,
-          title: 'Flibbertigibbet',
-          list: 4,
-        },
-        {
-          id: 15,
-          title: 'Kerfuffle',
-          list: 1,
-        },
-        {
-          id: 17,
-          title: 'Persnickety',
-          list: 2,
-        },
-        {
           id: 18,
           title: 'Serendipity',
           list: 3,
@@ -369,24 +411,9 @@ export default {
           list: 1,
         },
         {
-          id: 21,
-          title: 'Palimpsest',
-          list: 2,
-        },
-        {
-          id: 22,
-          title: 'Sesquipedalian',
-          list: 3,
-        },
-        {
           id: 23,
           title: 'Twinkle',
           list: 4,
-        },
-        {
-          id: 24,
-          title: 'Aquiver',
-          list: 1,
         },
         {
           id: 25,
@@ -399,21 +426,6 @@ export default {
           list: 3,
         },
         {
-          id: 27,
-          title: 'Somnambulist',
-          list: 4,
-        },
-        {
-          id: 29,
-          title: 'Limerence',
-          list: 1,
-        },
-        {
-          id: 30,
-          title: 'Bombinate',
-          list: 2,
-        },
-        {
           id: 31,
           title: 'Ethereal',
           list: 3,
@@ -422,11 +434,6 @@ export default {
           id: 28,
           title: 'Sonorous',
           list: 4,
-        },
-        {
-          id: 32,
-          title: 'Petrichor',
-          list: 1,
         },
         {
           id: 33,
@@ -507,6 +514,52 @@ export default {
         (item) => parseInt(item.id) !== parseInt(this.wordToDelete)
       )
       this.wordToDelete = ''
+    },
+    async getDefinition() {
+      this.audioUrl = ''
+      this.lookupIsPending = true
+      try {
+        const response = await fetch(
+          `https://dictionaryapi.com/api/v3/references/sd3/json/${this.wordToLookUp}?key=${process.env.dictionaryApiKey}`
+        )
+        const data = await response.json()
+
+        // Get pronunciation audio
+        const pronunciation = data[0]?.hwi?.prs
+        let sound = {}
+        let audioSlug = ''
+        if (pronunciation.length) {
+          sound = pronunciation[0].sound ? pronunciation[0].sound : {}
+          audioSlug = sound.audio ? sound.audio : ''
+        }
+        if (audioSlug.length) {
+          this.audioUrl = `https://media.merriam-webster.com/audio/prons/en/us/mp3/${this.wordToLookUp
+            .charAt(0)
+            .toLowerCase()}/${audioSlug}.mp3`
+        }
+
+        this.definitions = data[0].shortdef ? data[0].shortdef : []
+        if (!this.definitions.length) {
+          this.errorMessage = 'Sorry, no definition found'
+          this.wordToLookUp = ''
+        } else {
+          this.errorMessage = ''
+        }
+        this.lookupIsPending = false
+      } catch (error) {
+        this.errorMessage = 'Sorry, no definition found'
+        this.wordToLookUp = ''
+        this.lookupIsPending = false
+        this.definitions = []
+      }
+    },
+    playAudio() {
+      if (this.audio) {
+        this.audio.pause()
+        this.audio.currentTime = 0
+      }
+      this.audio = new Audio(this.audioUrl)
+      this.audio.play()
     },
   },
 }

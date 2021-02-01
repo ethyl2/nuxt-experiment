@@ -44,6 +44,7 @@ export default {
     locationAppId: process.env.LOCATION_APP_ID,
     locationAppCode: process.env.LOCATION_APP_CODE,
     formSubmitUrl: process.env.FORM_SUBMIT_URL,
+    dictionaryApiKey: process.env.DICTIONARY_API_KEY,
   },
 
   // Tailwind configuration
