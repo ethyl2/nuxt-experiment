@@ -1,18 +1,25 @@
 <template>
   <div class="m-2 md:m-10">
-    <h1 class="text-lg text-center text-bold md:text-3xl">
-      Words We Love Vs. Words We Hate
-    </h1>
-    <p class="hidden text-center text-base p-2 md:text-xl md:block">
-      Sort these words by dragging them to the columns that feel best to you.
-    </p>
-    <p class="text-center md:hidden">
-      <nuxt-link :to="{ path: '/arts/drag-and-drop', hash: '#add' }"
-        >Add</nuxt-link
-      >
-      to these word lists.
-    </p>
-    <div class="flex min-h-screen w-full">
+    <header class="mb-2">
+      <h1 class="text-lg text-center text-bold md:text-3xl">
+        Words We Love Vs. Words We Hate
+      </h1>
+      <p class="hidden text-center text-base p-2 md:text-xl md:block">
+        Sort these words by dragging them to the columns that feel best to you.
+      </p>
+      <p class="text-center text-sm md:hidden">
+        <nuxt-link :to="{ path: '/arts/drag-and-drop', hash: '#move' }"
+          >Move</nuxt-link
+        >
+        these words into the columns that feel best to you, and
+        <nuxt-link :to="{ path: '/arts/drag-and-drop', hash: '#add' }"
+          >add</nuxt-link
+        >
+        more words, too.
+      </p>
+    </header>
+
+    <main class="flex w-full">
       <div
         class="drop-zone rounded bg-red-500 pb-2 m-1 w-1/4 overflow-x-auto md:m-2"
         @drop="onDrop($event, 1)"
@@ -86,49 +93,162 @@
           {{ item.title }}
         </div>
       </div>
-    </div>
+    </main>
 
-    <div class="flex justify-center align-center">
-      <button
-        type="button"
-        class="border rounded p-1 mx-auto hover:bg-gray-700"
-        @click="shuffleWords"
-      >
-        Shuffle Words
-      </button>
-    </div>
-
-    <!-- Add Words Section -->
-    <h2 id="add" class="text-lg text-center m-2 md:text-2xl">Add More Words</h2>
-    <form
-      class="flex flex-col justify-center items-center space-y-2 mx-auto w-5/6 md:flex-row md:space-x-2 md:space-y-0"
-      @submit.prevent="addWord"
-    >
-      <input
-        v-model="newWord"
-        type="text"
-        class="text-black p-2 rounded"
-        placeholder="your word"
-        required
-      />
-      <div>
-        <select
-          v-model="listForNewWord"
-          class="text-black p-2 rounded"
-          required
+    <!-- Shuffle Section -->
+    <section>
+      <div class="flex justify-center align-center m-2">
+        <button
+          type="button"
+          class="border rounded text-xs p-1 mx-auto hover:bg-gray-700 md:text-base"
+          @click="shuffleWords"
         >
-          <option value="-" selected disabled hidden>Choose a list:</option>
-          <option value="1">Hate list</option>
-          <option value="2">Indifferent list</option>
-          <option value="3">Like list</option>
-          <option value="4">Love list</option>
-          <option value="random">Random</option>
-        </select>
-        <button type="submit" class="border rounded p-1 mx-1 hover:bg-gray-700">
-          Add
+          Shuffle Words
         </button>
       </div>
-    </form>
+    </section>
+
+    <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center">
+      <!-- Move Words Section -->
+      <section>
+        <h2 id="move" class="text-base text-center mt-3 mb-2 md:text-2xl">
+          Move Word
+        </h2>
+        <form
+          class="flex flex-col justify-center items-center space-y-2 mx-auto w-5/6 md:flex-row md:space-x-2 md:space-y-0"
+          @submit.prevent="moveWord"
+        >
+          <div class="flex justify-center items-center space-x-2">
+            <select
+              v-model="wordToMove"
+              class="text-black p-1 rounded text-xs md:text-base md:p-2"
+              required
+            >
+              <option value="-" selected disabled class="text-xs md:text-base">
+                Pick a word:
+              </option>
+              <option
+                v-for="item in sortedItems"
+                :key="item.id"
+                :value="item.id"
+                class="text-xs md:text-base"
+              >
+                {{ item.title }}
+              </option>
+            </select>
+
+            <select
+              v-model="listToMoveTo"
+              class="text-black p-1 rounded text-xs md:text-base md:p-2"
+              required
+            >
+              <option value="-" selected disabled class="text-xs md:text-base">
+                Choose a list:
+              </option>
+              <option value="1" class="text-xs md:text-base">Hate list</option>
+              <option value="2" class="text-xs md:text-base">
+                Indifferent list
+              </option>
+              <option value="3" class="text-xs md:text-base">Like list</option>
+              <option value="4" class="text-xs md:text-base">Love list</option>
+              <option value="random" class="text-xs md:text-base">
+                Random
+              </option>
+            </select>
+            <button
+              type="submit"
+              class="border rounded p-1 mx-1 text-xs md:text-base hover:bg-gray-700"
+            >
+              Move
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Delete Words Section -->
+      <section>
+        <h2 id="move" class="text-base text-center mt-3 mb-2 md:text-2xl">
+          Delete Word
+        </h2>
+        <form
+          class="flex justify-center items-center mx-auto w-5/6 md:flex-row space-x-2"
+          @submit.prevent="deleteWord"
+        >
+          <select
+            v-model="wordToDelete"
+            class="text-black p-1 rounded text-xs md:text-base md:p-2"
+            required
+          >
+            <option value="-" selected disabled class="text-xs md:text-base">
+              Pick a word:
+            </option>
+            <option
+              v-for="item in sortedItems"
+              :key="item.id"
+              :value="item.id"
+              class="text-xs md:text-base"
+            >
+              {{ item.title }}
+            </option>
+          </select>
+
+          <button
+            type="submit"
+            class="border rounded text-xs p-1 mx-1 hover:bg-gray-700 md:text-base"
+          >
+            Delete
+          </button>
+        </form>
+      </section>
+
+      <!-- Add Words Section -->
+      <section>
+        <h2 id="add" class="text-base text-center mt-3 mb-2 md:text-2xl">
+          Add More Words
+        </h2>
+        <form
+          class="flex justify-center items-center mx-auto w-5/6 space-x-2"
+          @submit.prevent="addWord"
+        >
+          <input
+            v-model="newWord"
+            type="text"
+            class="text-black p-1 rounded text-xs md:text-base md:p-2"
+            placeholder="your word"
+            required
+          />
+
+          <select
+            v-model="listForNewWord"
+            class="text-black p-1 rounded text-xs md:text-base md:p-2"
+            required
+          >
+            <option
+              value="-"
+              selected
+              disabled
+              hidden
+              class="text-xs md:text-base"
+            >
+              Choose a list:
+            </option>
+            <option value="1" class="text-xs md:text-base">Hate list</option>
+            <option value="2" class="text-xs md:text-base">
+              Indifferent list
+            </option>
+            <option value="3" class="text-xs md:text-base">Like list</option>
+            <option value="4" class="text-xs md:text-base">Love list</option>
+            <option value="random" class="text-xs md:text-base">Random</option>
+          </select>
+          <button
+            type="submit"
+            class="border rounded mx-1 p-1 text-xs hover:bg-gray-700 md:text-base"
+          >
+            Add
+          </button>
+        </form>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -139,6 +259,9 @@ export default {
     return {
       newWord: '',
       listForNewWord: '-',
+      wordToMove: '',
+      listToMoveTo: '',
+      wordToDelete: '',
       items: [
         {
           id: 0,
@@ -336,6 +459,9 @@ export default {
     listFour() {
       return this.items.filter((item) => item.list === 4)
     },
+    sortedItems() {
+      return [...this.items].sort((a, b) => (a.title > b.title ? 1 : -1))
+    },
   },
   methods: {
     startDrag: (evt, item) => {
@@ -357,7 +483,8 @@ export default {
         this.listForNewWord === 'random'
           ? Math.floor(Math.random() * 4) + 1
           : parseInt(this.listForNewWord)
-      newItem.title = this.newWord
+      newItem.title =
+        this.newWord.charAt(0).toUpperCase() + this.newWord.substring(1)
       this.items.push(newItem)
       this.newWord = ''
       this.listForNewWord = ''
@@ -366,6 +493,20 @@ export default {
       this.items.forEach(
         (word) => (word.list = Math.floor(Math.random() * 4) + 1)
       )
+    },
+    moveWord() {
+      const itemToMove = this.items.find(
+        (item) => parseInt(item.id) === parseInt(this.wordToMove)
+      )
+      itemToMove.list = parseInt(this.listToMoveTo)
+      this.wordToMove = ''
+      this.listToMoveTo = ''
+    },
+    deleteWord() {
+      this.items = this.items.filter(
+        (item) => parseInt(item.id) !== parseInt(this.wordToDelete)
+      )
+      this.wordToDelete = ''
     },
   },
 }
