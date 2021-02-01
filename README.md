@@ -14,6 +14,8 @@ So far, it contains:
 - text/elements conversion
 - inspirational quotes page
 - landing page for my family's 3D printing shop
+- sound machine and sound sentence maker
+- word/feelings association explorer
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 
@@ -48,6 +50,7 @@ In order for all features of this site to work correctly, you need to set up you
 - LOCATION_APP_ID (Obtained from your developer.here.com account)
 - LOCATION_APP_CODE (Obtained from your developer.here.com account)
 - FORM_SUBMIT_URL (https://formsubmit.co/your@email.com, or once you make a submission, formsubmit will email you a random-like string to use instead of your email address. See https://formsubmit.co/ for more details.)
+- DICTIONARY_API_KEY (Obtaining by making a free account at https://dictionaryapi.com/)
 
 ---
 
@@ -98,6 +101,7 @@ In order for all features of this site to work correctly, you need to set up you
 ### Vue.js
 
 - Getting window size (Note: use `mounted()` instead of `created()`): https://codepen.io/sethdavis512/pen/EvNKWw
+- Adding drap and drop functionality to a Vue app, without importing a package: https://learnvue.co/2020/01/how-to-add-drag-and-drop-to-your-vuejs-project/
 
 ### Nuxt
 
