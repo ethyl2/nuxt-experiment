@@ -284,14 +284,20 @@
           Look Up
         </button>
       </form>
-      <div v-if="definitions.length" class="text-center pt-2">
+      <div v-if="lookUpIsPending" class="flex justify-center items-center py-2">
+        <loading-spinner />
+      </div>
+      <div
+        v-if="definitions.length && !lookUpIsPending"
+        class="text-center pt-2"
+      >
         <div
           class="flex justify-center items-center mx-auto text-center space-x-1"
         >
           <button v-if="audioUrl.length" type="button" @click="playAudio">
             🗨️
           </button>
-          <h3 class="text-sm md:text-lg">{{ wordToLookUp }}</h3>
+          <h3 class="text-sm md:text-lg">{{ definitionTitle }}</h3>
         </div>
         <ul>
           <li
@@ -311,14 +317,18 @@
 <script>
 export default {
   name: 'DragAndDrop',
+  components: {
+    LoadingSpinner: () => import('~/components/LoadingSpinner'),
+  },
   data() {
     return {
       newWord: '',
       listForNewWord: '-',
-      wordToMove: '',
-      listToMoveTo: '',
-      wordToDelete: '',
-      wordToLookUp: '',
+      wordToMove: '-',
+      listToMoveTo: '-',
+      wordToDelete: '-',
+      wordToLookUp: '-',
+      definitionTitle: '',
       definitions: [],
       lookUpIsPending: false,
       errorMessage: '',
@@ -517,7 +527,7 @@ export default {
     },
     async getDefinition() {
       this.audioUrl = ''
-      this.lookupIsPending = true
+      this.lookUpIsPending = true
       try {
         const response = await fetch(
           `https://dictionaryapi.com/api/v3/references/sd3/json/${this.wordToLookUp}?key=${process.env.dictionaryApiKey}`
@@ -542,15 +552,18 @@ export default {
         if (!this.definitions.length) {
           this.errorMessage = 'Sorry, no definition found'
           this.wordToLookUp = ''
+          this.definitionTitle = ''
         } else {
           this.errorMessage = ''
+          this.definitionTitle = this.wordToLookUp
         }
-        this.lookupIsPending = false
+        this.lookUpIsPending = false
       } catch (error) {
         this.errorMessage = 'Sorry, no definition found'
         this.wordToLookUp = ''
-        this.lookupIsPending = false
+        this.lookUpIsPending = false
         this.definitions = []
+        this.definitionTitle = ''
       }
     },
     playAudio() {
