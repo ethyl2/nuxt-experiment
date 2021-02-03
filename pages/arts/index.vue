@@ -21,6 +21,7 @@
         <nuxt-link to="/arts/drag-and-drop"
           >Explore Your Feelings About Words</nuxt-link
         >
+        <nuxt-link to="/arts/drag-and-drop2">Play with Stickers</nuxt-link>
       </nav>
     </div>
   </div>
