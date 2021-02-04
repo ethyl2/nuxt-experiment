@@ -102,6 +102,7 @@ In order for all features of this site to work correctly, you need to set up you
 
 - Getting window size (Note: use `mounted()` instead of `created()`): https://codepen.io/sethdavis512/pen/EvNKWw
 - Adding drap and drop functionality to a Vue app, without importing a package: https://learnvue.co/2020/01/how-to-add-drag-and-drop-to-your-vuejs-project/
+- Another approach to drag and drop: https://programmer.ink/think/the-mobile-end-of-vue-realizes-the-drag-and-drop-of-div.html
 
 ### Nuxt
 
