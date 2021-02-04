@@ -186,6 +186,16 @@ export default {
       yPum: '',
     }
   },
+  mounted() {
+    // Prevent page from sliding default events
+    document.addEventListener(
+      'touchmove',
+      function () {
+        event.preventDefault()
+      },
+      false
+    )
+  },
 
   methods: {
     // Mobile drag
@@ -217,14 +227,6 @@ export default {
         this.yPum = this.dy + this.ny
         this.$refs[element].style.left = this.xPum + 'px'
         this.$refs[element].style.top = this.yPum + 'px'
-        // Prevent page from sliding default events
-        document.addEventListener(
-          'touchmove',
-          function () {
-            event.preventDefault()
-          },
-          false
-        )
       }
     },
     // Function when mouse is released
