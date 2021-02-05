@@ -15,7 +15,9 @@ So far, it contains:
 - inspirational quotes page
 - landing page for my family's 3D printing shop
 - sound machine and sound sentence maker
-- word/feelings association explorer
+- word/feelings association explorer (drag and drop example/ uses dictionary API)
+- sticker book (drag and drop example)
+- STEM women (smooth scroll example)
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 
