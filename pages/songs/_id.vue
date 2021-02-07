@@ -33,6 +33,15 @@
       :alt="song.title"
       class="w-1/4 pt-4"
     />
+    <div v-if="song.audioUrl" class="bg-teal-800 rounded mt-6 px-2">
+      <song-card
+        :title="song.title"
+        :img-url="song.imgUrl"
+        :track-url="song.trackUrl"
+        :audio-url="song.audioUrl"
+        :img-alt="song.imgAlt"
+      />
+    </div>
     <aside>
       <h2 class="text-xl mt-6 mb-2">Other Songs You Might Enjoy</h2>
       <ul>
@@ -48,6 +57,9 @@
 
 <script>
 export default {
+  components: {
+    SongCard: () => import('~/components/SongCard'),
+  },
   data() {
     return {
       id: this.$route.params.id,

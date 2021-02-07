@@ -88,6 +88,13 @@ export const state = () => ({
         `(repeat forever)`,
       ],
       image_url: 'song.png',
+      trackUrl:
+        'https://music.apple.com/us/album/i-know-a-song-that-gets-on-everybodys-nerves/164297244?i=164298787&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/Music/15/70/08/mzm.zeijtdnd.aac.p.m4a',
+      imgUrl:
+        'https://is2-ssl.mzstatic.com/image/thumb/Music/v4/4f/3d/5b/4f3d5b86-9a9c-e1aa-bbbe-23e8bc894835/source/60x60bb.jpg',
+      imgAlt: "I Know a Song (that Gets On Everybody's Nerves)",
     },
     {
       id: 'nut',
@@ -213,6 +220,13 @@ export const state = () => ({
         'SQUISH!',
       ],
       image_url: 'peanut.png',
+      trackUrl:
+        'https://music.apple.com/us/album/a-peanut-sat-on-a-railroad-track/159968756?i=159970980&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/Music2/v4/d0/7b/b7/d07bb74e-ab1d-191e-f7f1-43248cca4c0c/mzaf_6214625921108165165.plus.aac.p.m4a',
+      imgUrl:
+        'https://is5-ssl.mzstatic.com/image/thumb/Music/v4/84/b4/47/84b447fc-aacb-8c73-7759-6e765728f22d/source/60x60bb.jpg',
+      imgAlt: 'A Peanut Sat on a Railroad Track',
     },
     {
       id: 'crazy',
@@ -227,6 +241,13 @@ export const state = () => ({
         '(Repeat faster and faster.)',
       ],
       image_url: 'crazedSnowman.gif',
+      trackUrl:
+        'https://music.apple.com/us/album/i-am-slowly-going-crazy/160713511?i=160713990&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview113/v4/03/35/27/03352753-20b8-7590-3118-cb11f5f35b49/mzaf_15888322020356927670.plus.aac.p.m4a',
+      imgUrl:
+        'https://is2-ssl.mzstatic.com/image/thumb/Music/v4/a5/4c/be/a54cbe7e-0ef9-b0b2-fe08-27ea32c1ae5f/source/60x60bb.jpg',
+      imgAlt: 'I Am Slowly Going Crazy',
     },
     {
       id: 'fruit',
