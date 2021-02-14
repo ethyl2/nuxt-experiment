@@ -153,6 +153,13 @@ export const state = () => ({
           `Nuts to you, and that's no joke.`,
         ],
       ],
+      trackUrl:
+        'https://music.apple.com/us/album/im-a-nut/159968756?i=159972000&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/Music/v4/7f/9c/0f/7f9c0fe8-5b10-2c61-de50-bd8f65400d1b/mzaf_6599867611979875755.plus.aac.p.m4a',
+      imgUrl:
+        'https://is5-ssl.mzstatic.com/image/thumb/Music/v4/84/b4/47/84b447fc-aacb-8c73-7759-6e765728f22d/source/60x60bb.jpg',
+      imgAlt: "I'm a Nut",
     },
     {
       id: 'reindeer',
