@@ -173,6 +173,7 @@ export default {
   },
   mounted() {
     this.ctx = this.$refs.myCanvas.getContext('2d')
+    this.ctx.lineWidth = 2
   },
   methods: {
     breakdown() {
