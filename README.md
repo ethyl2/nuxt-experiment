@@ -18,6 +18,7 @@ So far, it contains:
 - word/feelings association explorer (drag and drop example/ uses dictionary API)
 - sticker book (drag and drop example)
 - STEM women (smooth scroll example)
+- Cistercian monk numerals creator (uses canvas)
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 
