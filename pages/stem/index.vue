@@ -18,6 +18,9 @@
         >
         <nuxt-link to="/3d-printing">3D Printing Shop</nuxt-link>
         <nuxt-link to="/stem/stem-women">STEM Women</nuxt-link>
+        <nuxt-link to="/stem/cistercian-monk-numerals"
+          >Creating Cistercian Monk Numerals</nuxt-link
+        >
       </nav>
     </div>
   </div>

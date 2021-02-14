@@ -104,6 +104,16 @@
       class="bg-white rounded"
     ></canvas>
 
+    <a
+      v-if="step === 6"
+      ref="buttonForDownload"
+      download="cistercian-monk-numeral.png"
+      href=""
+      class="border text-white bg-teal-700 p-1 m-2 rounded hover:bg-teal-600"
+      @click="downloadImage"
+      >Download Image</a
+    >
+
     <button type="button" @click="clearAll">Clear</button>
 
     <a
@@ -382,6 +392,13 @@ export default {
     clearAll() {
       this.handleInputChange()
       this.numberInput = null
+    },
+    downloadImage() {
+      const c = this.$refs.myCanvas
+      const button = this.$refs.buttonForDownload
+      // get image URI from canvas object
+      const imageUri = c.toDataURL('image/png')
+      button.href = imageUri
     },
   },
 }
