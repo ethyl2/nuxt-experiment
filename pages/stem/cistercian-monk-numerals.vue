@@ -1,63 +1,134 @@
 <template>
   <div class="container flex flex-col space-y-2">
     <h1 class="text-lg md:text-xl">Cistercian Monk Numerals</h1>
-    <form @submit.prevent="breakdown">
-      <input
-        v-model="numberInput"
-        class="text-black"
-        type="number"
-        min="0"
-        max="9999"
-        required
-      />
-      <button type="submit">Breakdown Number</button>
-    </form>
-    <p v-if="numberInput">{{ numberInput }}</p>
-    <p v-if="numberBreakdown.thousands">
-      Thousands: {{ numberBreakdown.thousands }}
+    <h2>
+      In the 13th century, Cistercian monks invented a nifty system to write any
+      number from 0-9999 using a single symbol.
+    </h2>
+    <h3>Let's convert an Arabic number into a Cistercian one!</h3>
+    <p v-if="!hasBreakdown">
+      First, let's break down your number into ones, tens, hundreds, and
+      thousands.
     </p>
-    <p v-if="numberBreakdown.hundreds">
-      Hundreds: {{ numberBreakdown.hundreds }}
-    </p>
-    <p v-if="numberBreakdown.tens">Tens: {{ numberBreakdown.tens }}</p>
-    <p v-if="numberBreakdown.ones">Ones: {{ numberBreakdown.ones }}</p>
-    <button type="button" @click="clearAll">Clear</button>
+    <div class="flex justify-between items-stretch">
+      <form
+        class="flex flex-col items-center justify-center"
+        @submit.prevent="breakdown"
+      >
+        <label for="numberInput">Your number:</label>
+        <input
+          id="numberInput"
+          v-model="numberInput"
+          name="numberInput"
+          class="text-black rounded text-lg pl-2"
+          type="number"
+          min="0"
+          max="9999"
+          required
+          @input="handleInputChange"
+        />
+        <button
+          v-if="!hasBreakdown"
+          type="submit"
+          class="border bg-teal-700 p-1 m-2 rounded hover:bg-teal-600"
+        >
+          Breakdown
+        </button>
+      </form>
+      <div v-if="hasBreakdown" class="border rounded m-2 p-2">
+        <p v-if="numberBreakdown.thousands">
+          Thousands: {{ numberBreakdown.thousands }}
+        </p>
+        <p v-if="numberBreakdown.hundreds">
+          Hundreds: {{ numberBreakdown.hundreds }}
+        </p>
+        <p v-if="numberBreakdown.tens">Tens: {{ numberBreakdown.tens }}</p>
+        <p v-if="numberBreakdown.ones">Ones: {{ numberBreakdown.ones }}</p>
+      </div>
+    </div>
+
+    <button
+      v-if="step === 1"
+      type="button"
+      class="border bg-teal-700 p-1 m-2 rounded hover:bg-teal-600"
+      @click="drawZero"
+    >
+      Click to draw zero
+    </button>
+
+    <button
+      v-if="step === 2"
+      type="button"
+      class="border bg-teal-700 p-1 m-2 rounded hover:bg-teal-600"
+      @click="drawOnes"
+    >
+      Click to draw digit in the ones' position: {{ numberBreakdown.ones }}
+    </button>
+
+    <button
+      v-if="step === 3"
+      type="button"
+      class="border bg-teal-700 p-1 m-2 rounded hover:bg-teal-600"
+      @click="drawTens"
+    >
+      Click to draw the digit in the tens' position: {{ numberBreakdown.tens }}
+    </button>
+
+    <button
+      v-if="step === 4"
+      type="button"
+      class="border bg-teal-700 p-1 m-2 rounded hover:bg-teal-600"
+      @click="drawHundreds"
+    >
+      Click to draw the digit in the hundreds' position:
+      {{ numberBreakdown.hundreds }}
+    </button>
+
+    <button
+      v-if="step === 5"
+      type="button"
+      class="border bg-teal-700 p-1 m-2 rounded hover:bg-teal-600"
+      @click="drawThousands"
+    >
+      Click to draw the digit in the thousands' position:
+      {{ numberBreakdown.thousands }}
+    </button>
+
+    <p v-if="step === 6">All finished!</p>
 
     <canvas
       id="myCanvas"
       ref="myCanvas"
       width="100"
       height="125"
-      class="bg-white"
+      class="bg-white rounded"
     ></canvas>
-    <button
-      v-if="
-        numberBreakdown.ones ||
-        numberBreakdown.tens ||
-        numberBreakdown.hundreds ||
-        numberBreakdown.thousands
-      "
-      type="button"
-      @click="drawZero"
+
+    <button type="button" @click="clearAll">Clear</button>
+
+    <a
+      href="https://www.zmescience.com/science/cirstercian-numbers-90432432/"
+      target="_blank"
     >
-      Start by drawing zero
-    </button>
-    <button v-if="numberBreakdown.ones" type="button" @click="drawOnes">
-      Draw digit in the ones position: {{ numberBreakdown.ones }}
-    </button>
-    <button v-if="numberBreakdown.tens" type="button" @click="drawTens">
-      Draw the digit in the tens position: {{ numberBreakdown.tens }}
-    </button>
-    <button v-if="numberBreakdown.hundreds" type="button" @click="drawHundreds">
-      Draw the digit in the hundreds position: {{ numberBreakdown.hundreds }}
-    </button>
-    <button
-      v-if="numberBreakdown.thousands"
-      type="button"
-      @click="drawThousands"
+      <img
+        src="/cistercian_numbers.jpg"
+        alt="Cistercian numbers"
+        class="mx-auto w-2/3"
+      />
+    </a>
+    <a
+      href="https://www.zmescience.com/science/cirstercian-numbers-90432432/"
+      target="_blank"
+      >image source</a
     >
-      Draw the digit in the thousands position: {{ numberBreakdown.thousands }}
-    </button>
+    <a
+      href="https://www.zmescience.com/science/cirstercian-numbers-90432432/"
+      target="_blank"
+      >More about Cistercian numerals</a
+    >
+    <a href="https://www.dcode.fr/cistercian-numbers" target="_blank"
+      >Another converter</a
+    >
   </div>
 </template>
 
@@ -77,7 +148,18 @@ export default {
       mainX: 50,
       topY: 25,
       bottomY: 100,
+      step: 0,
     }
+  },
+  computed: {
+    hasBreakdown() {
+      return (
+        this.numberBreakdown.ones !== null ||
+        this.numberBreakdown.tens !== null ||
+        this.numberBreakdown.hundreds !== null ||
+        this.numberBreakdown.thousands !== null
+      )
+    },
   },
   mounted() {
     this.ctx = this.$refs.myCanvas.getContext('2d')
@@ -104,6 +186,7 @@ export default {
         num %= 10
       }
       this.numberBreakdown.ones = num
+      this.step = 1
     },
     drawZero() {
       if (this.numberBreakdown) {
@@ -111,6 +194,15 @@ export default {
         this.ctx.moveTo(this.mainX, this.topY)
         this.ctx.lineTo(this.mainX, this.bottomY)
         this.ctx.stroke()
+        if (this.numberBreakdown.ones) {
+          this.step = 2
+        } else if (this.numberBreakdown.tens) {
+          this.step = 3
+        } else if (this.numberBreakdown.hundreds) {
+          this.step = 4
+        } else {
+          this.step = 5
+        }
       }
     },
     drawOnes() {
@@ -146,6 +238,16 @@ export default {
           this.ctx.lineTo(this.mainX + 25, this.topY + 25)
         }
         this.ctx.stroke()
+
+        if (this.numberBreakdown.tens) {
+          this.step = 3
+        } else if (this.numberBreakdown.hundreds) {
+          this.step = 4
+        } else if (this.numberBreakdown.thousands) {
+          this.step = 5
+        } else {
+          this.step = 6
+        }
       }
     },
     drawTens() {
@@ -181,6 +283,14 @@ export default {
           this.ctx.lineTo(this.mainX - 25, this.topY + 25)
         }
         this.ctx.stroke()
+
+        if (this.numberBreakdown.hundreds) {
+          this.step = 4
+        } else if (this.numberBreakdown.thousands) {
+          this.step = 5
+        } else {
+          this.step = 6
+        }
       }
     },
     drawHundreds() {
@@ -216,6 +326,11 @@ export default {
           this.ctx.lineTo(this.mainX + 25, this.bottomY - 25)
         }
         this.ctx.stroke()
+        if (this.numberBreakdown.thousands) {
+          this.step = 5
+        } else {
+          this.step = 6
+        }
       }
     },
     drawThousands() {
@@ -251,17 +366,22 @@ export default {
           this.ctx.lineTo(this.mainX - 25, this.bottomY - 25)
         }
         this.ctx.stroke()
+        this.step = 6
       }
     },
-    clearAll() {
+    handleInputChange() {
       this.numberBreakdown = {
         thousands: null,
         hundreds: null,
         tens: null,
         ones: null,
       }
-      this.numberInput = null
       this.ctx.clearRect(0, 0, 100, 125)
+      this.step = 0
+    },
+    clearAll() {
+      this.handleInputChange()
+      this.numberInput = null
     },
   },
 }
