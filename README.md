@@ -19,6 +19,7 @@ So far, it contains:
 - sticker book (drag and drop example)
 - STEM women (smooth scroll example)
 - Cistercian monk numerals creator (uses canvas)
+- Variable name creator with different case styles
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 

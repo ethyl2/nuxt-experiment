@@ -22,7 +22,7 @@
           >Creating Cistercian Monk Numerals</nuxt-link
         >
         <nuxt-link to="/stem/case-styles"
-          >Creating Variables in Case Styles</nuxt-link
+          >Creating Variable Names in Case Styles</nuxt-link
         >
       </nav>
     </div>
