@@ -21,6 +21,9 @@
         <nuxt-link to="/stem/cistercian-monk-numerals"
           >Creating Cistercian Monk Numerals</nuxt-link
         >
+        <nuxt-link to="/stem/case-styles"
+          >Creating Variables in Case Styles</nuxt-link
+        >
       </nav>
     </div>
   </div>
