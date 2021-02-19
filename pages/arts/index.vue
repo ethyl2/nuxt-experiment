@@ -22,6 +22,7 @@
           >Explore Your Feelings About Words</nuxt-link
         >
         <nuxt-link to="/arts/drag-and-drop2">Play with Stickers</nuxt-link>
+        <nuxt-link to="/arts/color-picker">Explore Color Names</nuxt-link>
       </nav>
     </div>
   </div>

@@ -27,7 +27,7 @@
       </button>
     </form>
     <p v-if="nameColor" class="py-2">{{ nameColor }}</p>
-    <form v-if="needsName" @submit.prevent="addPill">
+    <form v-if="needsName" class="py-2 rounded" @submit.prevent="addPill">
       <input v-model="newName" type="text" class="text-black" />
     </form>
     <div
@@ -43,7 +43,7 @@
       <div
         v-for="color in colorNames"
         :key="color[0]"
-        class="py-1 px-2 rounded-full m-2 hover:text-black"
+        class="py-1 px-2 rounded-full m-2 cursor-pointer hover:text-black"
         :style="boxStyle(color[0])"
         @click="changeColor(color)"
       >
