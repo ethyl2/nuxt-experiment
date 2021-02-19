@@ -27,6 +27,9 @@
       </button>
     </form>
     <p v-if="nameColor" class="py-2">{{ nameColor }}</p>
+    <form v-if="needsName" @submit.prevent="addPill">
+      <input v-model="newName" type="text" class="text-black" />
+    </form>
     <div
       v-if="hexColor"
       class="flex justify-center items-center w-20 h-20 rounded mx-auto text-xl mb-2"
@@ -57,11 +60,18 @@ export default {
     return {
       nameColor: '',
       hexColor: '',
+      needsName: false,
+      newName: '',
     }
   },
   computed: {
-    colorNames() {
-      return this.$store.state.colors.colorNames
+    colorNames: {
+      get() {
+        return [...this.$store.state.colors.colorNames]
+      },
+      set(newValue) {
+        return newValue
+      },
     },
     backgroundStyles() {
       return {
@@ -79,6 +89,7 @@ export default {
         this.nameColor = colorName[1]
       } else {
         this.nameColor = `Sorry, no name found for ${this.hexColor}. What would you call it?`
+        this.needsName = true
       }
     },
     boxStyle(hexColor) {
@@ -89,6 +100,14 @@ export default {
     changeColor(color) {
       this.hexColor = `#${color[0]}`
       this.nameColor = color[1]
+    },
+    addPill() {
+      this.colorNames = [
+        ...this.colorNames,
+        [this.hexColor.slice(1), this.newName],
+      ]
+      this.needsName = false
+      this.nameColor = this.newName
     },
   },
 }
