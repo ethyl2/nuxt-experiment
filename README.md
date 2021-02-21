@@ -19,7 +19,8 @@ So far, it contains:
 - sticker book (drag and drop example)
 - STEM women (smooth scroll example)
 - Cistercian monk numerals creator (uses canvas)
-- Variable name creator with different case styles
+- variable name creator with different case styles
+- color picker and namer page
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 
@@ -73,6 +74,8 @@ In order for all features of this site to work correctly, you need to set up you
 - Data for periodic table elements: https://github.com/andrejewski/periodic-table/blob/master/data.json
 
 - Mountains API: https://api.nuxtjs.dev/
+
+- Name that Color: https://chir.ag/projects/ntc/
 
 ### Canvas
 
