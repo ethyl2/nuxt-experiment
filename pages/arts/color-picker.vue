@@ -15,20 +15,37 @@
           minlength="7"
           maxlength="7"
           class="text-black text-lg rounded p-1"
+          @input="handleInputChange"
         />
         <input
           v-model="hexColor"
           class="rounded h-10 w-10 ml-2 outline-none"
           type="color"
+          @input="handleInputChange"
         />
       </div>
-      <button type="submit" class="p-1 border bg-black text-white rounded my-2">
+      <button
+        v-if="!nameColor && hexColor"
+        type="submit"
+        class="p-1 border bg-black text-white rounded my-2"
+      >
         Does it have a name?
       </button>
     </form>
     <p v-if="nameColor" class="py-2">{{ nameColor }}</p>
     <form v-if="needsName" class="py-2 rounded" @submit.prevent="addPill">
-      <input v-model="newName" type="text" class="text-black" />
+      <input
+        v-model="newName"
+        type="text"
+        class="text-black text-lg rounded p-1"
+      />
+      <button
+        v-if="newName && needsName"
+        type="submit"
+        class="p-1 border bg-black text-white rounded my-2"
+      >
+        Submit Name
+      </button>
     </form>
     <div
       v-if="hexColor"
@@ -62,16 +79,12 @@ export default {
       hexColor: '',
       needsName: false,
       newName: '',
+      newColors: [],
     }
   },
   computed: {
-    colorNames: {
-      get() {
-        return [...this.$store.state.colors.colorNames]
-      },
-      set(newValue) {
-        return newValue
-      },
+    colorNames() {
+      return this.newColors.concat(this.$store.state.colors.colorNames)
     },
     backgroundStyles() {
       return {
@@ -102,12 +115,12 @@ export default {
       this.nameColor = color[1]
     },
     addPill() {
-      this.colorNames = [
-        ...this.colorNames,
-        [this.hexColor.slice(1), this.newName],
-      ]
+      this.newColors.push([this.hexColor.slice(1), this.newName])
       this.needsName = false
       this.nameColor = this.newName
+    },
+    handleInputChange() {
+      this.nameColor = ''
     },
   },
 }
