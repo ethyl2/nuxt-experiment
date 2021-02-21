@@ -2,9 +2,10 @@
   <div
     class="flex flex-col items-center justify-center text-center mx-4 md:mx-10"
   >
-    <h1 class="text-2xl mb-4">Color Picker</h1>
+    <h1 class="text-2xl mb-4">Like a Virtual Giant Box of Crayons</h1>
     <p class="mb-2">
-      Either click on the small box, enter a hex code, or click on a pill.
+      Pick a color! Either click on the small box to select a color, enter a hex
+      code, click the button to get a random color, or click on a pill.
     </p>
     <form class="flex flex-col" @submit.prevent="getColorName">
       <div class="flex flex-col justify-around items-center md:flex-row">
@@ -28,6 +29,13 @@
         <button
           type="button"
           class="ml-2 p-1 bg-black text-white rounded my-2 hover:bg-gray-800"
+          @click="getRandomColor"
+        >
+          Get a random color
+        </button>
+        <button
+          type="button"
+          class="ml-2 p-1 bg-black text-white rounded my-2 hover:bg-gray-800"
           @click="selectText"
         >
           Copy hex to clipboard
@@ -43,7 +51,7 @@
     </form>
     <div
       v-if="hexColor"
-      class="flex justify-center items-center rounded mx-auto text-xl p-2 m-2"
+      class="flex justify-center items-center rounded mx-auto text-xl p-2 m-2 hover:text-black"
       :style="backgroundStyles"
     >
       {{ nameColor && !needsName ? nameColor : 'Name me, please!' }}
@@ -63,6 +71,8 @@
         Submit Name
       </button>
     </form>
+
+    <!-- Canvas Section -->
     <p v-if="nameColor && !needsName" class="hidden md:block">
       Try out {{ nameColor }} below:
     </p>
@@ -95,6 +105,7 @@
       </button>
     </div>
 
+    <!-- Color Pill Section -->
     <h2 class="text-lg md:mt-4">Color Pills</h2>
     <div class="flex justify-center items-center flex-wrap">
       <div
@@ -225,6 +236,11 @@ export default {
       const input = this.$refs.hexInput
       input.select()
       document.execCommand('copy')
+    },
+    getRandomColor() {
+      const randomIndex = Math.floor(Math.random() * this.colorNames.length)
+      this.hexColor = '#' + this.colorNames[randomIndex][0]
+      this.nameColor = this.colorNames[randomIndex][1]
     },
   },
 }
