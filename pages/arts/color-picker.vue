@@ -7,7 +7,7 @@
       Either click on the small box, enter a hex code, or click on a pill.
     </p>
     <form class="flex flex-col" @submit.prevent="getColorName">
-      <div class="flex justify-around items-center">
+      <div class="flex flex-col justify-around items-center md:flex-row">
         <div class="flex justify-center items-stretch">
           <input
             v-model="hexColor"
