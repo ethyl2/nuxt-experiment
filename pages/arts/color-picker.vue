@@ -7,21 +7,31 @@
       Either click on the small box, enter a hex code, or click on a pill.
     </p>
     <form class="flex flex-col" @submit.prevent="getColorName">
-      <div class="flex justify-center items-stretch">
-        <input
-          v-model="hexColor"
-          class="rounded-l h-10 w-10 outline-none"
-          type="color"
-          @input="handleInputChange"
-        />
-        <input
-          v-model="hexColor"
-          type="text"
-          minlength="6"
-          maxlength="7"
-          class="text-black text-lg rounded-r p-1"
-          @input="handleInputChange"
-        />
+      <div class="flex justify-around items-center">
+        <div class="flex justify-center items-stretch">
+          <input
+            v-model="hexColor"
+            class="rounded-l h-10 w-10 outline-none"
+            type="color"
+            @input="handleInputChange"
+          />
+          <input
+            ref="hexInput"
+            v-model="hexColor"
+            type="text"
+            minlength="6"
+            maxlength="7"
+            class="text-black text-lg rounded-r p-1"
+            @input="handleInputChange"
+          />
+        </div>
+        <button
+          type="button"
+          class="ml-2 p-1 bg-black text-white rounded my-2 hover:bg-gray-800"
+          @click="selectText"
+        >
+          Copy hex to clipboard
+        </button>
       </div>
       <button
         v-if="!nameColor && hexColor"
@@ -31,7 +41,6 @@
         Check to see if it has a name
       </button>
     </form>
-    <p v-if="needsName && nameColor" class="py-2">{{ nameColor }}</p>
     <div
       v-if="hexColor"
       class="flex justify-center items-center rounded mx-auto text-xl p-2 m-2"
@@ -39,6 +48,7 @@
     >
       {{ nameColor && !needsName ? nameColor : 'Name me, please!' }}
     </div>
+    <p v-if="needsName && nameColor" class="py-2">{{ nameColor }}</p>
     <form v-if="needsName" class="py-2 rounded" @submit.prevent="addPill">
       <input
         v-model="newName"
@@ -210,6 +220,11 @@ export default {
       // get image URI from canvas object
       const imageUri = c.toDataURL('image/png')
       button.href = imageUri
+    },
+    selectText() {
+      const input = this.$refs.hexInput
+      input.select()
+      document.execCommand('copy')
     },
   },
 }
