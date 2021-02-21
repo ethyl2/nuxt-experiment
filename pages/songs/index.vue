@@ -13,6 +13,17 @@
       >
     </nav>
     <img src="/campfire.png" alt="campfire" class="w-1/4 pt-4" />
+    <h3 class="text-lg my-4">
+      More songs that tickle my funny bone from Spotify
+    </h3>
+    <iframe
+      src="https://open.spotify.com/embed/playlist/0YCESpzXAbPcrTLZAFC9AE"
+      width="300"
+      height="380"
+      frameborder="0"
+      allowtransparency="true"
+      allow="encrypted-media"
+    ></iframe>
   </div>
 </template>
 
