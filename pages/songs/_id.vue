@@ -42,6 +42,11 @@
         :img-alt="song.imgAlt"
       />
     </div>
+
+    <a v-if="song.sheetMusicUrl" :href="song.sheetMusicUrl" target="_blank"
+      >See Sheet Music</a
+    >
+
     <aside>
       <h2 class="text-xl mt-6 mb-2">Other Songs You Might Enjoy</h2>
       <ul>

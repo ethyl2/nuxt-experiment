@@ -270,5 +270,25 @@ export const state = () => ({
       ],
       image_url: 'banana.png',
     },
+    {
+      id: 'apples',
+      url: '',
+      title: 'I Like to Eat',
+      chorus: [
+        'I like to eat, eat, eat apples and bananas!',
+        'I like to eat, eat, eat apples and bananas!',
+        '(Repeat, each time substituting all the vowels for either a, e, i, o, or u.)',
+      ],
+      image_url: 'banana.png',
+      trackUrl:
+        'https://music.apple.com/us/album/apples-and-bananas/1444030671?i=1444031237&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview128/v4/a2/36/f6/a236f64a-4b4f-78c4-46ea-bfb6af9fbbb0/mzaf_876116674561703318.plus.aac.p.m4a',
+      imgUrl:
+        'https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/c1/7b/48/c17b4887-5af4-d921-fa73-69fcc2964a87/source/60x60bb.jpg',
+      imgAlt: 'Apples and Bananas',
+      sheetMusicUrl:
+        'https://itsybitsykidsmusic.com/index.php/portfolio/i-like-to-eat-apples-and-bananas-sheet-music-with-chords-and-lyrics/',
+    },
   ],
 })
