@@ -141,12 +141,6 @@ export const state = () => ({
           `If I have a chance with me.`,
         ],
         [
-          `Coca-Cola went to town,`,
-          `Pepsi-Cola shot him down.`,
-          `Dr. Pepper fixed him up,`,
-          `Now we all drink 7-Up.`,
-        ],
-        [
           `I'm so nutty, I don't know`,
           `Why the squirrels love me so.`,
           `I'm descended from an oak.`,
@@ -289,6 +283,113 @@ export const state = () => ({
       imgAlt: 'Apples and Bananas',
       sheetMusicUrl:
         'https://itsybitsykidsmusic.com/index.php/portfolio/i-like-to-eat-apples-and-bananas-sheet-music-with-chords-and-lyrics/',
+    },
+    {
+      id: 'tin',
+      url: 'https://kcls.org/content/im-a-little-pile-of-tin/',
+      title: "I'm a Little Pile of Tin",
+      chorus: [
+        'Honk-honk, rattle, rattle, rattle,',
+        'Crash, beep, beep.',
+        'Honk-honk, rattle, rattle, rattle,',
+        'Crash, beep, beep.',
+        'Honk-honk, rattle, rattle, rattle,',
+        'Crash, beep, beep,',
+        'Honk-honk.',
+      ],
+      verses: [
+        [
+          'I’m a little pile of tin.',
+          'Nobody knows what shape I’m in.',
+          'Got four wheels and a running board,',
+          'I’m a four-door; I’m a Ford.',
+        ],
+        [
+          "Grandpa's beard is long and grey.",
+          'It gets longer every day.',
+          'Grandma eats it in her sleep;',
+          'Says it tastes like shredded wheat.',
+        ],
+        [
+          'Romeo and Juliet,',
+          'On a balcony they met.',
+          '“Scram you guys, I’ve got a date.',
+          'Shakespeare’s comin’ in a Ford V-8!”',
+        ],
+        [
+          'Humpty Dumpty on a wall,',
+          'Humpty Dumpty had a fall.',
+          'He got up and then he said',
+          '“I think I should go to bed!”',
+        ],
+        [
+          'Superman flies through the air,',
+          'Floats around without a care',
+          'Looking for his Lois Lane -',
+          'Is it a bird, or is it a plane?',
+        ],
+        [
+          'Pepsi-Cola came to town.',
+          'Coca-Cola shot him down.',
+          'Dr. Pepper fixed him up.',
+          'Now we all drink Seven-Up.',
+        ],
+        [
+          'Watch out for the jumping deer,',
+          "While you're drinking your root beer.",
+          'If you get inside this car,',
+          "You never know if you'll go far!",
+        ],
+        [
+          'Somehow root beer lost its taste,',
+          'Now I want to find toothpaste.',
+          'But the toothpaste makes me choke,',
+          "Now I'm back to drinking coke!",
+        ],
+        [
+          'I’m a little pile of tin,',
+          'Held together with a bobby pin.',
+          'My 4 wheels are low, low, low,',
+          'But step on the gas, ad I go, go, go!',
+        ],
+        [
+          'Got no bottom; got no top.',
+          'Throw out the anchor when you want to stop.',
+          'Got no windows; got no brakes.',
+          "All I've got are small earthquakes.",
+        ],
+        [
+          'Henry Ford was a grand old man.',
+          'Took four wheels and an old tin can.',
+          'Put ‘em together and the darn thing ran!',
+          'Henry Ford was a grand old man.',
+        ],
+      ],
+      image_url: 'song_images/car.png',
+      trackUrl:
+        'https://music.apple.com/us/album/a-pile-of-tin/263723153?i=263723667&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/Music/0d/34/09/mzm.qdecemic.aac.p.m4a',
+      imgUrl:
+        'https://is2-ssl.mzstatic.com/image/thumb/Music/v4/e0/d7/2c/e0d72c84-c93d-f5ec-6d77-956de3cf53f9/source/60x60bb.jpg',
+      imgAlt: 'A Pile of Tin',
+    },
+    {
+      id: 'coneheads',
+      url:
+        'https://campfireseattle.org/wp-content/uploads/2015/06/Songbook.pdf',
+      title: 'Little Spaceship',
+      chorus: [
+        'Little spaceship in the sky.',
+        'Inside spaceship, conehead guy',
+        'Saw a little astronaut floating by.',
+        'Knocking at the door.',
+        '“HELP ME! HELP ME! HELP!” he said.',
+        '“BEFORE THAT ASTEROID HITS MY HEAD!”',
+        '“Come little astronaut, come with me.',
+        'Coneheads we will be.”',
+      ],
+      image_url: 'song_images/spaceship.png',
     },
   ],
 })
