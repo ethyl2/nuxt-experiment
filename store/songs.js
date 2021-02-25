@@ -220,6 +220,14 @@ export const state = () => ({
         'Toot! Toot! Peanut butter!',
         'SQUISH!',
       ],
+      verses: [
+        [
+          `A cow was walking on the railroad track.`,
+          `The train was coming fast.`,
+          `The train got off the railroad track`,
+          `To let the cow go past.`,
+        ],
+      ],
       image_url: 'peanut.png',
       trackUrl:
         'https://music.apple.com/us/album/a-peanut-sat-on-a-railroad-track/159968756?i=159970980&uo=4',
@@ -390,6 +398,250 @@ export const state = () => ({
         'Coneheads we will be.”',
       ],
       image_url: 'song_images/spaceship.png',
+    },
+    {
+      id: 'soap',
+      url: 'http://dragon.sleepdeprived.ca/songbook/songs5/S5_28.htm',
+      title: 'Oh I Wish I Were a Little Bar of Soap',
+      tune: "If You're Happy and You Know It",
+      image_url: 'song_images/soap.png',
+      verses: [
+        [
+          `Oh I wish I were a little bar of soap.`,
+          `Oh I wish I were a little bar of soap.`,
+          `Oh I'd slippy and I'd slidey over everybody's hidy`,
+          `Oh I wish I were a little bar of soap.`,
+        ],
+
+        [
+          `Oh I wish I were a little mosquito.`,
+          `Oh I wish I were a little mosquito.`,
+          `Oh I'd bitey and I'd bitey under everybody's nightie.`,
+          `Oh I wish I were a little mosquito.`,
+        ],
+        [
+          `Oh I wish I were a little bitty orange.`,
+          `Oh I wish I were a little bitty orange.`,
+          `Oh I'd go squirty squirty squirty over everybody's shirty.`,
+          `Oh I wish I were a little bitty orange.`,
+        ],
+        [
+          `Oh I wish I were a little bottle of pop.`,
+          `Oh I wish I were a little bottle of pop.`,
+          `Oh I'd go down with a slurp and come up with a burp.`,
+          `Oh I wish I were a little bottle of pop.`,
+        ],
+        [
+          `Oh I wish I were a little hunk of mud.`,
+          `Oh I wish I were a little hunk of mud.`,
+          `Oh I'd ooey and I'd gooey under everybody's shoey.`,
+          `Oh I wish I were a little hunk of mud.`,
+        ],
+        [
+          `Oh I wish I were a little striped skunk.`,
+          `Oh I wish I were a little striped skunk.`,
+          `Oh I'd sit beneath the trees and perfume all the breeze.`,
+          `Oh I wish I were a little striped skunk.`,
+        ],
+        [
+          `Oh I wish I were a fishy in the sea.`,
+          `Oh I wish I were a fishy in the sea.`,
+          `Oh I'd swim nudey nudey nudey without my bathing suity.`,
+          `Oh I wish I were a fishy in the sea.`,
+        ],
+        [
+          `Oh I wish I were a little foreign car.`,
+          `Oh I wish I were a little foreign car.`,
+          `Oh I'd go beepy beepy beepy down everybody's streety.`,
+          `Oh I wish I were a little foreign car.`,
+        ],
+        [
+          `Oh I wish I were a little safety pin.`,
+          `Oh I wish I were a little safety pin.`,
+          `And everything that's busted, I would hold until I rusted.`,
+          `Oh I wish I were a little safety pin.`,
+        ],
+        [
+          `Oh I wish I were a little kangaroo.`,
+          `Oh I wish I were a little kangaroo.`,
+          `Oh, I'd hippy and I'd hoppy inside my mommy's pockie.`,
+          `Oh I wish I were a little kangaroo.`,
+        ],
+        [
+          `Oh I wish a were a little water bed.`,
+          `Oh I wish a were a little water bed.`,
+          `Oh, I'd wobble and I'd wiggle and make the sleepers giggle.`,
+          `Oh I wish a were a little water bed.`,
+        ],
+        [
+          `Oh I wish I were a little green pea.`,
+          `Oh I wish I were a little green pea.`,
+          `I'd go skatey skatey skatey over everybody's platey.`,
+          `Oh I wish I were a little green pea.`,
+        ],
+        [
+          `Oh I wish I were a little band-aid strip.`,
+          `Oh I wish I were a little band-aid strip.`,
+          `Oh I'd stick to your hairs and pull them out in pairs.`,
+          `Oh I wish I were a little band-aid strip.`,
+        ],
+        [
+          `Oh I wish I were a creepy scary ghost.`,
+          `Oh I wish I were a creepy scary ghost.`,
+          `Oh I'd give you such a scare that you'd lose your underwear.`,
+          `Oh I wish I were a creepy scary ghost.`,
+        ],
+      ],
+      trackUrl:
+        'https://music.apple.com/us/album/i-wish-i-were-a-little-bar-of-soap/159968756?i=159971940&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/Music2/v4/42/19/d1/4219d10c-743d-ba8b-d889-1b5bfb4d285d/mzaf_5598039087868577670.plus.aac.p.m4a',
+      imgUrl:
+        'https://is5-ssl.mzstatic.com/image/thumb/Music/v4/84/b4/47/84b447fc-aacb-8c73-7759-6e765728f22d/source/60x60bb.jpg',
+      imgAlt: 'I Wish I Were a Little Bar of Soap',
+    },
+    {
+      id: 'rain',
+      url:
+        'https://boyscouttrail.com/content/song/it_aint_gonna_rain_no_more-446.asp',
+      title: "It Ain't Gonna Rain No More",
+      image_url: 'song_images/no_rain.png',
+      chorus: [
+        "Oh, it ain't gonna rain no more, no more.",
+        "It ain't gonna rain no more.",
+        'How in the heck can I wash around my neck,',
+        "If it ain't gonna rain no more?",
+      ],
+      verses: [
+        [
+          `My father built a chimney.`,
+          `He built it up so high`,
+          `He had to take it down each night`,
+          `To let the moon go by.`,
+        ],
+        [
+          `Mary had a little lamb.`,
+          `She kept it in a closet.`,
+          `And every time she took it out,`,
+          `It left a small deposit.`,
+        ],
+        [
+          `Some people say that fleas are black.`,
+          `But I know that ain't so.`,
+          `'Cuz Mary had a little lamb,`,
+          `Whose fleece was white as snow.`,
+        ],
+        [
+          `My uncle was a chemist.`,
+          `A chemist he is no more.`,
+          `For what he thought was H-2-O`,
+          `Was H-2-S-O-4.`,
+        ],
+        [
+          `I never saw a purple cow.`,
+          `I never hope to see one.`,
+          `But I can tell you anyhow`,
+          `I'd rather see than be one.`,
+        ],
+        [
+          `I never saw a chocolate cow.`,
+          `I never hope to see one.`,
+          `But judging by the milk we get`,
+          `There certainly must be one.`,
+        ],
+        [
+          `We had a goat down on our farm.`,
+          `It ate up old tin cans.`,
+          `When those little goats were born,`,
+          `They came in Ford sedans.`,
+        ],
+        [
+          `Black and white animal in the woods.`,
+          `Ain't that little cat pretty!?`,
+          `Went right over to pick it up.`,
+          `It wasn't that kind of a kitty.`,
+        ],
+        [
+          `Made a garden on my roof.`,
+          `Weeded every day!`,
+          `Prayed for rain but when it came,`,
+          `It washed my roof away.`,
+        ],
+        [
+          "Oh, it ain't gonna rain no more, no more.",
+          "It ain't gonna rain no more.",
+          'How in the dickens can I wash my chickens,',
+          "If it ain't gonna rain no more?",
+        ],
+      ],
+      sheetMusicUrl:
+        'https://www.musicedmagic.com/docman/free-sheet-music/free-camp-fire-songs-and-lyrics/oh-it-ain-t-gonna-rain-no-more/1742-oh-it-ain-t-gonna-rain-no-more-pdf-version/file',
+      trackUrl:
+        'https://music.apple.com/us/album/it-aint-gonna-rain-no-more/204505800?i=204505823&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/Music/13/ad/f5/mzm.oifjqirz.aac.p.m4a',
+      imgUrl:
+        'https://is1-ssl.mzstatic.com/image/thumb/Music/v4/7b/b8/83/7bb8835d-fb5a-640a-fa36-52eb05d94807/source/60x60bb.jpg',
+      imgAlt: "It Ain't Gonna Rain No More",
+    },
+    {
+      id: 'window',
+      url: 'https://www.bethsnotesplus.com/2012/10/threw-it-out-window.html',
+      title: 'She Threw it Out the Window',
+      image_url: 'song_images/window.png',
+      verses: [
+        [
+          `Little Miss Muffet sat on a tuffet, eating her curds and whey.`,
+          `Along came a spider and sat down beside her,`,
+          `So she threw it out the window, the window, the second story window.`,
+          `Along came a spider and sat down beside her,`,
+          `So she threw it out the window!`,
+        ],
+        [
+          `Old Mother Hubbard went to the cupboard, to fetch her poor dog a bone.`,
+          `And when she got there, her cupboard was bare,`,
+          `So she threw it out the window, the window, the second story window.`,
+          `And when she got there, her cupboard was bare,`,
+          `So she threw it out the window!`,
+        ],
+        [
+          `Mary had a little lamb, whose fleece was white as snow`,
+          `And everywhere that Mary went,`,
+          `She threw it out the window, the window, the second story window.`,
+          `And everywhere that Mary went,`,
+          `She threw it out the window!`,
+        ],
+        [
+          `Old King Cole was a merry old soul, and a merry old soul was he.`,
+          `He called for his pipe and he called for his bowl,`,
+          `And he threw them out the window, the window, the second story window.`,
+          `He called for his pipe and he called for his bowl,`,
+          `And he threw them out the window!`,
+        ],
+        [
+          `Little Jack Horner sat in a corner, eating his Christmas pie.`,
+          `He put in his thumb and pulled out a plum,`,
+          `And he threw it out the window, the window, the second story window.`,
+          `He put in his thumb and pulled out a plum,`,
+          `And he threw it out the window!`,
+        ],
+        [
+          `Jack and Jill went up the hill to fetch a pail of water,`,
+          `Jack fell down and broke his crown,`,
+          `And threw it out the window, the window, the second story window.`,
+          `Jack fell down and broke his crown,`,
+          `And threw it out the window!`,
+        ],
+      ],
+      sheetMusicUrl:
+        'https://www.bethsnotesplus.com/2012/10/threw-it-out-window.html',
+      trackUrl:
+        'https://music.apple.com/us/album/threw-it-out-the-window/263380780?i=263381005&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/Music/35/72/f2/mzm.beuiguqh.aac.p.m4a',
+      imgUrl:
+        'https://is4-ssl.mzstatic.com/image/thumb/Music/v4/6c/23/ae/6c23ae44-60e9-34e0-99a9-a1fc5ad73962/source/60x60bb.jpg',
+      imgAlt: 'Threw It Out the Window',
     },
   ],
 })
