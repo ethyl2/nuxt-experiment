@@ -643,5 +643,64 @@ export const state = () => ({
         'https://is4-ssl.mzstatic.com/image/thumb/Music/v4/6c/23/ae/6c23ae44-60e9-34e0-99a9-a1fc5ad73962/source/60x60bb.jpg',
       imgAlt: 'Threw It Out the Window',
     },
+    {
+      id: 'farm',
+      url:
+        'https://www.bethsnotesplus.com/2020/11/hinky-dinky-double-d-farm.html',
+      title: 'Hinky Dinky Double D Farm',
+      chorus: [
+        'Mine eyes are dim;',
+        'I cannot see.',
+        'I have...,',
+        'Not...',
+        'Brought my specs with me.',
+      ],
+      verses: [
+        [
+          `Oh it's beans, beans, beans that make you feel so mean`,
+          'On the farm, on the farm.',
+          `Oh it's beans, beans, beans that make you feel so mean`,
+          'On the Hinky Dinky Double D Farm.',
+        ],
+        [
+          `Oh it's corn, corn, corn that makes you feel forlorn`,
+          'On the farm, on the farm.',
+          `Oh it's corn, corn, corn that makes you feel forlorn`,
+          'On the Hinky Dinky Double D Farm.',
+        ],
+        [
+          `Oh it's meat, meat, meat that knocks you off your feet`,
+          'On the farm, on the farm.',
+          `Oh it's meat, meat, meat that knocks you off your feet`,
+          'On the Hinky Dinky Double D Farm.',
+        ],
+        [
+          `Oh it's pie, pie, pie that makes you want to cry`,
+          'On the farm, on the farm.',
+          `Oh it's pie, pie, pie that makes you want to cry`,
+          'On the Hinky Dinky Double D Farm.',
+        ],
+        [
+          `Oh it's soup, soup, soup that makes you want to droop`,
+          'On the farm, on the farm.',
+          `Oh it's soup, soup, soup that makes you want to droop`,
+          'On the Hinky Dinky Double D Farm.',
+        ],
+        [
+          `Oh it's peas, peas, peas that make you want to sneeze`,
+          'On the farm, on the farm.',
+          `Oh it's peas, peas, peas that make you want to sneeze`,
+          'On the Hinky Dinky Double D Farm.',
+        ],
+      ],
+      image_url: 'pie.png',
+      trackUrl:
+        'https://music.apple.com/us/album/hinky-dinky-double-d-farm/440036986?i=440037133&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/Music/90/d6/e5/mzm.gzzgniqe.aac.p.m4a',
+      imgUrl:
+        'https://is2-ssl.mzstatic.com/image/thumb/Music/v4/10/dc/67/10dc67a5-18e7-f8b3-6791-0e79705d86f3/source/60x60bb.jpg',
+      imgAlt: 'Hinky Dinky Double D Farm',
+    },
   ],
 })

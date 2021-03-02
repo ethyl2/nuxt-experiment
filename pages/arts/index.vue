@@ -23,6 +23,7 @@
         >
         <nuxt-link to="/arts/drag-and-drop2">Play with Stickers</nuxt-link>
         <nuxt-link to="/arts/color-picker">Explore Color Names</nuxt-link>
+        <nuxt-link to="/arts/jabberwocky">Search the Jabberwocky</nuxt-link>
       </nav>
     </div>
   </div>
