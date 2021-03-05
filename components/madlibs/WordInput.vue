@@ -6,7 +6,7 @@
     <label for="name1" class="mb-4 text-2xl">Give me a {{ wordType }}:</label>
     <input
       :value="modelName"
-      type="text"
+      :type="inputType"
       name="name1"
       class="text-black p-2 w-full rounded text-2xl mb-5"
       required
@@ -18,6 +18,12 @@
     >
       Add
     </button>
+    <div class="w-full h-4 bg-white rounded mt-4">
+      <div
+        class="h-full bg-teal-400 rounded"
+        :style="{ width: currentWidth }"
+      ></div>
+    </div>
   </form>
 </template>
 
@@ -32,6 +38,25 @@ export default {
     wordType: {
       type: String,
       default: 'word',
+    },
+    currentStep: {
+      type: Number,
+      default: 1,
+    },
+    totalSteps: {
+      type: Number,
+      default: 1,
+    },
+  },
+  computed: {
+    currentWidth() {
+      return `${(this.currentStep / this.totalSteps) * 100}%`
+    },
+    inputType() {
+      if (this.wordType !== 'number') {
+        return 'text'
+      }
+      return 'number'
     },
   },
   methods: {

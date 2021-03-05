@@ -15,6 +15,8 @@
       <word-input
         v-model="userWords[step['modelName']]"
         :word-type="step['wordType']"
+        :current-step="currentStep"
+        :total-steps="steps.length"
         @handle-submit="handleSubmit"
       />
     </div>
