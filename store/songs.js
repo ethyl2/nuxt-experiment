@@ -701,6 +701,33 @@ export const state = () => ({
       imgUrl:
         'https://is2-ssl.mzstatic.com/image/thumb/Music/v4/10/dc/67/10dc67a5-18e7-f8b3-6791-0e79705d86f3/source/60x60bb.jpg',
       imgAlt: 'Hinky Dinky Double D Farm',
+      sheetMusicUrl:
+        'https://www.bethsnotesplus.com/2020/11/hinky-dinky-double-d-farm.html',
+    },
+    {
+      id: 'web',
+      url:
+        'https://www.bethsnotesplus.com/2013/03/be-kind-to-your-web-footed-friends.html',
+      title: 'Be Kind to Your Web-Footed Friends',
+      tune: 'Stars and Stripes Forever',
+      chorus: [
+        'Be kind to your web-footed friends',
+        `For the duck may be somebody's mother`,
+        'Be kind to your friends in the swamp',
+        'Where the weather is always damp.',
+        'You may think that this is the end;',
+        'Well, it is!',
+      ],
+      image_url: 'song_images/duck.png',
+      sheetMusicUrl:
+        'https://www.bethsnotesplus.com/2013/03/be-kind-to-your-web-footed-friends.html',
+      trackUrl:
+        'https://music.apple.com/us/album/be-kind-to-your-web-footed-friends/203795680?i=203801950&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/Music/b1/4f/3e/mzm.orfdyase.aac.p.m4a',
+      imgUrl:
+        'https://is2-ssl.mzstatic.com/image/thumb/Music/v4/c4/d3/bf/c4d3bf5e-a5ed-e69b-4296-492baefb0af0/source/60x60bb.jpg',
+      imgAlt: 'Be Kind to Your Web-Footed Friends',
     },
   ],
 })
