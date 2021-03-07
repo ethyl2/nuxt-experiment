@@ -23,6 +23,7 @@ So far, it contains:
 - color picker and namer page
 - highlighting search results with the Jabberwocky
 - madlibs with a sequential input
+- page about using local storage
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 
