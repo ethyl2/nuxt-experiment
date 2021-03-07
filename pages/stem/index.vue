@@ -21,10 +21,15 @@
         <nuxt-link to="/stem/cistercian-monk-numerals"
           >Creating Cistercian Monk Numerals</nuxt-link
         >
-        <nuxt-link to="/stem/case-styles"
-          >Creating Variable Names in Case Styles</nuxt-link
-        >
-        <nuxt-link to="/local-storage-test">Local Storage</nuxt-link>
+        <div class="p-6 rounded bg-gray-900 flex flex-col space-y-4">
+          <h2 class="text-2xl">Computer Programming Concepts</h2>
+          <nuxt-link to="/stem/case-styles"
+            >Creating Variable Names in Case Styles</nuxt-link
+          >
+          <nuxt-link to="/stem/local-storage-test"
+            >Using Local Storage</nuxt-link
+          >
+        </div>
       </nav>
     </div>
   </div>

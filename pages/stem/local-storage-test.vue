@@ -7,7 +7,7 @@
 <template>
   <div class="container flex flex-col space-y-6 min-h-screen">
     <h1 class="text-3xl">Using Local Storage</h1>
-    <div>
+    <div class="p-6 bg-gray-900 rounded">
       <p class="mb-2">
         The Web Storage API provides a handy way to store data, in key/value
         pairs, such as 'colorSetting' : '#C70039', where 'colorSetting' is the
