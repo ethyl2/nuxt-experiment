@@ -10,6 +10,7 @@
         class="p-2 text-black leading-loose rounded"
         name="key-input"
       />
+      <p v-if="keyExistsInLocalStorage(currentKey)">✔️</p>
       <label for="value-input">Value:</label>
       <input
         v-model="currentValue"
@@ -18,19 +19,26 @@
         name="value-input"
       />
       <button type="submit" class="px-2 py-1 bg-black rounded">
-        Add key/value to local storage
+        {{ keyExistsInLocalStorage(currentKey) ? 'Edit' : 'Add' }} key/value
       </button>
     </form>
     <div v-if="pairsFromStore && pairsFromStore.length > 0">
-      <p>What you have in local storage:</p>
-      <ul>
-        <li
-          v-for="([key, value], index) in pairsFromStore"
-          :key="`${key}-${index}`"
-        >
-          {{ key }}: {{ value }}
-        </li>
-      </ul>
+      <p class="mb-2">What you have in local storage:</p>
+      <table class="table-auto">
+        <tr>
+          <th class="px-4 py-2">Key</th>
+          <th class="px-4 py-2">Value</th>
+          <th class="px-4 py-2">Actions</th>
+        </tr>
+        <tr v-for="[key, value] in pairsFromStore" :key="key">
+          <td class="border px-4 py-2">{{ key }}</td>
+          <td class="border px-4 py-2">{{ value }}</td>
+          <td class="border px-4 py-2 cursor-pointer">
+            <span @click="clearKey(key)">🗑️</span>
+            <span @click="editPair(key, value)">✏️</span>
+          </td>
+        </tr>
+      </table>
     </div>
     <button
       v-if="pairsFromStore && pairsFromStore.length > 0"
@@ -81,6 +89,21 @@ export default {
     clearLocalStorage() {
       localStorage.clear()
       this.pairsFromStore = null
+    },
+    clearKey(chosenKey) {
+      if (process.browser) {
+        localStorage.removeItem(chosenKey)
+        this.pairsFromStore = Object.entries(localStorage)
+      }
+    },
+    editPair(chosenKey, chosenValue) {
+      this.currentKey = chosenKey
+      this.currentValue = chosenValue
+    },
+    keyExistsInLocalStorage(chosenKey) {
+      if (process.browser) {
+        return localStorage.getItem(chosenKey) !== null
+      }
     },
   },
 }

@@ -24,7 +24,7 @@
         <nuxt-link to="/stem/case-styles"
           >Creating Variable Names in Case Styles</nuxt-link
         >
-        <nuxt-link to="/LocalStorageTest">Local Storage</nuxt-link>
+        <nuxt-link to="/local-storage-test">Local Storage</nuxt-link>
       </nav>
     </div>
   </div>
