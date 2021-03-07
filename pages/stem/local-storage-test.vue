@@ -88,7 +88,7 @@
           Get value
         </button>
       </div>
-      <p v-if="selectedValue">{{ selectedValue }}</p>
+      <p v-if="selectedValue" class="mt-2">{{ selectedValue }}</p>
     </form>
 
     <!-- TABLE OF ALL KEY/VALUE PAIRS -->
