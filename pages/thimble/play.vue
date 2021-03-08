@@ -55,11 +55,13 @@
         <h2>Oh no! Someone else already guessed {{ currentGuess }}!</h2>
         <p>{{ playerIt }}, get {{ guessers[currentPlayerIndex] }} wet!</p>
         <img src="/wet.gif" class="w-1/5 mx-auto py-2" alt="rain cloud" />
-        <nuxt-link
-          to="/thimble/start"
+        <button
+          type="button"
           class="px-2 py-1 bg-black rounded font-bold text-xl hover:bg-gray-900"
-          >Play Again</nuxt-link
+          @click="setupForNextGame"
         >
+          Play Again
+        </button>
       </div>
       <!-- TABLE SECTION -->
       <div class="flex flex-col items-center justify-center">
@@ -70,10 +72,14 @@
           <tr>
             <th class="px-4 py-2">#</th>
             <th class="px-4 py-2">Name</th>
+            <th class="px-4 py-2">Role</th>
           </tr>
           <tr v-for="(player, index) in players" :key="`${player}-${index}`">
             <td class="border px-4 py-2">{{ index + 1 }}</td>
             <td class="border px-4 py-2">{{ player }}</td>
+            <td class="border px-4 py-2">
+              {{ player === playerIt ? 'It' : 'Guesser' }}
+            </td>
           </tr>
         </table>
         <p v-if="category" class="border p-2 mt-4 text-teal-400 text-xl">
@@ -139,6 +145,23 @@ export default {
         this.currentGuess = ''
       }
     },
+  },
+  setupForNextGame() {
+    if (process.browser) {
+      localStorage.setItem('playerIt', this.guessers[this.currentPlayerIndex])
+    }
+    window.onNuxtReady(() => {
+      window.$nuxt.$router.push('/thimble/start')
+    })
+  },
+  role(player) {
+    if (player === this.playerIt) {
+      return 'It'
+    } else if (player === this.guessers[this.currentPlayerIndex]) {
+      return 'Guesser'
+    } else {
+      return 'Player'
+    }
   },
 }
 </script>

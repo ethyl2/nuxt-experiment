@@ -43,6 +43,35 @@
         </button>
       </form>
 
+      <!-- STEP 1.5: PICKING PLAYER IT -->
+      <div v-if="isPickingPlayerIt">
+        <form
+          class="flex flex-col space-y-2 mx-4 md:mx-0"
+          @submit.prevent="setPlayerIt"
+        >
+          <label for="player-it">Pick the player that's going to be It.</label>
+          <select v-model="playerIt" class="text-black" name="player-it">
+            <option disabled selected class="text-black" value="-">
+              Select Player:
+            </option>
+            <option
+              v-for="player in players"
+              :key="player"
+              :value="player"
+              class="text-black"
+            >
+              {{ player }}
+            </option>
+          </select>
+          <button
+            type="submit"
+            class="px-2 py-1 bg-black rounded mb-2 hover:bg-gray-900"
+          >
+            Submit Player
+          </button>
+        </form>
+      </div>
+
       <!-- STEP 2 : PICKING A CATEGORY -->
       <div v-if="isPickingCategory" class="w-7/8 md:w-1/2">
         <form
@@ -128,9 +157,10 @@
           If they guess correctly, or guess something that's already been said,
           throw the thimble's water on them!
         </p>
+        <p class="mb-4">Click the button when you're ready 👇</p>
         <nuxt-link
           to="/thimble/play"
-          class="px-2 py-1 bg-black rounded font-bold text-xl hover:bg-gray-900"
+          class="px-3 py-2 bg-black rounded font-bold text-xl hover:bg-gray-900"
           >Time to Start</nuxt-link
         >
       </div>
@@ -144,11 +174,15 @@
           <tr>
             <th class="px-4 py-2">#</th>
             <th class="px-4 py-2">Name</th>
+            <th v-if="!isAddingPlayers" class="px-4 py-2">Role</th>
             <th v-if="isAddingPlayers" class="px-4 py-2">Actions</th>
           </tr>
           <tr v-for="(player, index) in players" :key="`${player}-${index}`">
             <td class="border px-4 py-2">{{ index + 1 }}</td>
             <td class="border px-4 py-2">{{ player }}</td>
+            <td v-if="!isAddingPlayers" class="border px-4 py-2">
+              {{ player === playerIt ? 'It' : 'Guesser' }}
+            </td>
             <td v-if="isAddingPlayers" class="border px-4 py-2 relative">
               <span
                 class="has-tooltip inline-block cursor-pointer hover:bg-gray-800"
@@ -169,13 +203,28 @@
             </td>
           </tr>
         </table>
-        <form v-if="isEditing" @submit.prevent="finishEditPlayer">
-          <input v-model="editedPlayer" type="text" class="text-black pl-2" />
-          <button type="submit">Save changes</button>
+        <form v-if="isEditing" class="mt-2" @submit.prevent="finishEditPlayer">
+          <input
+            v-model="editedPlayer"
+            type="text"
+            class="text-black rounded pl-2 py-1 mr-2"
+          />
+          <button
+            type="submit"
+            class="px-2 py-1 bg-black rounded mb-2 hover:bg-gray-900"
+          >
+            Save changes
+          </button>
         </form>
         <p v-if="category" class="border p-2 mt-4 text-teal-400 text-xl">
           Category: {{ category }}
         </p>
+        <img
+          v-if="!players || players.length === 0"
+          src="/thimble.png"
+          alt="thimble"
+          class="w-1/2"
+        />
       </div>
     </div>
   </div>
@@ -196,6 +245,7 @@ export default {
       playerToEditIndex: '',
       editedPlayer: '',
       playerIt: '',
+      isPickingPlayerIt: false,
       isPickingCategory: false,
       isPickingItem: false,
       isReadyToStart: false,
@@ -214,6 +264,9 @@ export default {
       this.category = localStorage.getItem('category')
         ? localStorage.getItem('category')
         : ''
+      this.playerIt = localStorage.getItem('playerIt')
+        ? localStorage.getItem('playerIt')
+        : ''
     }
   },
   methods: {
@@ -227,11 +280,7 @@ export default {
     finishAddingPlayers() {
       this.isAddingPlayers = false
       this.addedPlayer = ''
-      this.playerIt = this.players[0]
-      if (process.browser) {
-        localStorage.setItem('playerIt', this.playerIt)
-      }
-      this.isPickingCategory = true
+      this.isPickingPlayerIt = true
     },
     clearPlayer(playerToDelete) {
       this.players = this.players.filter((player) => player !== playerToDelete)
@@ -266,6 +315,13 @@ export default {
       if (process.browser) {
         localStorage.setItem('item', this.correctItem)
       }
+    },
+    setPlayerIt() {
+      if (process.browser) {
+        localStorage.setItem('playerIt', this.playerIt)
+      }
+      this.isPickingPlayerIt = false
+      this.isPickingCategory = true
     },
   },
 }
