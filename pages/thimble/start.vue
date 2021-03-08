@@ -5,15 +5,17 @@
 </style>
 
 <template>
-  <div class="container flex flex-col min-h-screen">
-    <h1 class="text-3xl mb-4">Let's Play Thimble</h1>
+  <div
+    class="container flex flex-col min-h-screen text-center items-center justify-center"
+  >
+    <h1 class="text-3xl mb-4 w-full">Let's Play Thimble</h1>
     <div
-      class="flex flex-col w-full justify-center items-center md:flex-row md:items-start md:space-x-10"
+      class="flex flex-col w-full justify-center items-center md:flex-row md:items-start"
     >
       <!-- STEP 1: ADDING PLAYERS -->
       <form
         v-if="isAddingPlayers"
-        class="flex flex-col space-y-2"
+        class="flex flex-col space-y-2 w-7/8 md:w-1/2"
         @submit.prevent="addPlayer"
       >
         <legend class="text-lg text-teal-400 mb-2">
@@ -42,7 +44,7 @@
       </form>
 
       <!-- STEP 2 : PICKING A CATEGORY -->
-      <div v-if="isPickingCategory">
+      <div v-if="isPickingCategory" class="w-7/8 md:w-1/2">
         <form
           class="flex flex-col space-y-2 mx-4 md:mx-0"
           @submit.prevent="setCategory"
@@ -82,7 +84,7 @@
       <!-- STEP 3 : PICKING ITEM -->
       <form
         v-if="isPickingItem"
-        class="flex flex-col space-y-2 mx-4 md:mx-0"
+        class="flex flex-col space-y-2 mx-4 w-7/8 md:mx-0 md:w-1/2"
         @submit.prevent="setItem"
       >
         <legend class="text-lg text-teal-400 mb-2">
@@ -105,7 +107,7 @@
       </form>
 
       <!-- STEP 4 : LAST INSTRUCTIONS -->
-      <div v-if="isReadyToStart" class="text-lg">
+      <div v-if="isReadyToStart" class="text-lg w-7/8 md:w-1/2">
         <p>
           Okay, {{ playerIt }}, tell everyone to open their eyes and come back
           to the room.
@@ -134,7 +136,7 @@
       </div>
 
       <!-- TABLE SECTION -->
-      <div class="flex flex-col items-center justify-center">
+      <div class="flex flex-col items-center justify-center w-full md:w-1/2">
         <table v-if="players && players.length" class="table-auto">
           <caption class="text-lg text-teal-400">
             Players:
@@ -226,6 +228,9 @@ export default {
       this.isAddingPlayers = false
       this.addedPlayer = ''
       this.playerIt = this.players[0]
+      if (process.browser) {
+        localStorage.setItem('playerIt', this.playerIt)
+      }
       this.isPickingCategory = true
     },
     clearPlayer(playerToDelete) {
