@@ -271,7 +271,7 @@ export default {
   },
   methods: {
     addPlayer() {
-      this.players.push(this.addedPlayer)
+      this.players.push(this.addedPlayer.trim())
       this.addedPlayer = ''
       if (process.browser) {
         localStorage.setItem('players', this.players)
@@ -304,7 +304,7 @@ export default {
     },
     setCategory() {
       if (process.browser) {
-        localStorage.setItem('category', this.category)
+        localStorage.setItem('category', this.category.trim())
       }
       this.isPickingCategory = false
       this.isPickingItem = true
@@ -313,7 +313,7 @@ export default {
       this.isPickingItem = false
       this.isReadyToStart = true
       if (process.browser) {
-        localStorage.setItem('item', this.correctItem)
+        localStorage.setItem('item', this.correctItem.trim())
       }
     },
     setPlayerIt() {

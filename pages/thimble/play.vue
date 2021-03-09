@@ -84,8 +84,11 @@
           <tr v-for="(player, index) in players" :key="`${player}-${index}`">
             <td class="border px-4 py-2">{{ index + 1 }}</td>
             <td class="border px-4 py-2">{{ player }}</td>
-            <td class="border px-4 py-2">
-              {{ player === playerIt ? 'It' : 'Guesser' }}
+            <td
+              class="border px-4 py-2"
+              :class="{ 'text-orange-400': role(player) === 'Current Guesser' }"
+            >
+              {{ role(player) }}
             </td>
           </tr>
         </table>
@@ -141,7 +144,10 @@ export default {
   },
   methods: {
     submitGuess() {
-      if (this.currentGuess === this.correctItem) {
+      if (
+        this.currentGuess.trim().toLowerCase() ===
+        this.correctItem.toLowerCase()
+      ) {
         this.itemWasGuessed = true
       } else if (this.guesses.includes(this.currentGuess)) {
         this.playerGuessedDuplicate = true
@@ -162,9 +168,9 @@ export default {
       if (player === this.playerIt) {
         return 'It'
       } else if (player === this.guessers[this.currentPlayerIndex]) {
-        return 'Guesser'
+        return 'Current Guesser'
       } else {
-        return 'Player'
+        return 'Guesser'
       }
     },
   },
