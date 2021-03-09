@@ -28,8 +28,8 @@
             Submit Guess
           </button>
         </form>
-        <div v-if="guesses.length">
-          <h2>Guesses So Far:</h2>
+        <div v-if="guesses.length" class="my-4">
+          <h2 class="text-lg">Guesses So Far:</h2>
           <ul>
             <li v-for="guess in guesses" :key="guess">{{ guess }}</li>
           </ul>
@@ -44,11 +44,18 @@
         </h3>
         <p>{{ playerIt }}, get {{ guessers[currentPlayerIndex] }} wet!</p>
         <img src="/wet.gif" class="w-1/5 mx-auto py-2" alt="rain cloud" />
-        <nuxt-link
+        <!-- <nuxt-link
           to="/thimble/start"
           class="px-2 py-1 bg-black rounded font-bold text-xl hover:bg-gray-900"
           >Play Again</nuxt-link
+        > -->
+        <button
+          type="button"
+          class="px-2 py-1 bg-black rounded font-bold text-xl hover:bg-gray-900"
+          @click="setupForNextGame"
         >
+          Play Again
+        </button>
       </div>
 
       <div v-if="playerGuessedDuplicate">
@@ -145,23 +152,21 @@ export default {
         this.currentGuess = ''
       }
     },
-  },
-  setupForNextGame() {
-    if (process.browser) {
-      localStorage.setItem('playerIt', this.guessers[this.currentPlayerIndex])
-    }
-    window.onNuxtReady(() => {
+    setupForNextGame() {
+      if (process.browser) {
+        localStorage.setItem('playerIt', this.guessers[this.currentPlayerIndex])
+      }
       window.$nuxt.$router.push('/thimble/start')
-    })
-  },
-  role(player) {
-    if (player === this.playerIt) {
-      return 'It'
-    } else if (player === this.guessers[this.currentPlayerIndex]) {
-      return 'Guesser'
-    } else {
-      return 'Player'
-    }
+    },
+    role(player) {
+      if (player === this.playerIt) {
+        return 'It'
+      } else if (player === this.guessers[this.currentPlayerIndex]) {
+        return 'Guesser'
+      } else {
+        return 'Player'
+      }
+    },
   },
 }
 </script>
