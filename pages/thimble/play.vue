@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex flex-col min-h-screen">
+  <div class="container flex flex-col min-h-screen px-2">
     <h1 class="text-3xl mb-4">Let's Play Thimble</h1>
     <div
       class="flex flex-col w-full justify-center items-center md:flex-row md:items-start md:space-x-10"
@@ -37,21 +37,27 @@
       </div>
 
       <div v-if="itemWasGuessed">
-        <h2>{{ guessers[currentPlayerIndex] }} guessed correctly!</h2>
-        <h3>
-          Congratulations!? (That depends on whether
-          {{ guessers[currentPlayerIndex] }} enjoys getting wet!)
+        <h2 class="text-2xl font-bold mb-2">
+          {{ guessers[currentPlayerIndex] }} guessed correctly!
+          Congratulations!?
+        </h2>
+        <h3 class="text-xl mb-2">
+          (That depends on whether {{ guessers[currentPlayerIndex] }} enjoys
+          getting wet!)
         </h3>
-        <p>{{ playerIt }}, get {{ guessers[currentPlayerIndex] }} wet!</p>
-        <img src="/wet.gif" class="w-1/5 mx-auto py-2" alt="rain cloud" />
-        <!-- <nuxt-link
-          to="/thimble/start"
-          class="px-2 py-1 bg-black rounded font-bold text-xl hover:bg-gray-900"
-          >Play Again</nuxt-link
-        > -->
+        <p class="mb-2">
+          Quick, {{ playerIt }}, get {{ guessers[currentPlayerIndex] }} wet!
+        </p>
+        <div class="w-1/4 mx-auto my-4">
+          <img
+            src="/wet.gif"
+            class="w-full h-full rounded-full"
+            alt="rain cloud"
+          />
+        </div>
         <button
           type="button"
-          class="px-2 py-1 bg-black rounded font-bold text-xl hover:bg-gray-900"
+          class="px-2 py-1 bg-black rounded font-bold text-xl mb-4 hover:bg-gray-900"
           @click="setupForNextGame"
         >
           Play Again
@@ -71,7 +77,7 @@
         </button>
       </div>
       <!-- TABLE SECTION -->
-      <div class="flex flex-col items-center justify-center">
+      <div class="flex flex-col items-center justify-center mt-4 md:mt-0">
         <table v-if="players && players.length" class="table-auto">
           <caption class="text-lg text-teal-400">
             Players:
@@ -82,10 +88,14 @@
             <th class="px-4 py-2">Role</th>
           </tr>
           <tr v-for="(player, index) in players" :key="`${player}-${index}`">
-            <td class="border px-4 py-2">{{ index + 1 }}</td>
-            <td class="border px-4 py-2">{{ player }}</td>
+            <td class="border text-sm px-4 py-2 md:text-base">
+              {{ index + 1 }}
+            </td>
+            <td class="border text-sm text-left px-4 py-2 md:text-base">
+              {{ player }}
+            </td>
             <td
-              class="border px-4 py-2"
+              class="border text-sm px-4 py-2 md:text-base"
               :class="{ 'text-orange-400': role(player) === 'Current Guesser' }"
             >
               {{ role(player) }}
