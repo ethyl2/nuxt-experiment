@@ -729,5 +729,62 @@ export const state = () => ({
         'https://is2-ssl.mzstatic.com/image/thumb/Music/v4/c4/d3/bf/c4d3bf5e-a5ed-e69b-4296-492baefb0af0/source/60x60bb.jpg',
       imgAlt: 'Be Kind to Your Web-Footed Friends',
     },
+    {
+      id: 'boom',
+      url:
+        'https://www.bethsnotesplus.com/2013/03/boom-boom-aint-it-great-it-be-crazy.html',
+      title: "Boom Boom, Ain't it Great to be Crazy",
+      chorus: [
+        "Boom, boom, ain't it great to be crazy!",
+        "Boom, boom, ain't it great to be crazy!",
+        'Silly and foolish the whole day through,',
+        "Boom, boom, ain't it great to be crazy!",
+      ],
+      verses: [
+        [
+          'A horse and a flea and 3 blind mice',
+          'Sat on a curbstone, shooting dice.',
+          'The horse, he slipped and fell on the flea',
+          `"Whoops!" said the flea, "There's a horse on me!"`,
+        ],
+        [
+          'Way down south where bananas grow',
+          "An ant stepped on an elephant's toe",
+          'The elephant cried with tears in his eyes,',
+          `"Why don't you pick on someone your size?"`,
+        ],
+        [
+          'Way up north in the ice and snow,',
+          'There was a penguin whose name was Joe.',
+          'He got so sick of black and white,',
+          'He wore pink pants to the dance last night!',
+        ],
+        [
+          'Eli, Eli, he sells socks,',
+          'A dollar a pair, a nickel a box.',
+          'The longer you wear them the shorter they get.',
+          "Throw'em in the water and they don't get wet!",
+        ],
+        [
+          'Late last night, I had a strange dream',
+          'Ate a nine-pound marshmallow my mom gave me,',
+          "When I woke up, knew somethin' was wrong.",
+          'I looked around, and my pillow was gone.',
+        ],
+        [
+          'Oh, Jerry and George were in love with me.',
+          'Jerry was handsome as could be,',
+          'But George was green and had 2 heads.',
+          "Naturally, he's the one I wed.",
+        ],
+        [
+          'I bought me a house that had no floors,',
+          'No walls or windows, roof or doors.',
+          "It cost me a pile, but I don't care.",
+          'I like to live in the open air.',
+        ],
+      ],
+      image_url: 'song_images/penguin_pants.png',
+    },
   ],
 })
