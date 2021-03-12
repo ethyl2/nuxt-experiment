@@ -14,6 +14,14 @@ input:checked ~ .toggle__dot {
 <template>
   <div class="container flex flex-col space-y-2">
     <h1 class="text-4xl">Search the iTunes API</h1>
+    <p v-if="!searchResults" class="text-xl">
+      This page is for demonstration/development purposes only. If the search is
+      not working, you may need to request access to the CORS Anywhere demo by
+      clicking the button found
+      <a href="https://cors-anywhere.herokuapp.com/corsdemo" target="_blank"
+        >here</a
+      >.
+    </p>
     <form
       class="bg-teal-500 rounded py-4 px-2 w-full md:w-1/2"
       @submit.prevent="handleSubmit"

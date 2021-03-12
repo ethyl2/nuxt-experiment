@@ -1,29 +1,48 @@
 <template>
-  <div class="container flex flex-col">
-    <h1 class="text-2xl">Songs</h1>
-    <nuxt-link to="/songSearch" class="mb-4">Search with iTunes API</nuxt-link>
-    <h2 class="text-xl">Campfire Songs</h2>
-    <nav class="flex flex-col">
-      <nuxt-link
-        v-for="song in allSongs"
-        :key="song.id"
-        :to="`/songs/${song.id}`"
-        class="text-base"
-        >{{ song.title }}</nuxt-link
-      >
-    </nav>
-    <img src="/campfire.png" alt="campfire" class="w-1/4 pt-4" />
-    <h3 class="text-lg my-4">
-      More songs that tickle my funny bone from Spotify
-    </h3>
-    <iframe
-      src="https://open.spotify.com/embed/playlist/0YCESpzXAbPcrTLZAFC9AE"
-      width="300"
-      height="380"
-      frameborder="0"
-      allowtransparency="true"
-      allow="encrypted-media"
-    ></iframe>
+  <div class="flex flex-col">
+    <header
+      class="flex flex-col items-center justify-center bg-gray-900 py-10 mb-4"
+    >
+      <h1 class="text-xl font-bold text-center md:text-3xl">
+        I Am Slowly Going Crazy...
+      </h1>
+      <h2 class="text-lg mb-2 text-center md:text-2xl">
+        ...Because My Reindeer Flies Sideways on the Hinky Dinky Double D Farm
+      </h2>
+      <p class="mb-2 text-center mx-4">
+        Here is a collection of songs that tickle my funny bone, mostly because
+        they have a degree of absurdity, nostalgia, cleverness and/or
+        randomness. I hope you enjoy them, too.
+      </p>
+    </header>
+
+    <main class="container flex flex-col px-2">
+      <h2 class="text-xl mb-4">Favorite Campfire Songs</h2>
+      <nav class="grid grid-cols-2 gap-4 md:grid-cols-3">
+        <nuxt-link
+          v-for="song in allSongs"
+          :key="song.id"
+          :to="`/songs/${song.id}`"
+          class="flex items-center justify-center text-center text-base px-3 py-2 bg-gray-800 rounded hover:bg-black"
+          >{{ song.title }}</nuxt-link
+        >
+      </nav>
+      <img src="/campfire.png" alt="campfire" class="w-1/4 pt-4" />
+      <h3 class="text-lg my-4">More songs that make me chuckle from Spotify</h3>
+      <iframe
+        src="https://open.spotify.com/embed/playlist/0YCESpzXAbPcrTLZAFC9AE"
+        width="300"
+        height="380"
+        frameborder="0"
+        allowtransparency="true"
+        allow="encrypted-media"
+      ></iframe>
+      <div class="my-4">
+        <nuxt-link to="/songSearch" class="mb-4"
+          >Search with iTunes API</nuxt-link
+        >
+      </div>
+    </main>
   </div>
 </template>
 
@@ -46,7 +65,9 @@ export default {
   },
   computed: {
     allSongs() {
-      return this.$store.state.songs.all
+      return [...this.$store.state.songs.all].sort(function (a, b) {
+        return a.title < b.title ? -1 : a.title > b.title ? 1 : 0
+      })
     },
   },
   head() {

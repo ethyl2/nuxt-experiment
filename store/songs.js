@@ -538,6 +538,18 @@ export const state = () => ({
           `Was H-2-S-O-4.`,
         ],
         [
+          'I woke up in the morning',
+          'And glanced upon the wall.',
+          'The roaches and the bedbugs',
+          'Were playing a game of ball.',
+        ],
+        [
+          'The score was six to nothing.',
+          'The roaches were ahead.',
+          'A bedbug hit a home run',
+          'And knocked me out of bed!',
+        ],
+        [
           `I never saw a purple cow.`,
           `I never hope to see one.`,
           `But I can tell you anyhow`,
@@ -554,6 +566,12 @@ export const state = () => ({
           `It ate up old tin cans.`,
           `When those little goats were born,`,
           `They came in Ford sedans.`,
+        ],
+        [
+          `A farmer slipped on the old barn roof`,
+          `When rotten boards gave way.`,
+          `And as he fall, he shrugged and said,`,
+          `"It's time to hit the hay."`,
         ],
         [
           `Black and white animal in the woods.`,
@@ -785,6 +803,62 @@ export const state = () => ({
         ],
       ],
       image_url: 'song_images/penguin_pants.png',
+      sheetMusicUrl:
+        'https://www.bethsnotesplus.com/2013/03/boom-boom-aint-it-great-it-be-crazy.html',
+      trackUrl:
+        'https://music.apple.com/us/album/boom-boom-aint-it-great-to-be-crazy/270669547?i=270670075&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/Music/a3/8c/89/mzm.tvqdbsyx.aac.p.m4a',
+      imgUrl:
+        'https://is1-ssl.mzstatic.com/image/thumb/Music/v4/d5/61/cf/d561cf34-81db-ff87-6f0a-ff20256c1070/source/60x60bb.jpg',
+      imgAlt: "Boom, Boom, Ain't It Great to Be Crazy?",
+    },
+    {
+      id: 'oreo',
+      url: 'https://youtu.be/msZdyt6tU2w',
+      title: 'Chocolate Cookie',
+      tune: 'Sarasponda',
+      chorus: [
+        'Chocolate cookie, Chocolate cookie',
+        'Chocolate cookie. Yum, yum, yum!',
+        'Chocolate cookie, Chocolate cookie',
+        'Chocolate cookie. Yum, yum, yum!',
+        'An Oreo, a chocolate Oreo!',
+        'I love that creamy filling',
+        'In a chocolate Oreo. Hey!',
+      ],
+      image_url: 'song_images/oreos.jpg',
+      notes:
+        "Sing multiple times, adding an action each time. Clap two 8th notes on 'chocolate', snap on 'cookie', rub stomach on 'yummy', stand up on 'O' and make an O with your arms, sit down on 'reo', cross hands over chest on 'love', & jazz hands on 'creamy filling'.",
+    },
+    {
+      id: 'pop',
+      url: 'https://www.bethsnotesplus.com/2013/01/one-bottle-of-pop.html',
+      title: 'One Bottle of Pop',
+      verses: [
+        [
+          'One bottle of pop, two bottles of pop, three bottles of pop, four bottles of pop,',
+          'Five bottles of pop, six bottles of pop, seven, seven bottles of pop.',
+        ],
+        [
+          'Don’t throw your junk in my backyard, my backyard, my backyard,',
+          'Don’t throw your junk in my backyard,',
+          'My backyard’s full.',
+        ],
+        [
+          'Fish and chips and vinegar, vinegar, vinegar,',
+          'Fish and chips and vinegar, vinegar and pop!',
+        ],
+      ],
+      image_url: 'song_images/pops.png',
+      notes: 'Sing these 3 together at the same time!',
+      trackUrl:
+        'https://music.apple.com/us/album/one-bottle-of-pop/1232679924?i=1232679939&uo=4',
+      audioUrl:
+        'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview127/v4/97/2e/00/972e0039-201d-6107-7ca9-c0a1c360b3bf/mzaf_5283285565115425367.plus.aac.p.m4a',
+      imgUrl:
+        'https://is4-ssl.mzstatic.com/image/thumb/Music111/v4/82/00/b8/8200b86d-3573-9e45-6f58-caf2d7eaa60f/source/60x60bb.jpg',
+      imgAlt: 'One Bottle of Pop',
     },
   ],
 })

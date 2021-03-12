@@ -31,8 +31,11 @@
       v-if="song.image_url"
       :src="`/${song.image_url}`"
       :alt="song.title"
-      class="w-1/4 pt-4"
+      class="w-1/4 py-4"
     />
+    <p v-if="song.notes" class="pb-4">
+      <span class="font-bold">Note:</span> {{ song.notes }}
+    </p>
     <div v-if="song.audioUrl" class="bg-teal-800 rounded mt-6 px-2">
       <song-card
         :title="song.title"
@@ -45,6 +48,9 @@
 
     <a v-if="song.sheetMusicUrl" :href="song.sheetMusicUrl" target="_blank"
       >See Sheet Music</a
+    >
+    <a v-if="song.url" :href="song.url" target="_blank"
+      >See more about this song</a
     >
 
     <aside>
