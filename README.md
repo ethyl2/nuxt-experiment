@@ -24,6 +24,7 @@ So far, it contains:
 - highlighting search results with the Jabberwocky
 - madlibs with a sequential input
 - page about using local storage
+- thimble game, using local storage and sequential input
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 
