@@ -18,7 +18,7 @@
             : 'bg-teal-600 hover:bg-teal-800'
         "
         type="button"
-        @click="play(sound)"
+        @click="handleClick(sound)"
       >
         {{ sound.name }}
         <span
@@ -40,7 +40,10 @@
     <section class="mb-8">
       <h2 class="text-xl pb-2 md:text-2xl">Make a Sound Sentence</h2>
       <p class="text-sm md:text-base">
-        Select which sounds you'd like to string together:
+        Select which sounds you'd like to string together by clicking on the
+        sound buttons above
+        <span class="text-yellow-200 font-bold">or</span> selecting the sounds
+        below:
       </p>
       <select
         v-model="selectedSound"
@@ -150,6 +153,7 @@ export default {
   watch: {
     selectedSound(val) {
       this.soundSentence.push(val)
+      this.play(val)
     },
   },
   mounted() {
@@ -160,10 +164,15 @@ export default {
     window.removeEventListener('keypress', this.handleKeyPress)
   },
   methods: {
+    handleClick(sound) {
+      this.soundSentence.push(sound)
+      this.play(sound)
+    },
     handleKeyPress(e) {
       const desiredSound = this.orderedSounds.filter(
         (sound) => sound.press === e.key
       )[0]
+      this.soundSentence.push(desiredSound)
       this.play(desiredSound)
     },
     play(sound) {
