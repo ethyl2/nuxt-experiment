@@ -30,7 +30,7 @@
 
     <button
       type="button"
-      class="mb-4 border p-1 rounded m-2 text-sm hover:bg-teal-900 lg:p-2 lg:text-base"
+      class="hidden mb-4 border p-1 rounded m-2 text-sm hover:bg-teal-900 md:flex md:mx-auto lg:p-2 lg:text-base"
       @click="togglePlayAll"
     >
       {{ !shouldPlayAll ? 'Play All' : 'Cancel Play All' }}
@@ -45,9 +45,11 @@
       <select
         v-model="selectedSound"
         name="sound-sentence"
-        class="rounded m-2 text-black"
+        class="rounded m-2 text-black p-2"
       >
-        <option value="-" class="text-black" disabled>Choose a sound:</option>
+        <option value="-" class="text-black" disabled>
+          🔊 Choose a sound:
+        </option>
         <option
           v-for="sound in orderedSounds"
           :key="sound.name"
@@ -58,34 +60,53 @@
           {{ sound.name }}
         </option>
       </select>
-      <p class="text-xl text-yellow-400 mb-4">
+      <p class="text-xl text-yellow-400 mb-4 mt-2">
         <span
           v-for="(sound, index) in soundSentence"
           :key="`${sound.name}-${index}`"
+          class="cursor-pointer"
           :class="{
             capitalize: index === 0,
             'text-pink-600': currentButton === sound.name,
           }"
-          >{{ sound.name }}{{ ' ' }}</span
+          @click="play(sound)"
         >
-        <span v-if="soundSentence.length">.</span>
+          {{ sound.name }}{{ index !== soundSentence.length - 1 ? ' ' : '.' }}
+        </span>
       </p>
-      <button
-        v-if="soundSentence.length"
-        class="mb-8 border p-1 rounded m-2 text-sm hover:bg-teal-900 lg:p-2 lg:text-base"
-        type="button"
-        @click="playSentence"
-      >
-        Play Sentence
-      </button>
-      <button
-        v-if="soundSentence.length"
-        class="mb-8 border p-1 rounded m-2 text-sm hover:bg-teal-900 lg:p-2 lg:text-base"
-        type="button"
-        @click="clearSentence"
-      >
-        Clear Sentence
-      </button>
+      <div class="flex items-center justify-center">
+        <button
+          v-if="soundSentence.length"
+          class="hidden mb-8 border p-1 rounded m-2 text-sm hover:bg-teal-900 md:flex lg:p-2 lg:text-base"
+          type="button"
+          @click="playSentence"
+        >
+          Play Sentence
+        </button>
+        <button
+          v-if="soundSentence.length"
+          class="mb-8 border p-1 rounded m-2 text-sm hover:bg-teal-900 lg:p-2 lg:text-base"
+          type="button"
+          @click="clearSentence"
+        >
+          Clear Sentence
+        </button>
+        <button
+          class="mb-8 border p-1 rounded m-2 text-sm hover:bg-teal-900 lg:p-2 lg:text-base"
+          type="button"
+          @click="createRandomSentence"
+        >
+          Get a Random Sentence
+        </button>
+        <button
+          v-if="soundSentence.length > 1"
+          class="mb-8 border p-1 rounded m-2 text-sm hover:bg-teal-900 lg:p-2 lg:text-base"
+          type="button"
+          @click="shuffleSentence"
+        >
+          Shuffle Sentence
+        </button>
+      </div>
     </section>
 
     <!-- Sound Sources Section -->
@@ -114,7 +135,7 @@ export default {
       currentButton: null,
       timeouts: [],
       shouldPlayAll: false,
-      selectedSound: null,
+      selectedSound: '-',
       soundSentence: [],
       audio: null,
     }
@@ -212,6 +233,25 @@ export default {
         this.timeouts.forEach((timeout) => clearTimeout(timeout))
         this.currentButton = null
       }
+    },
+    createRandomSentence() {
+      const sentenceLength = Math.floor(Math.random() * 10)
+      const sentenceArray = []
+      for (let i = 0; i < sentenceLength; i++) {
+        const index = Math.floor(Math.random() * this.orderedSounds.length)
+        sentenceArray.push(this.orderedSounds[index])
+      }
+      this.soundSentence = sentenceArray
+    },
+    shuffleSentence() {
+      const array = [...this.soundSentence]
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        const temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
+      }
+      this.soundSentence = array
     },
   },
 }
