@@ -64,5 +64,12 @@ export const state = () => ({
         "sometimes there are things that cause me stress and keep me awake at night -- things I just can't solve by myself. But sometimes a miracle worker comes to my rescue",
       image_url: 'angel.png',
     },
+    {
+      number: 'ten',
+      item: 'pi day (March 14 = 3.14 ≃ π)',
+      reason:
+        "it's one of my favorite 'holidays' -- it's a celebration of math, geekiness, and food. And it's pretty straightforward: make or buy pies and then eat and share them",
+      image_url: 'pie.png',
+    },
   ],
 })
