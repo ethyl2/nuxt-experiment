@@ -71,5 +71,12 @@ export const state = () => ({
         "it's one of my favorite 'holidays' -- it's a celebration of math, geekiness, and food. And it's pretty straightforward: make or buy pies and then eat and share them",
       image_url: 'pie.png',
     },
+    {
+      number: 'eleven',
+      item: 'spring cleaning',
+      reason:
+        'something about spring --  a feeling of anticipation, or of warmer days outside maybe -- motivates me to finally get some projects done, like putting the Christmas lights where they belong',
+      image_url: 'gratitude/lights.png',
+    },
   ],
 })

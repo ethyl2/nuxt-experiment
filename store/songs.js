@@ -861,4 +861,26 @@ export const state = () => ({
       imgAlt: 'One Bottle of Pop',
     },
   ],
+  christmasParodies: [
+    {
+      slug: 'clone',
+      url: 'http://www.coolest-holiday-parties.com/funny-christmas-carols/',
+      title: "I'll Be Cloned for Christmas",
+      tune: "I'll Be Home for Christmas",
+      author: 'D. M. Goldstein',
+      chorus: [
+        'I’ll be cloned for Christmas.',
+        'There’ll be three of me;',
+        'One to Work, and One to Shop,',
+        'And One just for Parties.',
+        'Christmas Eve, I’m certain,',
+        'I won’t be alone;',
+        'I’ll be home for Christmas,',
+        'Or else I’ll send a clone!',
+      ],
+      image_url: 'song_images/elves.png',
+      color1: 'green-400',
+      color2: 'yellow-500',
+    },
+  ],
 })
