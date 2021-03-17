@@ -23,12 +23,39 @@
         {{ line }}
       </p>
     </div>
+    <div v-if="song.verses" class="pb-2">
+      <h4 class="text-lg font-bold mb-1">Verses:</h4>
+      <div
+        v-for="(verse, index) in song.verses"
+        :key="`verse-${index}`"
+        class="pb-4"
+      >
+        <p
+          v-for="(line, lineIndex) in verse"
+          :key="`verse-${index}-line-${lineIndex}`"
+        >
+          {{ line }}
+        </p>
+      </div>
+    </div>
     <img
       v-if="song.image_url"
       :src="`/${song.image_url}`"
       :alt="song.title"
       class="w-1/4 content-center py-4"
     />
+    <div v-if="song.urls" class="pb-2">
+      <h4 class="text-lg font-bold mb-1">See More:</h4>
+      <a
+        v-for="(url, index) in song.urls"
+        :key="`url-${index}`"
+        :href="url"
+        target="_blank"
+        class="block"
+      >
+        {{ url }}
+      </a>
+    </div>
   </div>
 </template>
 
