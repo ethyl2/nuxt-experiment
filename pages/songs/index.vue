@@ -17,6 +17,7 @@
     </header>
 
     <main class="container flex flex-col px-2">
+      <img src="/campfire.png" alt="campfire" class="w-1/5 pb-2" />
       <h2 class="text-xl mb-4">Favorite Campfire Songs</h2>
       <nav class="grid grid-cols-2 gap-4 md:grid-cols-3">
         <nuxt-link
@@ -27,7 +28,16 @@
           >{{ song.title }}</nuxt-link
         >
       </nav>
-      <img src="/campfire.png" alt="campfire" class="w-1/4 pt-4" />
+
+      <nuxt-link
+        to="/songs/christmas"
+        class="mt-16 flex items-center justify-center w-1/5"
+        ><img src="/song_images/elves.png" alt="elves" class="pb-2"
+      /></nuxt-link>
+      <nuxt-link to="/songs/christmas" class="text-lg mb-4"
+        >See Christmas Parody Songs</nuxt-link
+      >
+
       <h3 class="text-lg my-4">More songs that make me chuckle from Spotify</h3>
       <iframe
         src="https://open.spotify.com/embed/playlist/0YCESpzXAbPcrTLZAFC9AE"

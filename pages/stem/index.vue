@@ -21,6 +21,7 @@
         <nuxt-link to="/stem/cistercian-monk-numerals"
           >Creating Cistercian Monk Numerals</nuxt-link
         >
+        <nuxt-link to="/songs/christmas/pi">Pi Song</nuxt-link>
         <div class="p-6 rounded bg-gray-900 flex flex-col space-y-4">
           <h2 class="text-2xl">Computer Programming Concepts</h2>
           <nuxt-link to="/stem/case-styles"
