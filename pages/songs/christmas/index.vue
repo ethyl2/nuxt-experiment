@@ -1,22 +1,24 @@
 <template>
-  <div class="min-h-screen mx-20">
-    <h1 class="font-bold text-xl mb-4 text-center">Christmas Parody Songs</h1>
+  <div class="min-h-screen mx-1 md:mx-20">
+    <h1 class="font-bold text-xl mb-4 text-center mt-2">
+      Christmas Parody Songs
+    </h1>
     <main>
       <nuxt-link
         v-for="(song, index) in songs"
         :key="index"
         :to="`/songs/christmas/${song.slug}`"
-        :class="`flex p-2 rounded border w-1/2 hover:bg-gray-900 my-2 border-${song.color1}`"
+        :class="`flex p-2 rounded border w-full overflow-hidden hover:bg-gray-900 my-2 border-${song.color1} md:w-1/2`"
       >
         <img :src="`/${song.image_url}`" :alt="song.title" class="w-12" />
-        <div class="ml-2">
+        <div class="ml-2 w-full">
           <h2 class="font-bold">{{ song.title }}</h2>
-          <div
+          <p
             v-if="song.chorus || song.verses"
-            class="truncate overflow-hidden w-full text-sm"
+            class="truncate overflow-hidden w-full text-xs text-justify md:text-sm"
           >
-            <p>{{ firstWords(song) }}</p>
-          </div>
+            {{ firstWords(song) }}
+          </p>
         </div>
       </nuxt-link>
     </main>

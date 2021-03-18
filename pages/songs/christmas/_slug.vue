@@ -1,13 +1,13 @@
 <template>
   <div>
     <div
-      :class="`container flex flex-col items-center justify-start min-h-screen border rounded pb-4 border-${color1}`"
+      :class="`container flex flex-col items-center justify-start text-center min-h-screen border rounded pb-4 border-${song.color1}`"
     >
       <div
-        class="text-center text-4xl font-extrabold leading-none tracking-tight mt-6 mb-2 md:text-5xl md:text-left"
+        class="text-center text-4xl font-extrabold leading-none tracking-tight mt-6 mb-2 px-2 md:text-5xl md:text-left"
       >
         <span
-          :class="`bg-clip-text text-transparent bg-gradient-to-r from-${song.color1} to-${song.color2}`"
+          :class="`text-center bg-clip-text text-transparent bg-gradient-to-r from-${song.color1} to-${song.color2}`"
         >
           {{ song.title }}
         </span>
@@ -72,8 +72,6 @@ export default {
   data() {
     return {
       slug: this.$route.params.slug,
-      color1: 'green-400',
-      color2: 'yellow-500',
     }
   },
   computed: {

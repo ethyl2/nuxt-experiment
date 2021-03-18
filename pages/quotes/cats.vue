@@ -26,9 +26,17 @@
         </div>
       </div>
       <button type="button" class="mt-2" @click.prevent="toggleSeeAllSongs">
-        {{ seeAllSongs ? 'See Less' : 'See All' }}
+        {{ seeAllSongs ? 'See Less' : 'See All Songs' }}
       </button>
     </div>
+    <!-- Christmas Section -->
+    <h3 class="text-xl font-bold border-t w-full text-center pt-2">
+      Catmas Carols
+    </h3>
+    <nuxt-link to="/songs/christmas/meowry" class="mt-2 block">
+      <img src="/cat.gif" alt="cat in ornament" class="w-16 mx-auto" />Have a
+      Meowry Christmas</nuxt-link
+    >
     <!-- Cat Clicker Section -->
     <div class="mt-6 border-t w-full">
       <cat-clicker />
