@@ -1232,6 +1232,9 @@ export const state = () => ({
       slug: 'xenon',
       title: 'Xenon, the Inert Atom',
       tune: 'Rudolph, the Red-Nosed Reindeer',
+      urls: [
+        'http://www.greekchat.com/gcforums/archive/index.php/t-60784.html',
+      ],
       verses: [
         [
           `Xenon, the inert atom, had a very stable shell,`,

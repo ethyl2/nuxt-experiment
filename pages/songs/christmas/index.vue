@@ -3,12 +3,12 @@
     <h1 class="font-bold text-xl mb-4 text-center mt-2">
       Christmas Parody Songs
     </h1>
-    <main>
+    <main class="flex flex-wrap justify-around">
       <nuxt-link
         v-for="(song, index) in songs"
         :key="index"
         :to="`/songs/christmas/${song.slug}`"
-        :class="`flex p-2 rounded border w-full overflow-hidden hover:bg-gray-900 my-2 border-${song.color1} md:w-1/2`"
+        :class="`flex p-2 rounded border w-full overflow-hidden hover:bg-gray-900 my-2 border-${song.color1} md:w-5/12`"
       >
         <img :src="`/${song.image_url}`" :alt="song.title" class="w-12" />
         <div class="ml-2 w-full">
