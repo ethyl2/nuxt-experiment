@@ -1228,5 +1228,27 @@ export const state = () => ({
       color1: 'red-800',
       color2: 'blue-600',
     },
+    {
+      slug: 'xenon',
+      title: 'Xenon, the Inert Atom',
+      tune: 'Rudolph, the Red-Nosed Reindeer',
+      verses: [
+        [
+          `Xenon, the inert atom, had a very stable shell,`,
+          `And all the other atoms wished that they could do as well,`,
+          'All of the other atoms used to laugh and call him names;',
+          'They never let poor xenon join in any bonding games!',
+        ],
+        [
+          'The one dark and stormy night, fluorine came to say --',
+          'Xenon with your stable shell, you could pair my p so well!',
+          'Then all the atoms loved him as they shouted out with glee:',
+          `Xenon the inert atom--you'll go down in chemistry!`,
+        ],
+      ],
+      image_url: 'song_images/xenon.jpg',
+      color1: 'purple-800',
+      color2: 'blue-600',
+    },
   ],
 })
