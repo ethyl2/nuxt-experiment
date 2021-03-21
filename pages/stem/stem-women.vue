@@ -27,15 +27,18 @@ nav {
         — Stephanie Kwolek, chemist who invented Kevlar and winner of the
         Lavoisier Medal for technical achievements
       </p>
+      <p class="text-center mt-2 text-lg text-teal-400">
+        Imagine the possibilities!
+      </p>
     </header>
     <nav
-      class="sticky block text-center top-0 bg-black z-50 my-8 mx-auto p-1 rounded"
+      class="sticky block text-center top-0 bg-black z-50 my-6 mx-auto p-1 rounded"
     >
       <a
         v-for="(woman, index) in stemWomen"
         :key="`link-${index + 1}`"
         :href="`#page-${index + 1}`"
-        class="inline-block w-6 no-underline md:w-12"
+        class="inline-block w-6 no-underline font-bold md:w-12"
         >{{ index + 1 }}</a
       >
     </nav>

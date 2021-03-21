@@ -1,34 +1,57 @@
 <template>
-  <div
-    class="flex flex-col justify-center items-center text-center m-2 md:m-16 md:flex-row md:space-x-4"
-  >
-    <img
-      src="/binaryShield.png"
-      alt="binary shield"
-      class="w:1/3 mx-auto my-4 order-2 md:order-1"
-    />
-    <div class="flex flex-col space-y-6 order-1 md:order-2">
-      <h1 class="text-5xl">STEM</h1>
-      <nav class="flex flex-col text-lg space-y-4">
-        <nuxt-link to="/stem/binary"
-          >Converting Between Text and Binary</nuxt-link
-        >
-        <nuxt-link to="/stem/elements"
-          >Creating Words and Passwords from Periodic Table Symbols</nuxt-link
-        >
-        <nuxt-link to="/3d-printing">3D Printing Shop</nuxt-link>
-        <nuxt-link to="/stem/stem-women">STEM Women</nuxt-link>
-        <nuxt-link to="/stem/cistercian-monk-numerals"
-          >Creating Cistercian Monk Numerals</nuxt-link
-        >
-        <nuxt-link to="/songs/christmas/pi">Pi Song</nuxt-link>
-        <div class="p-6 rounded bg-gray-900 flex flex-col space-y-4">
+  <div>
+    <h1 class="text-5xl text-center">STEM</h1>
+    <div
+      class="flex flex-col justify-center items-center text-center m-2 md:mx-24 md:flex-row md:items-stretch md:space-x-6"
+    >
+      <!-- LEFT SIDE -->
+      <div
+        class="w-full flex flex-row items-center justify-center mx-auto my-4 order-2 md:flex-col md:order-1 md:my-0 md:w-1/3 md:mr-0"
+      >
+        <nuxt-link to="/stem/binary">
+          <img src="/binaryShield.png" alt="binary shield" />
+        </nuxt-link>
+        <nuxt-link to="/stem/elements">
+          <img src="/chemistry.png" alt="chemistry" />
+        </nuxt-link>
+      </div>
+      <!-- RIGHT SIDE -->
+
+      <nav
+        class="w-full flex flex-col order-1 text-lg justify-between space-y-4 md:order-2 md:w-2/3 md:space-y-0"
+      >
+        <div class="p-6 rounded bg-black flex flex-col space-y-2">
+          <h2 class="text-2xl">Activities</h2>
+          <nuxt-link to="/stem/binary"
+            >Converting Between Text and Binary</nuxt-link
+          >
+          <nuxt-link to="/stem/elements"
+            >Creating Words and Passwords from Periodic Table Symbols</nuxt-link
+          >
+          <nuxt-link to="/3d-printing">3D Printing Shop</nuxt-link>
+          <nuxt-link to="/stem/stem-women">STEM Women</nuxt-link>
+          <nuxt-link to="/stem/cistercian-monk-numerals"
+            >Creating Cistercian Monk Numerals</nuxt-link
+          >
+        </div>
+        <div class="p-6 rounded bg-gray-900 flex flex-col space-y-2">
           <h2 class="text-2xl">Computer Programming Concepts</h2>
           <nuxt-link to="/stem/case-styles"
             >Creating Variable Names in Case Styles</nuxt-link
           >
           <nuxt-link to="/stem/local-storage-test"
             >Using Local Storage</nuxt-link
+          >
+        </div>
+        <div class="p-6 rounded bg-teal-900 flex flex-col space-y-2">
+          <h2 class="text-2xl">STEM-Themed Songs</h2>
+          <nuxt-link to="/songs/christmas/pi">Oh Number Pi</nuxt-link>
+          <nuxt-link to="/songs/christmas/pi-day">Pi Day</nuxt-link>
+          <nuxt-link to="/songs/christmas/xenon"
+            >Xenon, the Inert Atom</nuxt-link
+          >
+          <nuxt-link to="/songs/christmas/virus"
+            >Viruses Are Comin' to Town</nuxt-link
           >
         </div>
       </nav>
