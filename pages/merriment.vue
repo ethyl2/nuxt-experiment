@@ -25,6 +25,10 @@
         <nuxt-link to="/thimble/start" class="flex items-center font-semibold"
           ><span class="block text-2xl pr-1">😅 </span> Thimble Game</nuxt-link
         >
+        <nuxt-link to="/match-game" class="flex items-center font-semibold"
+          ><span class="block text-2xl pr-1">🦖 </span> Emoji Matching
+          Game</nuxt-link
+        >
         <nuxt-link to="/songs" class="flex items-center font-semibold"
           ><span class="block text-2xl pr-1">🎶 </span> Silly Songs</nuxt-link
         >

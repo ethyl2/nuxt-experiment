@@ -5,7 +5,7 @@
 So far, it contains:
 
 - my gratitude journal
-- my campfire songs collection
+- my campfire songs collection & Christmas parody songs collection
 - advent calendar
 - mountains info
 - song search using iTunes Search API
@@ -25,6 +25,7 @@ So far, it contains:
 - madlibs with a sequential input
 - page about using local storage
 - thimble game, using local storage and sequential input
+- emoji matching game, with card flipping animation
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 
@@ -104,6 +105,8 @@ In order for all features of this site to work correctly, you need to set up you
 - Example of copying to clipboard: https://codepen.io/PJCHENder/pen/jamJpj?editors=1010
 
 - Example of Vue.js image slider: https://www.digitalocean.com/community/tutorials/vuejs-create-image-slider
+
+- Starting code for matching game (written in React), with setup for card flipping: https://codesandbox.io/s/lambda-school-fmb-game-starter-vylky?file=/src/App.js
 
 ### CORS
 

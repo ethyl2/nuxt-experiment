@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center">
-    <h1 class="matching-game-title text-xl pt-4 md:text-5xl">
+    <h1 class="matching-game-title text-xl pt-4 md:text-4xl">
       Emoji Matching Game
     </h1>
     <score-board
@@ -9,9 +9,14 @@
       :game-won="gameWon"
     />
     <game-board :cards="cards" @flip-card="flipCard" />
-    <button type="button" @click="restart">
+    <button
+      type="button"
+      class="bg-black px-2 py-1 rounded hover:bg-gray-800"
+      @click="restart"
+    >
       {{ gameWon ? 'Play Again' : 'Restart' }}
     </button>
+    <p>Best score so far: {{ bestScore }}</p>
   </div>
 </template>
 
@@ -36,7 +41,7 @@ export default {
           id: 2,
         },
         {
-          value: '🌻',
+          value: '💣',
           flipped: false,
           id: 3,
         },
@@ -87,7 +92,7 @@ export default {
           id: 12,
         },
         {
-          value: '🌻',
+          value: '💣',
           flipped: false,
           id: 13,
         },
@@ -131,10 +136,16 @@ export default {
       pairsFoundCount: 0,
       gameWon: false,
       score: 0,
+      bestScore: -100,
     }
   },
   mounted() {
     this.shuffleCards()
+    if (process.browser) {
+      this.bestScore = localStorage.getItem('bestScore')
+        ? localStorage.getItem('bestScore')
+        : -100
+    }
   },
   methods: {
     flipCard(cardId) {
@@ -153,6 +164,12 @@ export default {
         this.pairsFoundCount += 1
         if (this.pairsFoundCount === this.cards.length / 2) {
           this.gameWon = true
+          if (this.score > this.bestScore) {
+            this.bestScore = this.score
+            if (process.browser) {
+              localStorage.setItem('bestScore', this.bestScore)
+            }
+          }
         }
       } else {
         setTimeout(() => {
@@ -174,11 +191,13 @@ export default {
     },
     restart() {
       this.cards.map((card) => (card.flipped = false))
-      this.shuffleCards()
-      this.gameWon = false
-      this.selectedCards = []
-      this.pairsFoundCount = 0
-      this.score = 0
+      setTimeout(() => {
+        this.shuffleCards()
+        this.gameWon = false
+        this.selectedCards = []
+        this.pairsFoundCount = 0
+        this.score = 0
+      }, 500)
     },
   },
 }

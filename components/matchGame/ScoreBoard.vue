@@ -1,8 +1,8 @@
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Codystar&display=swap');
 .score-board {
-  width: 350px;
-  height: 200px;
+  width: 250px;
+  height: 150px;
   background-color: black;
   margin: 30px 10px 10px;
   border-radius: 10px;
@@ -14,7 +14,7 @@
 
 .score-board-score {
   font-family: 'Codystar', cursive;
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: bold;
 }
 
