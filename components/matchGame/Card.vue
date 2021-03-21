@@ -62,8 +62,10 @@
 <template>
   <div class="card" @click="flipCard(card.id)">
     <div class="card-inner" :class="{ flipped: card.flipped }">
-      <div class="card-back">{{ card.value }}</div>
-      <div class="card-front">💙</div>
+      <div class="card-back" :class="{ 'cursor-not-allowed': card.flipped }">
+        {{ card.value }}
+      </div>
+      <div class="card-front">💎</div>
     </div>
   </div>
 </template>

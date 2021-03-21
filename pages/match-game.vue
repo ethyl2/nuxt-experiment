@@ -1,18 +1,17 @@
-<style scoped>
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
-.matching-game-title {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 3rem;
-  color: rgb(0, 0, 0, 0.7);
-  padding-top: 16px;
-}
-</style>
-
 <template>
   <div class="flex flex-col items-center justify-center">
-    <h1 class="matching-game-title">Matching Game</h1>
-    <score-board />
+    <h1 class="matching-game-title text-xl pt-4 md:text-5xl">
+      Emoji Matching Game
+    </h1>
+    <score-board
+      :score="score"
+      :matches-count="pairsFoundCount"
+      :game-won="gameWon"
+    />
     <game-board :cards="cards" @flip-card="flipCard" />
+    <button type="button" @click="restart">
+      {{ gameWon ? 'Play Again' : 'Restart' }}
+    </button>
   </div>
 </template>
 
@@ -27,12 +26,12 @@ export default {
     return {
       cards: [
         {
-          value: '😂',
+          value: '🔥',
           flipped: false,
           id: 1,
         },
         {
-          value: '🍀',
+          value: '🌠',
           flipped: false,
           id: 2,
         },
@@ -47,17 +46,17 @@ export default {
           id: 4,
         },
         {
-          value: '🐸',
+          value: '🌺',
           flipped: false,
           id: 5,
         },
         {
-          value: '🐱',
+          value: '🦖',
           flipped: false,
           id: 6,
         },
         {
-          value: '🐶',
+          value: '🐿️',
           flipped: false,
           id: 7,
         },
@@ -67,23 +66,23 @@ export default {
           id: 8,
         },
         {
-          value: '🌯',
+          value: '🛸',
           flipped: false,
           id: 9,
         },
         {
-          value: '😍',
+          value: '🍧',
           matched: false,
           flipped: false,
           id: 10,
         },
         {
-          value: '😂',
+          value: '🔥',
           flipped: false,
           id: 11,
         },
         {
-          value: '🍀',
+          value: '🌠',
           flipped: false,
           id: 12,
         },
@@ -98,17 +97,17 @@ export default {
           id: 14,
         },
         {
-          value: '🐸',
+          value: '🌺',
           flipped: false,
           id: 15,
         },
         {
-          value: '🐱',
+          value: '🦖',
           flipped: false,
           id: 16,
         },
         {
-          value: '🐶',
+          value: '🐿️',
           flipped: false,
           id: 17,
         },
@@ -118,31 +117,68 @@ export default {
           id: 18,
         },
         {
-          value: '🌯',
+          value: '🛸',
           flipped: false,
           id: 19,
         },
         {
-          value: '😍',
+          value: '🍧',
           flipped: false,
           id: 20,
         },
       ],
+      selectedCards: [],
+      pairsFoundCount: 0,
+      gameWon: false,
+      score: 0,
     }
   },
   mounted() {
-    // Fisher Yates Shuffle
-    for (let i = this.cards.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * i)
-      const k = this.cards[i]
-      this.cards[i] = this.cards[j]
-      this.cards[j] = k
-    }
+    this.shuffleCards()
   },
   methods: {
     flipCard(cardId) {
       const [cardToFlip] = this.cards.filter((card) => card.id === cardId)
-      cardToFlip.flipped = true
+      if (!cardToFlip.flipped) {
+        cardToFlip.flipped = true
+        this.selectedCards.push(cardToFlip)
+      }
+      if (this.selectedCards.length === 2) {
+        this.checkForMatch()
+      }
+    },
+    checkForMatch() {
+      const [firstSelectedCard, secondSelectedCard] = this.selectedCards
+      if (firstSelectedCard.value === secondSelectedCard.value) {
+        this.pairsFoundCount += 1
+        if (this.pairsFoundCount === this.cards.length / 2) {
+          this.gameWon = true
+        }
+      } else {
+        setTimeout(() => {
+          firstSelectedCard.flipped = false
+          secondSelectedCard.flipped = false
+          this.score -= 1
+        }, 500)
+      }
+      this.selectedCards = []
+    },
+    shuffleCards() {
+      // Fisher Yates Shuffle
+      for (let i = this.cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * i)
+        const k = this.cards[i]
+        this.cards[i] = this.cards[j]
+        this.cards[j] = k
+      }
+    },
+    restart() {
+      this.cards.map((card) => (card.flipped = false))
+      this.shuffleCards()
+      this.gameWon = false
+      this.selectedCards = []
+      this.pairsFoundCount = 0
+      this.score = 0
     },
   },
 }

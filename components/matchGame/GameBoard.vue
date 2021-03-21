@@ -2,7 +2,7 @@
 .board {
   width: 100%;
   max-width: 640px;
-  margin: 20px;
+  margin: 10px;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
