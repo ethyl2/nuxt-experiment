@@ -10,14 +10,23 @@
         :to="`/songs/christmas/${song.slug}`"
         :class="`flex p-2 rounded border w-full overflow-hidden hover:bg-gray-900 my-2 border-${song.color1} md:w-5/12`"
       >
-        <img :src="`/${song.image_url}`" :alt="song.title" class="w-12" />
+        <div
+          class="bg-center bg-cover bg-no-repeat w-12 h-12 flex-shrink-0"
+          :style="{ 'background-image': 'url(/' + song.image_url + ')' }"
+        ></div>
         <div class="ml-2 w-full">
           <h2 class="font-bold">{{ song.title }}</h2>
           <p
             v-if="song.chorus || song.verses"
-            class="truncate overflow-hidden w-full text-xs text-justify md:text-sm"
+            class="truncate overflow-hidden w-full text-xs text-justify md:hidden"
           >
-            {{ firstWords(song) }}
+            {{ firstWords(song)[1] }}
+          </p>
+          <p
+            v-if="song.chorus || song.verses"
+            class="hidden truncate overflow-hidden w-full text-sm text-justify md:block"
+          >
+            {{ firstWords(song)[0] }}
           </p>
         </div>
       </nuxt-link>
@@ -35,13 +44,16 @@ export default {
   },
   methods: {
     firstWords(song) {
-      let firstString = ''
+      let desktopFirstString = ''
+      let mobileFirstString = ''
       if (song.chorus) {
-        firstString = song.chorus.join(' ').substring(0, 65) + '...'
+        desktopFirstString = song.chorus.join(' ').substring(0, 60) + '...'
+        mobileFirstString = song.chorus.join(' ').substring(0, 40) + '...'
       } else if (song.verses) {
-        firstString = song.verses[0].join(' ').substring(0, 65) + '...'
+        desktopFirstString = song.verses[0].join(' ').substring(0, 60) + '...'
+        mobileFirstString = song.verses[0].join(' ').substring(0, 40) + '...'
       }
-      return firstString
+      return [desktopFirstString, mobileFirstString]
     },
   },
 }

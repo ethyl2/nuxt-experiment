@@ -13,7 +13,7 @@
 }
 
 .score-board-score {
-  font-family: 'Codystar', cursive;
+  font-family: 'Codystar', sans-serif;
   font-size: 2.25rem;
   font-weight: bold;
 }
