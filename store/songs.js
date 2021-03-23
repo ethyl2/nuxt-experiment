@@ -1313,5 +1313,34 @@ export const state = () => ({
       color1: 'green-800',
       color2: 'green-500',
     },
+    {
+      slug: 'precipitate',
+      title: `Oh That Precipitate`,
+      tune: `Frosty the Snowman`,
+      urls: ['https://sites.google.com/site/hhspotionmaster/chemcarols/frosty'],
+      chorus: [
+        'Oh, that precipitate',
+        'So white and clean you know,',
+        'Oh it is snow, but the chemists know',
+        `How it’s made of H2O.`,
+      ],
+      verses: [
+        [
+          `It must have been really cold that night`,
+          `To make that stuff fall down.`,
+          `‘Cause when the clouds did let it go`,
+          `It began to float around.`,
+        ],
+        [
+          'Down to the ground it gently went',
+          `It fell around the town.`,
+          `The chemists all knew what it was`,
+          `And began to dance around.`,
+        ],
+      ],
+      image_url: 'snowflake.png',
+      color1: 'white',
+      color2: 'gray-800',
+    },
   ],
 })

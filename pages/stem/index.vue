@@ -53,6 +53,9 @@
           <nuxt-link to="/songs/christmas/virus"
             >Viruses Are Comin' to Town</nuxt-link
           >
+          <nuxt-link to="/songs/christmas/precipitate"
+            >Oh That Precipitate</nuxt-link
+          >
         </div>
       </nav>
     </div>
