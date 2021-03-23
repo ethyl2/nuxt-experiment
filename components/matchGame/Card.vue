@@ -62,9 +62,20 @@
 <template>
   <div class="card" @click="flipCard(card.id)">
     <div class="card-inner" :class="{ flipped: card.flipped }">
-      <div class="card-back" :class="{ 'cursor-not-allowed': card.flipped }">
+      <div
+        v-if="card.value.length === 1"
+        class="card-back"
+        :class="{ 'cursor-not-allowed': card.flipped }"
+      >
         {{ card.value }}
       </div>
+      <div
+        v-else
+        class="card-back bg-center bg-cover bg-no-repeat"
+        :class="{ 'cursor-not-allowed': card.flipped }"
+        :style="{ 'background-image': 'url(' + card.value + ')' }"
+      ></div>
+
       <div class="card-front">💎</div>
     </div>
   </div>
