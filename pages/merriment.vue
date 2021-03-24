@@ -2,11 +2,22 @@
   <div
     class="flex flex-col justify-start items-center text-center min-h-screen md:flex-row md:justify-center"
   >
-    <img
-      src="/monkeys.jpg"
-      alt="monkey chain"
-      class="w-1/2 mr-0 my-4 order-2 md:order-1 md:w-1/3"
-    />
+    <div
+      class="flex flex-col items-center justify-center w-1/2 mr-0 my-4 order-2 md:order-1 md:w-1/3"
+    >
+      <img src="/monkeys.jpg" alt="monkey chain" class="w-full rounded mb-4" />
+      <p class="text-lg md:text-xl">
+        And frame your mind to mirth and merriment,
+      </p>
+      <p class="text-lg mb-4 md:text-xl">
+        Which bars a thousand harms and lengthens life.
+      </p>
+      <p class="text-sm">-- William Shakespeare,</p>
+      <p class="text-xs">
+        <span class="italic">The Taming of the Shrew</span> (c. 1593-94),
+        Induction, scene 2, line 137.
+      </p>
+    </div>
     <div
       class="flex flex-col space-y-1 order-1 md:w-1/2 md:order-2 md:space-y-0 md:pl-24"
     >
@@ -49,6 +60,12 @@
         >
         <nuxt-link to="/stem/elements" class="flex items-center font-semibold"
           ><span class="block text-2xl pr-1">🧪</span> Element Words</nuxt-link
+        >
+        <nuxt-link
+          to="/image-match-game"
+          class="flex items-center font-semibold"
+          ><span class="block text-2xl pr-1">🐐 </span> Animal Matching
+          Game</nuxt-link
         >
       </nav>
     </div>
