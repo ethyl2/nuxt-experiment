@@ -162,8 +162,8 @@ export default {
   mounted() {
     this.shuffleCards()
     if (process.browser) {
-      this.bestScore = localStorage.getItem('bestScore')
-        ? localStorage.getItem('bestScore')
+      this.bestScore = localStorage.getItem('imageBestScore')
+        ? localStorage.getItem('imageBestScore')
         : -100
     }
   },
@@ -187,7 +187,7 @@ export default {
           if (this.score > this.bestScore) {
             this.bestScore = this.score
             if (process.browser) {
-              localStorage.setItem('bestScore', this.bestScore)
+              localStorage.setItem('imageBestScore', this.bestScore)
             }
           }
         }

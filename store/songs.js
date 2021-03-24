@@ -1144,6 +1144,29 @@ export const state = () => ({
       color2: 'white',
     },
     {
+      slug: 'halogen',
+      title: 'We Wish You a Happy Halogen',
+      tune: 'We Wish You a Merry Christmas',
+      urls: ['https://sites.google.com/site/hhspotionmaster/chemcarols'],
+      verses: [
+        [
+          `Good acid we bring`,
+          `To you and your base.`,
+          `We wish you a merry molecule`,
+          'And a happy halogen.',
+        ],
+      ],
+      chorus: [
+        'We wish you a happy halogen.',
+        'We wish you a happy halogen.',
+        'We wish you a happy halogen',
+        'To react with a metal.',
+      ],
+      image_url: 'chemistry.png',
+      color1: 'orange-500',
+      color2: 'yellow-500',
+    },
+    {
       slug: 'gift',
       title: 'Wrap Your Gift',
       tune: 'Deck the Halls',
