@@ -63,7 +63,7 @@
   <div class="card" @click="flipCard(card.id)">
     <div class="card-inner" :class="{ flipped: card.flipped }">
       <div
-        v-if="card.value.length === 1"
+        v-if="card.value.length < 10"
         class="card-back"
         :class="{ 'cursor-not-allowed': card.flipped }"
       >
@@ -76,7 +76,10 @@
         :style="{ 'background-image': 'url(' + card.value + ')' }"
       ></div>
 
-      <div class="card-front">💎</div>
+      <div class="card-front">
+        <span v-if="card.value.length < 10">💎</span>
+        <span v-else>🐾</span>
+      </div>
     </div>
   </div>
 </template>

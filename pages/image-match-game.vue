@@ -1,6 +1,15 @@
 <template>
-  <div class="flex flex-col items-center justify-center">
-    <h1 class="matching-game-title text-xl pt-4 md:text-4xl">
+  <div
+    class="flex flex-col items-center justify-center h-full pb-20"
+    style="
+      background: url('/jellyfish.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    "
+  >
+    <h1 class="text-xl pt-4 text-white font-bold md:text-5xl">
       Animal Matching Game
     </h1>
     <score-board
