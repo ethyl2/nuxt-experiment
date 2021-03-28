@@ -30,47 +30,46 @@ export default {
     return {
       query: '',
       text: `
-            <div>
-                <p>'Twas brillig, and the slithy toves</p>
-                <p>Did gyre and gimble in the wabe;</p>
-                <p>All mimsy were the borogoves,</p>
-                <p>And the mome raths outgrabe.</p>
-                <br />
-                <p>"Beware the Jabberwock, my son!</p>
-                <p>The jaws that bite, the claws that catch!</p>
-                <p>Beware the Jubjub bird, and shun</p>
-                <p>The frumious Bandersnatch!"</p>
-                <br />
-            </div>
-            <div>
-                <p>He took his vorpal sword in hand:</p>
-                <p>Long time the manxome foe he sought —</p>
-                <p>So rested he by the Tumtum tree,</p>
-                <p>And stood awhile in thought.</p>
-                <br />
-                <p>And as in uffish thought he stood,</p>
-                <p>The Jabberwock, with eyes of flame,</p>
-                <p>Came whiffling through the tulgey wood,</p>
-                <p>And burbled as it came!</p>
-                <br />
-                <p>One, two! One, two! And through and through</p>
-                <p>The vorpal blade went snicker-snack!</p>
-                <p>He left it dead, and with its head</p>
-                <p>He went galumphing back.</p>
-                <br />
-            </div>
-            <div>
-                <p>"And hast thou slain the Jabberwock?</p>
-                <p>Come to my arms, my beamish boy!</p>
-                <p>O frabjous day! Callooh! Callay!"</p>
-                <p>He chortled in his joy.</p>
-                <br />
-                <p>'Twas brillig, and the slithy toves</p>
-                <p>Did gyre and gimble in the wabe;</p>
-                <p>All mimsy were the borogoves,</p>
-                <p>And the mome raths outgrabe.</p>
-            </div>
-        `,
+        <div>
+          <p>'Twas brillig, and the slithy toves</p>
+          <p>Did gyre and gimble in the wabe;</p>
+          <p>All mimsy were the borogoves,</p>
+          <p>And the mome raths outgrabe.</p>
+          <br />
+          <p>"Beware the Jabberwock, my son!</p>
+          <p>The jaws that bite, the claws that catch!</p>
+          <p>Beware the Jubjub bird, and shun</p>
+          <p>The frumious Bandersnatch!"</p>
+          <br />
+        </div>
+        <div>
+          <p>He took his vorpal sword in hand:</p>
+          <p>Long time the manxome foe he sought —</p>
+          <p>So rested he by the Tumtum tree,</p>
+          <p>And stood awhile in thought.</p>
+          <br />
+          <p>And as in uffish thought he stood,</p>
+          <p>The Jabberwock, with eyes of flame,</p>
+          <p>Came whiffling through the tulgey wood,</p>
+          <p>And burbled as it came!</p>
+          <br />
+          <p>One, two! One, two! And through and through</p>
+          <p>The vorpal blade went snicker-snack!</p>
+          <p>He left it dead, and with its head</p>
+          <p>He went galumphing back.</p>
+          <br />
+        </div>
+        <div>
+          <p>"And hast thou slain the Jabberwock?</p>
+          <p>Come to my arms, my beamish boy!</p>
+          <p>O frabjous day! Callooh! Callay!"</p>
+          <p>He chortled in his joy.</p>
+          <br />
+          <p>'Twas brillig, and the slithy toves</p>
+          <p>Did gyre and gimble in the wabe;</p>
+          <p>All mimsy were the borogoves,</p>
+          <p>And the mome raths outgrabe.</p>
+        </div>`,
     }
   },
   methods: {
