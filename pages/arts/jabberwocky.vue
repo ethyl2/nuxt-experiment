@@ -14,8 +14,9 @@
         class="text-black p-1 w-5/6 rounded md:w-1/2"
       />
     </div>
+    <h2 class="font-bold text-md py-1">Jabberwocky</h2>
     <div
-      class="leading-loose mx-auto w-full mb-6 md:w-5/6"
+      class="leading-loose mx-auto w-full mb-6 flex flex-col md:flex-row md:justify-around md:w-5/6"
       v-html="highlight()"
     ></div>
     <img class="w-full mx-auto md:w-1/2" src="/jabberwocky.jpg" />
@@ -29,8 +30,6 @@ export default {
     return {
       query: '',
       text: `
-        <h2 class="font-bold text-md py-1">Jabberwocky</h2>
-        <div class="flex flex-col md:flex-row md:justify-around">
             <div>
                 <p>'Twas brillig, and the slithy toves</p>
                 <p>Did gyre and gimble in the wabe;</p>
@@ -45,7 +44,7 @@ export default {
             </div>
             <div>
                 <p>He took his vorpal sword in hand:</p>
-                <p>Long time the manxome foe he sought—</p>
+                <p>Long time the manxome foe he sought —</p>
                 <p>So rested he by the Tumtum tree,</p>
                 <p>And stood awhile in thought.</p>
                 <br />
@@ -71,12 +70,13 @@ export default {
                 <p>All mimsy were the borogoves,</p>
                 <p>And the mome raths outgrabe.</p>
             </div>
-        </div>`,
+        `,
     }
   },
   methods: {
     highlight() {
-      if (!this.query) {
+      const tagsToIgnore = ['div', 'p', 'br', '<', '/', '>']
+      if (!this.query || tagsToIgnore.includes(this.query)) {
         return this.text
       }
       return this.text.replace(new RegExp(this.query, 'gi'), (match) => {

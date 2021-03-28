@@ -22,7 +22,7 @@
 
 <template>
   <div
-    class="min-h-screen bg-repeat bg-center relative md:bg-contain md:bg-no-repeat"
+    class="min-h-screen bg-contain bg-repeat bg-center relative md:bg-no-repeat"
     style="background-image: url('/notebook.jpg')"
   >
     <p

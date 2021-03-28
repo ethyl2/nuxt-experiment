@@ -31,5 +31,30 @@
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'ArtsIndex',
+  head() {
+    return {
+      title: '🎨 Arts Menu',
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Presents options of arts activities -- including drawing, music, quotes, and stories.',
+        },
+        {
+          name: 'twitter:title',
+          content: 'Arts Menu | Nuxt Experiments',
+        },
+        {
+          name: 'twitter:description ',
+          content:
+            'Presents options of arts activities -- including drawing, music, quotes, and stories.',
+        },
+        { name: 'twitter:image', content: '/song.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
+  },
+}
 </script>
