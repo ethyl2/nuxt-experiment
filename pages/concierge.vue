@@ -1,11 +1,12 @@
 <template>
-  <div class="mx-4 md:mx-10">
-    <h1>Concierge</h1>
-    <h2>
+  <div class="mx-4 md:mx-40">
+    <h1 class="text-3xl my-2 text-center">Concierge</h1>
+    <img src="/magic-carpet.png" alt="magic carpet" class="w-40 mx-auto my-2" />
+    <h2 class="text-lg text-center mb-2">
       Simply answer a few questions, roll dice, and be whisked off to a page
       that fits your interests!
     </h2>
-    <form @submit.prevent="handleSubmit">
+    <form class="max-w-sm mx-auto" @submit.prevent="handleSubmit">
       <fieldset class="flex flex-col p-2 rounded border m-4">
         <legend class="font-medium">Do you like animals?</legend>
         <div>
@@ -26,7 +27,7 @@
             value="1"
             required
           />
-          <label for="yesToCats">Only Cats</label>
+          <label for="yesToCats">Only cats</label>
         </div>
         <div>
           <input
@@ -59,7 +60,7 @@
             value="1"
             required
           />
-          <label for="yesToChristmas">Only Christmas Music</label>
+          <label for="yesToChristmas">Only Christmas music</label>
         </div>
         <div>
           <input
@@ -82,7 +83,7 @@
             value="2"
             required
           />
-          <label for="computers">Computer Programming</label>
+          <label for="computers">Computer programming</label>
         </div>
         <div>
           <input
@@ -150,7 +151,7 @@
             value="1"
             required
           />
-          <label for="yesToGroupGames">Only With a Group of People</label>
+          <label for="yesToGroupGames">Only with a group of people</label>
         </div>
         <div>
           <input
@@ -165,10 +166,16 @@
       </fieldset>
 
       <div class="flex flex-col justify-center items-center">
-        <button type="button" class="mb-2" @click="rollDice">Roll Dice</button>
-        <div class="flex justify-center items-center space-x-6">
+        <button
+          type="button"
+          class="text-2xl mb-2 hover:text-purple-400"
+          @click="rollDice"
+        >
+          Roll Dice
+        </button>
+        <div class="flex justify-center items-center space-x-6 group">
           <div
-            class="w-12 h-12 border bg-white rounded flex flex-wrap items-center justify-center"
+            class="w-12 h-12 border bg-white rounded flex flex-wrap items-center justify-center group-hover:bg-purple-400 group-hover:border-purple-400 hover:bg-purple-400 hover:border-purple-400"
             @click="rollDice"
           >
             <div
@@ -178,7 +185,7 @@
             ></div>
           </div>
           <div
-            class="w-12 h-12 border bg-white rounded flex flex-wrap items-center justify-center"
+            class="w-12 h-12 border bg-white rounded flex flex-wrap items-center justify-center group-hover:bg-purple-400 group-hover:border-purple-400 hover:bg-purple-400 hover:border-purple-400"
             @click="rollDice"
           >
             <div
@@ -190,7 +197,7 @@
         </div>
         <button
           type="submit"
-          class="bg-black rounded py-1 px-2 m-2 hover:bg-gray-900"
+          class="bg-black rounded py-2 px-4 m-4 text-2xl font-bold hover:bg-gray-900"
         >
           Let's Go!
         </button>
@@ -209,8 +216,8 @@ export default {
       stemSubject: null,
       sense: null,
       likesGames: null,
-      diceRoll1: 4,
-      diceRoll2: 4,
+      diceRoll1: null,
+      diceRoll2: null,
     }
   },
   mounted() {
@@ -230,6 +237,12 @@ export default {
       this.stemSubject = localStorage.getItem('stemSubject')
         ? localStorage.getItem('stemSubject')
         : null
+      this.diceRoll1 = localStorage.getItem('diceRoll1')
+        ? parseInt(localStorage.getItem('diceRoll1'))
+        : 4
+      this.diceRoll2 = localStorage.getItem('diceRoll2')
+        ? parseInt(localStorage.getItem('diceRoll2'))
+        : 4
     }
   },
   methods: {
@@ -240,6 +253,8 @@ export default {
         localStorage.setItem('likesGames', this.likesGames)
         localStorage.setItem('sense', this.sense)
         localStorage.setItem('stemSubject', this.stemSubject)
+        localStorage.setItem('diceRoll1', this.diceRoll1)
+        localStorage.setItem('diceRoll2', this.diceRoll2)
       }
       const diceTotal = this.diceRoll1 + this.diceRoll2
       const pageTypeMap = {
@@ -255,7 +270,7 @@ export default {
         11: 'sense',
         12: 'sense',
       }
-      let newPath = ''
+      let newPath = '/stem/cistercian-monk-numerals'
       let foundNewPath = false
       let pageType = pageTypeMap[diceTotal]
 
@@ -299,7 +314,7 @@ export default {
         } else if (this.stemSubject === '1') {
           newPath = '/stem/elements'
           foundNewPath = true
-        } else {
+        } else if (this.stemSubject === '0') {
           newPath = '/stem/binary'
           foundNewPath = true
         }
@@ -311,8 +326,6 @@ export default {
           newPath = '/arts/drag-and-drop'
         } else if (this.sense === '0') {
           newPath = '/arts/color-picker'
-        } else {
-          newPath = '/stem/cistercian-monk-numerals'
         }
       }
       this.$router.push({ path: newPath })

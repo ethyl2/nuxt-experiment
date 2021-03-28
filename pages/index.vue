@@ -2,7 +2,13 @@
   <div class="container">
     <div>
       <img src="../static/tree2.png" alt="logo" class="mx-auto" />
-      <h1 class="title">Nuxt.js Experiments</h1>
+      <h1 class="title mb-6">Nuxt.js Experiments</h1>
+      <nuxt-link
+        to="/concierge"
+        class="bg-black rounded py-2 px-4 my-12 text-2xl font-bold text-white hover:bg-gray-900"
+      >
+        Let's Go!
+      </nuxt-link>
     </div>
   </div>
 </template>

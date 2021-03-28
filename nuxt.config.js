@@ -52,7 +52,13 @@ export default {
     config: {
       variants: {
         extend: {
-          backgroundColor: ['active'],
+          backgroundColor: [
+            'responsive',
+            'hover',
+            'focus',
+            'active',
+            'group-hover',
+          ],
         },
       },
     },
