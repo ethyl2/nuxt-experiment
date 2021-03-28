@@ -46,6 +46,13 @@
     <div class="mt-6 border-t w-full">
       <cat-sounds />
     </div>
+
+    <div class="mt-6 border-t w-full">
+      <p class="pt-4">
+        Can you find all 10 cats
+        <nuxt-link to="/arts/drag-and-drop2">here</nuxt-link>?
+      </p>
+    </div>
   </div>
 </template>
 

@@ -16,6 +16,7 @@
 <script>
 import AdventCard from '~/components/AdventCard'
 export default {
+  name: 'AdventCalendar',
   components: {
     AdventCard,
   },
@@ -92,6 +93,27 @@ export default {
     getRandomMessage() {
       return this.messages[Math.floor(Math.random() * this.messages.length)]
     },
+  },
+  head() {
+    return {
+      title: '🎄 Advent Calendar',
+      meta: [
+        {
+          name: 'description',
+          content: 'Click on the days leading up to Christmas.',
+        },
+        {
+          name: 'twitter:title',
+          content: 'Advent Calendar',
+        },
+        {
+          name: 'twitter:description ',
+          content: 'Click on the days leading up to Christmas.',
+        },
+        { name: 'twitter:image', content: '/christmas_tree.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
   },
 }
 </script>

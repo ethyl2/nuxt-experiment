@@ -243,5 +243,26 @@ export default {
       this.nameColor = this.colorNames[randomIndex][1]
     },
   },
+  head() {
+    return {
+      title: '🖍️ Color Picker',
+      meta: [
+        {
+          name: 'description',
+          content: 'Explore colors and their names in this virtual crayon box.',
+        },
+        {
+          name: 'twitter:title',
+          content: 'Color Picker | Nuxt Experiments',
+        },
+        {
+          name: 'twitter:description ',
+          content: 'Explore colors and their names in this virtual crayon box.',
+        },
+        { name: 'twitter:image', content: '/colors.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
+  },
 }
 </script>

@@ -77,6 +77,7 @@
       </div>
 
       <div
+        id="love-words"
         class="drop-zone rounded bg-green-500 pb-2 m-1 w-1/4 overflow-x-auto md:m-2"
         @drop="onDrop($event, 4)"
         @dragover.prevent
@@ -311,6 +312,13 @@
       </div>
       <p v-if="errorMessage" class="text-center m-1">{{ errorMessage }}</p>
     </section>
+    <nuxt-link to="#love-words">
+      <img
+        src="/say-love-dark.png"
+        class="w-40 rounded mx-auto my-8"
+        alt="speech bubble saying love"
+      />
+    </nuxt-link>
   </div>
 </template>
 
@@ -574,6 +582,27 @@ export default {
       this.audio = new Audio(this.audioUrl)
       this.audio.play()
     },
+  },
+  head() {
+    return {
+      title: '💬 Exploring Words and Feelings',
+      meta: [
+        {
+          name: 'description',
+          content: 'Explore words and the feelings you associate with them',
+        },
+        {
+          name: 'twitter:title',
+          content: 'Exploring Words and Feelings | Nuxt Experiments',
+        },
+        {
+          name: 'twitter:description ',
+          content: 'Explore words and the feelings you associate with them',
+        },
+        { name: 'twitter:image', content: '/say-love.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
   },
 }
 </script>

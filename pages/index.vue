@@ -21,11 +21,11 @@ export default {
       meta: [
         {
           name: 'twitter:title',
-          content: "Heather Nuffer's Nuxt.js Experiment",
+          content: "Heather Nuffer's Nuxt.js Experiments",
         },
         {
           name: 'twitter:description ',
-          content: "Heather Nuffer's Nuxt.js Experiment",
+          content: "Heather Nuffer's Nuxt.js Experiments",
         },
         { name: 'twitter:image', content: '../static/tree2.png' },
         { name: 'twitter:card', content: 'summary_large_image' },

@@ -79,5 +79,28 @@ export default {
     ContactFormWithFormSubmit: () =>
       import('~/components/printing/ContactFormWithFormSubmit'),
   },
+  head() {
+    return {
+      title: '🖼️ 3D Printing Shop',
+      meta: [
+        {
+          name: 'description',
+          content:
+            "Thomas Nuffer's 3D Printing Shop will custom print 3D items for you. See examples and contact form.",
+        },
+        {
+          name: 'twitter:title',
+          content: "Thomas Nuffer's 3D Printing Shop",
+        },
+        {
+          name: 'twitter:description ',
+          content:
+            "Thomas Nuffer's 3D Printing Shop will custom print 3D items for you. See examples and contact form.",
+        },
+        { name: 'twitter:image', content: '/printing/tom.jpg' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
+  },
 }
 </script>
