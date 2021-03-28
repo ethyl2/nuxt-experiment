@@ -245,9 +245,9 @@ export default {
       const pageTypeMap = {
         2: 'likesAnimals',
         3: 'likesAnimals',
-        4: 'stemSubject',
+        4: 'likesAnimals',
         5: 'stemSubject',
-        6: 'likesMusic',
+        6: 'stemSubject',
         7: 'likesMusic',
         8: 'likesGames',
         9: 'likesGames',
@@ -255,65 +255,67 @@ export default {
         11: 'sense',
         12: 'sense',
       }
+      let newPath = ''
+      let foundNewPath = false
       let pageType = pageTypeMap[diceTotal]
-      console.log(diceTotal)
-      console.log(pageType)
+
       if (pageType === 'likesAnimals') {
-        console.log('in likesAnimals')
         if (this.likesAnimals === '2') {
-          console.log('in likesAnimals = 2')
-          location.replace('/image-match-game')
+          foundNewPath = true
+          newPath = '/image-match-game'
         } else if (this.likesAnimals === '1') {
-          console.log('in likesAnimals = 1')
-          location.replace('/quotes/cats')
+          newPath = '/quotes/cats'
+          foundNewPath = true
         } else {
-          console.log('in likesAnimals = 0')
           pageType = 'sense'
         }
       }
       if (pageType === 'likesMusic') {
-        console.log('in likesMusic')
         if (this.likesMusic === '2') {
-          console.log('in likesMusic = 2')
-          location.replace('/songs')
+          newPath = '/songs'
+          foundNewPath = true
         } else if (this.likesMusic === '1') {
-          console.log('in likesMusic = 1')
-          location.replace('/songs/christmas')
-          console.log('still in likesMusic = 1')
+          newPath = '/songs/christmas'
+          foundNewPath = true
         } else {
-          console.log('in likesMusic = 0')
           pageType = 'sense'
         }
       }
       if (pageType === 'likesGames') {
-        console.log('in likesGames')
         if (this.likesGames === '2') {
-          location.replace('/arts/madlibs')
+          newPath = '/arts/madlibs'
+          foundNewPath = true
         } else if (this.likesGames === '1') {
-          location.replace('/thimble/start')
+          newPath = '/thimble/start'
+          foundNewPath = true
         } else {
           pageType = 'sense'
         }
       }
       if (pageType === 'stemSubject') {
-        console.log('in stemSubject')
         if (this.stemSubject === '2') {
-          location.replace('/stem/case-styles')
+          newPath = '/stem/case-styles'
+          foundNewPath = true
         } else if (this.stemSubject === '1') {
-          location.replace('/stem/elements')
+          newPath = '/stem/elements'
+          foundNewPath = true
         } else {
-          location.replace('/stem/binary')
+          newPath = '/stem/binary'
+          foundNewPath = true
         }
       }
-      if (this.sense === '2') {
-        location.replace('/sound-machine')
-      } else if (this.sense === '1') {
-        location.replace('/arts/drag-and-drop')
-      } else if (this.sense === '0') {
-        location.replace('/arts/color-picker')
-      } else {
-        location.replace('/stem/cistercian-monk-numerals')
+      if (!foundNewPath) {
+        if (this.sense === '2') {
+          newPath = '/sound-machine'
+        } else if (this.sense === '1') {
+          newPath = '/arts/drag-and-drop'
+        } else if (this.sense === '0') {
+          newPath = '/arts/color-picker'
+        } else {
+          newPath = '/stem/cistercian-monk-numerals'
+        }
       }
+      this.$router.push({ path: newPath })
     },
     rollDice() {
       for (let i = 0; i < 5; i++) {
