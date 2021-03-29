@@ -515,6 +515,7 @@ export default {
       'touchmove',
       function () {
         event.preventDefault()
+        event.stopPropagation()
       },
       false
     )
