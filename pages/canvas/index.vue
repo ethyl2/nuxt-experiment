@@ -240,5 +240,26 @@ export default {
       this.canvas.fillRect(0, 0, this.canvasWidth, this.canvasHeight)
     },
   },
+  head() {
+    return {
+      title: '✏️ Drawing on Canvas',
+      meta: [
+        {
+          name: 'description',
+          content: 'Draw and save your creation.',
+        },
+        {
+          name: 'twitter:title',
+          content: 'Canvas Drawing | Nuxt Experiments',
+        },
+        {
+          name: 'twitter:description ',
+          content: 'Draw and save your creation.',
+        },
+        { name: 'twitter:image', content: '/colors.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
+  },
 }
 </script>

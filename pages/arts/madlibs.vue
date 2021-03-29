@@ -171,5 +171,26 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: '🤪 Madlibs',
+      meta: [
+        {
+          name: 'description',
+          content: 'Create a zany Madlibs story.',
+        },
+        {
+          name: 'twitter:title',
+          content: 'Madlibs | Nuxt Experiments',
+        },
+        {
+          name: 'twitter:description ',
+          content: 'Create a zany Madlibs story.',
+        },
+        { name: 'twitter:image', content: '/eggs.jpg' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
+  },
 }
 </script>

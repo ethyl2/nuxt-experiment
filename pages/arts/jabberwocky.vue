@@ -87,5 +87,26 @@ export default {
       })
     },
   },
+  head() {
+    return {
+      title: '🐉 Jabberwocky Search',
+      meta: [
+        {
+          name: 'description',
+          content: 'Search the text of the Jabberwocky.',
+        },
+        {
+          name: 'twitter:title',
+          content: 'Jabberwocky Search | Nuxt Experiments',
+        },
+        {
+          name: 'twitter:description ',
+          content: 'Search the text of the Jabberwocky.',
+        },
+        { name: 'twitter:image', content: '/jabberwocky.jpg' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
+  },
 }
 </script>

@@ -64,6 +64,10 @@ export default {
       title: `Day of Gratitude 🍂 ${this.day.number}`,
       meta: [
         {
+          name: 'description',
+          content: "Heather Nuffer's gratitude journal",
+        },
+        {
           name: 'twitter:title',
           content: `Day of Gratitude ${this.day.number}`,
         },
