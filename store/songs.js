@@ -1365,5 +1365,46 @@ export const state = () => ({
       color1: 'white',
       color2: 'gray-800',
     },
+    {
+      slug: 'acromantula',
+      title: `Acromantula for Christmas`,
+      tune: `I Want a Hippopotamus for Christmas`,
+      urls: [
+        'https://www.mugglenet.com/2016/12/want-acromantula-christmas/, https://youtu.be/GobF4i3G2PA',
+      ],
+      verses: [
+        [
+          'I want an Acromantula for Christmas.',
+          'Only an Acromantula will do.',
+          'I don’t want a Knarl, no flaccid Flobberworm,',
+          `I want an Acromantula`,
+          `To play with through the term.`,
+        ],
+        [
+          'I want an Acromantula for Christmas.',
+          `I don’t think Santa Claus will mind, do you?`,
+          `He won’t have to use our dirty chimney flue.`,
+          `Just bring him through the fire`,
+          `With a big handful of Floo!`,
+        ],
+        [
+          'I can see him now on Christmas morning,',
+          `Hatching from his egg.`,
+          `Oh, what joy and what surprise`,
+          `When I finally see his eyes`,
+          `And the thick fur lining all eight legs.`,
+        ],
+        [
+          'I want an Acromantula for Christmas.',
+          'Only an Acromantula will do.',
+          'No Jobberknolls, or Hippocampususes;',
+          `I only like Acromantulasuses,`,
+          `And Acromantulas like me too!`,
+        ],
+      ],
+      image_url: 'song_images/spider.png',
+      color1: 'yellow-900',
+      color2: 'yellow-600',
+    },
   ],
 })
