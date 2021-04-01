@@ -1406,5 +1406,30 @@ export const state = () => ({
       color1: 'yellow-900',
       color2: 'yellow-600',
     },
+    {
+      slug: 'zero',
+      title: `You Can't Divide by Zero`,
+      tune: `Rudolph the Red-Nosed Reindeer`,
+      urls: [
+        'https://musingsofamathteacher.wordpress.com/2010/12/20/funny-christmas-math-songs/',
+      ],
+      verses: [
+        [
+          'Zero’s a lovely number.',
+          'It will multiply and add just fine,',
+          'But you can’t divide by zero',
+          `’Cause the answer’s always undefined.`,
+        ],
+        [
+          `All of the other numbers`,
+          `Used to laugh and shout with glee,`,
+          `"If you divide by zero,`,
+          `All your calculator says is E."`,
+        ],
+      ],
+      image_url: 'song_images/calculator.png',
+      color1: 'green-400',
+      color2: 'green-900',
+    },
   ],
 })
