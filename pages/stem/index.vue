@@ -56,6 +56,9 @@
           <nuxt-link to="/songs/christmas/precipitate"
             >Oh That Precipitate</nuxt-link
           >
+          <nuxt-link to="/songs/christmas/zero"
+            >You Can't Divide by Zero</nuxt-link
+          >
         </div>
       </nav>
     </div>
