@@ -78,5 +78,12 @@ export const state = () => ({
         'something about spring --  a feeling of anticipation, or of warmer days outside maybe -- motivates me to finally get some projects done, like putting the Christmas lights where they belong',
       image_url: 'gratitude/lights.png',
     },
+    {
+      number: 'twelve',
+      item: 'geocaching',
+      reason: `while it's been a while since I've found a geocache, I refilled the one we own today. The experience brought back wonderful memories of geocaching adventures in the past, with friends and family, chances to get outside and
+        explore new places -- Maybe I should go geocaching again soon!`,
+      image_url: 'gratitude/treasure-map.png',
+    },
   ],
 })

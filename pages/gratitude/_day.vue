@@ -13,6 +13,14 @@
         class="w-1/4 pt-4"
       />
       <hr />
+      <a
+        v-if="day.number === 'twelve'"
+        href="http://www.geocaching.com/profile/?guid=9266a6f1-a2d3-40b8-a09c-62c1de398038"
+        target="_blank"
+        ><img
+          src="http://img.geocaching.com/stats/img.aspx?txt=Let's+Go+Geocaching!&amp;uid=9266a6f1-a2d3-40b8-a09c-62c1de398038&amp;bg=1"
+          alt="Profile for ZizzerZazzerZuzz"
+      /></a>
       <small>#GiveThanks</small>
     </div>
     <nuxt-link to="/gratitude" class="flex items-center justify-center"
