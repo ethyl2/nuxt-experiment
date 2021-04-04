@@ -4,6 +4,7 @@
   --teal-light: #4fb99f;
   --yellow: #f2b134;
   --main-bg-color: coral;
+  --bullet: '✓';
 }
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
