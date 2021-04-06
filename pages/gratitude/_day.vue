@@ -21,6 +21,9 @@
           src="http://img.geocaching.com/stats/img.aspx?txt=Let's+Go+Geocaching!&amp;uid=9266a6f1-a2d3-40b8-a09c-62c1de398038&amp;bg=1"
           alt="Profile for ZizzerZazzerZuzz"
       /></a>
+      <nuxt-link v-if="day.number === 'thirteen'" to="/podcast-list"
+        >See My Favorite Podcasts</nuxt-link
+      >
       <small>#GiveThanks</small>
     </div>
     <nuxt-link to="/gratitude" class="flex items-center justify-center"

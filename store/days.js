@@ -85,5 +85,11 @@ export const state = () => ({
         explore new places -- Maybe I should go geocaching again soon!`,
       image_url: 'gratitude/treasure-map.png',
     },
+    {
+      number: 'thirteen',
+      item: 'podcasts',
+      reason: `listening to these are the perfect way to temporarily disconnect my brain from my worries when I need to sleep, and to entertain me while I clean a toilet or haul bags of mulch around`,
+      image_url: 'speech-bubble.png',
+    },
   ],
 })

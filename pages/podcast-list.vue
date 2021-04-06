@@ -8,9 +8,11 @@ ul.podcast-list li > a::before {
 </style>
 <template>
   <div>
-    <h1 class="text-2xl font-bold mb-2 text-center">Favorite Podcasts</h1>
+    <h1 id="top" class="text-2xl font-bold mb-2 text-center">
+      Favorite Podcasts
+    </h1>
     <div class="flex">
-      <nav class="flex flex-wrap mx-auto">
+      <nav class="flex flex-wrap mx-auto items-center justify-center">
         <a href="#interesting-facts"
           ><img
             src="/podcast-group/interesting-facts.png"
@@ -445,6 +447,7 @@ ul.podcast-list li > a::before {
         </li>
       </ul>
     </div>
+    <a href="#top" class="flex items-center justify-center">☝️ To Top </a>
   </div>
 </template>
 
