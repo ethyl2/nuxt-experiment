@@ -1,8 +1,14 @@
-<style scoped>
+<style>
 :root {
   --h: 50px;
   --bullet2: '$';
+  --blue: #1e90ff;
 }
+
+h2.h2-example {
+  color: var(--blue) !important;
+}
+
 .row {
   width: 100px;
   height: 50px;
@@ -29,18 +35,7 @@
   padding: 20px;
 }
 
-form {
-  display: flex;
-  width: 80%;
-  justify-content: flex-start;
-}
-
-label {
-  width: 80%;
-  line-height: 40px;
-}
-
-input {
+#y {
   display: block;
   width: 10%;
   margin: auto;
@@ -48,13 +43,39 @@ input {
 }
 </style>
 <template>
-  <div class="wrapper">
-    <div class="row"></div>
-    <label for="y"
-      >Change the value of the <b>top</b> for <b>::after</b>
-      pseudoelement
-      <input id="y" type="number" value="0" step="10" />
-    </label>
+  <div class="flex flex-col items-start justify-start mx-4 md:mx-40">
+    <h1>CSS Variables</h1>
+    <p>
+      You can reuse values in your css. Instead of having to type #1e90ff, for
+      example, you can declare a variable with that value.
+    </p>
+    <p>
+      Here, we prefix the variable name with '--', and stick it in the :root
+      selector. It's in :root so that it has global scope.
+    </p>
+    <pre>
+        :root {
+            --blue: #1e90ff;
+        }
+    </pre>
+    <p>Here, we use the variable for the color of the h2 and the span.</p>
+    <pre>
+        h2 {
+            color: var(--blue);
+        }
+        span {
+            color: var(--blue);
+        }
+    </pre>
+    <h2 class="h2-example">Here is an h2 with that color.</h2>
+    <div class="wrapper">
+      <div class="row"></div>
+      <label for="y"
+        >Change the value of the <b>top</b> for <b>::after</b>
+        pseudoelement
+        <input id="y" type="number" value="0" step="10" />
+      </label>
+    </div>
   </div>
 </template>
 
