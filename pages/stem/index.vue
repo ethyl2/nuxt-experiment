@@ -42,6 +42,7 @@
           <nuxt-link to="/stem/local-storage-test"
             >Using Local Storage</nuxt-link
           >
+          <nuxt-link to="/stem/caps-lock">Caps Lock Event Listening</nuxt-link>
         </div>
         <div class="p-6 rounded bg-teal-900 flex flex-col space-y-2">
           <h2 class="text-2xl">STEM-Themed Songs</h2>
