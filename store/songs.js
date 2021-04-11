@@ -1490,6 +1490,13 @@ export const state = () => ({
         'https://www.wattpad.com/67574006-harry-potter-poems-and-songs-gred-and-forge-12',
         'http://www.jimandellen.org/izzy/holiday2.htm',
         'https://www.fanpop.com/clubs/harry-potter/articles/138972/title/12-days-christmas-harry-potter-style',
+        'https://i.pinimg.com/originals/d1/21/53/d121537bc93bbf1d2bd523ea6f9cf58c.jpg',
+        'https://www.pinterest.com/pin/166633254935216744/',
+        'https://thebookwench.com/2017/12/09/a-harry-potter-12-days-of-christmas/',
+        'https://i.pinimg.com/originals/48/4c/2b/484c2b28e4269afd0fb2ed4efc0b6c4b.jpg',
+        'https://www.pinterest.com/pin/69805862963327534/',
+        'https://www.angelfire.com/wizard/greeneyes/12days.htm',
+        'https://i.pinimg.com/originals/9c/d4/d6/9cd4d60207d182f2947cb0948c23389d.jpg',
       ],
       verses: [
         [

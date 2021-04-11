@@ -37,6 +37,9 @@
       <nuxt-link to="/songs/christmas" class="text-lg mb-4"
         >See Christmas Parody Songs</nuxt-link
       >
+      <nuxt-link to="/arts/twelve-days" class="text-lg mb-4"
+        >Make a Custom Harry Potter Christmas Song</nuxt-link
+      >
 
       <h3 class="text-lg my-4">More songs that make me chuckle from Spotify</h3>
       <iframe
