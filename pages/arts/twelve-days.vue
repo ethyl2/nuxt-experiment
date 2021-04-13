@@ -229,7 +229,7 @@ export default {
             'Seven Weasleys squabbling',
             'Seven horcruxes',
             'Seven secrecy sensors',
-            'Seven portaits talking',
+            'Seven portraits talking',
             'Seven stink pellets',
             'Seven skiving snackboxes',
             'Seven bouncing ferrets',
