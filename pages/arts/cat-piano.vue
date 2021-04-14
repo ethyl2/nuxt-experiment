@@ -5,20 +5,22 @@
       My goal is to find meows that, put in sequence, resemble a musical scale.
       Here goes nothing!
     </p>
-    <button
-      v-for="sound in sounds"
-      :key="sound.name"
-      class="border p-1 rounded m-2 text-sm lg:p-2 lg:text-base"
-      :class="
-        currentButton === sound.name
-          ? 'bg-pink-600 hover:bg-pink-800'
-          : 'bg-teal-600 hover:bg-teal-800'
-      "
-      type="button"
-      @click="play(sound)"
-    >
-      {{ sound.name }}
-    </button>
+    <main class="flex flex-wrap justify-center items-center">
+      <button
+        v-for="(sound, index) in sounds"
+        :key="sound.name"
+        class="w-20 p-1 rounded m-2 lg:p-2"
+        :class="
+          currentButton === sound.name
+            ? 'bg-pink-600 hover:bg-pink-800'
+            : 'bg-teal-600 hover:bg-teal-800'
+        "
+        type="button"
+        @click="play(sound)"
+      >
+        <img :src="`/catfaces/catface0${index % 9}.png`" alt="cat face" />
+      </button>
+    </main>
 
     <footer class="mt-2">
       <h3 class="text-sm py-2 md:text-base">Sound Sources</h3>
@@ -45,6 +47,11 @@ export default {
       currentButton: null,
       sounds: [
         {
+          name: 'low B?',
+          soundUrl: '/sounds/meows/meow05.wav',
+          sourceUrl: 'https://freesound.org/people/freemaster2/sounds/66515/',
+        },
+        {
           name: 'low C',
           soundUrl: '/sounds/meow2.wav',
           sourceUrl: 'https://freesound.org/people/TRNGLE/sounds/362652/',
@@ -60,40 +67,45 @@ export default {
           sourceUrl: 'https://freesound.org/people/tuberatanka/sounds/110011/',
         },
         {
-          name: '3rd note - F# ?',
+          name: 'F# to F',
+          soundUrl: '/sounds/meows/meow20.mp3',
+          sourceUrl: 'https://www.zapsplat.com/music/cat-moaning-meow-hungry/',
+        },
+        {
+          name: 'F#?',
           soundUrl: '/sounds/meows/meow10.mp3',
           sourceUrl:
             'https://www.zapsplat.com/music/cat-meow-hungry-begging-for-food/',
         },
         {
-          name: 'low G!',
+          name: 'low G',
           soundUrl: '/sounds/meows/meow11.mp3',
           sourceUrl:
             'https://www.zapsplat.com/music/cat-meow-hungry-begging-for-food/',
         },
         {
-          name: 'high G!',
-          soundUrl: '/sounds/meows/meow12.mp3',
-          sourceUrl: 'https://www.zapsplat.com/music/cat-meowing/',
-        },
-        {
-          name: 'high G! 2nd',
-          soundUrl: '/sounds/meows/meow01.mp3',
-          sourceUrl: 'https://www.zapsplat.com/music/cat-meow-1/',
-        },
-        {
-          name: 'G#! 1st',
+          name: 'G#',
           soundUrl: '/sounds/meows/meow14.mp3',
           sourceUrl: 'https://www.zapsplat.com/music/cat-meowing-3-versions/',
         },
         {
-          name: 'G#! 2nd',
+          name: 'G# 2nd',
           soundUrl: '/sounds/meows/meow08.mp3',
           sourceUrl:
             'https://www.zapsplat.com/music/cat-meow-hungry-begging-for-food/',
         },
         {
-          name: 'almost A',
+          name: 'high G',
+          soundUrl: '/sounds/meows/meow12.mp3',
+          sourceUrl: 'https://www.zapsplat.com/music/cat-meowing/',
+        },
+        {
+          name: 'High G#',
+          soundUrl: '/sounds/meows/meow19.mp3',
+          sourceUrl: 'https://www.zapsplat.com/music/cat-kitten-meow-7/',
+        },
+        {
+          name: 'almost high A',
           soundUrl: '/sounds/meows/meow16.mp3',
           sourceUrl: 'https://www.zapsplat.com/music/cat-kitten-meow-1/',
         },
@@ -101,11 +113,6 @@ export default {
           name: 'Bb!',
           soundUrl: '/sounds/meows/meow17.mp3',
           sourceUrl: 'https://www.zapsplat.com/music/cat-kitten-meow-3/',
-        },
-        {
-          name: 'low B?',
-          soundUrl: '/sounds/meows/meow05.wav',
-          sourceUrl: 'https://freesound.org/people/freemaster2/sounds/66515/',
         },
         {
           name: 'B!',
