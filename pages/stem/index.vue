@@ -64,6 +64,11 @@
           <nuxt-link to="/songs/christmas/zero"
             >You Can't Divide by Zero</nuxt-link
           >
+          <nuxt-link to="/songs/christmas/photon">Frosty the Photon</nuxt-link>
+          <nuxt-link to="/songs/christmas/gravity">Gravity Bells</nuxt-link>
+          <nuxt-link to="/songs/christmas/gases"
+            >O Come, All Ye Gases</nuxt-link
+          >
         </div>
       </nav>
     </div>
