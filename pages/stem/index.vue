@@ -69,6 +69,9 @@
           <nuxt-link to="/songs/christmas/gases"
             >O Come, All Ye Gases</nuxt-link
           >
+          <nuxt-link to="/songs/christmas/refactoring"
+            >Refactoring All The Way</nuxt-link
+          >
         </div>
       </nav>
     </div>

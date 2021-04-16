@@ -1667,5 +1667,34 @@ export const state = () => ({
       color1: 'green-500',
       color2: 'yellow-500',
     },
+    {
+      slug: 'refactoring',
+      title: `Refactoring All The Way`,
+      tune: `Jingle Bells`,
+      urls: [
+        'https://github.com/CodingTrain/Holiday-Songs/blob/master/Refactoring%20all%20the%20way.md',
+      ],
+      chorus: [
+        'Refactoring, refactoring, refactoring all the way,',
+        'Oh what fun it is to use for-loops everywhere, oh yay!',
+        'Refactoring, refactoring, refactoring all the way,',
+        'My code is oh so short now with iterations and arrays.',
+      ],
+      verses: [
+        [
+          `Dashing through the code`,
+          `In an IDE all day`,
+          'Through the lines we go',
+          'Refactoring all the way',
+          `The code was way too long.`,
+          `Must make functions right.`,
+          'Oh what fun it is to make long code',
+          'Into a handful of lines tonight - oh!',
+        ],
+      ],
+      image_url: 'song_images/keyboard.png',
+      color1: 'red-500',
+      color2: 'red-100',
+    },
   ],
 })
