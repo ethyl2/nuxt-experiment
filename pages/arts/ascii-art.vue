@@ -9,6 +9,13 @@
     >
       Print Gopher
     </button>
+    <button
+      type="button"
+      class="bg-black p-1 rounded m-2 text-sm hover:bg-gray-800 lg:p-2 lg:text-base"
+      @click="printDog"
+    >
+      Print Dog
+    </button>
     <pre v-if="showGopher">
         `.-::::::-.
     .:-::::::::::::::-:.
@@ -23,6 +30,13 @@
       .::::::::::::::.
         oO:::::::Oo`
     </pre>
+    <pre v-if="showDog">
+       `__       _
+       o'')}____//
+        `_/      )
+        (_(_/-(_/
+        `
+    </pre>
   </div>
 </template>
 
@@ -32,6 +46,7 @@ export default {
   data() {
     return {
       showGopher: false,
+      showDog: false,
     }
   },
   methods: {
@@ -52,6 +67,18 @@ export default {
       ::::::::::::::::
       .::::::::::::::.
          oO:::::::Oo`
+      )
+    },
+    printDog() {
+      this.showDog = true
+      // eslint-disable-next-line no-console
+      console.log(
+        `
+               __       _
+              o'')}____//
+               '_/      )
+               (_(_/-(_/
+            `
       )
     },
   },
