@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-10">
+  <div class="mx-10 min-h-screen">
     <h1>ascii art</h1>
     <p>Open up the developer tools, select the console, then click:</p>
     <button
@@ -15,6 +15,13 @@
       @click="printDog"
     >
       Print Dog
+    </button>
+    <button
+      type="button"
+      class="bg-black p-1 rounded m-2 text-sm hover:bg-gray-800 lg:p-2 lg:text-base"
+      @click="printFlowers"
+    >
+      Print Flowers
     </button>
     <pre v-if="showGopher">
         `.-::::::-.
@@ -37,6 +44,22 @@
         (_(_/-(_/
         `
     </pre>
+    <pre v-if="showFlowers">
+    `
+         wWWWw               wWWWw
+   vVVVv (___) wWWWw         (___)  vVVVv
+   (___)  ~Y~  (___)  vVVVv   ~Y~   (___)
+    ~Y~   \|    ~Y~   (___)    |/    ~Y~
+    \|   \ |/   \| /  \~Y~/   \|    \ |/
+   \\|// \\|//  \\|/// \\|//  \\|// \\\|///
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   `
+    </pre>
+    <div>
+      <a href="https://www.asciiart.eu/" target="blank"
+        >See a plethora of ascii art</a
+      >
+    </div>
   </div>
 </template>
 
@@ -47,6 +70,7 @@ export default {
     return {
       showGopher: false,
       showDog: false,
+      showFlowers: false,
     }
   },
   methods: {
@@ -79,6 +103,21 @@ export default {
                '_/      )
                (_(_/-(_/
             `
+      )
+    },
+    printFlowers() {
+      this.showFlowers = true
+      // eslint-disable-next-line no-console
+      console.log(
+        `
+         wWWWw               wWWWw
+   vVVVv (___) wWWWw         (___)  vVVVv
+   (___)  ~Y~  (___)  vVVVv   ~Y~   (___)
+    ~Y~    |    ~Y~   (___)    |/    ~Y~
+     |     |/    | /   ~Y~/    |      |/
+     |//   |//   |///   |//    |//    |///
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+`
       )
     },
   },
