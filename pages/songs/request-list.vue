@@ -13,7 +13,9 @@ input:checked ~ .toggle__dot {
 
 <template>
   <div class="flex flex-col mx-4 min-h-screen md:mx-10">
-    <h1 class="text-lg md:text-4xl">Make a Playlist/Start a Request List</h1>
+    <h1 class="text-lg md:text-4xl">
+      Add to the Request List & Upvote Your Favorites
+    </h1>
     <p v-if="!searchResults" class="text-base py-2">
       This page is for demonstration/development purposes only. If the search is
       not working, you may need to request access to the CORS Anywhere demo by
@@ -70,7 +72,7 @@ input:checked ~ .toggle__dot {
     </form>
 
     <div class="flex flex-col md:flex-row md:space-x-2">
-      <div class="md:w-1/2 mt-4 md:mt-10 lg:px-10 mx-auto">
+      <div class="md:w-1/2 mt-4 md:mt-10 lg:px-5 mx-auto">
         <div v-if="searchResults">
           <table class="table-auto w-full text-center">
             <caption class="text-base font-bold md:text-lg">
@@ -129,7 +131,7 @@ input:checked ~ .toggle__dot {
                   >
                   <p v-else class="text-xs">{{ result.artistName }}</p>
                 </td>
-                <td class="px-2 py-1 border">
+                <td class="px-1 py-1 border">
                   <button
                     v-if="allowAudio"
                     type="button"
@@ -160,7 +162,7 @@ input:checked ~ .toggle__dot {
 
       <div
         v-if="playlist.length > 0"
-        class="md:w-1/2 mt-4 md:mt-10 flex flex-col items-center justify-start lg:px-10 mx-auto"
+        class="md:w-1/2 mt-4 md:mt-10 flex flex-col items-center justify-start lg:px-5 mx-auto"
       >
         <table class="table-auto w-full text-center">
           <caption class="text-base font-bold md:text-lg">
@@ -173,7 +175,7 @@ input:checked ~ .toggle__dot {
               <th class="px-2 py-2 text-xs">Album</th>
               <th class="px-2 py-2 text-xs">Track Name/Artist</th>
               <th class="px-2 py-2 text-xs">
-                {{ allowAudio ? 'Play/' : '' }}Upvote/Delete
+                {{ allowAudio ? 'Play/' : '' }}Upvote
               </th>
             </tr>
           </thead>
@@ -237,50 +239,10 @@ input:checked ~ .toggle__dot {
                 >
                   👍 <span class="text-xs">({{ result.votes }})</span>
                 </button>
-                <button
-                  type="button"
-                  class="rounded bg-red-500 hover:bg-white m-1"
-                  @click="deleteSong(result)"
-                >
-                  ☠️
-                </button>
               </td>
             </tr>
           </tbody>
         </table>
-        <button
-          type="button"
-          class="mt-2 px-2 py-1 bg-black rounded hover:bg-gray-900 font-bold w-full mx-auto"
-          style="max-width: 180px"
-          @click="clearPlaylist"
-        >
-          Clear All
-        </button>
-        <button
-          v-if="!isNamingPlaylist"
-          type="button"
-          class="mt-2 px-2 py-1 bg-black rounded hover:bg-gray-900 font-bold w-full mx-auto"
-          style="max-width: 180px"
-          @click="isNamingPlaylist = !isNamingPlaylist"
-        >
-          Name List
-        </button>
-        <input
-          v-if="isNamingPlaylist"
-          v-model="playlistName"
-          type="text"
-          placeholder="playlist name"
-          class="text-black p-1 mt-2"
-        />
-        <button
-          v-if="isNamingPlaylist"
-          type="button"
-          class="mt-2 px-2 py-1 bg-black rounded hover:bg-gray-900 font-bold w-full mx-auto"
-          style="max-width: 180px"
-          @click="savePlaylistName"
-        >
-          Save Name
-        </button>
       </div>
     </div>
   </div>
@@ -288,7 +250,7 @@ input:checked ~ .toggle__dot {
 
 <script>
 export default {
-  name: 'PlaylistCreator',
+  name: 'RequestList',
   data() {
     return {
       searchTerm: '',
@@ -298,8 +260,7 @@ export default {
       audio: null,
       allowAudio: false,
       playlist: [],
-      playlistName: 'Playlist',
-      isNamingPlaylist: false,
+      playlistName: 'Request List',
     }
   },
   computed: {
@@ -314,7 +275,7 @@ export default {
         : []
       this.playlistName = localStorage.getItem('playlistName')
         ? localStorage.getItem('playlistName')
-        : 'Playlist'
+        : 'Request List'
     }
   },
   methods: {
@@ -370,24 +331,6 @@ export default {
     },
     upvoteSong(result) {
       result.votes += 1
-      if (process.browser) {
-        localStorage.setItem('playlist', JSON.stringify(this.playlist))
-      }
-    },
-    clearPlaylist() {
-      this.playlist = []
-      if (process.browser) {
-        localStorage.setItem('playlist', [])
-      }
-    },
-    savePlaylistName() {
-      if (process.browser) {
-        localStorage.setItem('playlistName', this.playlistName)
-      }
-      this.isNamingPlaylist = false
-    },
-    deleteSong(result) {
-      this.playlist = this.playlist.filter((song) => song !== result)
       if (process.browser) {
         localStorage.setItem('playlist', JSON.stringify(this.playlist))
       }
