@@ -51,9 +51,13 @@
         allow="encrypted-media"
       ></iframe>
       <div class="my-4">
-        <nuxt-link to="/songSearch" class="mb-4"
+        <nuxt-link to="/songSearch" class="pr-4 border-r mr-4"
           >Search with iTunes API</nuxt-link
         >
+        <nuxt-link to="/songs/playlist" class="pr-4 border-r mr-4"
+          >Make a Playlist or Request List</nuxt-link
+        >
+        <nuxt-link to="/songs/lists">See Your Request Lists</nuxt-link>
       </div>
     </main>
   </div>
