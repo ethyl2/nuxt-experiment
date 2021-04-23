@@ -281,6 +281,14 @@ input:checked ~ .toggle__dot {
         >
           Save Name
         </button>
+        <button
+          type="button"
+          class="mt-2 px-2 py-1 bg-black rounded hover:bg-gray-900 font-bold w-full mx-auto"
+          style="max-width: 180px"
+          @click="savePlaylist"
+        >
+          Save List
+        </button>
       </div>
     </div>
   </div>
@@ -300,6 +308,7 @@ export default {
       playlist: [],
       playlistName: 'Playlist',
       isNamingPlaylist: false,
+      playlists: {},
     }
   },
   computed: {
@@ -315,6 +324,9 @@ export default {
       this.playlistName = localStorage.getItem('playlistName')
         ? localStorage.getItem('playlistName')
         : 'Playlist'
+      this.playlists = localStorage.getItem('playlists')
+        ? JSON.parse(localStorage.getItem('playlists'))
+        : {}
     }
   },
   methods: {
@@ -390,6 +402,13 @@ export default {
       this.playlist = this.playlist.filter((song) => song !== result)
       if (process.browser) {
         localStorage.setItem('playlist', JSON.stringify(this.playlist))
+      }
+    },
+    savePlaylist() {
+      const id = Math.floor(Math.random() * 1000000)
+      this.playlists[id] = { name: this.playlistName, songs: this.playlist }
+      if (process.browser) {
+        localStorage.setItem('playlists', JSON.stringify(this.playlists))
       }
     },
   },
