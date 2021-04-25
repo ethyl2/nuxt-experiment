@@ -122,6 +122,30 @@
   shape-outside: circle(50% at 10%);
   clip-path: circle(50% at 0%);
   background: #ed64a6;
+  position: relative;
+}
+
+#half-circle p {
+  position: absolute;
+  top: 48px;
+  right: 80px;
+}
+
+#ellipse {
+  float: left;
+  width: 128px;
+  height: 128px;
+  margin: 4px;
+  shape-outside: ellipse(30% 50%);
+  clip-path: ellipse(30% 50% at 30%);
+  background: #319795;
+  position: relative;
+}
+
+#ellipse p {
+  position: absolute;
+  top: 48px;
+  right: 64px;
 }
 </style>
 
@@ -291,9 +315,9 @@
           sit amet, pellentesque ac turpis.
         </p>
       </div>
-      <div class="bg-gray-900 p-4 w-full mx-auto md:w-1/2">
+      <div class="bg-gray-900 p-4 w-full mx-auto mb-4 md:w-1/2">
         <div
-          class="rounded-full w-32 h-32 bg-green-500 flex flex-col items-center text-center justify-center text-sm float-left mr-4 my-2"
+          class="w-32 h-32 bg-green-500 flex flex-col items-center text-center justify-center text-sm float-left mr-2 my-2"
           style="shape-outside: circle(); clip-path: circle()"
         >
           <p class="font-bold">Circle</p>
@@ -302,7 +326,7 @@
         <p>
           <span class="text-yellow-200"
             >The circle here is made like the circle examples above, with the
-            addition of classes <code>float-left mr-4 my-2</code>. Also, it has
+            addition of classes <code>float-left mr-2 my-2</code>. Also, it has
             two additional lines of css:
             <code>shape-outside: circle(); clip-path: circle();</code>. So this
             p will wrap around it and follow the edge of the circle!</span
@@ -312,20 +336,41 @@
           ultrices condimentum velit.
         </p>
       </div>
-      <div class="bg-gray-900 p-4 w-full mx-auto md:w-1/2">
+      <div class="bg-gray-900 p-4 w-full mx-auto mb-4 md:w-1/2">
         <div id="half-circle" class="flex items-start justify-center">
           <p class="font-bold">Circle</p>
         </div>
         <p>
           <span class="text-yellow-200"
-            >The half circle here is made using parameters to
-            <code>circle</code>
+            >The half circle here is made using the parameters
+            <code>radius</code> and <code>position</code> in
+            <code>circle()</code>
             in the lines of css:
             <code
               >shape-outside: circle(50% at 10%); clip-path: circle(50% at
               0%);</code
             >. This p will wrap around it and follow the edge of the
             circle!</span
+          >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis
+          et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis
+          ultrices condimentum velit.
+        </p>
+      </div>
+      <div class="bg-gray-900 p-4 w-full mx-auto mb-4 md:w-1/2">
+        <div id="ellipse" class="flex items-start justify-center">
+          <p class="font-bold">Ellipse</p>
+        </div>
+        <p>
+          <span class="text-yellow-200"
+            >The ellipse here is made using
+            <code>ellipse()</code>
+            in the lines of css:
+            <code>
+              shape-outside: ellipse(30% 50%); clip-path: ellipse(30% 50% at
+              30%);</code
+            >. This <code>p</code> will wrap around it and follow the edge of
+            the ellipse!</span
           >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis
           et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis
