@@ -113,6 +113,16 @@
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+#half-circle {
+  float: left;
+  width: 128px;
+  height: 128px;
+  margin: 4px;
+  shape-outside: circle(50% at 10%);
+  clip-path: circle(50% at 0%);
+  background: #ed64a6;
+}
 </style>
 
 <template>
@@ -296,6 +306,26 @@
             two additional lines of css:
             <code>shape-outside: circle(); clip-path: circle();</code>. So this
             p will wrap around it and follow the edge of the circle!</span
+          >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis
+          et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis
+          ultrices condimentum velit.
+        </p>
+      </div>
+      <div class="bg-gray-900 p-4 w-full mx-auto md:w-1/2">
+        <div id="half-circle" class="flex items-start justify-center">
+          <p class="font-bold">Circle</p>
+        </div>
+        <p>
+          <span class="text-yellow-200"
+            >The half circle here is made using parameters to
+            <code>circle</code>
+            in the lines of css:
+            <code
+              >shape-outside: circle(50% at 10%); clip-path: circle(50% at
+              0%);</code
+            >. This p will wrap around it and follow the edge of the
+            circle!</span
           >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis
           et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis
