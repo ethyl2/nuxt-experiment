@@ -147,6 +147,41 @@
   top: 48px;
   right: 64px;
 }
+
+#polygon {
+  float: left;
+  width: 128px;
+  height: 128px;
+  margin: 0 10px;
+  shape-outside: polygon(
+    0 0,
+    100% 0,
+    100% 20%,
+    60% 20%,
+    60% 100%,
+    40% 100%,
+    40% 20%,
+    0 20%
+  );
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 20%,
+    60% 20%,
+    60% 100%,
+    40% 100%,
+    40% 20%,
+    0 20%
+  );
+  background: #667eea;
+}
+
+#leaf {
+  float: left;
+  width: 128px;
+  height: 128px;
+  shape-outside: url('/flowers/leaf7.png');
+}
 </style>
 
 <template>
@@ -371,6 +406,71 @@
               30%);</code
             >. This <code>p</code> will wrap around it and follow the edge of
             the ellipse!</span
+          >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis
+          et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis
+          ultrices condimentum velit.
+        </p>
+      </div>
+      <div class="bg-gray-900 p-4 w-full mx-auto mb-4 md:w-1/2">
+        <div id="polygon" class="flex items-start justify-center">
+          <p class="font-bold">Polygon</p>
+        </div>
+        <p>
+          <span class="text-yellow-200"
+            >The polygon here is made using
+            <code>polygon()</code>
+            in the css. This <code>p</code> will wrap around it and follow the
+            edge of the polygon!</span
+          >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis
+          et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis
+          ultrices condimentum velit.
+        </p>
+      </div>
+      <div class="w-full mx-auto md:w-1/2">
+        <p class="text-lg font-bold mb-2">Css for the polygon:</p>
+        <pre class="bg-black p-2 rounded overflow-x-scroll">
+      #polygon {
+        float: left;
+        width: 128px;
+        height: 128px;
+        margin: 0 10px;
+        shape-outside: polygon(
+            0 0,
+            100% 0,
+            100% 20%,
+            60% 20%,
+            60% 100%,
+            40% 100%,
+            40% 20%,
+            0 20%
+        );
+        clip-path: polygon(
+            0 0,
+            100% 0,
+            100% 20%,
+            60% 20%,
+            60% 100%,
+            40% 100%,
+            40% 20%,
+            0 20%
+        );
+        background: #667eea;
+      }
+    </pre
+        >
+      </div>
+      <div class="bg-gray-900 p-4 w-full mx-auto my-4 md:w-1/2">
+        <img id="leaf" src="/flowers/leaf3.png" alt="leaf" />
+        <p>
+          <span class="text-yellow-200"
+            >This example uses an image with a transparent background, and
+            <code>url()</code>
+            in the line of css:
+            <code> shape-outside: url('/flowers/leaf7.png');</code>. This
+            <code>p</code> will wrap around it and follow the edge of the
+            image!</span
           >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis
           et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis
