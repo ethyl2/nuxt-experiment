@@ -69,6 +69,8 @@
   background-color: #319795;
   text-align: center;
   color: white;
+  animation: grow 1.5s linear;
+  animation-delay: 1s;
   font-size: 110%;
 }
 
@@ -84,7 +86,15 @@
   background-color: #319795;
   text-align: center;
   color: white;
+  animation: grow 1.5s linear;
+  animation-delay: 1s;
   font-size: 110%;
+}
+
+@keyframes grow {
+  0% {
+    font-size: 10%;
+  }
 }
 
 .steps p:nth-child(even) {
@@ -181,6 +191,95 @@
   width: 128px;
   height: 128px;
   shape-outside: url('/flowers/leaf7.png');
+}
+
+.rings {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  background: black;
+  align-items: center;
+  justify-content: center;
+}
+
+.percent1,
+.percent2,
+.percent3,
+svg,
+circle {
+  width: 200px;
+  height: 200px;
+}
+
+circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 10;
+  transform: translate(10px, 10px); /* This is to position it in the center */
+  stroke-dasharray: 440;
+  stroke-linecap: round;
+}
+
+circle:nth-child(1) {
+  stroke-dashoffset: 0;
+  stroke: #424242;
+}
+
+.percent1 circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 75) / 100);
+  stroke: gold;
+  animation: percent 1.5s linear;
+  animation-delay: 1s;
+}
+
+.percent2 circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 33) / 100);
+  stroke: salmon;
+  animation: percent 1.8s linear;
+  animation-delay: 1.2s;
+}
+
+.percent3 circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 50) / 100);
+  stroke: #319795;
+  animation: percent 1.8s linear;
+  animation-delay: 2s;
+}
+
+.number {
+  position: relative;
+  bottom: 160px;
+  right: -50px;
+  color: #fff;
+}
+
+.rings h2 {
+  font-size: 48px;
+}
+
+.rings span {
+  font-size: 24px;
+  opacity: 0.7;
+}
+
+.percent1 span {
+  color: gold;
+}
+
+.percent2 span {
+  color: salmon;
+}
+
+.percent3 span {
+  color: #319795;
+}
+
+/* Animation definition */
+@keyframes percent {
+  0% {
+    stroke-dashoffset: 0;
+    stroke-width: 0;
+  }
 }
 </style>
 
@@ -476,6 +575,39 @@
           et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis
           ultrices condimentum velit.
         </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Percentage Rings</h2>
+      <div class="rings">
+        <div class="percent1">
+          <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle cx="70" cy="70" r="70"></circle>
+          </svg>
+          <div class="number">
+            <h2>75<span>%</span></h2>
+          </div>
+        </div>
+        <div class="percent2">
+          <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle cx="70" cy="70" r="70"></circle>
+          </svg>
+          <div class="number">
+            <h2>33<span>%</span></h2>
+          </div>
+        </div>
+        <div class="percent3">
+          <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle cx="70" cy="70" r="70"></circle>
+          </svg>
+          <div class="number">
+            <h2>50<span>%</span></h2>
+          </div>
+        </div>
       </div>
     </section>
   </div>
