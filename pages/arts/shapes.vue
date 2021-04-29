@@ -580,6 +580,15 @@ circle:nth-child(1) {
 
     <section>
       <h2>Percentage Rings</h2>
+      <p>
+        Read
+        <a
+          href="https://dev.to/vaibhavkhulbe/let-s-make-and-wear-those-css-3-progress-rings-2ngf"
+          target="_blank"
+          >here</a
+        >
+        to learn how to make them.
+      </p>
       <div class="rings">
         <div class="percent1">
           <svg>
