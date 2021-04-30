@@ -1,4 +1,8 @@
-<style scoped>
+<style>
+:root {
+  --custom: 50;
+}
+
 .triangle {
   width: 0;
   height: 0;
@@ -194,8 +198,6 @@
 }
 
 .rings {
-  display: flex;
-  flex-direction: row;
   padding: 1rem;
   background: black;
   align-items: center;
@@ -205,7 +207,8 @@
 .percent1,
 .percent2,
 .percent3,
-svg,
+.percent4,
+.rings svg,
 circle {
   width: 200px;
   height: 200px;
@@ -242,6 +245,13 @@ circle:nth-child(1) {
 .percent3 circle:nth-child(2) {
   stroke-dashoffset: calc(440 - (440 * 50) / 100);
   stroke: #319795;
+  animation: percent 1.8s linear;
+  animation-delay: 2s;
+}
+
+.percent4 circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * var(--custom)) / 100);
+  stroke: #ed64a6;
   animation: percent 1.8s linear;
   animation-delay: 2s;
 }
@@ -589,7 +599,7 @@ circle:nth-child(1) {
         >
         to learn how to make them.
       </p>
-      <div class="rings">
+      <div class="rings flex flex-col md:flex-row">
         <div class="percent1">
           <svg>
             <circle cx="70" cy="70" r="70"></circle>
@@ -617,6 +627,25 @@ circle:nth-child(1) {
             <h2>50<span>%</span></h2>
           </div>
         </div>
+        <div class="percent4">
+          <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle cx="70" cy="70" r="70"></circle>
+          </svg>
+          <div class="number">
+            <h2>{{ customPercent }}<span>%</span></h2>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-end space-y-2 w-full md:w-1/4 ml-auto">
+        <label for="percent-input">Set the percentage of the last ring:</label>
+        <input
+          id="percent-input"
+          v-model="customPercent"
+          type="number"
+          class="text-black rounded w-1/2"
+          max="100"
+        />
       </div>
     </section>
   </div>
@@ -625,5 +654,17 @@ circle:nth-child(1) {
 <script>
 export default {
   name: 'CssShapes',
+  data() {
+    return {
+      customPercent: 50,
+    }
+  },
+  mounted() {
+    const percentInput = document.getElementById('percent-input')
+    percentInput.addEventListener('change', move, false)
+    function move() {
+      document.documentElement.style.setProperty('--custom', percentInput.value)
+    }
+  },
 }
 </script>
