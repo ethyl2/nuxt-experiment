@@ -454,5 +454,10 @@ ul.podcast-list li > a::before {
 <script>
 export default {
   name: 'PodcastList',
+  head() {
+    return {
+      title: 'Podcast List',
+    }
+  },
 }
 </script>

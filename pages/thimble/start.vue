@@ -384,5 +384,10 @@ export default {
       this.isPickingCategory = true
     },
   },
+  head() {
+    return {
+      title: 'Thimble Game Set Up',
+    }
+  },
 }
 </script>

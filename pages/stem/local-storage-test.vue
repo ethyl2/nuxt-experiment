@@ -190,5 +190,10 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: 'Using Local Storage',
+    }
+  },
 }
 </script>

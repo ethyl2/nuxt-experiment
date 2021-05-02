@@ -402,5 +402,10 @@ export default {
       button.href = imageUri
     },
   },
+  head() {
+    return {
+      title: 'Cistercian Monk Numerals',
+    }
+  },
 }
 </script>

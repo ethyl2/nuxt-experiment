@@ -105,5 +105,10 @@ export default {
       ],
     }
   },
+  head() {
+    return {
+      title: 'STEM Women',
+    }
+  },
 }
 </script>

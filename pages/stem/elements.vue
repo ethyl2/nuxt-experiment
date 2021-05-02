@@ -314,5 +314,10 @@ export default {
       button.href = imageUri
     },
   },
+  head() {
+    return {
+      title: 'Making Words from Periodic Table Element Names',
+    }
+  },
 }
 </script>

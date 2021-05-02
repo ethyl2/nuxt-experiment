@@ -148,5 +148,10 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: 'Short & Sweet Sorting Hat',
+    }
+  },
 }
 </script>

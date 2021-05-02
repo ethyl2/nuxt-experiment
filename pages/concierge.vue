@@ -339,5 +339,10 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: 'Concierge for Nuxt Experiments',
+    }
+  },
 }
 </script>

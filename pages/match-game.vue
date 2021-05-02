@@ -200,5 +200,10 @@ export default {
       }, 500)
     },
   },
+  head() {
+    return {
+      title: 'Emoji Match Game',
+    }
+  },
 }
 </script>

@@ -263,5 +263,10 @@ export default {
       this.soundSentence = array
     },
   },
+  head() {
+    return {
+      title: 'Sound Machine',
+    }
+  },
 }
 </script>

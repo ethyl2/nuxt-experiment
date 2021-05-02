@@ -412,5 +412,10 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: '🎶 Make a Song List',
+    }
+  },
 }
 </script>

@@ -229,5 +229,10 @@ export default {
       }, 500)
     },
   },
+  head() {
+    return {
+      title: 'Image Match Game',
+    }
+  },
 }
 </script>

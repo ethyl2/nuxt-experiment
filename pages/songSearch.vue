@@ -172,5 +172,10 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: 'Song Search Using iTunes API',
+    }
+  },
 }
 </script>

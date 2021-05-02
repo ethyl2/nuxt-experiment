@@ -164,5 +164,10 @@ export default {
       window.getSelection().removeAllRanges()
     },
   },
+  head() {
+    return {
+      title: 'Text to Binary',
+    }
+  },
 }
 </script>

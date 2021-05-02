@@ -27,5 +27,10 @@ export default {
         : {}
     }
   },
+  head() {
+    return {
+      title: '🎤 Song Lists | Nuxt Experiments',
+    }
+  },
 }
 </script>

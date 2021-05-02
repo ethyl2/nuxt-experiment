@@ -91,5 +91,10 @@ export default {
       this.capsLockStatus = newCapsLockStatus
     },
   },
+  head() {
+    return {
+      title: 'Caps Lock Event Listening',
+    }
+  },
 }
 </script>

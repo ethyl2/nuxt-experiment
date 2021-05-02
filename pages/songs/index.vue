@@ -89,15 +89,15 @@ export default {
   },
   head() {
     return {
-      title: 'Campfire Songs 🎼',
+      title: 'Songs 🎼 | Nuxt Experiments',
       meta: [
         {
           name: 'twitter:title',
-          content: 'Campfire Songs',
+          content: 'Songs 🎼 | Nuxt Experiments',
         },
         {
           name: 'twitter:description ',
-          content: "Selection of Heather Nuffer's favorite campfire songs",
+          content: "Selection of Heather Nuffer's favorite songs",
         },
         {
           name: 'twitter:image',

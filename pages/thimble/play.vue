@@ -184,5 +184,10 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: 'Play Thimble',
+    }
+  },
 }
 </script>

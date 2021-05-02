@@ -336,5 +336,10 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: '🎵 Request List',
+    }
+  },
 }
 </script>

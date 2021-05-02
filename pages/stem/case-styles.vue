@@ -129,5 +129,10 @@ export default {
         this.pascalCase.charAt(0).toLowerCase() + this.pascalCase.substr(1)
     },
   },
+  head() {
+    return {
+      title: 'Variable Case Styles',
+    }
+  },
 }
 </script>
