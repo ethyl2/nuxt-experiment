@@ -122,5 +122,10 @@ export default {
       document.documentElement.style.setProperty('--h', height.value + 'px')
     }
   },
+  head() {
+    return {
+      title: 'Using CSS Variables',
+    }
+  },
 }
 </script>

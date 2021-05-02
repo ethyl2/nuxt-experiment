@@ -271,7 +271,7 @@ export default {
         },
         {
           property: 'og:description',
-          content: 'Vue sample site showing off Twitter and Facebook Cards.',
+          content: 'Campfire song lyrics and resources',
         },
       ],
     }
