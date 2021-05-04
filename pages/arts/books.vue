@@ -276,5 +276,10 @@
 <script>
 export default {
   name: 'Books',
+  head() {
+    return {
+      title: 'Bookshelf 📚',
+    }
+  },
 }
 </script>

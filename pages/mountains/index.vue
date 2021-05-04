@@ -45,5 +45,10 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: 'Mountains ⛰️',
+    }
+  },
 }
 </script>

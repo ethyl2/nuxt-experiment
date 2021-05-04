@@ -56,5 +56,10 @@ export default {
       return [desktopFirstString, mobileFirstString]
     },
   },
+  head() {
+    return {
+      title: 'Christmas Parody Songs 🎄',
+    }
+  },
 }
 </script>

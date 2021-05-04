@@ -83,5 +83,10 @@ export default {
       this.moverArray.push(option)
     },
   },
+  head() {
+    return {
+      title: 'Flower Arranging 🌼🌸🌻',
+    }
+  },
 }
 </script>

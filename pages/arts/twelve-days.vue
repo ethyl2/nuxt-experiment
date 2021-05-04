@@ -364,5 +364,10 @@ export default {
       this.presentSong = false
     },
   },
+  head() {
+    return {
+      title: '12 Days of Harry Potter Christmas 🧙',
+    }
+  },
 }
 </script>

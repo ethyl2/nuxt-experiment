@@ -121,5 +121,10 @@ export default {
       )
     },
   },
+  head() {
+    return {
+      title: 'ASCII Art 👾',
+    }
+  },
 }
 </script>

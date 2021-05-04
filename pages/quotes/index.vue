@@ -63,5 +63,10 @@ export default {
       }`
     },
   },
+  head() {
+    return {
+      title: 'Inspirational Quotes 🌅',
+    }
+  },
 }
 </script>

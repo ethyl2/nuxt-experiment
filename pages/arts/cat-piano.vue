@@ -139,5 +139,10 @@ export default {
       setTimeout(() => (this.currentButton = null), 1000)
     },
   },
+  head() {
+    return {
+      title: "Cat 'Piano' 🐱🎹",
+    }
+  },
 }
 </script>

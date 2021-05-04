@@ -53,5 +53,10 @@ export default {
       return null
     },
   },
+  head() {
+    return {
+      title: `${this.mountain.title} ⛰️`,
+    }
+  },
 }
 </script>

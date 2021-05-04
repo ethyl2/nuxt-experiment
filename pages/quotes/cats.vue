@@ -110,5 +110,10 @@ export default {
       })
     },
   },
+  head() {
+    return {
+      title: 'Cat Activities 🐈',
+    }
+  },
 }
 </script>

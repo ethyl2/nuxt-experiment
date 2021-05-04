@@ -42,5 +42,10 @@ export default {
       targetImg.src = canvas.toDataURL()
     },
   },
+  head() {
+    return {
+      title: 'Canvas Experiment',
+    }
+  },
 }
 </script>

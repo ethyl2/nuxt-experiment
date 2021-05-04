@@ -666,5 +666,10 @@ export default {
       document.documentElement.style.setProperty('--custom', percentInput.value)
     }
   },
+  head() {
+    return {
+      title: 'CSS Shapes 🔺',
+    }
+  },
 }
 </script>
