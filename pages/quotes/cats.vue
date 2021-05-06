@@ -33,10 +33,26 @@
     <h3 class="text-xl font-bold border-t w-full text-center pt-2">
       Catmas Carols
     </h3>
-    <nuxt-link to="/songs/christmas/meowry" class="mt-2 block">
-      <img src="/cat.gif" alt="cat in ornament" class="w-16 mx-auto" />Have a
-      Meowry Christmas</nuxt-link
-    >
+    <div class="flex flex-wrap space-x-4">
+      <nuxt-link to="/songs/christmas/jingle-cat-toy" class="mt-2 block">
+        <img
+          src="/cat2.gif"
+          alt="cat with Christmas hat"
+          class="w-16 mx-auto"
+        />Jingle Cat Toys</nuxt-link
+      >
+      <nuxt-link to="/songs/christmas/meowry" class="mt-2 block">
+        <img src="/cat.gif" alt="cat in ornament" class="w-16 mx-auto" />Have a
+        Meowry Christmas</nuxt-link
+      >
+      <nuxt-link to="/songs/christmas/jingle-cat" class="mt-2 block">
+        <img
+          src="/catWithLights.png"
+          alt="cat tangled in Christmas lights"
+          class="w-16 mx-auto"
+        />Jingle Cat</nuxt-link
+      >
+    </div>
     <!-- Cat Clicker Section -->
     <div class="mt-6 border-t w-full">
       <cat-clicker />

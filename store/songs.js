@@ -1696,5 +1696,63 @@ export const state = () => ({
       color1: 'red-500',
       color2: 'red-100',
     },
+    {
+      slug: 'jingle-cat',
+      title: `Jingle Cat`,
+      tune: `Jingle Bells`,
+      urls: ['https://blakjak.org/cat_xmas.htm'],
+      chorus: [
+        `To the vet's, to the vet's, to the vet's we go,`,
+        `If I had a choice in this, I'd rather just say "no-o"!`,
+        `To the vet's, to the vet's, to the vet's we go,`,
+        'Why must we always do this? You know I hate it so!',
+      ],
+      verses: [
+        [
+          `Dashing to the vet's in a brand new red sports car,`,
+          `We have no litterbox; I hope it isn't far...`,
+          `I'll scream and claw and cry, to make them all feel bad,`,
+          'While plotting in my tiny brain to make the vet go mad!',
+        ],
+        [
+          `They check my fur for fleas; they check my ears for mites.`,
+          `They give me lots of shots; I give them lots of bites.`,
+          `They want to see my eyes; they want to see my teeth.`,
+          'They check out every inch of me, above and underneath.',
+        ],
+      ],
+      image_url: 'catWithLights.png',
+      color1: 'yellow-500',
+      color2: 'yellow-100',
+    },
+    {
+      slug: 'jingle-cat-toy',
+      title: `Jingle Cat Toys`,
+      tune: `Jingle Bells`,
+      urls: ['https://blakjak.org/cay_glb0.htm'],
+      chorus: [
+        `Oh, cat toy bells, cat toy bells,`,
+        `Ringing loud and clear.`,
+        `Oh, what fun, to play and pounce,`,
+        'When Christmas time is here!',
+      ],
+      verses: [
+        [
+          `Dashing through the house, and jumping high and low,`,
+          `We chase a catnip mouse, as fast as we can go.`,
+          `The mouse is old and worn, and we bit off its tail,`,
+          'What fun to rip the stuffing out, and leave a catnip trail!',
+        ],
+        [
+          `I found a fuzzy ball that jingled when it bounced,`,
+          `I rolled it down the hall, and when it stopped, I pounced.`,
+          `The ball stayed where it lay; I'd tired it out at last.`,
+          'And then it tried to get away, but I was much too fast!',
+        ],
+      ],
+      image_url: 'cat2.gif',
+      color1: 'red-700',
+      color2: 'red-500',
+    },
   ],
 })
