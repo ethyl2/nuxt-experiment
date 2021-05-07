@@ -1,12 +1,29 @@
 <template>
-  <div class="mx-4 md:mx-10">
+  <div
+    class="flex flex-col items-center justify-start bg-orange-100 rounded mx-5 md:mx-20"
+  >
+    <img src="/mocktails/mocktails.jpg" alt="mocktails" />
     <h1>Mocktails</h1>
-    <div v-for="recipe in recipes" :key="recipe.name">
-      <h2>{{ recipe.name }}</h2>
-      <div v-for="ingredient in recipe.ingredients" :key="ingredient.name">
-        <p>{{ ingredient.amount }} oz. {{ ingredient.name }}</p>
+    <div
+      v-for="recipe in recipes"
+      :key="recipe.name"
+      class="flex justify-around w-full"
+    >
+      <div>
+        <h2>{{ recipe.name }}</h2>
+        <div v-for="ingredient in recipe.ingredients" :key="ingredient.name">
+          <p class="text-black">
+            {{ ingredient.amount }} oz. {{ ingredient.name }}
+          </p>
+        </div>
+        <p class="text-black">{{ recipe.directions }}</p>
       </div>
-      <p>{{ recipe.directions }}</p>
+      <img
+        v-if="recipe.photo"
+        :src="`/mocktails/${recipe.photo}`"
+        :alt="recipe.name"
+        class="w-64 rounded"
+      />
     </div>
   </div>
 </template>
@@ -32,6 +49,7 @@ export default {
             { name: 'blueberry juice', amount: 0.75 },
           ],
           directions: 'Stir with ice; serve with lemon twist.',
+          photo: '/blue-moon.jpg',
         },
       ],
     }
