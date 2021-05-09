@@ -1,9 +1,24 @@
+<style scoped>
+.main-title {
+  background-color: red;
+  animation-name: color-change;
+  animation-duration: 4s;
+}
+@keyframes color-change {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: yellow;
+  }
+}
+</style>
 <template>
   <div
     class="flex flex-col items-center justify-start bg-orange-100 rounded mx-5 md:mx-20"
   >
     <img src="/mocktails/mocktails.jpg" alt="mocktails" />
-    <h1>Mocktails</h1>
+    <h1 class="main-title text-2xl p-2 rounded mt-2 text-black">Mocktails</h1>
     <div
       v-for="recipe in recipes"
       :key="recipe.name"
