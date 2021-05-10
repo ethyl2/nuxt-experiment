@@ -1,4 +1,41 @@
 <style scoped>
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 20px;
+  position: absolute;
+  z-index: 1;
+  bottom: 80%;
+  left: 50%;
+  margin-left: -125px;
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip .tooltiptext::after {
+  content: ' ';
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
 .main-title {
   background-color: #b80e52;
   animation-name: color-change;
@@ -108,9 +145,15 @@
     class="flex flex-col items-center justify-start bg-orange-100 rounded mx-5 pb-20 md:mx-20"
   >
     <img src="/mocktails/mocktails.jpg" alt="mocktails" />
-    <h1 class="main-title text-3xl p-2 rounded mt-2 text-black font-bold">
-      Mocktails
-    </h1>
+    <div class="tooltip relative cursor-pointer">
+      <h1 class="main-title text-3xl p-2 rounded mt-2 text-black font-bold">
+        Mocktails
+      </h1>
+      <span class="tooltiptext text-white bg-black"
+        >Mocktails are non-alcoholic drinks made with a mixture of various
+        ingredients, mixed in just the right ratios.</span
+      >
+    </div>
     <img
       src="/mocktails/mocktail-graphic.png"
       alt="mocktails in different colors"
@@ -119,10 +162,10 @@
     <div
       v-for="(recipe, index) in recipes"
       :key="recipe.name"
-      class="flex flex-col justify-center items-center w-full"
+      class="flex flex-col justify-center items-center w-full my-4 md:w-3/4 lg:w-1/2 md:justify-between"
       :class="[index % 2 == 0 ? 'md:flex-row-reverse' : 'md:flex-row']"
     >
-      <div class="mb-2 p-4 md:mb-auto">
+      <div class="mb-2 p-4 flex flex-col items-start justify-center">
         <h2 class="font-bold text-2xl">
           {{ recipe.name }}
         </h2>
@@ -169,6 +212,15 @@ export default {
           ],
           directions: 'Stir with ice; serve with lemon twist.',
           photo: '/blue-moon.jpg',
+        },
+        {
+          name: 'Kiss on the Lips',
+          ingredients: [
+            { name: 'cherry juice', amount: 2 },
+            { name: 'apricot nectar', amount: 7 },
+          ],
+          directions: 'Serve over ice with straw.',
+          photo: '/kiss-lips.jpg',
         },
       ],
     }
