@@ -1,4 +1,8 @@
 <style scoped>
+.hero-image {
+  animation: fade-in 2s ease-in forwards;
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
@@ -58,6 +62,14 @@
   animation-duration: 5s;
   animation-direction: reverse;
   animation-timing-function: ease-in-out;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes color-change {
   from {
@@ -144,7 +156,7 @@
   <div
     class="flex flex-col items-center justify-start bg-orange-100 rounded mx-5 pb-20 md:mx-20"
   >
-    <img src="/mocktails/mocktails.jpg" alt="mocktails" />
+    <img src="/mocktails/mocktails.jpg" alt="mocktails" class="hero-image" />
     <div class="tooltip relative cursor-pointer">
       <h1 class="main-title text-3xl p-2 rounded mt-2 text-black font-bold">
         Mocktails
@@ -221,6 +233,26 @@ export default {
           ],
           directions: 'Serve over ice with straw.',
           photo: '/kiss-lips.jpg',
+        },
+        {
+          name: 'Hot Gold',
+          ingredients: [
+            { name: 'orange juice', amount: 6 },
+            { name: 'peach nectar', amount: 3 },
+          ],
+          directions: 'Serve warm in mug.',
+          photo: '/hot-gold.jpg',
+        },
+        {
+          name: 'Year-Round Christmas',
+          ingredients: [
+            { name: 'cranberry juice', amount: 2 },
+            { name: 'orange juice', amount: 2 },
+            { name: 'seltzer', amount: 4 },
+          ],
+          directions:
+            'Serve with orange slices, apple slices, cranberries, and basil leaves.',
+          photo: '/sangria.jpg',
         },
       ],
     }
