@@ -154,7 +154,7 @@
 </style>
 <template>
   <div
-    class="flex flex-col items-center justify-start bg-orange-100 rounded mx-5 pb-20 md:mx-20"
+    class="flex flex-col items-center justify-start bg-orange-100 rounded mx-5 pb-20 md:mx-20 lg:mx-64"
   >
     <img src="/mocktails/mocktails.jpg" alt="mocktails" class="hero-image" />
     <div class="tooltip relative cursor-pointer">
@@ -174,7 +174,7 @@
     <div
       v-for="(recipe, index) in recipes"
       :key="recipe.name"
-      class="flex flex-col justify-center items-center w-full my-4 md:w-3/4 lg:w-1/2 md:justify-between"
+      class="flex flex-col justify-center items-center w-full my-4 md:w-3/4 md:justify-between"
       :class="[index % 2 == 0 ? 'md:flex-row-reverse' : 'md:flex-row']"
     >
       <div class="mb-2 p-4 flex flex-col items-start justify-center">
@@ -192,7 +192,7 @@
         v-if="recipe.photo"
         :src="`/mocktails/${recipe.photo}`"
         :alt="recipe.name"
-        class="recipe-photo w-32 rounded border-4 md:w-64"
+        class="recipe-photo w-32 rounded border-4 md:w-64 md:mx-4"
       />
     </div>
     <div class="moving-text p-4 bg-black rounded my-4 relative">
