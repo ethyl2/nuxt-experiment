@@ -70,6 +70,33 @@ export default {
             '"The next time you’re tempted to groan, you might try to laugh instead. Come what may, and love it."',
           imageSrc: '/story-images/embarrassed.jpg',
         },
+        {
+          title: 'Ear Wiggle',
+          author: 'President Thomas S. Monson',
+          url:
+            'https://www.churchofjesuschrist.org/study/general-conference/2008/04/examples-of-righteousness?lang=eng',
+          summary:
+            '"We should never permit ourselves to do anything that we are not willing to see our children do."',
+          imageSrc: '/story-images/ear.jpg',
+        },
+        {
+          title: 'One Little Match',
+          author: 'President Thomas S. Monson',
+          url:
+            'https://www.churchofjesuschrist.org/study/general-conference/2013/04/obedience-brings-blessings?lang=eng',
+          summary:
+            '"Many of us...learn through experience the wisdom of being obedient."',
+          imageSrc: '/story-images/match.jpg',
+        },
+        {
+          title: 'Windows of Stone',
+          author: 'Sharon Eubank',
+          url:
+            'https://www.churchofjesuschrist.org/study/general-conference/2019/04/42eubank?lang=eng',
+          summary:
+            '"With patience and faithful questions, Jesus can transform our windows of stone to glass and light.',
+          imageSrc: '/story-images/gazebo.jpg',
+        },
       ],
     }
   },
