@@ -97,6 +97,24 @@ export default {
             '"With patience and faithful questions, Jesus can transform our windows of stone to glass and light.',
           imageSrc: '/story-images/gazebo.jpg',
         },
+        {
+          title: 'Rattlesnake Rock',
+          author: 'Elder Gary E. Stevenson',
+          url:
+            'https://www.churchofjesuschrist.org/study/general-conference/2017/04/how-does-the-holy-ghost-help-you?lang=eng',
+          summary:
+            '"I am forever grateful that my father listened to the still, small voice of the Holy Ghost, as it may have saved my life.',
+          imageSrc: '/story-images/rattlesnake.jpg',
+        },
+        {
+          title: 'I Can Do the Rest',
+          author: 'Bishop W. Christopher Waddell',
+          url:
+            'https://www.churchofjesuschrist.org/study/general-conference/2017/10/turn-to-the-lord?lang=eng',
+          summary:
+            '"Hyrum Shumway’s life may have been changed by war, but he never doubted his divine nature and eternal potential.',
+          imageSrc: '/story-images/socks.jpg',
+        },
       ],
     }
   },
