@@ -63,4 +63,8 @@ export default {
       },
     },
   },
+
+  eslint: {
+    fix: true,
+  },
 }
