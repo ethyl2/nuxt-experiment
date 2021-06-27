@@ -5,7 +5,9 @@
       <em>Adverb</em> is a group game that is definitely one of my favorites.
       Here's how you can play with your friends:
     </h2>
-    <ol class="list-decimal list-inside text-left space-y-2 border p-4 mb-4">
+    <ol
+      class="list-decimal list-inside text-left space-y-2 border rounded p-4 mb-4"
+    >
       <li>Sit in a circle so that everyone can see each other.</li>
       <li>Choose someone to be <em>it</em>.</li>
       <li>
@@ -35,42 +37,106 @@
         in the manner of the adverb.
       </li>
     </ol>
-    <h3 class="text-lg mb-2 md:text-xl">Adverb Suggestions:</h3>
-    <p v-for="adverb in adverbsToDisplay" :key="adverb">
-      {{ adverb }}
-    </p>
-    <button
-      v-if="showMoreButton"
-      class="bg-black text-orange font-bold py-2 px-3 rounded hover:text-black hover:bg-white my-2 text-lg"
-      @click="showAdverbs()"
-    >
-      More Adverbs
-    </button>
+    <h3 class="text-lg mb-2 font-bold md:text-xl">Adverb Suggestions:</h3>
+    <div class="flex items-center justify-between flex-wrap">
+      <adverb-card
+        v-for="adverb in adverbsToDisplay"
+        :key="adverb.word"
+        :card="adverb"
+      />
+    </div>
+    <div class="flex items-center justify-around space-x-2">
+      <button
+        v-if="showMoreButton"
+        class="bg-black text-orange font-bold py-2 px-3 rounded hover:text-black hover:bg-white my-2 text-lg"
+        @click="showAdverbs()"
+      >
+        More Adverbs
+      </button>
+      <button
+        class="bg-black text-orange font-bold py-2 px-3 rounded hover:text-black hover:bg-white my-2 text-lg"
+        @click="getSuggestion()"
+      >
+        Get Suggestion
+      </button>
+    </div>
+    <adverb-card v-if="suggestedAdverb" :card="suggestedAdverb" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'AdverbGame',
+  components: {
+    AdverbCard: () => import('~/components/games/AdverbCard'),
+  },
   data() {
     return {
       adverbs: [
-        'mysteriously',
-        'quickly',
-        'frantically',
-        'quietly',
-        'normally',
-        'sleepily',
-        'angrily',
-        'enthusiastically',
-        'timidly',
-        'robotically',
-        'coldly',
-        'blindly',
-        'absentmindedly',
-        'bashfully',
-        'calmly',
-        'cheerfully',
+        {
+          word: 'mysteriously',
+          image: '/adverbs/mysteriously.jpg',
+        },
+        {
+          word: 'quickly',
+          image: '/adverbs/quickly.jpg',
+        },
+        {
+          word: 'frantically',
+          image: '/adverbs/frantically.jpg',
+        },
+        {
+          word: 'quietly',
+          image: '/adverbs/quietly.jpg',
+        },
+        {
+          word: 'normally',
+          image: '/adverbs/normally.jpg',
+        },
+        {
+          word: 'sleepily',
+          image: '/adverbs/sleepily.jpg',
+        },
+        {
+          word: 'angrily',
+          image: '/adverbs/angrily.jpg',
+        },
+        {
+          word: 'enthusiastically',
+          image: '/adverbs/enthusiastically.jpg',
+        },
+        {
+          word: 'timidly',
+          image: '/adverbs/timidly.jpg',
+        },
+        {
+          word: 'robotically',
+          image: '/adverbs/robotically.jpg',
+        },
+        {
+          word: 'coldly',
+          image: '/adverbs/coldly.jpg',
+        },
+        {
+          word: 'blindly',
+          image: '/adverbs/blindly.jpg',
+        },
+        {
+          word: 'absentmindedly',
+          image: '/adverbs/absentmindedly.jpg',
+        },
+        {
+          word: 'bashfully',
+          image: '/adverbs/bashfully.jpg',
+        },
+        {
+          word: 'calmly',
+          image: '/adverbs/calmly.jpg',
+        },
+        {
+          word: 'cheerfully',
+          image: '/adverbs/cheerfully.jpg',
+        },
         'cautiously',
         'seriously',
         'dreamily',
@@ -147,23 +213,83 @@ export default {
         'anxiously',
         'stealthily',
         'thankfully',
-        '',
       ],
       adverbsToDisplay: [],
       countToDisplay: 10,
       showMoreButton: true,
+      colors: [
+        '#faf089',
+        '#68d391',
+        '#4fd1c5',
+        '#63b3ed',
+        '#7f9cf5',
+        'white',
+        '#f6ad55',
+        '#30D5C8',
+        '#F28C28',
+        '#FFC000',
+        '#7a49a5',
+      ],
+      suggestedAdverb: null,
     }
   },
   mounted() {
-    this.adverbsToDisplay = this.adverbs.slice(0, 10)
+    const adverbsToUse = this.adverbs.slice(0, 10)
+    this.adverbsToDisplay = adverbsToUse.map((adverb) => {
+      return {
+        word: typeof adverb === 'object' ? adverb.word : adverb,
+        flipped: false,
+        definition: 'This will be the definition',
+        image:
+          typeof adverb === 'object' && adverb.image
+            ? adverb.image
+            : '/adverbs/mysteriously.jpg',
+        color: this.getColor(),
+      }
+    })
+    // this.adverbsToDisplay = this.adverbs.slice(0, 10)
   },
   methods: {
     showAdverbs() {
       if (this.countToDisplay + 5 <= this.adverbs.length) {
         this.countToDisplay += 5
-        this.adverbsToDisplay = this.adverbs.slice(0, this.countToDisplay)
+        // this.adverbsToDisplay = this.adverbs.slice(0, this.countToDisplay)
+        const adverbsToUse = this.adverbs.slice(0, this.countToDisplay)
+        this.adverbsToDisplay = adverbsToUse.map((adverb) => {
+          return {
+            word: typeof adverb === 'object' ? adverb.word : adverb,
+            flipped: false,
+            definition: 'This will be the definition',
+            image:
+              typeof adverb === 'object' && adverb.image
+                ? adverb.image
+                : '/adverbs/mysteriously.jpg',
+            color: this.getColor(),
+          }
+        })
       } else {
         this.showMoreButton = false
+      }
+    },
+    getColor() {
+      const colorIndex = Math.floor(Math.random() * this.colors.length)
+      return this.colors[colorIndex]
+    },
+    getSuggestion() {
+      const adverbIndex = Math.floor(Math.random() * this.adverbs.length)
+      this.suggestedAdverb = {
+        word:
+          typeof this.adverbs[adverbIndex] === 'object'
+            ? this.adverbs[adverbIndex].word
+            : this.adverbs[adverbIndex],
+        flipped: false,
+        definition: 'This will be the definition',
+        image:
+          typeof this.adverbs[adverbIndex] === 'object' &&
+          this.adverbs[adverbIndex].image
+            ? this.adverbs[adverbIndex].image
+            : '/adverbs/mysteriously.jpg',
+        color: this.getColor(),
       }
     },
   },
