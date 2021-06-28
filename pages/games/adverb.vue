@@ -137,15 +137,42 @@ export default {
           word: 'cheerfully',
           image: '/adverbs/cheerfully.jpg',
         },
-        'cautiously',
-        'seriously',
-        'dreamily',
-        'elegantly',
-        'exactly',
-        'gratefully',
-        'hungrily',
-        'immediately',
-        'inquisitively',
+        {
+          word: 'cautiously',
+          image: '/adverbs/cautiously.jpg',
+        },
+        {
+          word: 'seriously',
+          image: '/adverbs/seriously.jpg',
+        },
+        {
+          word: 'dreamily',
+          image: '/adverbs/dreamily.jpg',
+        },
+        {
+          word: 'elegantly',
+          image: '/adverbs/elegantly.jpg',
+        },
+        {
+          word: 'exactly',
+          image: '/adverbs/exactly.jpg',
+        },
+        {
+          word: 'gratefully',
+          image: '/adverbs/gratefully.jpg',
+        },
+        {
+          word: 'hungrily',
+          image: '/adverbs/hungrily.jpg',
+        },
+        {
+          word: 'immediately',
+          image: '/adverbs/immediately.jpg',
+        },
+        {
+          word: 'inquisitively',
+          image: '/adverbs/inquisitively.jpg',
+        },
         'intensely',
         'lazily',
         'loudly',
