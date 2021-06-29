@@ -173,23 +173,82 @@ export default {
           word: 'inquisitively',
           image: '/adverbs/inquisitively.jpg',
         },
-        'intensely',
-        'lazily',
-        'loudly',
-        'mechanically',
-        'nervously',
-        'obediently',
-        'obnoxiously',
-        'painfully',
-        'poorly',
-        'powerfully',
-        'rudely',
-        'shakily',
-        'smoothly',
-        'softly',
-        'sweetly',
-        'tenderly',
-        'victoriously',
+        {
+          word: 'intensely',
+          image: '/adverbs/intensely.jpg',
+        },
+        {
+          word: 'lazily',
+          image: '/adverbs/lazily.jpg',
+        },
+        {
+          word: 'loudly',
+          image: '/adverbs/loudly.jpg',
+        },
+        {
+          word: 'mechanically',
+          image: '/adverbs/mechanically.jpg',
+        },
+        {
+          word: 'nervously',
+          image: '/adverbs/nervously.jpg',
+        },
+        {
+          word: 'obediently',
+          image: '/adverbs/obediently.jpg',
+        },
+        {
+          word: 'obnoxiously',
+          image: '/adverbs/obnoxiously.jpg',
+        },
+        {
+          word: 'creepily',
+          image: '/adverbs/creepily.jpg',
+        },
+        {
+          word: 'painfully',
+          image: '/adverbs/painfully.jpg',
+        },
+        {
+          word: 'poorly',
+          image: '/adverbs/poorly.jpg',
+        },
+        {
+          word: 'powerfully',
+          image: '/adverbs/powerfully.jpg',
+        },
+        {
+          word: 'rudely',
+          image: '/adverbs/rudely.jpg',
+        },
+        {
+          word: 'shakily',
+          image: '/adverbs/shakily.jpg',
+        },
+        {
+          word: 'smoothly',
+          image: '/adverbs/smoothly.jpg',
+        },
+        {
+          word: 'softly',
+          image: '/adverbs/softly.jpg',
+        },
+        {
+          word: 'lovingly',
+          image: '/adverbs/lovingly.jpg',
+        },
+        {
+          word: 'sweetly',
+          image: '/adverbs/sweetly.jpg',
+        },
+        {
+          word: 'tenderly',
+          image: '/adverbs/tenderly.jpg',
+        },
+        {
+          word: 'victoriously',
+          image: '/adverbs/victoriously.jpg',
+        },
         'weakly',
         'wildly',
         'reluctantly',
@@ -210,7 +269,6 @@ export default {
         'generously',
         'greedily',
         'happily',
-        'lovingly',
         'majestically',
         'miserably',
         'thoughtfully',
