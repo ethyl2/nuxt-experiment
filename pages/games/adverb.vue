@@ -6,7 +6,7 @@
       Here's how you can play with your friends:
     </h2>
     <ol
-      class="list-decimal list-inside text-left space-y-2 border rounded p-4 mb-4"
+      class="list-decimal list-inside text-left space-y-2 border border-yellow-400 rounded p-4 mb-4"
     >
       <li>Sit in a circle so that everyone can see each other.</li>
       <li>Choose someone to be <em>it</em>.</li>

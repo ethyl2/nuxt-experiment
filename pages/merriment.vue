@@ -36,6 +36,9 @@
         <nuxt-link to="/thimble/start" class="flex items-center font-semibold"
           ><span class="block text-2xl pr-1">😅 </span> Thimble Game</nuxt-link
         >
+        <nuxt-link to="/games/adverb" class="flex items-center font-semibold"
+          ><span class="block text-2xl pr-1">🎭 </span> Adverb Game</nuxt-link
+        >
         <nuxt-link to="/match-game" class="flex items-center font-semibold"
           ><span class="block text-2xl pr-1">🦖 </span> Emoji Matching
           Game</nuxt-link
