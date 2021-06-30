@@ -337,6 +337,10 @@ export default {
           word: 'imaginatively',
           image: '/adverbs/imaginatively.jpg',
         },
+        {
+          word: 'thoughtfully',
+          image: '/adverbs/thoughtfully.jpg',
+        },
         'weakly',
         'wildly',
         'reluctantly',
@@ -351,7 +355,6 @@ export default {
         'defiantly',
         'doubtfully',
         'miserably',
-        'thoughtfully',
         'cleanly',
         'confusedly',
         'eagerly',
