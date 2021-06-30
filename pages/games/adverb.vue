@@ -90,6 +90,10 @@ export default {
           image: '/adverbs/quietly.jpg',
         },
         {
+          word: 'scarily',
+          image: '/adverbs/scarily.jpg',
+        },
+        {
           word: 'normally',
           image: '/adverbs/normally.jpg',
         },
@@ -174,6 +178,10 @@ export default {
           image: '/adverbs/inquisitively.jpg',
         },
         {
+          word: 'thankfully',
+          image: '/adverbs/thankfully.jpg',
+        },
+        {
           word: 'intensely',
           image: '/adverbs/intensely.jpg',
         },
@@ -202,12 +210,24 @@ export default {
           image: '/adverbs/obnoxiously.jpg',
         },
         {
+          word: 'childishly',
+          image: '/adverbs/childishly.jpg',
+        },
+        {
           word: 'creepily',
           image: '/adverbs/creepily.jpg',
         },
         {
+          word: 'formally',
+          image: '/adverbs/formally.jpg',
+        },
+        {
           word: 'painfully',
           image: '/adverbs/painfully.jpg',
+        },
+        {
+          word: 'happily',
+          image: '/adverbs/happily.jpg',
         },
         {
           word: 'poorly',
@@ -222,8 +242,16 @@ export default {
           image: '/adverbs/rudely.jpg',
         },
         {
+          word: 'curiously',
+          image: '/adverbs/curiously.jpg',
+        },
+        {
           word: 'shakily',
           image: '/adverbs/shakily.jpg',
+        },
+        {
+          word: 'proudly',
+          image: '/adverbs/proudly.jpg',
         },
         {
           word: 'smoothly',
@@ -242,12 +270,72 @@ export default {
           image: '/adverbs/sweetly.jpg',
         },
         {
+          word: 'violently',
+          image: '/adverbs/violently.jpg',
+        },
+        {
           word: 'tenderly',
           image: '/adverbs/tenderly.jpg',
         },
         {
           word: 'victoriously',
           image: '/adverbs/victoriously.jpg',
+        },
+        {
+          word: 'anxiously',
+          image: '/adverbs/anxiously.jpg',
+        },
+        {
+          word: 'fashionably',
+          image: '/adverbs/fashionably.jpg',
+        },
+        {
+          word: 'emotionally',
+          image: '/adverbs/emotionally.jpg',
+        },
+        {
+          word: 'majestically',
+          image: '/adverbs/majestically.jpg',
+        },
+        {
+          word: 'dangerously',
+          image: '/adverbs/dangerously.jpg',
+        },
+        {
+          word: 'magically',
+          image: '/adverbs/magically.jpg',
+        },
+        {
+          word: 'horizontally',
+          image: '/adverbs/horizontally.jpg',
+        },
+        {
+          word: 'dramatically',
+          image: '/adverbs/dramatically.jpg',
+        },
+        {
+          word: 'greedily',
+          image: '/adverbs/greedily.jpg',
+        },
+        {
+          word: 'generously',
+          image: '/adverbs/generously.jpg',
+        },
+        {
+          word: 'repeatedly',
+          image: '/adverbs/repeatedly.png',
+        },
+        {
+          word: 'fatally',
+          image: '/adverbs/fatally.jpg',
+        },
+        {
+          word: 'daintily',
+          image: '/adverbs/daintily.jpg',
+        },
+        {
+          word: 'imaginatively',
+          image: '/adverbs/imaginatively.jpg',
         },
         'weakly',
         'wildly',
@@ -262,42 +350,20 @@ export default {
         'crazily',
         'defiantly',
         'doubtfully',
-        'dramatically',
-        'curiously',
-        'daintily',
-        'fatally',
-        'generously',
-        'greedily',
-        'happily',
-        'majestically',
         'miserably',
         'thoughtfully',
-        'childishly',
         'cleanly',
         'confusedly',
-        'dangerously',
         'eagerly',
-        'emotionally',
-        'fashionably',
-        'formally',
         'hatefully',
-        'horizontally',
         'icily',
-        'imaginatively',
         'incorrectly',
-        'repeatedly',
         'judgementally',
-        'magically',
         'persuasively',
-        'proudly',
-        'scarily',
         'shrilly',
-        'violently',
         'suspiciously',
         'chivalrously',
-        'anxiously',
         'stealthily',
-        'thankfully',
       ],
       adverbsToDisplay: [],
       countToDisplay: 10,
