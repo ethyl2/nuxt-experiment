@@ -60,7 +60,9 @@
         Get Suggestion
       </button>
     </div>
-    <adverb-card v-if="suggestedAdverb" :card="suggestedAdverb" />
+    <div class="flex items-center justify-center w-full mx-auto">
+      <adverb-card v-if="suggestedAdverb" :card="suggestedAdverb" />
+    </div>
   </div>
 </template>
 
@@ -80,6 +82,10 @@ export default {
         {
           word: 'quickly',
           image: '/adverbs/quickly.jpg',
+        },
+        {
+          word: 'incorrectly',
+          image: '/adverbs/incorrectly.jpg',
         },
         {
           word: 'frantically',
@@ -273,6 +279,7 @@ export default {
           word: 'violently',
           image: '/adverbs/violently.jpg',
         },
+        { word: 'cleanly', image: '/adverbs/cleanly.jpg' },
         {
           word: 'tenderly',
           image: '/adverbs/tenderly.jpg',
@@ -292,6 +299,10 @@ export default {
         {
           word: 'emotionally',
           image: '/adverbs/emotionally.jpg',
+        },
+        {
+          word: 'badly',
+          image: '/adverbs/badly.jpg',
         },
         {
           word: 'majestically',
@@ -350,6 +361,10 @@ export default {
           image: '/adverbs/wildly.jpg',
         },
         {
+          word: 'artistically',
+          image: '/adverbs/artistically.jpg',
+        },
+        {
           word: 'miserably',
           image: '/adverbs/miserably.jpg',
         },
@@ -361,29 +376,130 @@ export default {
           word: 'politely',
           image: '/adverbs/politely.jpg',
         },
-        'weakly',
-        'reluctantly',
-        'mockingly',
-        'arrogantly',
-        'carefully',
-        'sloppily',
-        'badly',
-        'irritably',
-        'defiantly',
-        'doubtfully',
-        'cleanly',
-        'confusedly',
-        'eagerly',
-        'hatefully',
-        'icily',
-        'incorrectly',
-        'judgementally',
-        'persuasively',
-        'shrilly',
-        'chivalrously',
-        'stealthily',
-        'helpfully',
-        'artistically',
+        {
+          word: 'messily',
+          image: '/adverbs/messily.jpg',
+        },
+        {
+          word: 'musically',
+          image: '/adverbs/musically.jpg',
+        },
+        {
+          word: 'helpfully',
+          image: '/adverbs/helpfully.jpg',
+        },
+        {
+          word: 'carefully',
+          image: '/adverbs/carefully.jpg',
+        },
+        {
+          word: 'mathematically',
+          image: '/adverbs/mathematically.png',
+        },
+        {
+          word: 'strangely',
+          image: '/adverbs/strangely.jpg',
+        },
+        {
+          word: 'confusedly',
+          image: '/adverbs/confusedly.jpg',
+        },
+        {
+          word: 'eagerly',
+          image: '/adverbs/eagerly.jpg',
+        },
+        {
+          word: 'doubtfully',
+          image: '/adverbs/doubtfully.jpg',
+        },
+        {
+          word: 'icily',
+          image: '/adverbs/icily.jpg',
+        },
+        {
+          word: 'slowly',
+          image: '/adverbs/slowly.jpg',
+        },
+        {
+          word: 'reluctantly',
+          image: '/adverbs/reluctantly.jpg',
+        },
+        {
+          word: 'ignorantly',
+          image: '/adverbs/ignorantly.jpg',
+        },
+        {
+          word: 'stealthily',
+          image: '/adverbs/stealthily.jpg',
+        },
+        {
+          word: 'shrilly',
+          image: '/adverbs/shrilly.jpg',
+        },
+        {
+          word: 'defiantly',
+          image: '/adverbs/defiantly.jpg',
+        },
+        {
+          word: 'chivalrously',
+          image: '/adverbs/chivalrously.jpg',
+        },
+        {
+          word: 'persuasively',
+          image: '/adverbs/persuasively.jpg',
+        },
+        {
+          word: 'mockingly',
+          image: '/adverbs/mockingly.jpg',
+        },
+        {
+          word: 'judgementally',
+          image: '/adverbs/judgementally.jpg',
+        },
+        {
+          word: 'ambidextrously',
+          image: '/adverbs/ambidextrously.jpg',
+        },
+        {
+          word: 'goofily',
+          image: '/adverbs/goofily.jpg',
+        },
+        {
+          word: 'arrogantly',
+          image: '/adverbs/arrogantly.jpg',
+        },
+        {
+          word: 'weakly',
+          image: '/adverbs/weakly.jpg',
+        },
+        {
+          word: 'joyfully',
+          image: '/adverbs/joyfully.jpg',
+        },
+        {
+          word: 'operatically',
+          image: '/adverbs/operatically.jpg',
+        },
+        {
+          word: 'hesitantly',
+          image: '/adverbs/hesitantly.jpg',
+        },
+        {
+          word: 'athletically',
+          image: '/adverbs/athletically.jpg',
+        },
+        {
+          word: 'thirstily',
+          image: '/adverbs/thirstily.jpg',
+        },
+        {
+          word: 'flirtatiously',
+          image: '/adverbs/flirtatiously.jpg',
+        },
+        {
+          word: 'adorably',
+          image: '/adverbs/adorably.jpg',
+        },
       ],
       adverbsToDisplay: [],
       countToDisplay: 10,
@@ -418,13 +534,11 @@ export default {
         color: this.getColor(),
       }
     })
-    // this.adverbsToDisplay = this.adverbs.slice(0, 10)
   },
   methods: {
     showAdverbs() {
       if (this.countToDisplay + 5 <= this.adverbs.length) {
         this.countToDisplay += 5
-        // this.adverbsToDisplay = this.adverbs.slice(0, this.countToDisplay)
         const adverbsToUse = this.adverbs.slice(0, this.countToDisplay)
         this.adverbsToDisplay = adverbsToUse.map((adverb) => {
           return {
