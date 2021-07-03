@@ -120,6 +120,10 @@ export default {
           image: '/adverbs/timidly.jpg',
         },
         {
+          word: 'alphabetically',
+          image: '/adverbs/alphabetically.jpg',
+        },
+        {
           word: 'robotically',
           image: '/adverbs/robotically.jpg',
         },
