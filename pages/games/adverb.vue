@@ -180,6 +180,10 @@ export default {
           image: '/adverbs/hungrily.jpg',
         },
         {
+          word: 'agreeably',
+          image: '/adverbs/agreeably.jpg',
+        },
+        {
           word: 'immediately',
           image: '/adverbs/immediately.jpg',
         },
