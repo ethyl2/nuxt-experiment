@@ -52,9 +52,9 @@
   >
     <div class="card-inner" :class="{ flipped: card.flipped }">
       <div
-        class="card-back text-xs overflow-auto text-black flex items-center justify-center font-semibold px-1"
+        class="card-back text-xs overflow-auto text-black flex items-center justify-center font-semibold p-1"
       >
-        {{ card.definition }}
+        <span class="mt-4">{{ card.definition }}</span>
       </div>
 
       <div

@@ -6,7 +6,7 @@
       Here's how you can play with your friends:
     </h2>
     <ol
-      class="list-decimal list-inside text-left space-y-2 border border-yellow-400 rounded p-4 mb-4"
+      class="list-decimal list-inside text-left space-y-2 border border-yellow-400 rounded p-4 mb-4 bg-black"
     >
       <li>Sit in a circle so that everyone can see each other.</li>
       <li>Choose someone to be <em>it</em>.</li>
@@ -61,7 +61,13 @@
       </button>
     </div>
     <div class="flex items-center justify-center w-full mx-auto">
-      <adverb-card v-if="suggestedAdverb" :card="suggestedAdverb" />
+      <div
+        v-if="suggestedAdverb"
+        class="bg-black mt-4 rounded p-4 flex flex-col items-center justify-center border border-yellow-400"
+      >
+        <p class="text-white text-center">How about...</p>
+        <adverb-card :card="suggestedAdverb" />
+      </div>
     </div>
   </div>
 </template>
@@ -366,7 +372,7 @@ export default {
           word: 'proudly',
           image: '/adverbs/proudly.jpg',
           definition:
-            "with a feeling of deep pleasure or satisfaction in one's own achievements, qualities, or possessions or those of someone with whom one is closely associated; in an imposing manner; splendidly",
+            "with a feeling of deep pleasure or satisfaction in one's own achievements, qualities, or possessions; in an imposing manner; splendidly",
         },
         {
           word: 'laughingly',
@@ -806,7 +812,7 @@ export default {
             ? this.adverbs[adverbIndex].word
             : this.adverbs[adverbIndex],
         flipped: false,
-        definition: 'This will be the definition',
+        definition: this.adverbs[adverbIndex].definition,
         image:
           typeof this.adverbs[adverbIndex] === 'object' &&
           this.adverbs[adverbIndex].image
