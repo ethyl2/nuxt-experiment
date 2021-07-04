@@ -1,8 +1,8 @@
 <style scoped>
 .card {
   background-color: transparent;
-  width: 140px;
-  height: 120px;
+  width: 160px;
+  height: 140px;
   perspective: 1000px;
   border-radius: 5px;
   cursor: pointer;
@@ -52,9 +52,10 @@
   >
     <div class="card-inner" :class="{ flipped: card.flipped }">
       <div
-        class="card-back text-xs overflow-auto text-black flex items-center justify-center font-semibold p-1"
+        class="card-back text-xs overflow-auto text-black flex flex-col items-center justify-start font-semibold p-1"
       >
-        <span class="mt-4">{{ card.definition }}</span>
+        <span class="text-sm font-bold pt-1">{{ card.word }}:</span>
+        <span class="mt-1">{{ card.definition }}</span>
       </div>
 
       <div
@@ -63,7 +64,7 @@
       >
         <div
           class="pt-1 flex items-center justify-center rounded bg-center bg-cover"
-          style="width: 120px; height: 80px"
+          style="width: 140px; height: 100px"
           :style="{ 'background-image': 'url(' + card.image + ')' }"
         ></div>
         <p class="text-sm text-center font-bold mt-1">{{ card.word }}</p>
