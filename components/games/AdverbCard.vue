@@ -28,7 +28,6 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 5px;
-  font-size: 3rem;
 }
 
 .card-back {
@@ -38,7 +37,6 @@
     #1fc8db 51%,
     #2cb5e8 75%
   );
-  color: white;
   transform: rotateY(180deg);
 }
 
@@ -48,9 +46,14 @@
 </style>
 
 <template>
-  <div class="card" @click="flipCard(card.word)">
+  <div
+    class="card transform ease-in-out duration-700 hover:scale-105"
+    @click="flipCard(card.word)"
+  >
     <div class="card-inner" :class="{ flipped: card.flipped }">
-      <div class="card-back">
+      <div
+        class="card-back text-xs overflow-auto text-black flex items-center justify-center font-semibold px-1"
+      >
         {{ card.definition }}
       </div>
 
@@ -80,7 +83,8 @@ export default {
   },
   methods: {
     flipCard(cardWord) {
-      this.$emit('flip-card', cardWord)
+      // this.$emit('flip-card', cardWord)
+      this.card.flipped = !this.card.flipped
     },
   },
 }
