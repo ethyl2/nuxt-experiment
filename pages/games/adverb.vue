@@ -27,7 +27,8 @@
         </li>
         <li>
           The people chosen to do the action then do it in the manner of the
-          adverb. In our example, they would shake hands mysteriously.
+          adverb. (Of course, only if they are comfortable and okay with the
+          action.) In our example, they would shake hands mysteriously.
         </li>
         <li>
           After they finish, <em>it</em> gets a chance to guess the adverb.
@@ -81,7 +82,7 @@
           class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
           @click="getSuggestion()"
         >
-          🎁 Get Suggestion
+          🎁 Get Adverb Suggestion
         </button>
         <button
           class="bg-black font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
@@ -110,12 +111,41 @@
         Definitely use props around you, if you want. Some of things can be done
         irl, others might be pantomimed or acted out.
       </p>
-      <ul>
-        <li>Call a parent.</li>
-        <li>Sing a lullabye.</li>
-        <li>Draw a picture.</li>
-        <li>Grab something to eat from the fridge.</li>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        <li
+          v-for="action in actionsToDisplay"
+          :key="action"
+          class="bg-black px-2 py-1 font-bold m-1 rounded"
+          :style="{ color: `${getColor()}`, border: `1px solid ${getColor()}` }"
+        >
+          {{ action }}
+        </li>
       </ul>
+      <button
+        v-if="actionsToDisplay.length + 6 < actions.length"
+        class="bg-black font-bold py-2 px-3 rounded w-1/2 hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
+        @click="showActions()"
+      >
+        ➕ More Actions
+      </button>
+      <button
+        v-if="actionsToDisplay.length"
+        class="bg-black font-bold py-2 px-3 rounded w-1/2 hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
+        @click="showLessActions()"
+      >
+        ➖ Less Actions
+      </button>
+      <button
+        class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
+        @click="getActionSuggestion()"
+      >
+        🎁 Get Action Suggestion
+      </button>
+      <div v-if="suggestedAction" class="bg-white p-2">
+        <div class="bg-black px-2 py-1 font-bold m-1 rounded">
+          {{ suggestedAction }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -143,9 +173,12 @@ export default {
         '#30D5C8',
         '#F28C28',
         '#FFC000',
-        '#7a49a5',
+        '#a280c0',
       ],
       suggestedAdverb: null,
+      countActionsToDisplay: 6,
+      actionsToDisplay: [],
+      suggestedAction: null,
     }
   },
   computed: {
@@ -155,6 +188,13 @@ export default {
       )
       adverbsFromStoreCopy.sort(() => 0.5 - Math.random())
       return adverbsFromStoreCopy
+    },
+    actions() {
+      const actionsFromStoreCopy = JSON.parse(
+        JSON.stringify(this.$store.state.adverbs.actions)
+      )
+      actionsFromStoreCopy.sort(() => 0.5 - Math.random())
+      return actionsFromStoreCopy
     },
   },
   mounted() {
@@ -175,6 +215,7 @@ export default {
         color: this.getColor(),
       }
     })
+    this.actionsToDisplay = this.actions.slice(0, this.countActionsToDisplay)
   },
   methods: {
     showAdverbs() {
@@ -206,6 +247,21 @@ export default {
         )
       }
     },
+    showActions() {
+      if (this.countActionsToDisplay + 6 <= this.actions.length) {
+        this.countActionsToDisplay += 6
+        this.actionsToDisplay = this.actions.slice(
+          0,
+          this.countActionsToDisplay
+        )
+      }
+    },
+    showLessActions() {
+      if (this.countActionsToDisplay >= 6) {
+        this.countActionsToDisplay -= 6
+        this.actionsToDisplay = this.actionsToDisplay.slice(0, -6)
+      }
+    },
     alphabetize() {
       this.adverbsToDisplay.sort((a, b) => (a.word > b.word ? 1 : -1))
     },
@@ -233,6 +289,10 @@ export default {
           }
         }, timeInterval)
       })
+    },
+    getActionSuggestion() {
+      const actionIndex = Math.floor(Math.random() * this.actions.length)
+      this.suggestedAction = this.actions[actionIndex]
     },
   },
 }
