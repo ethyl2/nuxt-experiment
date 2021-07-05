@@ -23,6 +23,11 @@ export const state = () => ({
       definition: 'at a fast speed; rapidly; with little or no delay; promptly',
     },
     {
+      word: 'sadly',
+      image: '/adverbs/sadly.jpg',
+      definition: 'in a way that shows sadness or unhappiness',
+    },
+    {
       word: 'incorrectly',
       image: '/adverbs/incorrectly.jpg',
       definition:
@@ -616,7 +621,7 @@ export const state = () => ({
     {
       word: 'joyfully',
       image: '/adverbs/joyfully.jpg',
-      definition: '',
+      definition: 'in a way that shows you are very happy',
     },
     {
       word: 'operatically',
@@ -648,7 +653,13 @@ export const state = () => ({
     {
       word: 'willingly',
       image: '/adverbs/willingly.jpg',
-      definition: '',
+      definition: "readily; of one's own free will",
+    },
+    {
+      word: 'bouncily',
+      image: '/adverbs/bouncily.jpg',
+      definition:
+        'with the quality of bouncing; in a lively, exuberant, or self-confident manner',
     },
     {
       word: 'adorably',

@@ -53,20 +53,39 @@
         :card="adverb"
       />
     </div>
-    <div class="flex items-center justify-center space-x-4">
-      <button
-        v-if="showMoreButton"
-        class="bg-black text-orange font-bold py-2 px-3 rounded hover:text-black hover:bg-white my-2 text-lg"
-        @click="showAdverbs()"
-      >
-        More Adverbs
-      </button>
-      <button
-        class="bg-black text-orange font-bold py-2 px-3 rounded hover:text-black hover:bg-white my-2 text-lg"
-        @click="getSuggestion()"
-      >
-        Get Suggestion
-      </button>
+    <div
+      class="flex flex-col items-center justify-center px-2 md:flex-row md:space-x-4 md:px-0"
+    >
+      <div class="flex items-stretch justify-center space-x-4 w-full md:w-auto">
+        <button
+          v-if="showMoreButton"
+          class="bg-black font-bold py-2 px-3 rounded w-1/2 hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
+          @click="showAdverbs()"
+        >
+          ➕ More Adverbs
+        </button>
+        <button
+          v-if="adverbsToDisplay"
+          class="bg-black font-bold py-2 px-3 rounded w-1/2 hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
+          @click="showLess()"
+        >
+          ➖ Less Adverbs
+        </button>
+      </div>
+      <div class="flex items-stretch justify-center space-x-4 w-full md:w-auto">
+        <button
+          class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
+          @click="getSuggestion()"
+        >
+          🎁 Get Suggestion
+        </button>
+        <button
+          class="bg-black font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
+          @click="alphabetize()"
+        >
+          🔤 Alphabetize
+        </button>
+      </div>
     </div>
     <div class="flex items-center justify-center w-full mx-auto">
       <div
@@ -110,7 +129,12 @@ export default {
   },
   computed: {
     adverbs() {
-      return this.$store.state.adverbs.adverbs
+      const adverbsFromStoreCopy = JSON.parse(
+        JSON.stringify(this.$store.state.adverbs.adverbs)
+      )
+      // return this.$store.state.adverbs.adverbs
+      adverbsFromStoreCopy.sort(() => 0.5 - Math.random())
+      return adverbsFromStoreCopy
     },
   },
   mounted() {
@@ -152,6 +176,18 @@ export default {
       } else {
         this.showMoreButton = false
       }
+    },
+    showLess() {
+      if (this.countToDisplay >= this.numberToIncrement) {
+        this.countToDisplay -= this.numberToIncrement
+        this.adverbsToDisplay = this.adverbsToDisplay.slice(
+          0,
+          -Math.abs(this.numberToIncrement)
+        )
+      }
+    },
+    alphabetize() {
+      this.adverbsToDisplay.sort((a, b) => (a.word > b.word ? 1 : -1))
     },
     getColor() {
       const colorIndex = Math.floor(Math.random() * this.colors.length)
