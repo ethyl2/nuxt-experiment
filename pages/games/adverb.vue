@@ -7,7 +7,7 @@
         Here's how you can play with your friends:
       </h2>
       <ol
-        class="list-decimal list-inside text-left space-y-2 border border-yellow-400 rounded p-4 mb-4 bg-black"
+        class="list-decimal list-inside text-left space-y-2 border border-yellow-400 rounded p-4 mb-4 bg-black mx-2 md:mx-auto"
       >
         <li>Sit in a circle so that everyone can see each other.</li>
         <li>Choose someone to be <em>it</em>.</li>
@@ -41,7 +41,7 @@
         </li>
       </ol>
     </div>
-    <h3 class="text-lg mb-2 font-bold px-4 text-center md:text-xl">
+    <h3 class="text-xl mb-2 font-bold px-4 text-center md:text-2xl">
       Adverb Suggestions:
     </h3>
     <div
@@ -132,7 +132,6 @@ export default {
       const adverbsFromStoreCopy = JSON.parse(
         JSON.stringify(this.$store.state.adverbs.adverbs)
       )
-      // return this.$store.state.adverbs.adverbs
       adverbsFromStoreCopy.sort(() => 0.5 - Math.random())
       return adverbsFromStoreCopy
     },
@@ -194,21 +193,25 @@ export default {
       return this.colors[colorIndex]
     },
     getSuggestion() {
-      const adverbIndex = Math.floor(Math.random() * this.adverbs.length)
-      this.suggestedAdverb = {
-        word:
-          typeof this.adverbs[adverbIndex] === 'object'
-            ? this.adverbs[adverbIndex].word
-            : this.adverbs[adverbIndex],
-        flipped: false,
-        definition: this.adverbs[adverbIndex].definition,
-        image:
-          typeof this.adverbs[adverbIndex] === 'object' &&
-          this.adverbs[adverbIndex].image
-            ? this.adverbs[adverbIndex].image
-            : '/adverbs/mysteriously.jpg',
-        color: this.getColor(),
-      }
+      ;[0, 500, 1000].forEach((timeInterval) => {
+        setTimeout(() => {
+          const adverbIndex = Math.floor(Math.random() * this.adverbs.length)
+          this.suggestedAdverb = {
+            word:
+              typeof this.adverbs[adverbIndex] === 'object'
+                ? this.adverbs[adverbIndex].word
+                : this.adverbs[adverbIndex],
+            flipped: false,
+            definition: this.adverbs[adverbIndex].definition,
+            image:
+              typeof this.adverbs[adverbIndex] === 'object' &&
+              this.adverbs[adverbIndex].image
+                ? this.adverbs[adverbIndex].image
+                : '/adverbs/mysteriously.jpg',
+            color: this.getColor(),
+          }
+        }, timeInterval)
+      })
     },
   },
 }
