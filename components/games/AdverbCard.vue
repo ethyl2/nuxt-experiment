@@ -48,10 +48,11 @@
 <template>
   <div
     class="card transform ease-in-out duration-700 hover:scale-105 focus:border focus:border-white"
+    :tabindex="index"
     @click="flipCard(card.word)"
     @keyup.enter="flipCard(card.word)"
   >
-    <div class="card-inner" :class="{ flipped: card.flipped }" tabindex="0">
+    <div class="card-inner" :class="{ flipped: card.flipped }">
       <div
         class="card-back text-xs overflow-auto text-black flex flex-col items-center justify-start font-semibold p-1"
       >
@@ -82,10 +83,13 @@ export default {
       type: Object,
       default: () => {},
     },
+    index: {
+      type: Number,
+      default: 0,
+    },
   },
   methods: {
-    flipCard(cardWord) {
-      // this.$emit('flip-card', cardWord)
+    flipCard() {
       this.card.flipped = !this.card.flipped
     },
   },

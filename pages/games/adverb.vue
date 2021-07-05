@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen">
     <div class="container flex flex-col">
+      <!-- Instructions -->
       <h1 class="text-xl font-bold md:text-3xl mb-4">How to Play Adverb</h1>
       <h2 class="text-lg md:text-2xl mb-4">
         <em>Adverb</em> is a group game that is definitely one of my favorites.
@@ -41,18 +42,21 @@
         </li>
       </ol>
     </div>
+    <!-- Adverb Suggestions -->
     <h3 class="text-xl mb-2 font-bold px-4 text-center md:text-2xl">
-      Adverb Suggestions:
+      Adverb Suggestions
     </h3>
     <div
       class="flex items-center justify-center flex-wrap px-4 sm:justify-between"
     >
       <adverb-card
-        v-for="adverb in adverbsToDisplay"
+        v-for="(adverb, index) in adverbsToDisplay"
         :key="adverb.word"
         :card="adverb"
+        :index="index"
       />
     </div>
+    <!-- Buttons -->
     <div
       class="flex flex-col items-center justify-center px-2 md:flex-row md:space-x-4 md:px-0"
     >
@@ -87,6 +91,7 @@
         </button>
       </div>
     </div>
+    <!-- Adverb Suggestion -->
     <div class="flex items-center justify-center w-full mx-auto">
       <div
         v-if="suggestedAdverb"
@@ -95,6 +100,22 @@
         <p class="text-white text-center">How about...</p>
         <adverb-card :card="suggestedAdverb" />
       </div>
+    </div>
+    <!-- Action Suggestions -->
+    <div class="mt-6 mx-2 md:mx-12">
+      <h3 class="text-xl mb-2 font-bold px-4 text-center md:text-2xl">
+        Action Suggestions
+      </h3>
+      <p class="italic text-lg mb-2">
+        Definitely use props around you, if you want. Some of things can be done
+        irl, others might be pantomimed or acted out.
+      </p>
+      <ul>
+        <li>Call a parent.</li>
+        <li>Sing a lullabye.</li>
+        <li>Draw a picture.</li>
+        <li>Grab something to eat from the fridge.</li>
+      </ul>
     </div>
   </div>
 </template>
