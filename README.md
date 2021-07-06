@@ -26,6 +26,7 @@ So far, it contains:
 - page about using local storage
 - thimble game, using local storage and sequential input
 - emoji matching game, with card flipping animation
+- adverb game
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 

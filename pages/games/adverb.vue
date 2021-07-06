@@ -3,12 +3,14 @@
     <div class="container flex flex-col">
       <!-- Instructions -->
       <h1 class="text-xl font-bold md:text-3xl mb-4">How to Play Adverb</h1>
-      <h2 class="text-lg md:text-2xl mb-4">
+      <h2 class="text-lg md:text-2xl text-orange-500">
         <em>Adverb</em> is a group game that is definitely one of my favorites.
+      </h2>
+      <h2 class="text-lg md:text-2xl mb-4 text-orange-500">
         Here's how you can play with your friends:
       </h2>
       <ol
-        class="list-decimal list-inside text-left space-y-2 border border-yellow-400 rounded p-4 mb-4 bg-black mx-2 md:mx-auto"
+        class="list-decimal list-inside text-left space-y-2 border border-yellow-400 rounded p-4 mb-4 bg-black mx-2 lg:mx-auto"
       >
         <li>Sit in a circle so that everyone can see each other.</li>
         <li>Choose someone to be <em>it</em>.</li>
@@ -59,7 +61,7 @@
     </div>
     <!-- Buttons -->
     <div
-      class="flex flex-col items-center justify-center px-2 md:flex-row md:space-x-4 md:px-0"
+      class="flex flex-col items-center justify-center px-2 mt-2 md:flex-row md:space-x-4 lg:px-0"
     >
       <div class="flex items-stretch justify-center space-x-4 w-full md:w-auto">
         <button
@@ -93,7 +95,7 @@
       </div>
     </div>
     <!-- Adverb Suggestion -->
-    <div class="flex items-center justify-center w-full mx-auto">
+    <div class="flex items-center justify-center w-full mx-auto mb-6">
       <div
         v-if="suggestedAdverb"
         class="bg-black mt-4 rounded p-4 flex flex-col items-center justify-center border border-yellow-400"
@@ -102,6 +104,7 @@
         <adverb-card :card="suggestedAdverb" />
       </div>
     </div>
+
     <!-- Action Suggestions -->
     <div class="mt-6 mx-2 md:mx-12">
       <h3 class="text-xl mb-2 font-bold px-4 text-center md:text-2xl">
@@ -111,7 +114,9 @@
         Definitely use props around you, if you want. Some of things can be done
         irl, others might be pantomimed or acted out.
       </p>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      <ul
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
+      >
         <li
           v-for="action in actionsToDisplay"
           :key="action"
@@ -121,29 +126,43 @@
           {{ action }}
         </li>
       </ul>
-      <button
-        v-if="actionsToDisplay.length + 6 < actions.length"
-        class="bg-black font-bold py-2 px-3 rounded w-1/2 hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
-        @click="showActions()"
+      <!-- Buttons -->
+      <div
+        class="flex flex-col items-center justify-center space-y-2 mt-6 md:space-y-0 md:flex-row md:space-x-2"
       >
-        ➕ More Actions
-      </button>
-      <button
-        v-if="actionsToDisplay.length"
-        class="bg-black font-bold py-2 px-3 rounded w-1/2 hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
-        @click="showLessActions()"
-      >
-        ➖ Less Actions
-      </button>
-      <button
-        class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
-        @click="getActionSuggestion()"
-      >
-        🎁 Get Action Suggestion
-      </button>
-      <div v-if="suggestedAction" class="bg-white p-2">
-        <div class="bg-black px-2 py-1 font-bold m-1 rounded">
-          {{ suggestedAction }}
+        <div class="flex items-stretch justify-center space-x-2">
+          <button
+            v-if="actionsToDisplay.length + 6 < actions.length"
+            class="bg-black font-bold py-2 px-3 rounded w-1/2 hover:text-black hover:bg-white text-base md:text-lg md:w-auto"
+            @click="showActions()"
+          >
+            ➕ More Actions
+          </button>
+          <button
+            v-if="actionsToDisplay.length"
+            class="bg-black font-bold py-2 px-3 rounded w-1/2 hover:text-black hover:bg-white text-base md:text-lg md:w-auto"
+            @click="showLessActions()"
+          >
+            ➖ Less Actions
+          </button>
+        </div>
+        <button
+          class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded mx-auto hover:text-black hover:bg-white text-base md:text-lg md:w-auto"
+          @click="getActionSuggestion()"
+        >
+          🎁 Get Action Suggestion
+        </button>
+      </div>
+      <!-- Action Suggestion -->
+      <div class="flex items-center justify-center w-full mx-auto mt-6">
+        <div
+          v-if="suggestedAction"
+          class="bg-black mt-4 rounded p-4 flex flex-col items-center justify-center border border-yellow-400"
+        >
+          <p class="text-white text-center">How about...</p>
+          <p class="text-2xl font-bold text-orange-400">
+            {{ suggestedAction }}
+          </p>
         </div>
       </div>
     </div>
@@ -198,8 +217,10 @@ export default {
     },
   },
   mounted() {
-    const countOfCardsInRow = Math.floor(window.innerWidth / 160) - 1
-    this.countToDisplay = countOfCardsInRow
+    let countOfCardsInRow = Math.floor(window.innerWidth / 160) - 1
+    if (countOfCardsInRow > 4) {
+      countOfCardsInRow--
+    }
     this.numberToIncrement = countOfCardsInRow
 
     const adverbsToUse = this.adverbs.slice(0, countOfCardsInRow)

@@ -735,5 +735,12 @@ export const state = () => ({
     'Pretend to be a dog.',
     'Pretend to be a cat.',
     'Sell me something.',
+    'Hum or whistle a tune.',
+    'Comb/brush your hair.',
+    'Text a friend.',
+    'Take a picture of the group.',
+    'Take a selfie.',
+    'Lead a cheer.',
+    'You, you, you, and you: make a conga line.',
   ],
 })
