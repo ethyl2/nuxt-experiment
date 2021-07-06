@@ -146,12 +146,21 @@
             ➖ Less Actions
           </button>
         </div>
-        <button
-          class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded mx-auto hover:text-black hover:bg-white text-base md:text-lg md:w-auto"
-          @click="getActionSuggestion()"
-        >
-          🎁 Get Action Suggestion
-        </button>
+        <div class="flex items-stretch justify-center space-x-2">
+          <button
+            class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded mx-auto hover:text-black hover:bg-white text-base md:text-lg md:w-auto"
+            @click="getActionSuggestion()"
+          >
+            🎁 Get Action Suggestion
+          </button>
+          <button
+            class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded mx-auto hover:text-black hover:bg-white text-base md:text-lg md:w-auto"
+          >
+            <a href="/action_suggestions.pdf" download=""
+              >🖨️ Download Actions Printable</a
+            >
+          </button>
+        </div>
       </div>
       <!-- Action Suggestion -->
       <div class="flex items-center justify-center w-full mx-auto mt-6">
