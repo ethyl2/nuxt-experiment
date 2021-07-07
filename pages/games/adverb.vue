@@ -93,6 +93,15 @@
           🔤 Alphabetize
         </button>
       </div>
+      <div class="flex items-center justify-center">
+        <button
+          class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded mx-auto hover:text-black hover:bg-white text-base md:text-lg md:w-auto"
+        >
+          <a href="/adverb_suggestions.pdf" download=""
+            >🖨️ Download Adverbs Printable</a
+          >
+        </button>
+      </div>
     </div>
     <!-- Adverb Suggestion -->
     <div class="flex items-center justify-center w-full mx-auto mb-6">
@@ -110,7 +119,7 @@
       <h3 class="text-xl mb-2 font-bold px-4 text-center md:text-2xl">
         Action Suggestions
       </h3>
-      <p class="italic text-lg mb-2">
+      <p class="italic text-lg mb-2 text-center">
         Definitely use props around you, if you want. Some of things can be done
         irl, others might be pantomimed or acted out.
       </p>
@@ -223,6 +232,13 @@ export default {
       )
       actionsFromStoreCopy.sort(() => 0.5 - Math.random())
       return actionsFromStoreCopy
+    },
+    adverbsAlphabetical() {
+      const adverbsFromStoreCopy = JSON.parse(
+        JSON.stringify(this.$store.state.adverbs.adverbs)
+      )
+      adverbsFromStoreCopy.sort((a, b) => (a.word > b.word ? 1 : -1))
+      return adverbsFromStoreCopy
     },
   },
   mounted() {
