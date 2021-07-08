@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-v-html */
 <template>
   <div class="flex flex-col min-h-screen">
     <div class="container flex flex-col">
@@ -12,37 +13,7 @@
       <ol
         class="list-decimal list-inside text-left space-y-2 border border-yellow-400 rounded p-4 mb-4 bg-black mx-2 lg:mx-auto"
       >
-        <li>Sit in a circle so that everyone can see each other.</li>
-        <li>Choose someone to be <em>it</em>.</li>
-        <li>
-          After explaining the rules, have <em>it</em> leave the room and go
-          somewhere where they can't hear the group.
-        </li>
-        <li>
-          When <em>it</em> is gone, choose an adverb -- a word that ends in -ly
-          and describes an action, such as <em>mysteriously</em>.
-        </li>
-        <li>Have <em>it</em> come back into the room.</li>
-        <li>
-          <em>It</em> will now tell a person or people in the group to do an
-          action, such as 'Phineas, go shake hands with Ferb.'
-        </li>
-        <li>
-          The people chosen to do the action then do it in the manner of the
-          adverb. (Of course, only if they are comfortable and okay with the
-          action.) In our example, they would shake hands mysteriously.
-        </li>
-        <li>
-          After they finish, <em>it</em> gets a chance to guess the adverb.
-        </li>
-        <li>
-          If <em>it</em> is correct, the person chosen to do the action will be
-          <em>it</em> for the next round.
-        </li>
-        <li>
-          Otherwise, <em>it</em> picks a new person or people to do another
-          thing in the manner of the adverb.
-        </li>
+        <li v-for="step in steps" :key="step" v-html="step"></li>
       </ol>
       <div class="flex items-center justify-center">
         <button
@@ -208,19 +179,6 @@ export default {
       countToDisplay: 0,
       numberToIncrement: 0,
       showMoreButton: true,
-      colors: [
-        '#faf089',
-        '#68d391',
-        '#4fd1c5',
-        '#63b3ed',
-        '#7f9cf5',
-        'white',
-        '#f6ad55',
-        '#30D5C8',
-        '#F28C28',
-        '#FFC000',
-        '#a280c0',
-      ],
       suggestedAdverb: null,
       countActionsToDisplay: 6,
       actionsToDisplay: [],
@@ -249,6 +207,12 @@ export default {
       adverbsFromStoreCopy.sort((a, b) => (a.word > b.word ? 1 : -1))
       return adverbsFromStoreCopy
     },
+    steps() {
+      return this.$store.state.adverbs.steps
+    },
+    colors() {
+      return this.$store.state.adverbs.colors
+    },
   },
   mounted() {
     let countOfCardsInRow = Math.floor(window.innerWidth / 160) - 1
@@ -256,6 +220,7 @@ export default {
       countOfCardsInRow--
     }
     this.numberToIncrement = countOfCardsInRow
+    this.countToDisplay = countOfCardsInRow
 
     const adverbsToUse = this.adverbs.slice(0, countOfCardsInRow)
     this.adverbsToDisplay = adverbsToUse.map((adverb) => {
