@@ -44,6 +44,15 @@
           thing in the manner of the adverb.
         </li>
       </ol>
+      <div class="flex items-center justify-center">
+        <button
+          class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded mx-auto hover:text-black hover:bg-white text-base md:text-lg md:w-auto"
+        >
+          <a href="/adverb_game_instructions.pdf" download=""
+            >🖨️ Download Instructions Printable</a
+          >
+        </button>
+      </div>
     </div>
     <!-- Adverb Suggestions -->
     <h3 class="text-xl mb-2 font-bold px-4 text-center md:text-2xl">
