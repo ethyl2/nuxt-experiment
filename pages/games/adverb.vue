@@ -1,7 +1,16 @@
 /* eslint-disable vue/no-v-html */
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>
 <template>
   <div class="flex flex-col min-h-screen">
-    <div class="container flex flex-col">
+    <div class="container flex flex-col items-center justify-start">
       <!-- Instructions -->
       <h1 class="text-xl font-bold md:text-3xl mb-4">How to Play Adverb</h1>
       <h2 class="text-lg md:text-2xl text-orange-500">
@@ -10,12 +19,50 @@
       <h2 class="text-lg md:text-2xl mb-4 text-orange-500">
         Here's how you can play with your friends:
       </h2>
-      <ol
-        class="list-decimal list-inside text-left space-y-2 border border-yellow-400 rounded p-4 mb-4 bg-black mx-2 lg:mx-auto"
+      <div class="flex items-stretch justify-center space-x-4 mb-2 md:hidden">
+        <button
+          class="bg-black text-yellow-400 font-bold py-2 px-3 rounded w-1/2 hover:text-black hover:bg-white my-1 text-base flex items-center justify-center"
+          @click="backStep()"
+        >
+          <span>⬅️</span><span>Previous Step</span>
+        </button>
+        <button
+          class="bg-black font-bold py-2 px-3 rounded w-1/2 hover:text-black hover:bg-white my-1 text-base"
+          @click="advanceStep()"
+        >
+          Next Step ➡️
+        </button>
+      </div>
+      <div
+        class="border border-yellow-400 bg-black rounded md:space-x-4 p-2 mb-4 w-2/3 mx-auto flex items-center justify-around overflow-y-auto md:p-4"
+        style="height: 200px"
       >
-        <li v-for="step in steps" :key="step" v-html="step"></li>
-      </ol>
-      <div class="flex items-center justify-center">
+        <button
+          class="hidden md:flex flex-shrink-0 flex-col items-center justify-center border text-yellow-400 bg-black font-bold py-2 px-1 rounded my-2 text-lg hover:text-black hover:bg-white"
+          @click="backStep()"
+        >
+          <span>⬅️</span>
+          <span>Previous Step</span>
+        </button>
+        <div class="flex-shrink text-base md:text-lg pt-6 md:pt-2">
+          <span>{{ currentStepIndex + 1 }}.</span>
+          <span v-html="steps[currentStepIndex]"></span>
+        </div>
+        <button
+          class="hidden md:flex flex-shrink-0 flex-col items-center justify-center border text-yellow-400 bg-black font-bold py-2 px-1 rounded my-2 text-lg hover:text-black hover:bg-white"
+          @click="advanceStep()"
+        >
+          <span>➡️</span>
+          <span>Next Step</span>
+        </button>
+      </div>
+      <div class="flex items-stretch justify-center space-x-4 mx-4">
+        <button
+          class="bg-black text-white font-bold py-2 px-3 w-1/2 rounded mx-auto hover:text-black hover:bg-white text-base md:text-lg md:w-auto"
+          @click="toggleShowAllSteps()"
+        >
+          👀 {{ showAllSteps ? 'Hide' : 'Show' }} All Steps
+        </button>
         <button
           class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded mx-auto hover:text-black hover:bg-white text-base md:text-lg md:w-auto"
         >
@@ -24,6 +71,14 @@
           >
         </button>
       </div>
+      <transition name="fade">
+        <ol
+          v-if="showAllSteps"
+          class="list-decimal list-inside text-left space-y-2 border border-yellow-400 rounded p-4 mb-4 bg-black mx-2 mt-6 lg:mx-auto"
+        >
+          <li v-for="step in steps" :key="step" v-html="step"></li>
+        </ol>
+      </transition>
     </div>
     <!-- Adverb Suggestions -->
     <h3 class="text-xl mb-2 font-bold px-4 text-center md:text-2xl">
@@ -175,6 +230,7 @@ export default {
   },
   data() {
     return {
+      showAllSteps: false,
       adverbsToDisplay: [],
       countToDisplay: 0,
       numberToIncrement: 0,
@@ -183,6 +239,7 @@ export default {
       countActionsToDisplay: 6,
       actionsToDisplay: [],
       suggestedAction: null,
+      currentStepIndex: 0,
     }
   },
   computed: {
@@ -238,6 +295,9 @@ export default {
     this.actionsToDisplay = this.actions.slice(0, this.countActionsToDisplay)
   },
   methods: {
+    toggleShowAllSteps() {
+      this.showAllSteps = !this.showAllSteps
+    },
     showAdverbs() {
       if (this.countToDisplay + this.numberToIncrement <= this.adverbs.length) {
         this.countToDisplay += this.numberToIncrement
@@ -313,6 +373,15 @@ export default {
     getActionSuggestion() {
       const actionIndex = Math.floor(Math.random() * this.actions.length)
       this.suggestedAction = this.actions[actionIndex]
+    },
+    backStep() {
+      this.currentStepIndex--
+      if (this.currentStepIndex < 0) {
+        this.currentStepIndex = this.steps.length - 1
+      }
+    },
+    advanceStep() {
+      this.currentStepIndex = (this.currentStepIndex + 1) % this.steps.length
     },
   },
 }
