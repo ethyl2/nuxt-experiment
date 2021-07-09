@@ -673,6 +673,12 @@ export const state = () => ({
       definition:
         'in a light-hearted or playful manner; in a way that is funny and not serious',
     },
+    {
+      word: 'painstakingly',
+      image: '/adverbs/painstakingly.jpg',
+      definition:
+        'in a way that shows you have taken a lot of care or made a lot of effort; with thoroughness and attention to detail; in a fastidious manner',
+    },
   ],
   actions: [
     'Call a parent.',
