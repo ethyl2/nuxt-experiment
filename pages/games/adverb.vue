@@ -384,5 +384,25 @@ export default {
       this.currentStepIndex = (this.currentStepIndex + 1) % this.steps.length
     },
   },
+  head() {
+    return {
+      title: 'How to Play the Adverb Game 🎭',
+      meta: [
+        {
+          name: 'twitter:title',
+          content: 'Adverb Game 🎭 | Nuxt Experiments',
+        },
+        {
+          name: 'twitter:description ',
+          content: 'How to play the Adverb Game',
+        },
+        {
+          name: 'twitter:image',
+          content: 'https://nuxt-experiments.herokuapp.com/adverbs/eagerly.jpg',
+        },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
+  },
 }
 </script>
