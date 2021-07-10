@@ -139,6 +139,20 @@ ul.podcast-list li > a::before {
             Andy, and Mike each week for an hour of comedic madness."
           </p>
         </li>
+        <li class="flex flex-col items-start justify-center md:flex-row">
+          <a
+            class="text-base font-bold mr-2 flex-shrink-0 md:text-lg"
+            href="https://maximumfun.org/podcasts/we-got-this-with-mark-and-hal/"
+            target="_blank"
+            nofollow
+            >We Got This with Mark and Hal</a
+          >
+          <p class="text-left text-sm md:text-base">
+            "Actors Mark Gagliardi and Hal Lublin sit down to settle all the
+            small debates that are a big deal to YOU — once and for all. Don’t
+            worry… We Got This."
+          </p>
+        </li>
       </ul>
       <h2 id="inspirational" class="text-lg font-bold mb-1 mt-6">
         Inspirational
@@ -447,6 +461,21 @@ ul.podcast-list li > a::before {
         </li>
       </ul>
     </div>
+    <div class="flex flex-wrap mx-auto py-10 justify-center items-center">
+      <a
+        v-for="podcast in podcasts"
+        :key="podcast.title"
+        :href="podcast.url"
+        target="_blank"
+        class="z-10 w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 transform hover:scale-105 hover:z-50"
+      >
+        <img
+          :src="podcast.thumbnail"
+          :alt="podcast.title"
+          class="h-full w-full"
+        />
+      </a>
+    </div>
     <a href="#top" class="flex items-center justify-center">☝️ To Top </a>
   </div>
 </template>
@@ -454,9 +483,79 @@ ul.podcast-list li > a::before {
 <script>
 export default {
   name: 'PodcastList',
+  data() {
+    return {
+      podcasts: [
+        {
+          title: 'Good Job Brain',
+          category: 'Interesting Facts',
+          url: 'https://www.goodjobbrain.com/',
+          thumbnail: '/podcasts/good-job-brain.png',
+        },
+        {
+          title: 'Every Little Thing',
+          category: 'Interesting Facts',
+          url: 'https://gimletmedia.com/shows/every-little-thing',
+          thumbnail: '/podcasts/every-little-thing.jpg',
+        },
+        {
+          title: '99% Invisible',
+          category: 'Interesting Facts',
+          url: 'https://99percentinvisible.org/',
+          thumbnail: '/podcasts/99-percent-invisible.jpg',
+        },
+        {
+          title: 'Spitballers',
+          category: 'Comedy',
+          url: 'http://www.spitballerspod.com/',
+          thumbnail: '/podcasts/spitballers.png',
+        },
+        {
+          title: 'We Got This with Mark and Hal',
+          category: 'Comedy',
+          url: 'https://maximumfun.org/podcasts/we-got-this-with-mark-and-hal/',
+          thumbnail: '/podcasts/we-got-this.jpg',
+        },
+        {
+          title: 'Follow HIM',
+          category: 'Inspirational',
+          url: 'https://followhim.co/',
+          thumbnail: '/podcasts/follow-him.jpg',
+        },
+        {
+          title: 'Twenty Thousand Hertz',
+          category: 'Sound',
+          url: 'https://www.20k.org/',
+          thumbnail: '/podcasts/twenty-thousand-hertz.jpg',
+        },
+        {
+          title: 'Strong Songs',
+          category: 'Sound',
+          url: 'https://strongsongspodcast.com/',
+          thumbnail: '/podcasts/strong-songs.jpg',
+        },
+      ],
+    }
+  },
   head() {
     return {
-      title: 'Podcast List',
+      title: '🎙️ Podcast List',
+      meta: [
+        {
+          name: 'twitter:title',
+          content: '🎙️ Podcast List | Nuxt Experiments',
+        },
+        {
+          name: 'twitter:description ',
+          content: 'Favorite podcasts list',
+        },
+        {
+          name: 'twitter:image',
+          content:
+            'https://nuxt-experiments.herokuapp.com/podcast-group/interesting-facts.png',
+        },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
     }
   },
 }

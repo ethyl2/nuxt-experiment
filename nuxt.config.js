@@ -59,6 +59,7 @@ export default {
             'active',
             'group-hover',
           ],
+          zIndex: ['responsive', 'hover'],
         },
       },
     },
