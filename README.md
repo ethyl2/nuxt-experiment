@@ -27,6 +27,7 @@ So far, it contains:
 - thimble game, using local storage and sequential input
 - emoji matching game, with card flipping animation
 - adverb game
+- [favorite podcasts list](https://nuxt-experiments.herokuapp.com/podcast-list)
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 

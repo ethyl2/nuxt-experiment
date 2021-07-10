@@ -1,3 +1,12 @@
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>
 <template>
   <div
     class="flex flex-col justify-center items-center text-center min-h-screen md:m-16 md:flex-row"
@@ -28,6 +37,44 @@
         <nuxt-link to="/arts/drag-and-drop3"
           >Make a Flower Arrangement</nuxt-link
         >
+        <div
+          v-if="!showStoriesOptions"
+          class="text-lg cursor-pointer hover:font-bold"
+          style="color: var(--teal-light)"
+          @click="toggleStoriesOptions"
+        >
+          Read Stories & Writings
+        </div>
+        <transition name="fade">
+          <div
+            v-if="showStoriesOptions"
+            class="relative flex flex-col rounded p-2 border border-black pt-6 md:pt-2"
+            @mouseleave="showStoriesOptions = false"
+          >
+            <span
+              class="absolute top-0 right-0 p-2 text-sm cursor-pointer hover:bg-black rounded"
+              @click="toggleStoriesOptions"
+              >✖️</span
+            >
+            <nuxt-link
+              to="/inspiration/conference-stories"
+              class="text-orange-400"
+              >Favorite General Conference Stories</nuxt-link
+            >
+            <a
+              href="https://ethyl2.github.io/snake-lessons/"
+              target="_blank"
+              class="text-orange-400"
+              >Snake Lessons Talk</a
+            >
+            <a
+              href="https://ethyl2.github.io/snake-lessons/dieter-and-dumbledore.html"
+              class="text-orange-400"
+              target="_blank"
+              >Dieter and Dumbledore Talk</a
+            >
+          </div>
+        </transition>
       </nav>
     </div>
   </div>
@@ -36,6 +83,16 @@
 <script>
 export default {
   name: 'ArtsIndex',
+  data() {
+    return {
+      showStoriesOptions: false,
+    }
+  },
+  methods: {
+    toggleStoriesOptions() {
+      this.showStoriesOptions = !this.showStoriesOptions
+    },
+  },
   head() {
     return {
       title: '🎨 Arts Menu',

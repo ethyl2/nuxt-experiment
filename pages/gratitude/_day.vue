@@ -13,6 +13,23 @@
         class="w-1/4 pt-4"
       />
       <hr />
+      <div
+        v-if="day.number === 'two'"
+        class="flex divide-x-2 items-center justify-center px-2"
+      >
+        <a
+          href="https://ethyl2.github.io/fav-games/index.html"
+          target="_blank"
+          class="pr-4"
+          >See my Favorite Free Online Group Games</a
+        >
+        <nuxt-link to="/games/adverb" class="px-4"
+          >How to Play Adverb</nuxt-link
+        >
+        <nuxt-link to="/thimble/start" class="pl-4"
+          >How to Play Thimble</nuxt-link
+        >
+      </div>
       <a
         v-if="day.number === 'twelve'"
         href="http://www.geocaching.com/profile/?guid=9266a6f1-a2d3-40b8-a09c-62c1de398038"
