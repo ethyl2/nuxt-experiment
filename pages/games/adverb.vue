@@ -114,21 +114,40 @@
           ➖ Less Adverbs
         </button>
       </div>
-      <div class="flex items-stretch justify-center space-x-4 w-full md:w-auto">
+      <div
+        class="flex items-stretch justify-center space-x-4 w-full py-2 md:py-0 md:w-auto"
+      >
         <button
-          class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
-          @click="getSuggestion()"
+          v-if="adverbsToDisplay.length < adverbs.length"
+          class="bg-black text-white font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
+          @click="showAllAdverbs()"
         >
-          🎁 Get Adverb Suggestion
+          😲 Show All
         </button>
         <button
+          v-else
+          class="bg-black text-white font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
+          @click="hideAllAdverbs()"
+        >
+          🙈 Hide All
+        </button>
+        <button
+          v-if="adverbsToDisplay.length > 0"
           class="bg-black font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
           @click="alphabetize()"
         >
           🔤 Alphabetize
         </button>
       </div>
-      <div class="flex items-center justify-center">
+      <div
+        class="flex items-stretch justify-center space-x-4 w-full md:w-autoflex items-stretch justify-center space-x-4 w-full md:w-auto"
+      >
+        <button
+          class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
+          @click="getSuggestion()"
+        >
+          🎁 Get Adverb Suggestion
+        </button>
         <button
           class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded mx-auto hover:text-black hover:bg-white text-base md:text-lg md:w-auto"
         >
@@ -188,6 +207,24 @@
             @click="showLessActions()"
           >
             ➖ Less Actions
+          </button>
+        </div>
+        <div
+          class="flex items-stretch justify-center space-x-4 w-full py-2 md:py-0 md:w-auto"
+        >
+          <button
+            v-if="actionsToDisplay.length < actions.length"
+            class="bg-black text-white font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
+            @click="showAllActions()"
+          >
+            😲 Show All
+          </button>
+          <button
+            v-else
+            class="bg-black text-white font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
+            @click="hideAllActions()"
+          >
+            🙈 Hide All
           </button>
         </div>
         <div class="flex items-stretch justify-center space-x-2">
@@ -327,6 +364,25 @@ export default {
         )
       }
     },
+    showAllAdverbs() {
+      this.countToDisplay = this.adverbs.length
+      this.adverbsToDisplay = this.adverbs.map((adverb) => {
+        return {
+          word: typeof adverb === 'object' ? adverb.word : adverb,
+          flipped: false,
+          definition: adverb.definition,
+          image:
+            typeof adverb === 'object' && adverb.image
+              ? adverb.image
+              : '/adverbs/mysteriously.jpg',
+          color: this.getColor(),
+        }
+      })
+    },
+    hideAllAdverbs() {
+      this.countToDisplay = 0
+      this.adverbsToDisplay = []
+    },
     showActions() {
       if (this.countActionsToDisplay + 6 <= this.actions.length) {
         this.countActionsToDisplay += 6
@@ -341,6 +397,14 @@ export default {
         this.countActionsToDisplay -= 6
         this.actionsToDisplay = this.actionsToDisplay.slice(0, -6)
       }
+    },
+    showAllActions() {
+      this.countActionsToDisplay = this.actions.length
+      this.actionsToDisplay = this.actions
+    },
+    hideAllActions() {
+      this.countActionsToDisplay = 0
+      this.actionsToDisplay = []
     },
     alphabetize() {
       this.adverbsToDisplay.sort((a, b) => (a.word > b.word ? 1 : -1))
