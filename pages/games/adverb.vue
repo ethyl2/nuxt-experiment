@@ -61,7 +61,7 @@
           class="bg-black text-white font-bold py-2 px-3 w-1/2 rounded mx-auto hover:text-black hover:bg-white text-base md:text-lg md:w-auto"
           @click="toggleShowAllSteps()"
         >
-          👀 {{ showAllSteps ? 'Hide' : 'Show' }} All Steps
+          {{ showAllSteps ? ' 🙈 Hide' : '👀 Show' }} All Steps
         </button>
         <button
           class="bg-black text-yellow-400 font-bold py-2 px-3 w-1/2 rounded mx-auto hover:text-black hover:bg-white text-base md:text-lg md:w-auto"
@@ -122,7 +122,7 @@
           class="bg-black text-white font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
           @click="showAllAdverbs()"
         >
-          😲 Show All
+          👀 Show All
         </button>
         <button
           v-else
@@ -217,7 +217,7 @@
             class="bg-black text-white font-bold py-2 px-3 w-1/2 rounded hover:text-black hover:bg-white my-1 md:my-2 text-base md:text-lg md:w-auto"
             @click="showAllActions()"
           >
-            😲 Show All
+            👀 Show All
           </button>
           <button
             v-else
