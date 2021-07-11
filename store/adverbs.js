@@ -679,6 +679,52 @@ export const state = () => ({
       definition:
         'in a way that shows you have taken a lot of care or made a lot of effort; with thoroughness and attention to detail; in a fastidious manner',
     },
+    {
+      word: 'reverently',
+      image: '/adverbs/reverently.jpg',
+      definition: 'with deep and solemn respect',
+    },
+    {
+      word: 'independently',
+      image: '/adverbs/independently.jpg',
+      definition:
+        'without outside help; unaided; without being influenced or controlled in any way by other people, events, or things',
+    },
+    {
+      word: 'dishonestly',
+      image: '/adverbs/dishonestly.jpg',
+      definition:
+        'in an untrustworthy, deceitful, or insincere way, not honest; in a way intended to trick people',
+    },
+    {
+      word: 'honestly',
+      image: '/adverbs/honestly.jpg',
+      definition:
+        'in a truthful, fair, or honorable way; without cheating; genuinely',
+    },
+    {
+      word: 'flatteringly',
+      image: '/adverbs/flatteringly.jpg',
+      definition:
+        "with excessive and insincere praise, given especially to further one's own interests; in a flattering manner; in a manner to gratify or soothe",
+    },
+    {
+      word: 'contrarily',
+      image: '/adverbs/contrarily.jpg',
+      definition:
+        'in a contrary, disobedient, or obstinate manner; in an opposite or adverse way; contrary to expectations',
+    },
+    {
+      word: 'energetically',
+      image: '/adverbs/energetically.jpg',
+      definition:
+        'in an energetic manner; in a manner showing or involving great activity or vitality.',
+    },
+    {
+      word: 'simultaneously',
+      image: '/adverbs/simultaneously.jpg',
+      definition: 'at the same time',
+    },
   ],
   actions: [
     'Call a parent.',
