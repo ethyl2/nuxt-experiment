@@ -534,6 +534,67 @@ export default {
           url: 'https://strongsongspodcast.com/',
           thumbnail: '/podcasts/strong-songs.jpg',
         },
+        {
+          title: 'Myths and Legends',
+          category: 'Literature',
+          url: 'https://www.mythpodcast.com/',
+          thumbnail: '/podcasts/myths-and-legends.jpg',
+        },
+        {
+          title: 'The Real Weird Sisters',
+          category: 'Literature',
+          url: 'https://www.realweirdsisters.com/',
+          thumbnail: '/podcasts/weird-sisters.jpg',
+        },
+        {
+          title: 'The Empty Bowl',
+          category: 'Food',
+          url: 'https://www.themcelroy.family/emptybowl',
+          thumbnail: '/podcasts/the-empty-bowl.jpg',
+        },
+        {
+          title: 'Gastropod',
+          category: 'Food',
+          url: 'https://gastropod.com/',
+          thumbnail: '/podcasts/gastropod.jpg',
+        },
+        {
+          title: 'Savor',
+          category: 'Food',
+          url: 'https://www.iheart.com/podcast/105-savor-28019899/',
+          thumbnail: '/podcasts/savor.jpg',
+        },
+        {
+          title: 'Futility Closet',
+          category: 'History',
+          url: 'https://www.futilitycloset.com/podcast/',
+          thumbnail: '/podcasts/futility-closet.jpg',
+        },
+        {
+          title: 'Omnibus',
+          category: 'History',
+          url: 'https://www.omnibusproject.com/',
+          thumbnail: '/podcasts/omnibus.jpg',
+        },
+        {
+          title: 'Ridiculous History',
+          category: 'History',
+          url:
+            'https://www.iheart.com/podcast/105-ridiculous-history-28588696/',
+          thumbnail: '/podcasts/ridiculous-history.jpg',
+        },
+        {
+          title: 'Cabinet of Curiosities',
+          category: 'History',
+          url: 'http://aaronmahnke.com/curiosities/',
+          thumbnail: '/podcasts/cabinet-of-curiosities.jpg',
+        },
+        {
+          title: 'Science Vs',
+          category: 'Science',
+          url: 'https://gimletmedia.com/shows/science-vs',
+          thumbnail: '/podcasts/science-vs.jpg',
+        },
       ],
     }
   },
