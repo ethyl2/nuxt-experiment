@@ -446,7 +446,7 @@ ul.podcast-list li > a::before {
         </li>
         <li class="flex flex-col items-start justify-center md:flex-row">
           <a
-            class="text-base font-bold mr-2 flex-shrink-0 md:text-lg"
+            class="text-base font-bold mr-2 flex-shrink-0 text-left md:text-lg"
             href="https://michaelscottpod.com/"
             target="_blank"
             nofollow
@@ -594,6 +594,12 @@ export default {
           category: 'Science',
           url: 'https://gimletmedia.com/shows/science-vs',
           thumbnail: '/podcasts/science-vs.jpg',
+        },
+        {
+          title: 'CrowdScience',
+          category: 'Science',
+          url: 'https://www.bbc.co.uk/programmes/p04d42rc',
+          thumbnail: '/podcasts/crowd-science.jpg',
         },
       ],
     }
