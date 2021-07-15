@@ -241,6 +241,19 @@ ul.podcast-list li > a::before {
             universe."
           </p>
         </li>
+        <li class="flex flex-col items-start justify-center md:flex-row">
+          <a
+            class="text-base font-bold mr-2 flex-shrink-0 md:text-lg"
+            href="https://bookvsmovie.libsyn.com/"
+            target="_blank"
+            nofollow
+            >Book Vs Movie</a
+          >
+          <p class="text-left text-sm md:text-base">
+            "Book Vs. Movie is the podcast that ponders the question: 'Which was
+            better...the book or the movie?'"
+          </p>
+        </li>
       </ul>
       <h2 id="food" class="text-lg font-bold mb-1 mt-6">Food</h2>
       <ul
@@ -547,6 +560,12 @@ export default {
           thumbnail: '/podcasts/weird-sisters.jpg',
         },
         {
+          title: 'Book Vs Movie',
+          category: 'Literature',
+          url: 'https://bookvsmovie.libsyn.com/',
+          thumbnail: '/podcasts/book-vs-movie.png',
+        },
+        {
           title: 'The Empty Bowl',
           category: 'Food',
           url: 'https://www.themcelroy.family/emptybowl',
@@ -600,6 +619,36 @@ export default {
           category: 'Science',
           url: 'https://www.bbc.co.uk/programmes/p04d42rc',
           thumbnail: '/podcasts/crowd-science.jpg',
+        },
+        {
+          title: 'Short Wave',
+          category: 'Science',
+          url: 'https://www.npr.org/podcasts/510351/short-wave',
+          thumbnail: '/podcasts/short-wave.png',
+        },
+        {
+          title: 'JS Party',
+          category: 'Web Development',
+          url: 'https://changelog.com/jsparty',
+          thumbnail: '/podcasts/js-party.png',
+        },
+        {
+          title: 'Syntax',
+          category: 'Web Development',
+          url: 'https://syntax.fm/',
+          thumbnail: '/podcasts/syntax.png',
+        },
+        {
+          title: 'Office Ladies',
+          category: 'Web Development',
+          url: 'https://officeladies.com/',
+          thumbnail: '/podcasts/office-ladies.jpg',
+        },
+        {
+          title: 'The Michael Scott Podcast Company',
+          category: 'Web Development',
+          url: 'https://michaelscottpod.com/',
+          thumbnail: '/podcasts/michael-scott-podcast-company.jpg',
         },
       ],
     }
