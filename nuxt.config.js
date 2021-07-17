@@ -60,6 +60,8 @@ export default {
             'group-hover',
           ],
           zIndex: ['responsive', 'hover'],
+          borderSize: ['focus-within'],
+          borderColor: ['focus-within'],
         },
       },
     },
