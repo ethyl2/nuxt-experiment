@@ -231,5 +231,10 @@ export default {
       this.showReason = false
     },
   },
+  head() {
+    return {
+      title: 'Are You Secretly a Bat? 🦇 | Nuxt Experiments',
+    }
+  },
 }
 </script>
