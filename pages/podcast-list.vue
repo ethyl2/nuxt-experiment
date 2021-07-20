@@ -299,14 +299,15 @@ export default {
           url: 'https://changelog.com/jsparty',
           thumbnail: '/podcasts/js-party.png',
           synopsis:
-            'Welcome to JS Party, a weekly celebration of JavaScript and the web',
+            'Your weekly celebration of JavaScript and the web. Topics discussed include the web platform (Chrome, Safari, Edge, Firefox, Brave, etc), front-end frameworks (React, Ember, Angular, Vue, etc), Node.js, web animation, SVG, robotics, IoT, and much more.',
         },
         {
           title: 'Syntax',
           category: 'Web Development',
           url: 'https://syntax.fm/',
           thumbnail: '/podcasts/syntax.png',
-          synopsis: 'A Tasty Treats Podcast for Web Developers.',
+          synopsis:
+            'Full Stack Developers Wes Bos and Scott Tolinski dive deep into web development topics, explaining how they work and talking about their own experiences. They cover JavaScript frameworks like React, the latest advancements in CSS, and simplifying web tooling.',
         },
         {
           title: 'Office Ladies',
