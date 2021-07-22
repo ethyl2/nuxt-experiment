@@ -21,6 +21,7 @@
     >
       <h1 class="text-5xl">Arts</h1>
       <nav class="flex flex-col text-lg space-y-2">
+        <nuxt-link to="/arts/can-wall">Build a Can Wall</nuxt-link>
         <nuxt-link to="/canvas">Time to Draw</nuxt-link>
         <nuxt-link to="/songs">Find Songs</nuxt-link>
         <nuxt-link to="/quotes">Become Inspired</nuxt-link>
