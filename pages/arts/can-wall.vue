@@ -20,17 +20,24 @@
       <h2 class="pb-4 text-2xl">You can make one, too!</h2>
       <h3 class="pb-6 italic text-lg">Here's what you'll need:</h3>
       <div
-        class="flex flex-col items-start w-full md:flex-row md:justify-between md:space-x-4"
+        class="flex flex-col items-start w-full md:mx-4 pt-4 border-t border-b md:flex-row md:justify-between md:space-x-4"
       >
         <div
-          class="flex flex-col items-center justify-center w-full md:w-1/2 space-y-2"
+          class="flex flex-col items-center justify-center w-full md:w-1/2 space-y-2 md:border-r md:pr-2"
         >
           <img
             src="/can-wall/liquid-nails.jpg"
             alt="Liquid nails glue"
-            class="w-full"
+            class="w-full rounded md:w-2/3"
           />
-          <p class="text-xl font-bold">1. Liquid Nails glue</p>
+          <div class="flex items-baseline justify-start text-xl font-bold">
+            <div
+              class="bg-black bg-opacity-50 p-1 w-10 h-10 flex items-center justify-center rounded-full mr-2 mt-2"
+            >
+              1.
+            </div>
+            <p class="text-xl font-bold">Liquid Nails glue</p>
+          </div>
           <a
             href="https://www.amazon.com/dp/B01M5GBLYK/ref=cm_sw_r_tw_dp_0C51BND5RPZ9S4S96Y77"
             target="_blank"
@@ -40,22 +47,30 @@
           <a
             href="https://www.amazon.com/dp/B01MFEUU45/ref=cm_sw_r_tw_dp_3NS4DA0RVR9S61F3EWTN"
             target="_blank"
+            class="pb-4 border-b text-center w-full"
             >Liquid Nails 9 oz. Fuze It</a
           >
           <img
             src="/can-wall/caulk-gun.jpg"
             alt="caulk-gun"
-            class="mx-auto w-2/3 md:w-1/2"
+            class="mx-auto mt-4 w-2/3 rounded md:w-1/2"
           />
-          <p class="text-xl font-bold">
-            2. A caulk gun -- only if you use the 9 oz. glue.
-          </p>
+          <div class="flex items-baseline justify-start text-xl font-bold">
+            <div
+              class="bg-black bg-opacity-50 p-1 w-10 h-10 flex items-center justify-center rounded-full mr-2 mt-2"
+            >
+              2.
+            </div>
+            <p class="text-xl font-bold text-center">
+              A caulk gun -- only if you use the 9 oz. glue.
+            </p>
+          </div>
           <a
             href="https://www.amazon.com/dp/B07CVSQJHY/ref=cm_sw_r_tw_dp_EAGSWRTKYTG75YZ91BYN"
             target="_blank"
             >A caulk gun</a
           >
-          <p>
+          <p class="pb-4 border-b text-center">
             At first, we used hot glue with a hot glue gun, but some brands of
             hot glue sticks didn't work very well. Liquid nails has been a
             better choice.
@@ -64,77 +79,135 @@
           <img
             src="/can-wall/pinto-beans.jpg"
             alt="pinto beans"
-            class="w-2/3 mx-auto md:w-1/2"
+            class="w-2/3 mx-auto mt-4 rounded md:w-1/2"
           />
-          <p class="text-xl font-bold">3. Dry beans</p>
-          <p>
+          <div class="flex items-baseline justify-start text-xl font-bold">
+            <div
+              class="bg-black bg-opacity-50 p-1 w-10 h-10 flex items-center justify-center rounded-full mr-2 mt-2"
+            >
+              3.
+            </div>
+            <p class="text-xl font-bold">Dry beans</p>
+          </div>
+          <p class="text-center">
             Any kind will do; just make sure they are dry. They will help lower
             the center of gravity of the call wall and make it more sturdy.
           </p>
           <a
             href="https://www.amazon.com/dp/B07BBW7PYV/ref=cm_sw_r_tw_dp_X2136VQZ45SR9EJARTAT"
             target="_blank"
+            class="w-full text-center border-b pb-4"
             >Pinto beans</a
           >
 
           <img
             src="/can-wall/duct-tape.jpg"
             alt="duct tape"
-            class="w-2/3 mx-auto md:w-1/3"
+            class="w-2/3 mx-auto mt-4 rounded md:w-1/3"
           />
-          <p class="text-xl font-bold">4. A bit of duct tape</p>
-          <p>
-            We don't use this for sticking cans together, but for sealing in the
-            beans.
+          <div class="flex items-baseline justify-start text-xl font-bold">
+            <div
+              class="bg-black bg-opacity-50 p-1 w-10 h-10 flex items-center justify-center rounded-full mr-2 mt-2"
+            >
+              4.
+            </div>
+            <p class="text-xl font-bold">A bit of duct tape</p>
+          </div>
+          <p class="text-center">
+            We don't use this for sticking cans together (although you could try
+            that if you want!), but for sealing in the beans.
           </p>
           <a
             href="https://www.amazon.com/dp/B0000DH4ME/ref=cm_sw_r_tw_dp_4G3TH4FSGJJQS1S51SWV"
             target="_blank"
+            class="w-full text-center border-b pb-4"
             >Duck Tape</a
           >
 
           <img
             src="/can-wall/funnels.jpg"
             alt="funnels"
-            class="mx-auto w-2/3 md:w-1/2"
+            class="mx-auto w-2/3 mt-4 rounded md:w-1/2"
           />
-          <p class="text-xl font-bold">5. A funnel</p>
+          <div class="flex items-baseline justify-start text-xl font-bold">
+            <div
+              class="bg-black bg-opacity-50 p-1 w-10 h-10 flex items-center justify-center rounded-full mr-2 mt-2"
+            >
+              5.
+            </div>
+            <p class="text-xl font-bold">A funnel</p>
+          </div>
           <a
             href="https://www.amazon.com/dp/B08PK8RYGM/ref=cm_sw_r_tw_dp_1836QD54BEYYGD4QYWA1"
             target="_blank"
+            class="w-full text-center border-b pb-4"
             >Collapsible funnels</a
           >
 
           <img
             src="/can-wall/gloves.jpg"
             alt="gloves"
-            class="mx-auto w-2/3 md:w-1/2"
+            class="mx-auto mt-4 w-2/3 rounded md:w-1/2"
           />
-          <p class="text-xl font-bold">6. Gloves</p>
-          <p>Keep glue off your hands!</p>
+          <div class="flex items-baseline justify-start text-xl font-bold">
+            <div
+              class="bg-black bg-opacity-50 p-1 w-10 h-10 flex items-center justify-center rounded-full mr-2 mt-2"
+            >
+              6.
+            </div>
+            <p class="text-xl font-bold">Gloves</p>
+          </div>
+          <p class="text-center">Keep glue off your hands!</p>
           <a
             href="https://www.amazon.com/dp/B00GS8W3T4/ref=cm_sw_r_tw_dp_HBX1Y94RYC1WEDX49HJK"
             target="_blank"
+            class="pb-4"
             >Nitrile gloves</a
           >
-          <hr
-            style="
-              height: 2px;
-              border-width: 0;
-              color: gray;
-              background-color: gray;
-            "
-          />
         </div>
         <div class="flex flex-col items-center justify-center w-full md:w-1/2">
-          <img src="/can-wall/cans.jpg" alt="soda cans" class="w-full" />
-          <p class="text-xl font-bold py-2">
-            7. A bunch of 12 oz. soda pop/juice/flavored water cans
+          <img
+            src="/can-wall/toothpicks.jpg"
+            alt="toothpicks"
+            class="w-2/3 rounded md:w-1/3"
+          />
+          <div class="flex items-baseline justify-start text-xl font-bold">
+            <div
+              class="bg-black bg-opacity-50 p-1 w-10 h-10 flex items-center justify-center rounded-full mr-2 mt-2"
+            >
+              7.
+            </div>
+            <p class="text-xl font-bold py-2">Toothpicks</p>
+          </div>
+          <p class="pb-2 text-center">
+            A few toothpicks on hand help to unclog the glue's nozzle, after it
+            hasn't been used for a while.
           </p>
-          <p class="pb-2">
+          <a
+            href="https://www.amazon.com/dp/B00KJN84TW/ref=cm_sw_r_tw_dp_B7PWS5D90CC7HTK1H734"
+            target="_blank"
+            class="pb-4 w-full border-b text-center"
+            >Bamboo Toothpicks</a
+          >
+          <img
+            src="/can-wall/cans.jpg"
+            alt="soda cans"
+            class="w-full rounded md:w-2/3 mt-4"
+          />
+          <div class="flex items-baseline justify-start text-xl font-bold mt-2">
+            <div
+              class="bg-black bg-opacity-50 p-1 w-10 h-10 flex items-center justify-center rounded-full mr-2 mt-2"
+            >
+              8.
+            </div>
+            <p class="text-xl font-bold py-2 text-center">
+              A bunch of 12 oz. cans
+            </p>
+          </div>
+          <p class="pb-2 text-center">
             We like using a variety! Here are some colorful options:
           </p>
-          <ul>
+          <ul class="list-disc list-inside">
             <li>
               <a
                 href="https://www.amazon.com/dp/B08NTN6Y1F/ref=cm_sw_r_tw_dp_6F32ABBKKF992BC8RACV?_encoding=UTF8&psc=1v"
@@ -164,7 +237,9 @@
               >
             </li>
           </ul>
-          <div class="flex flex-col w-full mt-6">
+          <div
+            class="flex flex-col w-full mt-6 mb-4 rounded overflow-hidden md:w-2/3"
+          >
             <div
               class="bg-center bg-cover bg-no-repeat w-full h-64"
               style="background-image: url(/can-wall/bubly-cans.jpg)"
@@ -190,8 +265,16 @@
           class="list-decimal list-inside space-y-2 p-4 rounded bg-black text-white"
         >
           <li>
-            Fill an empty can with dry beans. A funnel can come in handy for
-            this.
+            Take the top tab off of an empty can. You can donate tabs to the
+            <a
+              href="https://www.rmhcslc.org/get-involved/pop-tabs/"
+              target="_blank"
+              >Ronald McDonald House Charities</a
+            >
+            if you'd like.
+          </li>
+          <li>
+            Fill the can with dry beans. A funnel can come in handy for this.
           </li>
           <li>Cover the opening in the can with a piece of duct tape.</li>
           <li>
@@ -203,6 +286,11 @@
             Glue them together, probably using about 3 dabs of glue in a
             vertical line on each can.
           </li>
+          <img
+            src="/can-wall/glue-dabs.jpg"
+            alt="3 dabs of glue on a can"
+            class="w-32 rounded mx-auto md:ml-4"
+          />
           <li>
             Add a row of empty cans on top of that row, using glue on the bottom
             of the cans, and 3 dabs of glue on the sides.
@@ -215,22 +303,46 @@
         </ol>
       </section>
       <section
-        class="flex flex-col items-center justify-center space-y-2 mx-4 md:mx-64"
+        class="flex flex-col items-center justify-center space-y-4 md:mx-4 md:flex-row w-full md:flex-wrap md:space-y-0 md:items-stretch"
       >
-        <img
-          src="/can-wall/rose-with-can-wall.jpg"
-          alt="Beginnings of can wall"
-        />
-        <p>Starting our can wall</p>
-        <img
-          src="/can-wall/heather-with-can-wall.jpg"
-          alt="Selfie with can wall"
-        />
-        <p>Look, I'm on zoom!</p>
-        <img src="/can-wall/can-wall-2.jpg" alt="Lots of cans" />
-        <p>The can wall is growing</p>
-        <img src="/can-wall/can-wall.jpg" alt="can wall" />
-        <p>Would this make a good jigsaw puzzle?</p>
+        <div
+          class="bg-green-500 p-4 rounded flex flex-col items-center justify-center space-y-2 w-full md:w-1/3 md:m-4"
+        >
+          <img
+            src="/can-wall/rose-with-can-wall.jpg"
+            alt="Beginnings of can wall"
+            class="rounded"
+          />
+          <p class="font-medium md:text-lg">Starting our can wall</p>
+        </div>
+        <div
+          class="bg-black p-4 rounded flex flex-col items-center justify-center space-y-2 w-full md:w-1/3 md:m-4"
+        >
+          <img
+            src="/can-wall/heather-with-can-wall.jpg"
+            alt="Selfie with can wall"
+            class="rounded"
+          />
+          <p class="font-medium md:text-lg">Look, I'm on zoom!</p>
+        </div>
+        <div
+          class="bg-red-500 p-4 rounded flex flex-col items-center justify-center space-y-2 w-full md:w-1/3 md:m-4"
+        >
+          <img
+            src="/can-wall/can-wall-2.jpg"
+            alt="Lots of cans"
+            class="rounded"
+          />
+          <p class="font-medium md:text-lg">The can wall is growing</p>
+        </div>
+        <div
+          class="bg-blue-500 p-4 rounded flex flex-col items-center justify-center space-y-2 w-full md:w-1/3 md:m-4"
+        >
+          <img src="/can-wall/can-wall.jpg" alt="can wall" class="rounded" />
+          <p class="font-medium md:text-lg">
+            Would this make a good jigsaw puzzle?
+          </p>
+        </div>
       </section>
     </main>
   </div>
