@@ -349,5 +349,10 @@ export default {
       ],
     }
   },
+  head() {
+    return {
+      title: 'Can Wall Art Installation | Nuxt Experiments',
+    }
+  },
 }
 </script>
