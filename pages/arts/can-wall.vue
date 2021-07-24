@@ -261,46 +261,26 @@
       </div>
       <section class="mx-4 pb-4 md:mx-20 md:pb-12">
         <h2 class="text-2xl py-4">Instructions</h2>
-        <ol
-          class="list-decimal list-inside space-y-2 p-4 rounded bg-black text-white"
-        >
-          <li>
-            Take the top tab off of an empty can. You can donate tabs to the
+        <div class="p-4 rounded bg-black">
+          <img
+            src="/can-wall/glue-dabs.jpg"
+            alt="3 dabs of glue on a can"
+            class="w-32 rounded mx-auto md:ml-4 float-right"
+          />
+          <ol class="list-decimal list-inside space-y-2 text-white">
+            <li v-for="step in steps" :key="step">{{ step }}</li>
+          </ol>
+
+          <p class="pt-6 italic text-sm">
+            You can donate tabs to the
             <a
               href="https://www.rmhcslc.org/get-involved/pop-tabs/"
               target="_blank"
               >Ronald McDonald House Charities</a
             >
             if you'd like.
-          </li>
-          <li>
-            Fill the can with dry beans. A funnel can come in handy for this.
-          </li>
-          <li>Cover the opening in the can with a piece of duct tape.</li>
-          <li>
-            Continue to make bean cans for each can you want on the bottom row
-            of your can wall.
-          </li>
-          <li>Put on gloves.</li>
-          <li>
-            Glue them together, probably using about 3 dabs of glue in a
-            vertical line on each can.
-          </li>
-          <img
-            src="/can-wall/glue-dabs.jpg"
-            alt="3 dabs of glue on a can"
-            class="w-32 rounded mx-auto md:ml-4"
-          />
-          <li>
-            Add a row of empty cans on top of that row, using glue on the bottom
-            of the cans, and 3 dabs of glue on the sides.
-          </li>
-          <li>
-            Adjust the cans to make sure they are as straight as possible.
-          </li>
-          <li>Let the glue dry for several hours.</li>
-          <li>Continue adding cans in stages.</li>
-        </ol>
+          </p>
+        </div>
       </section>
       <section
         class="flex flex-col items-center justify-center space-y-4 md:mx-4 md:flex-row w-full md:flex-wrap md:space-y-0 md:items-stretch"
@@ -351,5 +331,23 @@
 <script>
 export default {
   name: 'CanWall',
+  data() {
+    return {
+      showStoriesOptions: false,
+      steps: [
+        'Take the top tab off of an empty can*.',
+        'Fill the can with dry beans. A funnel can come in handy for this.',
+        'Cover the opening in the can with a piece of duct tape.',
+        'Continue to make bean cans for each can you want on the bottom row of your can wall.',
+        'Put on gloves.',
+        'Glue the cans in a row together, probably using about 3 dabs of glue in a vertical line on each can.',
+        'Add a row of empty cans on top of that row, using glue on the bottom of the cans, and 3 dabs of glue on the sides.',
+        'Adjust the cans to make sure they are as straight as possible.',
+        'Let the glue dry for several hours.',
+        'Continue adding cans in stages.',
+        'Enjoy your can wall art installation!',
+      ],
+    }
+  },
 }
 </script>
