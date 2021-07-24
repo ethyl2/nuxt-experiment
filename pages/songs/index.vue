@@ -40,6 +40,11 @@
       <nuxt-link to="/arts/twelve-days" class="text-lg mb-4"
         >Make a Custom Harry Potter Christmas Song</nuxt-link
       >
+      <nuxt-link
+        to="/songs/ai-songs"
+        class="text-lg mb-4 p-4 rounded bg-black font-bold"
+        >Have an AI Model Make Song Lyrics</nuxt-link
+      >
 
       <h3 class="text-lg my-4">More songs that make me chuckle from Spotify</h3>
       <iframe
@@ -50,11 +55,11 @@
         allowtransparency="true"
         allow="encrypted-media"
       ></iframe>
-      <div class="my-4">
-        <nuxt-link to="/songSearch" class="pr-4 border-r mr-4"
+      <div class="my-4 flex flex-col md:flex-row">
+        <nuxt-link to="/songSearch" class="md:pr-4 md:border-r md:mr-4"
           >Search with iTunes API</nuxt-link
         >
-        <nuxt-link to="/songs/playlist" class="pr-4 border-r mr-4"
+        <nuxt-link to="/songs/playlist" class="md:pr-4 md:border-r md:mr-4"
           >Make a Playlist or Request List</nuxt-link
         >
         <nuxt-link to="/songs/lists">See Your Request Lists</nuxt-link>
