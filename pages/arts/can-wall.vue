@@ -261,25 +261,79 @@
       </div>
       <section class="mx-4 pb-4 md:mx-20 md:pb-12">
         <h2 class="text-2xl py-4">Instructions</h2>
-        <div class="p-4 rounded bg-black">
-          <img
-            src="/can-wall/glue-dabs.jpg"
-            alt="3 dabs of glue on a can"
-            class="w-32 rounded mx-auto md:ml-4 float-right"
-          />
-          <ol class="list-decimal list-inside space-y-2 text-white">
-            <li v-for="step in steps" :key="step">{{ step }}</li>
-          </ol>
-
-          <p class="pt-6 italic text-sm">
-            You can donate tabs to the
-            <a
-              href="https://www.rmhcslc.org/get-involved/pop-tabs/"
-              target="_blank"
-              >Ronald McDonald House Charities</a
+        <div
+          class="p-4 rounded bg-black flex flex-col items-center justify-between md:flex-row md:pr-2 lg:pr-0"
+        >
+          <div class="md:px-2 lg:px-4">
+            <ol
+              class="list-decimal list-inside space-y-3 text-white text-base md:text-lg md:space-y-5"
             >
-            if you'd like.
-          </p>
+              <li v-for="step in steps" :key="step">{{ step }}</li>
+            </ol>
+            <p class="pt-6 italic text-sm">
+              *You can donate tabs to the
+              <a
+                href="https://www.rmhcslc.org/get-involved/pop-tabs/"
+                target="_blank"
+                >Ronald McDonald House Charities</a
+              >
+              if you'd like.
+            </p>
+          </div>
+          <div
+            class="flex flex-row flex-wrap items-center justify-center space-y-2 pt-4 md:pt-0 md:space-y-2 md:flex-col md:space-y-0 md:flex-no-wrap"
+          >
+            <figure
+              class="w-1/2 md:w-auto flex flex-col items-center justify-center"
+            >
+              <img
+                src="/can-wall/beans-in-funnel.jpg"
+                alt="Using a funnel to add beans"
+                class="w-32 rounded mx-auto"
+              />
+              <figcaption
+                class="text-xs italic text-orange-400 text-center px-2 md:px-0 md:w-5/6 md:mx-auto"
+              >
+                A funnel helps to fill the cans more quickly.
+              </figcaption>
+            </figure>
+            <figure class="w-1/2 md:w-auto items-center justify-center">
+              <img
+                src="/can-wall/can-with-beans.jpg"
+                alt="Beans in can"
+                class="w-32 rounded mx-auto"
+              />
+              <figcaption
+                class="text-xs italic text-orange-400 text-center px-2 md:px-0 md:w-5/6 md:mx-auto"
+              >
+                Fill it up, almost to the top.
+              </figcaption>
+            </figure>
+            <figure class="w-1/2 md:w-auto items-center justify-center">
+              <img
+                src="/can-wall/can-with-tape.jpg"
+                alt="Tape on can"
+                class="w-32 rounded mx-auto"
+              />
+              <figcaption
+                class="text-xs italic text-orange-400 text-center px-2 md:px-0 md:w-5/6 md:mx-auto"
+              >
+                A small piece of tape will do.
+              </figcaption>
+            </figure>
+            <figure class="w-1/2 items-center justify-center md:w-auto">
+              <img
+                src="/can-wall/glue-dabs.jpg"
+                alt="3 dabs of glue on a can"
+                class="w-32 rounded mx-auto"
+              />
+              <figcaption
+                class="text-xs italic text-orange-400 text-center px-2 md:px-0 md:w-5/6 md:mx-auto"
+              >
+                A ton of glue shouldn't be necessary.
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </section>
       <section
