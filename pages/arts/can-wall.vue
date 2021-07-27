@@ -406,6 +406,18 @@ export default {
   head() {
     return {
       title: 'Can Wall Art Installation | Nuxt Experiments',
+      meta: [
+        {
+          name: 'twitter:title',
+          content: 'Can Wall Art Installation🎨 | Nuxt Experiments ',
+        },
+        {
+          name: 'twitter:description ',
+          content: 'How to make a call wall art installation',
+        },
+        { name: 'twitter:image', content: '../static/can-wall/can-wall.jpg' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
     }
   },
 }
