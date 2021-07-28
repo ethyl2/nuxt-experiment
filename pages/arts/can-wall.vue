@@ -409,7 +409,7 @@ export default {
       meta: [
         {
           name: 'twitter:title',
-          content: 'Can Wall Art Installation🎨 | Nuxt Experiments ',
+          content: 'Can Wall Art Installation🎨 | Nuxt Experiments',
         },
         {
           name: 'twitter:description ',
