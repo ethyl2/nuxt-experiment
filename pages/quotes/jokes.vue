@@ -65,6 +65,37 @@ export default {
           answer: 'A spelling bee.',
           borderColor: this.getColor(),
         },
+        {
+          question: 'How do porcupines talk to each other?',
+          answer: 'With spine language.',
+          borderColor: this.getColor(),
+        },
+        {
+          question:
+            'What do you call 2 monkeys that share an Amazon prime account?',
+          answer: 'Prime mates.',
+          borderColor: this.getColor(),
+        },
+        {
+          question: 'What are bears without bees?',
+          answer: 'Ears.',
+          borderColor: this.getColor(),
+        },
+        {
+          question: "Why can't you give Elsa a balloon?",
+          answer: 'Because she will let it go...',
+          borderColor: this.getColor(),
+        },
+        {
+          question: 'Why did half a chicken cross the road?',
+          answer: 'To get to his other side.',
+          borderColor: this.getColor(),
+        },
+        {
+          question: 'Why did the skunk cross the road?',
+          answer: 'To get to the odor side.',
+          borderColor: this.getColor(),
+        },
       ],
       colors: ['#e2d810', '#d9138a', '#12a4d9'],
     }
@@ -82,6 +113,23 @@ export default {
       const randomIndex = Math.floor(Math.random() * colors.length)
       return colors[randomIndex]
     },
+  },
+  head() {
+    return {
+      title: 'Favorite Jokes | Nuxt Experiments',
+      meta: [
+        {
+          name: 'twitter:title',
+          content: 'Favorite Jokes | Nuxt Experiments',
+        },
+        {
+          name: 'twitter:description ',
+          content: 'A collection of some of my favorite jokes.',
+        },
+        { name: 'twitter:image', content: '../static/can-wall/can-wall.jpg' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+    }
   },
 }
 </script>
