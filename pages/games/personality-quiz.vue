@@ -11,8 +11,15 @@ input:checked + label {
 </style>
 <template>
   <div
-    class="bg-no-repeat bg-cover bg-center min-h-screen pt-6 md:pt-12"
-    style="background-image: url('/personality-quiz/bats-in-sky.jpg')"
+    class="min-h-screen pt-6 md:pt-12"
+    style="
+      background: url('/personality-quiz/bats-in-sky.jpg') no-repeat center
+        center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    "
   >
     <header
       class="w-5/6 mx-auto my-6 font-bold text-white p-5 text-center border-2 bg-black bg-opacity-25 md:w-1/2"

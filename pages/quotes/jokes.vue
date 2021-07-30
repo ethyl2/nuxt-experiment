@@ -1,31 +1,31 @@
 <template>
-  <div class="min-h-screen">
+  <div
+    class="min-h-screen border-b-8 border-black pb-24"
+    style="
+      background: url('/balloons.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    "
+  >
     <h1
-      class="text-center text-xl md:text-3xl my-4 font-bold"
+      class="text-center text-xl md:text-3xl my-4 font-bold bg-black py-2"
       style="color: #e2d810"
     >
       Favorite Jokes
     </h1>
     <main class="mx-4 flex flex-wrap justify-evenly items-stretch md:mx-20">
-      <div
-        v-for="(joke, index) in jokes"
-        :key="index"
-        class="bg-white text-black p-4 rounded-3xl m-2 max-w-sm flex flex-col justify-center items-start"
-        :style="`border: 8px solid ${getColor()};`"
-      >
-        <p class="font-semibold">
-          <span class="font-bold">Q:</span> {{ joke.question }}
-        </p>
-        <p class="font-semibold">
-          <span class="font-bold">A:</span> {{ joke.answer }}
-        </p>
-      </div>
+      <joke v-for="(joke, index) in jokes" :key="index" :joke="joke" />
     </main>
   </div>
 </template>
 <script>
 export default {
   name: 'Jokes',
+  components: {
+    Joke: () => import('~/components/Joke'),
+  },
   data() {
     return {
       jokes: [
@@ -105,22 +105,7 @@ export default {
           answer: 'Cookie sheets.',
         },
       ],
-      colors: ['#e2d810', '#d9138a', '#12a4d9'],
     }
-  },
-  methods: {
-    getColor() {
-      const colors = [
-        '#e2d810',
-        '#d9138a',
-        '#12a4d9',
-        '#d13ca4',
-        '#ffea04',
-        '#fe3a9e',
-      ]
-      const randomIndex = Math.floor(Math.random() * colors.length)
-      return colors[randomIndex]
-    },
   },
   head() {
     return {

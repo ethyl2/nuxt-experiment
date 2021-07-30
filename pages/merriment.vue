@@ -78,6 +78,9 @@
           ><span class="block text-2xl pr-1">🐐 </span> Animal Matching
           Game</nuxt-link
         >
+        <nuxt-link to="/quotes/jokes" class="flex items-center font-semibold"
+          ><span class="block text-2xl pr-1">🤣</span> Favorite Jokes</nuxt-link
+        >
       </nav>
     </div>
   </div>
