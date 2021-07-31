@@ -168,5 +168,22 @@ export const state = () => ({
         ' What did one taco say to the other when he was acting unusual? ',
       answer: '"You are nachoself today."',
     },
+
+    {
+      question: "Why don't aliens celebrate Christmas?",
+      answer: "They don't want to give away their presents.",
+    },
+    {
+      question: 'How do you make a slow reindeer fast?',
+      answer: "You don't feed it.",
+    },
+    {
+      question: 'What did the bald man say when he got a comb for Christmas?',
+      answer: `"Thanks, I'll never part with it."`,
+    },
+    {
+      question: 'How much room is needed for fungi to grow?',
+      answer: 'As mushroom as possible.',
+    },
   ],
 })
