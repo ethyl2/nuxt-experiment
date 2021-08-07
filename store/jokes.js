@@ -185,5 +185,9 @@ export const state = () => ({
       question: 'How much room is needed for fungi to grow?',
       answer: 'As mushroom as possible.',
     },
+    {
+      question: "When does a lizard say 'quack'?",
+      answer: "When he's learning a new language.",
+    },
   ],
 })
