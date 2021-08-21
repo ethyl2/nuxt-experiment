@@ -1,10 +1,7 @@
 <template>
   <div class="max-w-full">
     <div class="bg-white text-gray-600 overflow-x-auto w-full">
-      <h1
-        class="text-2xl text-center font-bold text-black py-4"
-        style="font-family: 'VT323', monospace"
-      >
+      <h1 class="banner text-2xl text-center text-black py-4 md:text-4xl">
         Dot Matrix Printer Banners
       </h1>
       <p class="text-center">
@@ -19,8 +16,8 @@
           >The Print Shop</a
         >.
       </p>
-      <div class="flex flex-col items-center justify-center w-full">
-        <label for="text-input" class="text-center text-lg"
+      <div class="flex flex-col items-center justify-center w-full py-4">
+        <label for="text-input" class="banner text-center text-2xl text-black"
           >What should this banner say?</label
         >
         <input
@@ -28,13 +25,58 @@
           v-model="bannerText"
           type="text"
           name="text-input"
-          class="border border-black p-1"
+          class="border border-black p-1 text-center"
+          style="width: 600px"
         />
-        <button type="button" @click="printBanner">Print</button>
+        <p class="banner text-2xl text-black text-center">Pick a graphic:</p>
+        <div class="flex items-center justify-center space-x-2">
+          <input
+            id="cake"
+            v-model="currentImage"
+            type="radio"
+            value="/birthday-cake.png"
+          />
+          <label for="cake" class="flex items-center justify-center space-x-1"
+            ><span>Cake</span>
+            <img
+              src="/birthday-cake.png"
+              alt="cake"
+              class="w-6"
+              style="filter: grayscale(100%)"
+          /></label>
+
+          <input
+            id="smile"
+            v-model="currentImage"
+            type="radio"
+            value="/smiley-face.png"
+          />
+          <label for="smile" class="flex items-center justify-center space-x-1"
+            ><span>Smile</span
+            ><img
+              src="/smiley-face.png"
+              alt="face"
+              class="w-6"
+              style="filter: grayscale(100%)"
+          /></label>
+          <input
+            id="heart"
+            v-model="currentImage"
+            type="radio"
+            value="/heart.png"
+          />
+          <label for="heart" class="flex items-center justify-center"
+            >Heart<img
+              src="/heart.png"
+              alt="heart"
+              class="w-6 pl-1"
+              style="filter: grayscale(100%)"
+          /></label>
+        </div>
       </div>
       <div id="the-banner">
         <div
-          class="banner font-bold border-2 border-gray-600 m-10 py-1"
+          class="banner font-bold border-2 border-gray-600 mx-10 my-4 py-1"
           style="width: 3000px"
         >
           <div
@@ -48,8 +90,8 @@
           </div>
           <div class="flex items-center justify-between">
             <img
-              src="/birthday-cake.png"
-              alt="pixelated birthday cake"
+              :src="currentImage"
+              alt="pixelated image"
               style="filter: grayscale(100%)"
               class="w-64 pl-6"
             />
@@ -60,8 +102,8 @@
               {{ bannerText }}
             </p>
             <img
-              src="/birthday-cake.png"
-              alt="pixelated birthday cake"
+              :src="currentImage"
+              alt="pixelated graphic"
               style="filter: grayscale(100%)"
               class="w-64 pr-6"
             />
@@ -77,6 +119,15 @@
           </div>
         </div>
       </div>
+      <div class="flex items-center justify-center">
+        <button
+          type="button"
+          class="bg-black text-white font-bold py-2 px-3 rounded hover:bg-gray-900 my-1 md:my-2 text-base w-auto mb-6"
+          @click="printBanner"
+        >
+          Print (not quite in the same way, unfortunately)
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -86,7 +137,8 @@ export default {
   name: 'DotMatrixBanner',
   data() {
     return {
-      bannerText: 'Happy Birthday to You!!! Happy Pi Day!!!',
+      bannerText: 'Happy Birthday to You! Happy Pi Day! I Love You!',
+      currentImage: '/smiley-face.png',
     }
   },
   methods: {
