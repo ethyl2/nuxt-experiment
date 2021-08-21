@@ -38,6 +38,12 @@
         <nuxt-link to="/arts/drag-and-drop3"
           >Make a Flower Arrangement</nuxt-link
         >
+        <nuxt-link to="/arts/lite-brite"
+          >Light up your Screen With Lite Brite Inspired Art</nuxt-link
+        >
+        <nuxt-link to="/arts/dot-matrix-banner"
+          >Feel Nostalgic Making a Virtual Dot Matrix Banner</nuxt-link
+        >
         <div
           v-if="!showStoriesOptions"
           class="text-lg cursor-pointer hover:font-bold"
