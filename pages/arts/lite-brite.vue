@@ -54,6 +54,15 @@
             ></button>
           </div>
         </div>
+        <div class="pl-4">
+          <button
+            type="button"
+            class="bg-gray-900 rounded px-2 py-1 hover:bg-gray-700"
+            @click="clearScreen"
+          >
+            Clear All Pegs
+          </button>
+        </div>
       </div>
     </div>
     <div
@@ -67,7 +76,7 @@
         <div
           v-for="secondIndex in 75"
           :key="secondIndex"
-          class="border border-gray-200 border-opacity-25 rounded-full w-4 h-4 m-px flex-shrink-0 cursor-pointer"
+          class="hole border border-gray-200 border-opacity-25 rounded-full w-4 h-4 m-px flex-shrink-0 cursor-pointer"
           @click="handleClick"
         ></div>
       </div>
@@ -85,10 +94,15 @@ export default {
   },
   methods: {
     handleClick(event) {
-      console.log('clicked')
-      console.log(event)
       event.target.style.background = this.currentColor
       event.target.style.boxShadow = `0px 0px 10px 5px ${this.currentColor}`
+    },
+    clearScreen() {
+      const holes = document.querySelectorAll('.hole')
+      holes.forEach((hole) => {
+        hole.style.background = 'transparent'
+        hole.style.boxShadow = 'none'
+      })
     },
   },
 }
