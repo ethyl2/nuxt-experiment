@@ -1,16 +1,19 @@
 <template>
   <div class="bg-black">
     <div class="flex flex-col items-center justify-center space-y-2 py-4">
-      <h1 class="text-white text-lg font-bold">Lite Brite on Your Computer!</h1>
+      <h1 class="text-white text-lg font-bold">
+        Lite Brite on Your <span class="hidden md:inline">Computer</span
+        ><span class="md:hidden">Device</span>!
+      </h1>
       <h2 class="text-white text-sm text-center text-base">
         <span class="hidden md:inline">Click</span
         ><span class="md:hidden">Tap</span> on a 'hole' once to place a 'peg';
         <span class="hidden md:inline">click</span
-        ><span class="md:hidden">tap</span> again to take the 'peg' out.
+        ><span class="md:hidden"><br />tap</span> again to take the 'peg' out.
       </h2>
-      <div class="flex items-stretch justify-center space-x-4 divide-x">
-        <div class="flex flex-col items-center justify-center">
-          <label for="favcolor" class="text-center text-sm md:text-base"
+      <div class="flex items-stretch justify-center divide-x">
+        <div class="flex flex-col items-center justify-center px-4">
+          <label for="favcolor" class="text-center text-sm md:text-base pb-1"
             >Select your color:</label
           >
           <input
@@ -40,13 +43,20 @@
             ></button>
           </div>
         </div>
-        <div class="pl-4 flex items-center justify-center">
+        <div class="px-4 flex flex-col items-center justify-center space-y-2">
           <button
             type="button"
             class="bg-gray-900 rounded px-2 py-1 text-sm md:text-base hover:bg-gray-700"
             @click="clearScreen"
           >
             Clear All Pegs
+          </button>
+          <button
+            type="button"
+            class="bg-gray-900 rounded px-2 py-1 text-sm md:text-base hover:bg-gray-700"
+            @click="getRandomColor"
+          >
+            Random Color
           </button>
         </div>
       </div>
@@ -68,9 +78,21 @@
           @keyup.enter="handleClick"
         ></div>
       </div>
-      <p class="text-center text-white pt-2">
-        Number of pegs placed: {{ countPegsPlaced }}
-      </p>
+      <div
+        class="flex flex-col space-y-2 justify-center items-center md:flex-row md:justify-around"
+      >
+        <p class="text-center text-white pt-2">
+          Number of pegs placed: {{ countPegsPlaced }}
+        </p>
+        <button
+          type="button"
+          class="bg-gray-900 rounded px-2 py-1 text-sm md:text-base hover:bg-gray-700"
+          @click="addRandom"
+        >
+          Let the <span class="hidden md:inline">Computer</span
+          ><span class="md:hidden">Device</span> Be the Artist
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -102,7 +124,7 @@ export default {
         bgColor = this.rgbToHex(bgColorArray)
       }
       if (bgColor !== this.currentColor) {
-        if (!bgColor) {
+        if (!bgColor || bgColor === 'transparent') {
           this.countPegsPlaced++
         }
         event.target.style.background = this.currentColor
@@ -119,6 +141,7 @@ export default {
         hole.style.background = 'transparent'
         hole.style.boxShadow = 'none'
       })
+      this.countPegsPlaced = 0
     },
     componentToHex(c) {
       const hex = Number(c).toString(16)
@@ -131,6 +154,28 @@ export default {
         this.componentToHex(colorArray[1]) +
         this.componentToHex(colorArray[2])
       )
+    },
+    getRandomColor() {
+      this.currentColor =
+        '#' + Math.floor(Math.random() * 16777215).toString(16)
+    },
+    addRandom() {
+      const holes = document.querySelectorAll('.hole')
+      this.countPegsPlaced = 0
+      holes.forEach((hole) => {
+        hole.style.background = 'transparent'
+        hole.style.boxShadow = 'none'
+        const randomColor =
+          '#' + Math.floor(Math.random() * 16777215).toString(16)
+        const coinToss = Math.round(Math.random() * 3)
+        if (coinToss === 1) {
+          setTimeout(() => {
+            hole.style.background = randomColor
+            hole.style.boxShadow = `0px 0px 10px 5px ${randomColor}`
+            this.countPegsPlaced++
+          }, 1000)
+        }
+      })
     },
   },
 }

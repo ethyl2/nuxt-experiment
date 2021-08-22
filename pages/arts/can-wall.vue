@@ -395,7 +395,7 @@ export default {
         'Continue to make bean cans for each can you want on the bottom row of your can wall.',
         'Put on gloves.',
         'Glue the cans in a row together, probably using about 3 dabs of glue in a vertical line on each can.',
-        'Add a row of empty cans on top of that row, using glue on the bottom of the cans, and 3 dabs of glue on the sides.',
+        'Add a row of empty cans on top of that row, using glue on the bottom of the cans, and 3 dabs of glue on the sides. NOTE: only the bottom row of cans should have beans inside, not the rest of the rows!',
         'Adjust the cans to make sure they are as straight as possible.',
         'Let the glue dry for several hours.',
         'Continue adding cans in stages.',
