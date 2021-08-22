@@ -5,12 +5,44 @@
         Lite Brite on Your <span class="hidden md:inline">Computer</span
         ><span class="md:hidden">Device</span>!
       </h1>
+
+      <!-- AUDIO PERMISSIONS TOGGLE -->
+      <div class="flex items-center justify-center w-full mt-3">
+        <!-- Toggle Button -->
+        <label for="toogleA" class="flex items-center cursor-pointer">
+          <!-- toggle -->
+          <div class="relative">
+            <!-- input -->
+            <input
+              id="toogleA"
+              v-model="allowAudio"
+              type="checkbox"
+              class="hidden"
+              @click="allowAudio = !allowAudio"
+            />
+            <!-- line -->
+            <div
+              class="toggle__line w-10 h-4 bg-gray-400 rounded-full shadow-inner"
+            ></div>
+            <!-- dot -->
+            <div
+              class="toggle__dot absolute w-6 h-6 bg-white rounded-full shadow inset-y-0 left-0"
+            ></div>
+          </div>
+          <!-- label -->
+          <div class="ml-3 text-white text-sm">Allow Audio</div>
+        </label>
+      </div>
+
+      <!-- INSTRUCTIONS -->
       <h2 class="text-white text-sm text-center text-base">
         <span class="hidden md:inline">Click</span
         ><span class="md:hidden">Tap</span> on a 'hole' once to place a 'peg';
         <span class="hidden md:inline">click</span
         ><span class="md:hidden"><br />tap</span> again to take the 'peg' out.
       </h2>
+
+      <!-- CONTROL PANEL -->
       <div class="flex items-stretch justify-center divide-x">
         <div class="flex flex-col items-center justify-center px-4">
           <label for="favcolor" class="text-center text-sm md:text-base pb-1"
@@ -45,6 +77,7 @@
         </div>
         <div class="px-4 flex flex-col items-center justify-center space-y-2">
           <button
+            v-if="countPegsPlaced > 0"
             type="button"
             class="bg-gray-900 rounded px-2 py-1 text-sm md:text-base hover:bg-gray-700"
             @click="clearScreen"
@@ -61,6 +94,8 @@
         </div>
       </div>
     </div>
+
+    <!-- PEG GRID -->
     <div
       class="w-full min-h-screen bg-black mx-auto overflow-auto flex-shrink-0 p-4"
     >
@@ -114,10 +149,13 @@ export default {
         '#fff04d',
         '#0d4eff',
       ],
+      audio: null,
+      allowAudio: false,
     }
   },
   methods: {
     handleClick(event) {
+      this.playSound('click')
       let bgColor = event.target.style.background
       const bgColorArray = bgColor.replace(/[^\d,]/g, '').split(',')
       if (bgColorArray.length > 1) {
@@ -136,6 +174,9 @@ export default {
       }
     },
     clearScreen() {
+      if (this.countPegsPlaced > 0) {
+        this.playSound('rolling')
+      }
       const holes = document.querySelectorAll('.hole')
       holes.forEach((hole) => {
         hole.style.background = 'transparent'
@@ -160,6 +201,7 @@ export default {
         '#' + Math.floor(Math.random() * 16777215).toString(16)
     },
     addRandom() {
+      this.playSound('windchimes')
       const holes = document.querySelectorAll('.hole')
       this.countPegsPlaced = 0
       holes.forEach((hole) => {
@@ -177,6 +219,36 @@ export default {
         }
       })
     },
+    playSound(sound) {
+      if (this.audio) {
+        this.audio.pause()
+        this.audio.currentTime = 0
+      }
+      if (this.allowAudio) {
+        if (sound === 'click') {
+          this.audio = new Audio('/sounds/click.wav')
+        } else if (sound === 'windchimes') {
+          this.audio = new Audio('/sounds/windchimes.wav')
+        } else {
+          this.audio = new Audio('/sounds/rolling.mp3')
+        }
+        this.audio.play()
+      }
+    },
   },
 }
 </script>
+
+<style>
+.toggle__dot {
+  top: -0.25rem;
+  left: -0.25rem;
+  transition: all 0.3s ease-in-out;
+}
+
+input:checked ~ .toggle__dot {
+  transform: translateX(100%);
+  background-color: #0d4eff;
+  box-shadow: 0px 0px 10px 5px #0d4eff;
+}
+</style>
