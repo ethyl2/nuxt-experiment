@@ -9,16 +9,19 @@
       <!-- AUDIO PERMISSIONS TOGGLE -->
       <div class="flex items-center justify-center w-full mt-3">
         <!-- Toggle Button -->
-        <label for="toogleA" class="flex items-center cursor-pointer">
+        <label for="audioToggle" class="flex items-center cursor-pointer">
           <!-- toggle -->
           <div class="relative">
             <!-- input -->
             <input
-              id="toogleA"
+              id="audioToggle"
               v-model="allowAudio"
               type="checkbox"
               class="hidden"
-              @click="allowAudio = !allowAudio"
+              @click="
+                allowAudio = !allowAudio
+                updateToggleColor()
+              "
             />
             <!-- line -->
             <div
@@ -26,6 +29,7 @@
             ></div>
             <!-- dot -->
             <div
+              id="toggle-dot"
               class="toggle__dot absolute w-6 h-6 bg-white rounded-full shadow inset-y-0 left-0"
             ></div>
           </div>
@@ -54,6 +58,8 @@
             type="color"
             name="favcolor"
             class="rounded"
+            @click="playSound('tap')"
+            @change="updateToggleColor"
           />
           <p class="text-white text-sm md:text-base text-center">
             {{ currentColor }}
@@ -71,7 +77,7 @@
               :key="color"
               class="w-6 h-6 rounded mx-auto transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 md:w-5 md:h-5"
               :style="{ background: `${color}` }"
-              @click="currentColor = `${color}`"
+              @click="changeColor(color)"
             ></button>
           </div>
         </div>
@@ -154,6 +160,16 @@ export default {
     }
   },
   methods: {
+    updateToggleColor() {
+      const toggleDot = document.getElementById('toggle-dot')
+      if (this.allowAudio) {
+        toggleDot.style.background = this.currentColor
+        toggleDot.style.boxShadow = `0px 0px 10px 5px ${this.currentColor}`
+      } else {
+        toggleDot.style.background = '#ffffff'
+        toggleDot.style.boxShadow = 'none'
+      }
+    },
     handleClick(event) {
       this.playSound('click')
       let bgColor = event.target.style.background
@@ -172,6 +188,11 @@ export default {
         event.target.style.boxShadow = `none`
         this.countPegsPlaced--
       }
+    },
+    changeColor(color) {
+      this.currentColor = `${color}`
+      this.playSound('tap')
+      this.updateToggleColor()
     },
     clearScreen() {
       if (this.countPegsPlaced > 0) {
@@ -197,8 +218,10 @@ export default {
       )
     },
     getRandomColor() {
+      this.playSound('fanfare')
       this.currentColor =
         '#' + Math.floor(Math.random() * 16777215).toString(16)
+      this.updateToggleColor()
     },
     addRandom() {
       this.playSound('windchimes')
@@ -225,13 +248,24 @@ export default {
         this.audio.currentTime = 0
       }
       if (this.allowAudio) {
-        if (sound === 'click') {
-          this.audio = new Audio('/sounds/click.wav')
-        } else if (sound === 'windchimes') {
-          this.audio = new Audio('/sounds/windchimes.wav')
-        } else {
-          this.audio = new Audio('/sounds/rolling.mp3')
+        let soundFileName = ''
+        switch (sound) {
+          case 'click':
+            soundFileName = 'click.wav'
+            break
+          case 'windchimes':
+            soundFileName = 'windchimes.wav'
+            break
+          case 'rolling':
+            soundFileName = 'rolling.mp3'
+            break
+          case 'tap':
+            soundFileName = 'tap.wav'
+            break
+          default:
+            soundFileName = 'fanfare.mp3'
         }
+        this.audio = new Audio(`/sounds/${soundFileName}`)
         this.audio.play()
       }
     },
@@ -248,7 +282,5 @@ export default {
 
 input:checked ~ .toggle__dot {
   transform: translateX(100%);
-  background-color: #0d4eff;
-  box-shadow: 0px 0px 10px 5px #0d4eff;
 }
 </style>
