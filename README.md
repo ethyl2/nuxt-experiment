@@ -133,3 +133,7 @@ In order for all features of this site to work correctly, you need to set up you
 ## Audio Files
 
 - https://freesound.org/people/Reitanna/sounds/323719/
+
+- https://freesound.org/people/breyenkatz/sounds/221275/
+
+- https://freesound.org/people/sidequesting/sounds/541546/

@@ -118,6 +118,12 @@
           tabindex="0"
           @click="handleClick"
           @keyup.enter="handleClick"
+          @mousedown="handleMouseDown"
+          @mousemove="handleMouseMove"
+          @mouseup="handleMouseUp"
+          @touchstart="handleMouseDown"
+          @touchmove="handleMouseMove"
+          @touchend="handleMouseUp"
         ></div>
       </div>
 
@@ -201,6 +207,7 @@ export default {
       audio: null,
       allowAudio: false,
       originallySpacedGrid: false,
+      isDragging: false,
     }
   },
   methods: {
@@ -327,12 +334,42 @@ export default {
           case 'shake':
             soundFileName = 'shake.wav'
             break
+          case 'harp':
+            soundFileName = 'harp.wav'
+            break
+          case 'harp2':
+            soundFileName = 'harp2.wav'
+            break
           default:
             soundFileName = 'fanfare.mp3'
         }
         this.audio = new Audio(`/sounds/${soundFileName}`)
         this.audio.play()
       }
+    },
+    handleMouseDown() {
+      event.preventDefault()
+      if (this.rollDice(2)) {
+        this.playSound('harp')
+      } else {
+        this.playSound('harp2')
+      }
+      this.isDragging = true
+    },
+    handleMouseMove() {
+      if (this.isDragging) {
+        event.preventDefault()
+        const currentPeg = event.target
+        if (!currentPeg.style.backgroundColor) {
+          this.countPegsPlaced++
+        }
+        currentPeg.style.background = this.currentColor
+        currentPeg.style.boxShadow = `0px 0px 10px 5px ${this.currentColor}`
+      }
+    },
+    handleMouseUp() {
+      event.preventDefault()
+      this.isDragging = false
     },
   },
 }
