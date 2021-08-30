@@ -157,14 +157,25 @@
             <div class="ml-3 text-white text-sm">Staggered Holes</div>
           </label>
         </div>
-        <button
-          type="button"
-          class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm mx-auto md:text-base hover:bg-gray-700"
-          @click="addRandom"
-        >
-          Let the <span class="hidden md:inline">Computer</span
-          ><span class="md:hidden">Device</span> Be the Artist
-        </button>
+        <div class="flex flex-col space-y-3">
+          <button
+            type="button"
+            class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm mx-auto md:text-base hover:bg-gray-700"
+            title="Add a random sprinkle of the current color"
+            @click="sprinkleWithColor"
+          >
+            Sprinkle
+          </button>
+          <button
+            type="button"
+            class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm mx-auto md:text-base hover:bg-gray-700"
+            title="Create a random display of random colors"
+            @click="addRandom"
+          >
+            Let the <span class="hidden md:inline">Computer</span
+            ><span class="md:hidden">Device</span> Be the Artist
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -265,8 +276,7 @@ export default {
         hole.style.boxShadow = 'none'
         const randomColor =
           '#' + Math.floor(Math.random() * 16777215).toString(16)
-        const coinToss = Math.round(Math.random() * 3)
-        if (coinToss === 1) {
+        if (this.rollDice(4)) {
           setTimeout(() => {
             hole.style.background = randomColor
             hole.style.boxShadow = `0px 0px 10px 5px ${randomColor}`
@@ -274,6 +284,25 @@ export default {
           }, 1000)
         }
       })
+    },
+    sprinkleWithColor() {
+      this.playSound('shake')
+      const holes = document.querySelectorAll('.hole')
+      holes.forEach((hole) => {
+        if (this.rollDice()) {
+          setTimeout(() => {
+            if (!hole.style.backgroundColor) {
+              this.countPegsPlaced++
+            }
+            hole.style.background = this.currentColor
+            hole.style.boxShadow = `0px 0px 10px 5px ${this.currentColor}`
+          }, 500)
+        }
+      })
+    },
+    rollDice(num = 50) {
+      const diceRoll = Math.round(Math.random() * num)
+      return diceRoll === 1
     },
     playSound(sound) {
       if (this.audio) {
@@ -294,6 +323,9 @@ export default {
             break
           case 'tap':
             soundFileName = 'tap.wav'
+            break
+          case 'shake':
+            soundFileName = 'shake.wav'
             break
           default:
             soundFileName = 'fanfare.mp3'

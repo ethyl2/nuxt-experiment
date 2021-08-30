@@ -129,3 +129,7 @@ In order for all features of this site to work correctly, you need to set up you
 - Using local storage with Nuxt.js: https://stackoverflow.com/questions/47433168/how-to-store-data-to-local-storage-with-nuxt-js
 
 - To learn about Nuxt.js, check out this course: [Nuxt.js Fundamentals](https://vueschool.io/courses/nuxtjs-fundamentals)
+
+## Audio Files
+
+- https://freesound.org/people/Reitanna/sounds/323719/
