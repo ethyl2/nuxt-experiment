@@ -131,9 +131,16 @@
         <p class="text-center text-white pt-2 md:pt-0">
           Number of pegs placed: {{ countPegsPlaced }}
         </p>
+
         <!-- GRID LAYOUT TOGGLE -->
         <div class="flex items-center justify-center w-full mt-3">
-          <div class="mr-3 text-white text-sm">Stacked Holes</div>
+          <div
+            class="mr-3 text-white text-sm cursor-pointer"
+            tabindex="0"
+            @click="originallySpacedGrid = !originallySpacedGrid"
+          >
+            Stacked Holes
+          </div>
           <!-- Toggle Button -->
           <label for="gridToggle" class="flex items-center cursor-pointer">
             <!-- toggle -->
@@ -160,6 +167,8 @@
             <div class="ml-3 text-white text-sm">Staggered Holes</div>
           </label>
         </div>
+
+        <!-- TOOLS THAT USE RANDOM -->
         <div class="flex flex-col" :class="{ 'space-y-3': showSaveButton }">
           <div class="flex items-center justify-center space-x-3">
             <button
@@ -228,6 +237,8 @@ export default {
       savedGrid: [],
       showSaveButton: false,
       isShowingRestoredGrid: false,
+      shouldFlashDisplay: false,
+      currentInterval: null,
     }
   },
   methods: {
@@ -436,6 +447,55 @@ export default {
       })
       this.showSaveButton = false
       this.isShowingRestoredGrid = true
+    },
+    flash() {
+      this.shouldFlashDisplay = !this.shouldFlashDisplay
+      if (this.shouldFlashDisplay) {
+        const holes = document.querySelectorAll('.hole')
+        const bgColors = []
+        holes.forEach((hole) => {
+          if (!hole.style.backgroundColor) {
+            bgColors.push('transparent')
+          } else {
+            bgColors.push(hole.style.backgroundColor)
+          }
+        })
+        // For future use to toggle all at once:
+        // let show = true
+        // setInterval(() => {
+        //   if (show) {
+        //     holes.forEach((hole, index) => {
+        //       hole.style.background = bgColors[index]
+        //       hole.style.boxShadow = `0px 0px 10px 5px ${bgColors[index]}`
+        //     })
+        //   } else {
+        //     holes.forEach((hole) => {
+        //       hole.style.background = 'transparent'
+        //       hole.style.boxShadow = 'none'
+        //     })
+        //   }
+        //   show = !show
+        // }, 500)
+        let showEvens = true
+        this.currentInterval = setInterval(() => {
+          holes.forEach((hole, index) => {
+            if (
+              (showEvens && index % 2 === 0) ||
+              (!showEvens && index % 2 !== 0)
+            ) {
+              hole.style.background = bgColors[index]
+              hole.style.boxShadow = `0px 0px 10px 5px ${bgColors[index]}`
+            } else {
+              hole.style.background = 'transparent'
+              hole.style.boxShadow = 'none'
+            }
+          })
+          showEvens = !showEvens
+        }, 500)
+      } else {
+        clearInterval(this.currentInterval)
+        this.currentInterval = null
+      }
     },
   },
 }
