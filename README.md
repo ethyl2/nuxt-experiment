@@ -160,3 +160,4 @@ I've been adding features to my Lite Brite page. It's been an interesting challe
 - Refactor to use refs instead of DOM
 - Make all parts of toggle buttons focusable for better accessibility
 - Ability for mobile users to insert pegs by touchmove
+- Ability to hide all editing buttons, to make screen look more like an actual Lite Brite
