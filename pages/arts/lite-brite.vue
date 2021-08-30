@@ -126,9 +126,9 @@
 
       <!-- BOTTOM SECTION -->
       <div
-        class="flex flex-col space-y-3 justify-center items-center md:grid md:grid-cols-3 md:space-y-0 md:pt-4"
+        class="flex flex-col space-y-3 justify-center items-center pb-4 md:grid md:grid-cols-3 md:space-y-0 md:pt-4 md:items-start md:pb-0"
       >
-        <p class="text-center text-white pt-2 w-full">
+        <p class="text-center text-white pt-2 md:pt-0">
           Number of pegs placed: {{ countPegsPlaced }}
         </p>
         <!-- GRID LAYOUT TOGGLE -->
@@ -160,24 +160,44 @@
             <div class="ml-3 text-white text-sm">Staggered Holes</div>
           </label>
         </div>
-        <div class="flex flex-col space-y-3">
-          <button
-            type="button"
-            class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm mx-auto md:text-base hover:bg-gray-700"
-            title="Add a random sprinkle of the current color"
-            @click="sprinkleWithColor"
-          >
-            Sprinkle
-          </button>
-          <button
-            type="button"
-            class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm mx-auto md:text-base hover:bg-gray-700"
-            title="Create a random display of random colors"
-            @click="addRandom"
-          >
-            Let the <span class="hidden md:inline">Computer</span
-            ><span class="md:hidden">Device</span> Be the Artist
-          </button>
+        <div class="flex flex-col" :class="{ 'space-y-3': showSaveButton }">
+          <div class="flex items-center justify-center space-x-3">
+            <button
+              type="button"
+              class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm md:text-base hover:bg-gray-700"
+              title="Add a random sprinkle of the current color"
+              @click="sprinkleWithColor"
+            >
+              Sprinkle
+            </button>
+            <button
+              type="button"
+              class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm md:text-base hover:bg-gray-700"
+              title="Create a random display of random colors"
+              @click="addRandom"
+            >
+              Let the <span class="hidden md:inline">Computer</span
+              ><span class="md:hidden">Device</span> Be the Artist
+            </button>
+          </div>
+          <div class="flex items-center justify-center space-x-3">
+            <button
+              v-if="showSaveButton"
+              type="button"
+              class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm md:text-base hover:bg-gray-700"
+              @click="saveGrid"
+            >
+              Save Design
+            </button>
+            <button
+              v-if="savedGrid.length && !isShowingRestoredGrid"
+              type="button"
+              class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm md:text-base hover:bg-gray-700"
+              @click="restoreGrid"
+            >
+              Restore Saved Design
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -205,6 +225,9 @@ export default {
       allowAudio: false,
       originallySpacedGrid: false,
       isDragging: false,
+      savedGrid: [],
+      showSaveButton: false,
+      isShowingRestoredGrid: false,
     }
   },
   methods: {
@@ -236,6 +259,10 @@ export default {
         event.target.style.boxShadow = `none`
         this.countPegsPlaced--
       }
+      if (this.countPegsPlaced > 0) {
+        this.showSaveButton = true
+      }
+      this.isShowingRestoredGrid = false
     },
     changeColor(color) {
       this.currentColor = `${color}`
@@ -252,6 +279,7 @@ export default {
         hole.style.boxShadow = 'none'
       })
       this.countPegsPlaced = 0
+      this.isShowingRestoredGrid = false
     },
     componentToHex(c) {
       const hex = Number(c).toString(16)
@@ -288,6 +316,8 @@ export default {
           }, 1000)
         }
       })
+      this.isShowingRestoredGrid = false
+      this.showSaveButton = true
     },
     sprinkleWithColor() {
       this.playSound('shake')
@@ -303,6 +333,8 @@ export default {
           }, 500)
         }
       })
+      this.isShowingRestoredGrid = false
+      this.showSaveButton = true
     },
     rollDice(num = 50) {
       const diceRoll = Math.round(Math.random() * num)
@@ -356,6 +388,8 @@ export default {
           }
         }
       }, 500)
+      this.showSaveButton = true
+      this.isShowingRestoredGrid = false
     },
     handleMouseMove() {
       if (this.isDragging) {
@@ -371,6 +405,37 @@ export default {
     handleMouseUp() {
       event.preventDefault()
       this.isDragging = false
+    },
+    saveGrid() {
+      this.playSound('tap')
+      this.savedGrid = []
+      const holes = document.querySelectorAll('.hole')
+      holes.forEach((hole) => {
+        if (!hole.style.backgroundColor) {
+          this.savedGrid.push('0')
+        } else {
+          this.savedGrid.push(hole.style.backgroundColor)
+        }
+      })
+      this.showSaveButton = false
+      this.isShowingRestoredGrid = true
+    },
+    restoreGrid() {
+      this.playSound('tap')
+      this.countPegsPlaced = 0
+      const holes = document.querySelectorAll('.hole')
+      holes.forEach((hole, index) => {
+        if (this.savedGrid[index] !== '0') {
+          hole.style.background = this.savedGrid[index]
+          hole.style.boxShadow = `0px 0px 10px 5px ${this.savedGrid[index]}`
+          this.countPegsPlaced++
+        } else {
+          hole.style.background = 'transparent'
+          hole.style.boxShadow = 'none'
+        }
+      })
+      this.showSaveButton = false
+      this.isShowingRestoredGrid = true
     },
   },
 }
