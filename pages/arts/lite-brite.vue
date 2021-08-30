@@ -109,6 +109,7 @@
         v-for="index in 35"
         :key="index"
         class="flex justify-center items-center flex-shrink-0"
+        :class="{ 'pl-4': originallySpacedGrid && index % 2 === 0 }"
       >
         <div
           v-for="secondIndex in 75"
@@ -119,15 +120,46 @@
           @keyup.enter="handleClick"
         ></div>
       </div>
+
+      <!-- BOTTOM SECTION -->
       <div
-        class="flex flex-col space-y-2 justify-center items-center md:flex-row md:justify-around"
+        class="flex flex-col space-y-3 justify-center items-center md:grid md:grid-cols-3 md:space-y-0 md:pt-4"
       >
-        <p class="text-center text-white pt-2">
+        <p class="text-center text-white pt-2 w-full">
           Number of pegs placed: {{ countPegsPlaced }}
         </p>
+        <!-- GRID LAYOUT TOGGLE -->
+        <div class="flex items-center justify-center w-full mt-3">
+          <div class="mr-3 text-white text-sm">Stacked Holes</div>
+          <!-- Toggle Button -->
+          <label for="gridToggle" class="flex items-center cursor-pointer">
+            <!-- toggle -->
+            <div class="relative">
+              <!-- input -->
+              <input
+                id="gridToggle"
+                v-model="originallySpacedGrid"
+                type="checkbox"
+                class="hidden"
+                @click="originallySpacedGrid = !originallySpacedGrid"
+              />
+              <!-- line -->
+              <div
+                class="toggle__line w-10 h-4 bg-gray-400 rounded-full shadow-inner"
+              ></div>
+              <!-- dot -->
+              <div
+                class="toggle__dot absolute w-6 h-6 bg-white rounded-full shadow inset-y-0 left-0"
+                :style="`background: ${currentColor}; box-shadow: 0px 0px 10px 5px ${currentColor}`"
+              ></div>
+            </div>
+            <!-- label -->
+            <div class="ml-3 text-white text-sm">Staggered Holes</div>
+          </label>
+        </div>
         <button
           type="button"
-          class="bg-gray-900 rounded px-2 py-1 text-sm md:text-base hover:bg-gray-700"
+          class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm mx-auto md:text-base hover:bg-gray-700"
           @click="addRandom"
         >
           Let the <span class="hidden md:inline">Computer</span
@@ -157,6 +189,7 @@ export default {
       ],
       audio: null,
       allowAudio: false,
+      originallySpacedGrid: false,
     }
   },
   methods: {
