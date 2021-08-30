@@ -28,6 +28,7 @@ So far, it contains:
 - emoji matching game, with card flipping animation
 - adverb game
 - [favorite podcasts list](https://nuxt-experiments.herokuapp.com/podcast-list)
+- [Lite Brite-inspired art app](https://nuxt-experiments.herokuapp.com/arts/lite-brite)
 
 Deployed at https://nuxt-experiments.herokuapp.com/
 
@@ -137,3 +138,25 @@ In order for all features of this site to work correctly, you need to set up you
 - https://freesound.org/people/breyenkatz/sounds/221275/
 
 - https://freesound.org/people/sidequesting/sounds/541546/
+
+---
+
+## What I'm Currently Working On:
+
+I've been adding features to my Lite Brite page. It's been an interesting challenge to add more functionality without making it an overwhelming experience for a user.
+
+### Future Feature Possibilities:
+
+- Ability to save designs in local or session storage
+- Option to add a saved design to existing design, instead of overriding existing design when restoring the saved design.
+- Ability to save designs as a text string or file to use in the future
+- Premade designs users can add to their designs
+- Shortcut to print screen and/or save design as an image
+- Option to flash the display
+- Ability to save favorite colors to access them later more easily
+- Display more stats, such as count of different colors used
+- Ability to change grid dimensions (while still allowing saved designs to be restored accurately)
+- Refactor code into multiple components, to make more readable
+- Refactor to use refs instead of DOM
+- Make all parts of toggle buttons focusable for better accessibility
+- Ability for mobile users to insert pegs by touchmove
