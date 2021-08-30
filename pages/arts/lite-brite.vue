@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black">
+  <div class="bg-black" @mouseup="isDragging = false">
     <div class="flex flex-col items-center justify-center space-y-2 py-4">
       <h1 class="text-white text-lg font-bold">
         Lite Brite on Your <span class="hidden md:inline">Computer</span
@@ -121,9 +121,6 @@
           @mousedown="handleMouseDown"
           @mousemove="handleMouseMove"
           @mouseup="handleMouseUp"
-          @touchstart="handleMouseDown"
-          @touchmove="handleMouseMove"
-          @touchend="handleMouseUp"
         ></div>
       </div>
 
@@ -349,12 +346,16 @@ export default {
     },
     handleMouseDown() {
       event.preventDefault()
-      if (this.rollDice(2)) {
-        this.playSound('harp')
-      } else {
-        this.playSound('harp2')
-      }
       this.isDragging = true
+      setTimeout(() => {
+        if (this.isDragging) {
+          if (this.rollDice(2)) {
+            this.playSound('harp')
+          } else {
+            this.playSound('harp2')
+          }
+        }
+      }, 500)
     },
     handleMouseMove() {
       if (this.isDragging) {
