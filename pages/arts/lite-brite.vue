@@ -44,6 +44,7 @@
         ><span class="md:hidden">Tap</span> on a 'hole' once to place a 'peg';
         <span class="hidden md:inline">click</span
         ><span class="md:hidden"><br />tap</span> again to take the 'peg' out.
+        <span class="hidden md:inline">Press 'F' for fullscreen.</span>
       </h2>
 
       <!-- CONTROL PANEL -->
@@ -103,25 +104,27 @@
 
     <!-- PEG GRID -->
     <div
-      class="w-full min-h-screen bg-black mx-auto overflow-auto flex-shrink-0 p-4"
+      class="w-full min-h-screen bg-black mx-auto overflow-auto flex-shrink-0 pb-4"
     >
-      <div
-        v-for="index in 35"
-        :key="index"
-        class="flex justify-center items-center flex-shrink-0"
-        :class="{ 'pl-4': originallySpacedGrid && index % 2 === 0 }"
-      >
+      <div id="grid">
         <div
-          v-for="secondIndex in 75"
-          :key="secondIndex"
-          class="hole border border-gray-200 border-opacity-25 rounded-full w-4 h-4 m-px flex-shrink-0 cursor-pointer bg-transparent"
-          tabindex="0"
-          @click="handleClick"
-          @keyup.enter="handleClick"
-          @mousedown="handleMouseDown"
-          @mousemove="handleMouseMove"
-          @mouseup="handleMouseUp"
-        ></div>
+          v-for="index in 40"
+          :key="index"
+          class="flex justify-center items-center flex-shrink-0"
+          :class="{ 'pl-4': originallySpacedGrid && index % 2 === 0 }"
+        >
+          <div
+            v-for="secondIndex in 75"
+            :key="secondIndex"
+            class="hole border border-gray-200 border-opacity-25 rounded-full w-4 h-4 m-px flex-shrink-0 cursor-pointer bg-transparent"
+            tabindex="0"
+            @click="handleClick"
+            @keyup.enter="handleClick"
+            @mousedown="handleMouseDown"
+            @mousemove="handleMouseMove"
+            @mouseup="handleMouseUp"
+          ></div>
+        </div>
       </div>
 
       <!-- BOTTOM SECTION -->
@@ -240,6 +243,24 @@ export default {
       shouldFlashDisplay: false,
       currentInterval: null,
     }
+  },
+  mounted() {
+    document.addEventListener(
+      'keypress',
+      function (e) {
+        const gridEl = document.getElementById('grid')
+        if (e.key === 'F' || e.key === 'f') {
+          if (!document.fullscreenElement) {
+            gridEl.classList.add('pt-24')
+            gridEl.requestFullscreen()
+          } else if (document.exitFullscreen) {
+            document.exitFullscreen()
+            gridEl.classList.remove('pt-24')
+          }
+        }
+      },
+      false
+    )
   },
   methods: {
     updateToggleColor() {
