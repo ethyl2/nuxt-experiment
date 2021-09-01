@@ -18,10 +18,7 @@
               v-model="allowAudio"
               type="checkbox"
               class="hidden"
-              @click="
-                allowAudio = !allowAudio
-                updateToggleColor()
-              "
+              @click="toggleAudioPermission"
             />
             <!-- line -->
             <div
@@ -154,7 +151,7 @@
                 v-model="originallySpacedGrid"
                 type="checkbox"
                 class="hidden"
-                @click="originallySpacedGrid = !originallySpacedGrid"
+                @click="toggleGridSpacing"
               />
               <!-- line -->
               <div
@@ -266,16 +263,15 @@ export default {
     updateToggleColor() {
       const toggleDot = document.getElementById('toggle-dot')
       if (this.allowAudio) {
-        toggleDot.style.background = this.currentColor
-        toggleDot.style.boxShadow = `0px 0px 10px 5px ${this.currentColor}`
+        this.updatePeg(toggleDot)
       } else {
-        toggleDot.style.background = '#ffffff'
-        toggleDot.style.boxShadow = 'none'
+        this.takeOutPeg(toggleDot, '#ffffff')
       }
     },
     handleClick(event) {
       this.playSound('click')
-      let bgColor = event.target.style.background
+      const currentHole = event.target
+      let bgColor = currentHole.style.background
       const bgColorArray = bgColor.replace(/[^\d,]/g, '').split(',')
       if (bgColorArray.length > 1) {
         bgColor = this.rgbToHex(bgColorArray)
@@ -284,11 +280,9 @@ export default {
         if (!bgColor || bgColor === 'transparent') {
           this.countPegsPlaced++
         }
-        event.target.style.background = this.currentColor
-        event.target.style.boxShadow = `0px 0px 10px 5px ${this.currentColor}`
+        this.updatePeg(currentHole)
       } else {
-        event.target.style.background = 'transparent'
-        event.target.style.boxShadow = `none`
+        this.takeOutPeg(currentHole)
         this.countPegsPlaced--
       }
       if (this.countPegsPlaced > 0) {
@@ -297,7 +291,7 @@ export default {
       this.isShowingRestoredGrid = false
     },
     changeColor(color) {
-      this.currentColor = `${color}`
+      this.currentColor = color
       this.playSound('tap')
       this.updateToggleColor()
     },
@@ -307,8 +301,7 @@ export default {
       }
       const holes = document.querySelectorAll('.hole')
       holes.forEach((hole) => {
-        hole.style.background = 'transparent'
-        hole.style.boxShadow = 'none'
+        this.takeOutPeg(hole)
       })
       this.countPegsPlaced = 0
       this.isShowingRestoredGrid = false
@@ -332,24 +325,25 @@ export default {
       this.updateToggleColor()
     },
     addRandom() {
-      this.playSound('windchimes')
+      this.playSound('rolling')
       const holes = document.querySelectorAll('.hole')
       this.countPegsPlaced = 0
       holes.forEach((hole) => {
-        hole.style.background = 'transparent'
-        hole.style.boxShadow = 'none'
+        this.takeOutPeg(hole)
         const randomColor =
           '#' + Math.floor(Math.random() * 16777215).toString(16)
         if (this.rollDice(4)) {
           setTimeout(() => {
-            hole.style.background = randomColor
-            hole.style.boxShadow = `0px 0px 10px 5px ${randomColor}`
+            this.updatePeg(hole, randomColor)
             this.countPegsPlaced++
           }, 1000)
         }
       })
       this.isShowingRestoredGrid = false
       this.showSaveButton = true
+      setTimeout(() => {
+        this.playSound('windchimes')
+      }, 500)
     },
     sprinkleWithColor() {
       this.playSound('shake')
@@ -360,8 +354,7 @@ export default {
             if (!hole.style.backgroundColor) {
               this.countPegsPlaced++
             }
-            hole.style.background = this.currentColor
-            hole.style.boxShadow = `0px 0px 10px 5px ${this.currentColor}`
+            this.updatePeg(hole)
           }, 500)
         }
       })
@@ -401,6 +394,15 @@ export default {
           case 'harp2':
             soundFileName = 'harp2.wav'
             break
+          case 'slide':
+            soundFileName = 'slide.wav'
+            break
+          case 'slide-up':
+            soundFileName = 'slide-up.wav'
+            break
+          case 'slide-down':
+            soundFileName = 'slide-down.wav'
+            break
           default:
             soundFileName = 'fanfare.mp3'
         }
@@ -430,8 +432,7 @@ export default {
         if (!currentPeg.style.backgroundColor) {
           this.countPegsPlaced++
         }
-        currentPeg.style.background = this.currentColor
-        currentPeg.style.boxShadow = `0px 0px 10px 5px ${this.currentColor}`
+        this.updatePeg(currentPeg)
       }
     },
     handleMouseUp() {
@@ -458,12 +459,10 @@ export default {
       const holes = document.querySelectorAll('.hole')
       holes.forEach((hole, index) => {
         if (this.savedGrid[index] !== '0') {
-          hole.style.background = this.savedGrid[index]
-          hole.style.boxShadow = `0px 0px 10px 5px ${this.savedGrid[index]}`
+          this.updatePeg(hole, this.savedGrid[index])
           this.countPegsPlaced++
         } else {
-          hole.style.background = 'transparent'
-          hole.style.boxShadow = 'none'
+          this.takeOutPeg(hole)
         }
       })
       this.showSaveButton = false
@@ -517,6 +516,32 @@ export default {
         clearInterval(this.currentInterval)
         this.currentInterval = null
       }
+    },
+    updatePeg(element, color = this.currentColor) {
+      element.style.background = color
+      element.style.boxShadow = `0px 0px 10px 5px ${color}`
+    },
+    takeOutPeg(element, color = 'transparent') {
+      element.style.background = color
+      element.style.boxShadow = 'none'
+    },
+    toggleGridSpacing() {
+      if (this.originallySpacedGrid) {
+        this.playSound('slide-down')
+      } else {
+        this.playSound('slide-up')
+      }
+      this.originallySpacedGrid = !this.originallySpacedGrid
+    },
+    toggleAudioPermission() {
+      if (this.allowAudio) {
+        this.playSound('slide-down')
+        this.allowAudio = false
+      } else {
+        this.allowAudio = true
+        this.playSound('slide-up')
+      }
+      this.updateToggleColor()
     },
   },
 }

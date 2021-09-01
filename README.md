@@ -139,6 +139,10 @@ In order for all features of this site to work correctly, you need to set up you
 
 - https://freesound.org/people/sidequesting/sounds/541546/
 
+- https://freesound.org/people/joedeshon/sounds/79678/
+
+- https://freesound.org/people/joedeshon/sounds/79672/
+
 ---
 
 ## What I'm Currently Working On:
@@ -160,4 +164,3 @@ I've been adding features to my Lite Brite page. It's been an interesting challe
 - Refactor to use refs instead of DOM
 - Make all parts of toggle buttons focusable for better accessibility
 - Ability for mobile users to insert pegs by touchmove
-- Ability to hide all editing buttons, to make screen look more like an actual Lite Brite
