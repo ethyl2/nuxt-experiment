@@ -99,30 +99,17 @@
       </div>
     </div>
 
-    <!-- PEG GRID -->
     <div
-      class="w-full min-h-screen bg-black mx-auto overflow-auto flex-shrink-0 pb-4"
+      class="w-full min-h-screen bg-black mx-auto overflow-auto flex-shrink-0 py-4"
     >
-      <div id="grid">
-        <div
-          v-for="index in 40"
-          :key="index"
-          class="flex justify-center items-center flex-shrink-0"
-          :class="{ 'pl-4': originallySpacedGrid && index % 2 === 0 }"
-        >
-          <div
-            v-for="secondIndex in 75"
-            :key="secondIndex"
-            class="hole border border-gray-200 border-opacity-25 rounded-full w-4 h-4 m-px flex-shrink-0 cursor-pointer bg-transparent"
-            tabindex="0"
-            @click="handleClick"
-            @keyup.enter="handleClick"
-            @mousedown="handleMouseDown"
-            @mousemove="handleMouseMove"
-            @mouseup="handleMouseUp"
-          ></div>
-        </div>
-      </div>
+      <!-- PEG GRID -->
+      <grid
+        :originally-spaced-grid="originallySpacedGrid"
+        @handle-click="handleClick"
+        @handle-mouse-down="handleMouseDown"
+        @handle-mouse-move="handleMouseMove"
+        @handle-mouse-up="handleMouseUp"
+      />
 
       <!-- BOTTOM SECTION -->
       <div
@@ -216,6 +203,9 @@
 <script>
 export default {
   name: 'LiteBrite',
+  components: {
+    Grid: () => import('~/components/liteBrite/Grid'),
+  },
   data() {
     return {
       currentColor: '#d228b6',
@@ -338,7 +328,9 @@ export default {
       this.updateToggleColor()
     },
     addRandom() {
-      this.playSound('rolling')
+      if (this.countPegsPlaced > 0) {
+        this.playSound('rolling')
+      }
       const holes = document.querySelectorAll('.hole')
       this.countPegsPlaced = 0
       holes.forEach((hole) => {
