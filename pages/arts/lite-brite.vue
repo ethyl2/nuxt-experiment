@@ -239,6 +239,19 @@ export default {
       isShowingRestoredGrid: false,
       shouldFlashDisplay: false,
       currentInterval: null,
+      sounds: {
+        click: 'click.wav',
+        windchimes: 'windchimes.wav',
+        rolling: 'rolling.mp3',
+        tap: 'tap.wav',
+        shake: 'shake.wav',
+        harp: 'harp.wav',
+        harp2: 'harp2.wav',
+        slide: 'slide.wav',
+        'slide-up': 'slide-up.wav',
+        'slide-down': 'slide-down.wav',
+        fanfare: 'fanfare.mp3',
+      },
     }
   },
   mounted() {
@@ -371,42 +384,8 @@ export default {
         this.audio.currentTime = 0
       }
       if (this.allowAudio) {
-        let soundFileName = ''
-        switch (sound) {
-          case 'click':
-            soundFileName = 'click.wav'
-            break
-          case 'windchimes':
-            soundFileName = 'windchimes.wav'
-            break
-          case 'rolling':
-            soundFileName = 'rolling.mp3'
-            break
-          case 'tap':
-            soundFileName = 'tap.wav'
-            break
-          case 'shake':
-            soundFileName = 'shake.wav'
-            break
-          case 'harp':
-            soundFileName = 'harp.wav'
-            break
-          case 'harp2':
-            soundFileName = 'harp2.wav'
-            break
-          case 'slide':
-            soundFileName = 'slide.wav'
-            break
-          case 'slide-up':
-            soundFileName = 'slide-up.wav'
-            break
-          case 'slide-down':
-            soundFileName = 'slide-down.wav'
-            break
-          default:
-            soundFileName = 'fanfare.mp3'
-        }
-        this.audio = new Audio(`/sounds/${soundFileName}`)
+        const currentAudioFile = this.sounds[sound] ?? 'tap.wav'
+        this.audio = new Audio(`/sounds/${currentAudioFile}`)
         this.audio.play()
       }
     },
