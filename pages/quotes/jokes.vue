@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen border-b-8 border-black pb-24"
+    class="min-h-screen pb-24 border-b-8 border-black"
     style="
       background: url('/balloons.jpg') no-repeat center center fixed;
       -webkit-background-size: cover;
@@ -10,12 +10,12 @@
     "
   >
     <h1
-      class="text-center text-xl md:text-3xl my-4 font-bold bg-black py-2"
+      class="py-2 my-4 text-xl font-bold text-center bg-black md:text-3xl"
       style="color: #e2d810"
     >
       Favorite Jokes
     </h1>
-    <main class="mx-4 flex flex-wrap justify-evenly items-stretch md:mx-20">
+    <main class="flex flex-wrap items-stretch mx-4 justify-evenly md:mx-20">
       <joke v-for="(joke, index) in jokes" :key="index" :joke="joke" />
     </main>
   </div>
