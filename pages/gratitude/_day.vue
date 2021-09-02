@@ -15,7 +15,7 @@
       <hr />
       <div
         v-if="day.number === 'two'"
-        class="flex divide-x-2 items-center justify-center px-2"
+        class="flex items-center justify-center px-2 divide-x-2"
       >
         <a
           href="https://ethyl2.github.io/fav-games/index.html"
