@@ -1,12 +1,14 @@
 <template>
-  <div class="container flex flex-col justify-center items-center">
-    <h1 class="text-xl pb-6">Days of Gratitude</h1>
-    <nav class="grid grid-cols-3 gap-4 mb-6 mx-auto">
+  <div class="container flex flex-col items-center justify-center">
+    <h1 class="pb-6 text-xl">Days of Gratitude</h1>
+    <nav
+      class="grid grid-cols-3 gap-4 p-4 mx-auto mb-6 bg-gray-400 bg-opacity-25 rounded"
+    >
       <nuxt-link
         v-for="day in days"
         :key="day.number"
         :to="{ name: 'gratitude-day', params: { day: day.number } }"
-        class="text-base px-4 py-2 border-white border-2 rounded-full"
+        class="px-4 py-2 text-base border-2 border-white rounded-full"
         >{{ day.number }}</nuxt-link
       >
     </nav>
