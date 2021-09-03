@@ -1,7 +1,7 @@
 <template>
   <div class="bg-black" @mouseup="isDragging = false">
-    <div class="flex flex-col items-center justify-center space-y-2 py-4">
-      <h1 class="text-white text-lg font-bold">
+    <div class="flex flex-col items-center justify-center py-4 space-y-2">
+      <h1 class="text-lg font-bold text-white">
         Lite Brite on Your <span class="hidden md:inline">Computer</span
         ><span class="md:hidden">Device</span>!
       </h1>
@@ -22,21 +22,21 @@
             />
             <!-- line -->
             <div
-              class="toggle__line w-10 h-4 bg-gray-400 rounded-full shadow-inner"
+              class="w-10 h-4 bg-gray-400 rounded-full shadow-inner toggle__line"
             ></div>
             <!-- dot -->
             <div
               id="toggle-dot"
-              class="toggle__dot absolute w-6 h-6 bg-white rounded-full shadow inset-y-0 left-0"
+              class="absolute inset-y-0 left-0 w-6 h-6 bg-white rounded-full shadow toggle__dot"
             ></div>
           </div>
           <!-- label -->
-          <div class="ml-3 text-white text-sm">Allow Audio</div>
+          <div class="ml-3 text-sm text-white">Allow Audio</div>
         </label>
       </div>
 
       <!-- INSTRUCTIONS -->
-      <h2 class="text-white text-sm text-center text-base">
+      <h2 class="text-sm text-base text-center text-white">
         <span class="hidden md:inline">Click</span
         ><span class="md:hidden">Tap</span> on a 'hole' once to place a 'peg';
         <span class="hidden md:inline">click</span
@@ -47,7 +47,7 @@
       <!-- CONTROL PANEL -->
       <div class="flex items-stretch justify-center divide-x">
         <div class="flex flex-col items-center justify-center px-4">
-          <label for="favcolor" class="text-center text-sm md:text-base pb-1"
+          <label for="favcolor" class="pb-1 text-sm text-center md:text-base"
             >Select your color:</label
           >
           <input
@@ -59,38 +59,38 @@
             @click="playSound('tap')"
             @change="updateToggleColor"
           />
-          <p class="text-white text-sm md:text-base text-center">
+          <p class="text-sm text-center text-white md:text-base">
             {{ currentColor }}
           </p>
         </div>
         <div class="px-4">
-          <p class="text-center text-sm pb-2 md:text-base">
+          <p class="pb-2 text-sm text-center md:text-base">
             Or use one of these:
           </p>
           <div
-            class="grid grid-cols-4 gap-y-1 mx-auto md:flex md:items-center md:justify-center md:space-x-2 md:gap-y-0"
+            class="grid grid-cols-4 mx-auto gap-y-1 md:flex md:items-center md:justify-center md:space-x-2 md:gap-y-0"
           >
             <button
               v-for="color in colors"
               :key="color"
-              class="w-6 h-6 rounded mx-auto transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 md:w-5 md:h-5"
+              class="w-6 h-6 mx-auto transition duration-500 ease-in-out transform rounded hover:-translate-y-1 hover:scale-110 md:w-5 md:h-5"
               :style="{ background: `${color}` }"
               @click="changeColor(color)"
             ></button>
           </div>
         </div>
-        <div class="px-4 flex flex-col items-center justify-center space-y-2">
+        <div class="flex flex-col items-center justify-center px-4 space-y-2">
           <button
             v-if="countPegsPlaced > 0"
             type="button"
-            class="bg-gray-900 rounded px-2 py-1 text-sm md:text-base hover:bg-gray-700"
+            class="px-2 py-1 text-sm bg-gray-900 rounded md:text-base hover:bg-gray-700"
             @click="clearScreen"
           >
             Clear All Pegs
           </button>
           <button
             type="button"
-            class="bg-gray-900 rounded px-2 py-1 text-sm md:text-base hover:bg-gray-700"
+            class="px-2 py-1 text-sm bg-gray-900 rounded md:text-base hover:bg-gray-700"
             @click="getRandomColor"
           >
             Random Color
@@ -100,7 +100,7 @@
     </div>
 
     <div
-      class="w-full min-h-screen bg-black mx-auto overflow-auto flex-shrink-0 py-4"
+      class="flex-shrink-0 w-full min-h-screen py-4 mx-auto overflow-auto bg-black"
     >
       <!-- PEG GRID -->
       <grid
@@ -113,16 +113,16 @@
 
       <!-- BOTTOM SECTION -->
       <div
-        class="flex flex-col space-y-3 justify-center items-center pb-4 md:grid md:grid-cols-3 md:space-y-0 md:pt-4 md:items-start md:pb-0"
+        class="flex flex-col items-center justify-center pb-4 space-y-3 md:grid md:grid-cols-3 md:space-y-0 md:pt-4 md:items-start md:pb-0"
       >
-        <p class="text-center text-white pt-2 md:pt-0">
+        <p class="pt-2 text-center text-white md:pt-0">
           Number of pegs placed: {{ countPegsPlaced }}
         </p>
 
         <!-- GRID LAYOUT TOGGLE -->
         <div class="flex items-center justify-center w-full mt-3">
           <div
-            class="mr-3 text-white text-sm cursor-pointer"
+            class="mr-3 text-sm text-white cursor-pointer"
             tabindex="0"
             @click="originallySpacedGrid = !originallySpacedGrid"
           >
@@ -142,16 +142,16 @@
               />
               <!-- line -->
               <div
-                class="toggle__line w-10 h-4 bg-gray-400 rounded-full shadow-inner"
+                class="w-10 h-4 bg-gray-400 rounded-full shadow-inner toggle__line"
               ></div>
               <!-- dot -->
               <div
-                class="toggle__dot absolute w-6 h-6 bg-white rounded-full shadow inset-y-0 left-0"
+                class="absolute inset-y-0 left-0 w-6 h-6 bg-white rounded-full shadow toggle__dot"
                 :style="`background: ${currentColor}; box-shadow: 0px 0px 10px 5px ${currentColor}`"
               ></div>
             </div>
             <!-- label -->
-            <div class="ml-3 text-white text-sm">Staggered Holes</div>
+            <div class="ml-3 text-sm text-white">Staggered Holes</div>
           </label>
         </div>
 
@@ -160,7 +160,7 @@
           <div class="flex items-center justify-center space-x-3">
             <button
               type="button"
-              class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm md:text-base hover:bg-gray-700"
+              class="max-w-sm px-2 py-1 text-sm bg-gray-900 rounded md:text-base hover:bg-gray-700"
               title="Add a random sprinkle of the current color"
               @click="sprinkleWithColor"
             >
@@ -168,7 +168,7 @@
             </button>
             <button
               type="button"
-              class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm md:text-base hover:bg-gray-700"
+              class="max-w-sm px-2 py-1 text-sm bg-gray-900 rounded md:text-base hover:bg-gray-700"
               title="Create a random display of random colors"
               @click="addRandom"
             >
@@ -180,7 +180,7 @@
             <button
               v-if="showSaveButton"
               type="button"
-              class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm md:text-base hover:bg-gray-700"
+              class="max-w-sm px-2 py-1 text-sm bg-gray-900 rounded md:text-base hover:bg-gray-700"
               @click="saveGrid"
             >
               Save Design
@@ -188,7 +188,7 @@
             <button
               v-if="savedGrid.length && !isShowingRestoredGrid"
               type="button"
-              class="bg-gray-900 rounded px-2 py-1 text-sm max-w-sm md:text-base hover:bg-gray-700"
+              class="max-w-sm px-2 py-1 text-sm bg-gray-900 rounded md:text-base hover:bg-gray-700"
               @click="restoreGrid"
             >
               Restore Saved Design
@@ -196,6 +196,25 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="flex flex-col py-4 space-y-2 text-center bg-gray-800 md:py-4">
+      <p class="px-4 text-xs italic">
+        I have fond memories of Lite Brite. My parents found our old Lite Brite
+        and sent it to me. So fun! If you enjoy with this virtual Lite Brite,
+        you might want to get a
+        <a
+          href="https://shop.hasbro.com/en-us/product/lite-brite-ultimate-classic:A0579FDA-BDE1-4888-840A-1862576A318E"
+          target="_blank"
+          >real one</a
+        >?!
+      </p>
+      <p class="px-4 text-xs italic">
+        Check out my Lite-Brite-inspired
+        <a href="https://litebrite-game-of-life.netlify.app/" target="_blank"
+          >implementation of Conway's Game of Life</a
+        >, too!
+      </p>
     </div>
   </div>
 </template>
