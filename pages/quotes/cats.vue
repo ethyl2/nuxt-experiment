@@ -1,20 +1,25 @@
 <template>
   <div
-    class="m-10 flex flex-col items-center space-y-4 min-h-screen text-center"
+    class="flex flex-col items-center min-h-screen m-10 space-y-4 text-center"
   >
-    <img v-if="imageUrl" :src="imageUrl" :alt="quote.text" />
-    <div class="w-5/6 mx-auto pb-12 md:w-1/2">
+    <img
+      v-if="imageUrl"
+      :src="imageUrl"
+      :alt="quote.text"
+      class="max-w-xs md:max-w-2xl"
+    />
+    <div class="w-5/6 pb-12 mx-auto md:w-1/2">
       <h2 class="text-xl">{{ quote.text }}</h2>
       <p v-if="quote.author" class="md:self-end">- {{ quote.author }}</p>
     </div>
     <!-- Song Section -->
-    <div class="border-t w-full py-6">
-      <h2 class="text-2xl font-bold mb-4">Tunes with Cats</h2>
+    <div class="w-full py-6 border-t">
+      <h2 class="mb-4 text-2xl font-bold">Tunes with Cats</h2>
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         <div
           v-for="(song, songIndex) in featuredSongs"
           :key="`song-${songIndex}`"
-          class="bg-gray-700 bg-opacity-50 p-1 rounded"
+          class="p-1 bg-gray-700 bg-opacity-50 rounded"
         >
           <song-card
             :title="song.title"
@@ -30,22 +35,22 @@
       </button>
     </div>
     <!-- Christmas Section -->
-    <h3 class="text-xl font-bold border-t w-full text-center pt-2">
+    <h3 class="w-full pt-2 text-xl font-bold text-center border-t">
       Catmas Carols
     </h3>
     <div class="flex flex-wrap space-x-4">
-      <nuxt-link to="/songs/christmas/jingle-cat-toy" class="mt-2 block">
+      <nuxt-link to="/songs/christmas/jingle-cat-toy" class="block mt-2">
         <img
           src="/cat2.gif"
           alt="cat with Christmas hat"
           class="w-16 mx-auto"
         />Jingle Cat Toys</nuxt-link
       >
-      <nuxt-link to="/songs/christmas/meowry" class="mt-2 block">
+      <nuxt-link to="/songs/christmas/meowry" class="block mt-2">
         <img src="/cat.gif" alt="cat in ornament" class="w-16 mx-auto" />Have a
         Meowry Christmas</nuxt-link
       >
-      <nuxt-link to="/songs/christmas/jingle-cat" class="mt-2 block">
+      <nuxt-link to="/songs/christmas/jingle-cat" class="block mt-2">
         <img
           src="/catWithLights.png"
           alt="cat tangled in Christmas lights"
@@ -54,16 +59,16 @@
       >
     </div>
     <!-- Cat Clicker Section -->
-    <div class="mt-6 border-t w-full">
+    <div class="w-full mt-6 border-t">
       <cat-clicker />
     </div>
 
     <!-- Cat Sounds Section -->
-    <div class="mt-6 border-t w-full">
+    <div class="w-full mt-6 border-t">
       <cat-sounds />
     </div>
 
-    <div class="mt-6 border-t w-full">
+    <div class="w-full mt-6 border-t">
       <p class="pt-4">
         Can you find all 10 cats
         <nuxt-link to="/arts/drag-and-drop2">here</nuxt-link>?
@@ -79,12 +84,18 @@ export default {
     CatClicker: () => import('~/components/cats/CatClicker'),
     CatSounds: () => import('~/components/cats/CatSounds'),
   },
+  async fetch() {
+    this.cat = await fetch('https://cataas.com/cat?json=true').then((res) => {
+      return res.json()
+    })
+  },
   data() {
     return {
       index: null,
       quote: null,
       featuredSongs: [],
       seeAllSongs: false,
+      cat: {},
     }
   },
   computed: {
@@ -95,9 +106,11 @@ export default {
       return this.$store.state.cats.songs
     },
     imageUrl() {
-      return this.quote.text.length < 60
-        ? `https://cataas.com/cat/cute/says/${this.quote.text}`
-        : 'https://cataas.com/cat'
+      if (this.cat.url) {
+        return `https://cataas.com${this.cat.url}`
+      } else {
+        return '/catfaces/cat-walking.jpg'
+      }
     },
   },
   created() {

@@ -7,8 +7,8 @@
 
 <template>
   <section>
-    <h1 class="font-bold text-2xl py-4">Cat Clicking Time</h1>
-    <h2 v-if="!selectedName" class="text-sm mb-2 md:text-lg">
+    <h1 class="py-4 text-2xl font-bold">Cat Clicking Time</h1>
+    <h2 v-if="!selectedName" class="mb-2 text-sm md:text-lg">
       In the past, you may have clicked on
       <a href="http://cowclicker.com/" target="_blank">cows</a> or
       <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank"
@@ -16,11 +16,11 @@
       >. Now, here's your chance to click on cats. How many times can you click
       on your cat?
     </h2>
-    <div v-if="!selectedName" class="flex flex-col space-y-2 mb-4">
+    <div v-if="!selectedName" class="flex flex-col mb-4 space-y-2">
       <label for="name">First, Choose a Name for Your Cat</label>
       <select
         v-model="selectedName"
-        class="text-black w-5/6 mx-auto rounded md:w-1/4"
+        class="w-5/6 mx-auto text-black rounded md:w-1/4"
         name="name"
       >
         <option value="-" class="text-black" disabled>Choose a cat:</option>
@@ -37,14 +37,14 @@
 
     <div v-if="selectedName">
       <img
-        src="https://cataas.com/cat?width=300"
+        :src="imageUrl"
         :alt="selectedName"
-        class="cat-button mx-auto w-64 rounded mb-4"
+        class="w-64 mx-auto mb-4 rounded cat-button"
         @click.prevent="handleClick"
       />
       <p>{{ selectedName }} says</p>
       <p>"{{ sound }}"</p>
-      <div class="rounded-full p-1 my-1 bg-black text-white w-12 mx-auto">
+      <div class="w-12 p-1 mx-auto my-1 text-white bg-black rounded-full">
         <span>{{ counter }}</span>
       </div>
       <p>{{ message }}</p>
@@ -55,11 +55,17 @@
 <script>
 export default {
   name: 'CatClicker',
+  async fetch() {
+    this.cat = await fetch('https://cataas.com/cat?json=true').then((res) => {
+      return res.json()
+    })
+  },
   data() {
     return {
       selectedName: '',
       counter: 0,
       sound: 'meow',
+      cat: {},
     }
   },
   computed: {
@@ -77,6 +83,13 @@ export default {
         featuredNames.push(this.names[nameIndex])
       })
       return featuredNames
+    },
+    imageUrl() {
+      if (this.cat.url) {
+        return `https://cataas.com${this.cat.url}`
+      } else {
+        return '/catfaces/cat-looking-up.jpg'
+      }
     },
     sounds() {
       return this.$store.state.cats.sounds
