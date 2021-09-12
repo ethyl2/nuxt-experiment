@@ -66,10 +66,43 @@
 
         <div class="flex flex-col space-y-4">
           <nuxt-link to="/songSearch" class="rounded"
-            ><img src="song.png" class="w-full mx-auto rounded"
+            ><img
+              src="/song_images/search-music.png"
+              class="w-full mx-auto rounded"
           /></nuxt-link>
           <nuxt-link to="/songSearch" class="text-sm md:text-xl"
             >Search with iTunes API</nuxt-link
+          >
+        </div>
+
+        <div class="flex flex-col space-y-4">
+          <nuxt-link to="/songs/hunger-games" class="rounded"
+            ><img
+              src="/song_images/katniss-bow.png"
+              class="w-full mx-auto rounded"
+          /></nuxt-link>
+          <nuxt-link to="/songs/hunger-games" class="text-sm md:text-xl"
+            >Hunger Games Lullabye</nuxt-link
+          >
+        </div>
+
+        <div class="flex flex-col space-y-4">
+          <nuxt-link to="/songs/playlist" class="rounded"
+            ><img
+              src="/song_images/mix-tape.png"
+              class="w-full mx-auto rounded"
+          /></nuxt-link>
+          <nuxt-link to="/songs/playlist" class="text-sm md:text-xl"
+            >Make a Playlist or Request List</nuxt-link
+          >
+        </div>
+
+        <div v-if="hasPlaylists" class="flex flex-col space-y-4">
+          <nuxt-link to="/songs/lists" class="rounded"
+            ><img src="/song_images/list.png" class="w-full mx-auto rounded"
+          /></nuxt-link>
+          <nuxt-link to="/songs/lists" class="text-sm md:text-xl"
+            >See Your Request Lists</nuxt-link
           >
         </div>
       </div>
@@ -85,18 +118,25 @@
         allowtransparency="true"
         allow="encrypted-media"
       ></iframe>
-      <div class="flex flex-col my-4 md:flex-row">
-        <nuxt-link to="/songs/playlist" class="md:pr-4 md:border-r md:mr-4"
-          >Make a Playlist or Request List</nuxt-link
-        >
-        <nuxt-link to="/songs/lists">See Your Request Lists</nuxt-link>
-      </div>
     </main>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'SongsIndex',
+  data() {
+    return {
+      hasPlaylists: false,
+    }
+  },
+  mounted() {
+    if (process.browser) {
+      this.hasPlaylists = localStorage.getItem('playlists')
+        ? Object.keys(JSON.parse(localStorage.getItem('playlists'))).length > 0
+        : false
+    }
+  },
   head() {
     return {
       title: 'Songs 🎼 | Nuxt Experiments',
