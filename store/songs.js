@@ -1061,7 +1061,7 @@ export const state = () => ({
       chorus: [
         'In the backyard, there are treasures,',
         'There are treasures all around.',
-        'If I look hard in my back yard,',
+        'If I look hard in my backyard,',
         'All the treasures can be found.',
       ],
       verses: [
