@@ -4,7 +4,7 @@
       Don't Stop Believing in Harry Potter!
     </h1>
     <p class="pb-4">
-      I was tickled by
+      I am tickled by
       <a
         ref="norefer nofollow"
         href="https://youtu.be/rd0u28hv6TU"
