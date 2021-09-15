@@ -105,6 +105,27 @@
             >See Your Request Lists</nuxt-link
           >
         </div>
+
+        <div class="flex flex-col space-y-4 md:hidden">
+          <nuxt-link to="/songs/home-song" class="rounded"
+            ><img
+              src="/song_images/love-at-home.png"
+              class="w-full mx-auto rounded"
+          /></nuxt-link>
+          <nuxt-link to="/songs/home-song" class="text-sm md:text-xl"
+            >Song about Home</nuxt-link
+          >
+        </div>
+      </div>
+      <div class="flex-col hidden w-1/4 mt-3 space-y-4 md:flex">
+        <nuxt-link to="/songs/home-song" class="rounded"
+          ><img
+            src="/song_images/love-at-home.png"
+            class="w-full mx-auto rounded"
+        /></nuxt-link>
+        <nuxt-link to="/songs/home-song" class="text-sm md:text-xl"
+          >Song about Home</nuxt-link
+        >
       </div>
 
       <h3 class="my-4 text-lg md:mt-12">
