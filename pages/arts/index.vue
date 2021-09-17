@@ -101,6 +101,20 @@
               target="_blank"
               >Dieter and Dumbledore Talk</a
             >
+            <a
+              href="http://www.bookcrossing.com/referral/zizzerzazzerzuz"
+              target="_blank"
+              class="bg-white p-2 rounded-full w-20 h-20 flex items-center justify-center mx-auto"
+            >
+              <img
+                alt="Read and Release at BookCrossing.com..."
+                align="middle"
+                border="0"
+                height="60"
+                width="60"
+                onmouseover="this.src=this.src;"
+                src="http://www.bookcrossing.com/images/ReadAndReleaseAnimated60.gif"
+            /></a>
           </div>
         </transition>
         <!-- VISUAL ART -->
