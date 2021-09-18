@@ -48,6 +48,9 @@
       <nuxt-link v-if="day.number === 'thirteen'" to="/podcast-list"
         >See My Favorite Podcasts</nuxt-link
       >
+      <nuxt-link v-if="day.number === 'fourteen'" to="/arts/books"
+        >See My Favorite Books</nuxt-link
+      >
       <small>#GiveThanks</small>
     </div>
     <nuxt-link to="/gratitude" class="flex items-center justify-center"

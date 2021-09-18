@@ -96,6 +96,7 @@ export const state = () => ({
       item: 'books',
       reason:
         'they encourage new ways of thinking and discussion. They are also a great way to escape reality for a little while. And they are an easy thing to collect and share. Book clubs/groups have been so valuable in my life.',
+      image_url: 'gratitude/books.png',
     },
   ],
 })
