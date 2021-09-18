@@ -91,5 +91,11 @@ export const state = () => ({
       reason: `listening to these are the perfect way to temporarily disconnect my brain from my worries when I need to sleep, and to entertain me while I clean a toilet or haul bags of mulch around`,
       image_url: 'speech-bubble.png',
     },
+    {
+      number: 'fourteen',
+      item: 'books',
+      reason:
+        'they encourage new ways of thinking and discussion. They are also a great way to escape reality for a little while. And they are an easy thing to collect and share. Book clubs/groups have been so valuable in my life.',
+    },
   ],
 })

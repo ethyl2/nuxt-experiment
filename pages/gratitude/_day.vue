@@ -13,6 +13,13 @@
         class="w-1/4 pt-4"
       />
       <hr />
+      <a v-if="day.number === 'one'" href="http://www.thehungersite.com">
+        <img
+          src="/gratitude/HungerSite.gif"
+          alt="Hungersite"
+          class="transform hover:scale-105"
+        />
+      </a>
       <div
         v-if="day.number === 'two'"
         class="flex items-center justify-center px-2 divide-x-2"
