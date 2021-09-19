@@ -51,6 +51,7 @@
           <nuxt-link to="/stem/keyboard-navigation"
             >Keyboard Navigation</nuxt-link
           >
+          <nuxt-link to="/stem/blur">CSS Backdrop Filter Blur</nuxt-link>
         </div>
         <div class="p-6 rounded bg-teal-900 flex flex-col space-y-2">
           <h2 class="text-2xl">STEM-Themed Songs</h2>

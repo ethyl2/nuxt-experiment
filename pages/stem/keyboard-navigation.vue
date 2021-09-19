@@ -27,7 +27,8 @@
     </p>
     <p>
       Here are some <code>&lt;div&gt;</code>s. See if you can guess which have
-      <code>tabindex="0"</code>!
+      <code>tabindex="0"</code> and which ones don't have a tabindex at all!
+      (Hint: Use your tab key, and then your enter <key class=""></key>)
     </p>
     <div class="flex flex-wrap items-center justify-center">
       <div
