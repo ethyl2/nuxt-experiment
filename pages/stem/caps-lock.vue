@@ -1,6 +1,10 @@
 <template>
-  <div class="mx-4 flex flex-col items-start justify-start space-y-4 md:mx-10">
-    <h1 class="text-xl mt-4 font-bold">Caps Lock Event Listening</h1>
+  <div
+    class="mx-4 flex flex-col items-center justify-start min-h-screen space-y-4 md:mx-10"
+  >
+    <h1 class="text-xl mt-4 font-bold md:text-2xl">
+      Caps Lock Event Listening
+    </h1>
     <p>
       As I was about to log in to my computer today, I noticed a handy warning
       message, 'Caps lock is on'.
@@ -54,6 +58,11 @@
       ⚠️ Warning! Caps lock is on! 🚨
     </p>
     <p>{{ capsLockMessage }}</p>
+    <img
+      src="/stem/keyboard.jpg"
+      alt="keyboard"
+      class="w-full rounded mx-auto md:w-1/3"
+    />
   </div>
 </template>
 
