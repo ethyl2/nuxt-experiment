@@ -60,6 +60,7 @@
 
     <!-- FETCHING VALUE FOR KEY -->
     <form
+      v-if="pairsFromStore && pairsFromStore.length > 0"
       class="flex flex-col bg-gray-900 p-6 rounded"
       @submit.prevent="getValue"
     >
