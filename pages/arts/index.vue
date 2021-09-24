@@ -158,6 +158,9 @@
             <nuxt-link to="/arts/dot-matrix-banner" class="text-orange-400"
               >Feel Nostalgic Making a Virtual Dot Matrix Banner</nuxt-link
             >
+            <nuxt-link to="/arts/pants" class="text-orange-400"
+              >Turn Pants into Art</nuxt-link
+            >
           </div>
         </transition>
       </nav>
