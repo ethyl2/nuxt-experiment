@@ -6,7 +6,7 @@
     >
       <!-- LEFT SIDE -->
       <div
-        class="w-full flex flex-row items-center justify-center mx-auto my-4 order-2 md:flex-col md:order-1 md:my-0 md:w-1/3 md:mr-0"
+        class="w-full flex flex-row items-center justify-center mx-auto my-4 order-2 bg-black md:flex-col md:order-1 md:my-0 md:w-1/3 md:mr-0 md:space-y-4"
       >
         <nuxt-link to="/stem/binary">
           <img src="/binaryShield.png" alt="binary shield" />
@@ -52,6 +52,7 @@
             >Keyboard Navigation</nuxt-link
           >
           <nuxt-link to="/stem/blur">CSS Backdrop Filter Blur</nuxt-link>
+          <nuxt-link to="/stem/attributes">HTML Attributes</nuxt-link>
         </div>
         <div class="p-6 rounded bg-teal-900 flex flex-col space-y-2">
           <h2 class="text-2xl">STEM-Themed Songs</h2>
