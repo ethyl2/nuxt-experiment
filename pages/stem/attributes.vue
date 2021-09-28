@@ -126,31 +126,110 @@
       </div>
     </section>
     <div class="bg-black text-white my-6 p-4 rounded mx-2 md:mx-6">
-      <h2 class="text-center font-bold text-2xl">Let it Go, Emoji Style</h2>
-      <p class="italic text-center pb-3 text-sm md:text-base">
+      <h2 class="text-center font-bold text-2xl pb-2">
+        Let it Go, Emoji Style
+      </h2>
+      <p
+        class="italic text-center pb-3 text-sm border-b pb-4 md:text-base md:px-12"
+      >
         For emoji inspiration. Feel free to try out editing it, too. To add
         emojis on a PC, try pressing the Windows key on your keyboard and the
         period key. Or Windows key and semicolon works too. For Apple, press
         CTRL + CMD + Space.
       </p>
-      <p contenteditable="true" class="leading-loose text-sm md:text-base">
-        The ❄️ 🌟 🔦 ⚪ on the mountain 🌙 🌠. 🙅🏻 a👣 to 🐝 👀. A 🏰 of 😢, and
-        it 👀 like☝️️ the 👑. The 💨 is 🐺 like this 🌀 ❄️ ☔️ 🏠. 🙅🏻 keep it
-        in, ☁️ 💡 ☝️️ tried. 🙅🏻 let 👬👫 in,🙅🏻 let 👬👫 👀. 🐝 the 👍 👧 👇
-        always have to 🐝. 🙅🏻, don't 👐, 🚫 let 👬👫💡. Well now 👬👫 💡. 👐 it
-        🚗,, 👐 it 🚗,,🙅🏻 ✊ it back anymore. 👐 it 🚗,, 👐 it 🚗, turn ✈️ and
-        🔨 the 🚪. ☝️️ 🚫 care, what 👬👫 going to 👄, let the ☔️ ⚡ ❄️ 😡 on,
-        the ❄️ ⛄️ 🙅🏻 bothered ☝️️ anyway. It's 😜😂 how some ✈️ 🚆 makes
-        everything 😳 🐜. And the 😱 that once 👮 me, 🙅🏻 get to☝️️ at all. It's
-        🕓 to 👀 what☝️️ can do. To 📝 the 📊 and 🔨 through. 🚫 👍 , 🚫 👎, 🚫
-        👮 for ☝️️. ☝️️ 🏃. 👐 it 🚗,, 👐 it 🚗., ☝️️ am ☝️ with the 🌀 and 🌌.
-        👐 it 🚗,, 👐 it 🚗..👇 🙅🏻 👀 ☝️️ 😭 . 👉 ☝️️ 🚶, and 👉 ☝️️ stay. Let
-        the⚡ ❄️ 😡 on. ☝️️ 💪 ❄️ through the 🌀 into the 🌎.☝️️ 👤 is 🌀 in ❄️
-        ⛄️ fractals all 🔁. And 1️⃣💡 💎 like an ❄️ 📢. ☝️️ 🙅🏻 🏃 back, the past
-        is in the past. 👐 it 🚗,,👐 it 🚗,. And ☝️️ 🚀 like the 💔 of 🌌. 👐 it
-        🚗,, 👐 it 🚗.. That 💁 is 🚫. Here ☝️️ 🚶, in the 🔦 of ☀️. Let the ⚡
-        ❄️ 😡 on, the ❄️ ⛄️ 🙅🏻 bothered ☝️️ anyway.
-      </p>
+      <div
+        contenteditable="true"
+        class="pt-6 text-sm flex flex-col w-full space-y-6 md:flex-row md:space-y-0 md:space-x-6 md:justify-around md:text-base md:px-12"
+      >
+        <div class="flex flex-col space-y-6">
+          <div class="w-full">
+            <p>The ❄️ 🌟 🔦 ⚪ on the mountain 🌙 🌠.</p>
+            <p>🙅🏻 a👣 to 🐝 👀.</p>
+            <p>A 🏰 of 😢,</p>
+            <p>and it 👀 like☝️️ the 👑.</p>
+          </div>
+
+          <div class="w-full">
+            <p>The 💨 is 🐺 like this 🌀 ❄️ ☔️ 🏠.</p>
+            <p>🙅🏻 keep it in, ☁️ 💡 ☝️️ tried.</p>
+            <p>🙅🏻 let 👬👫 in,🙅🏻 let 👬👫 👀.</p>
+            <p>🐝 the 👍 👧 👇 always have to 🐝.</p>
+            <p>🙅🏻, don't 👐, 🚫 let 👬👫💡.</p>
+            <p>Well now 👬👫 💡.</p>
+          </div>
+
+          <div class="w-full">
+            <p>👐 it 🚗, 👐 it 🚗,</p>
+            <p>🙅🏻 ✊ it back anymore.</p>
+            <p>👐 it 🚗, 👐 it 🚗,</p>
+            <p>Turn ✈️ and 🔨 the 🚪.</p>
+            <p>☝️️ 🚫 care, what 👬👫 going to 👄,</p>
+            <p>👐 the ☔️ ⚡ ❄️ 😡 on,</p>
+            <p>The ❄️ ⛄️ 🙅🏻 bothered ☝️️ anyway.</p>
+          </div>
+
+          <div class="w-full">
+            <p>It's 😜😂 how some ✈️ 🚆 makes everything 😳 🐜.</p>
+            <p>And the 😱 that once 👮 me, 🙅🏻 get to☝️️ at all.</p>
+            <p>It's 🕓 to 👀 what☝️️ can do.</p>
+            <p>To 📝 the 📊 and 🔨 through.</p>
+            <p>🚫 👍 , 🚫 👎, 🚫 👮 for ☝️️.</p>
+            <p>☝️️ 🏃.</p>
+          </div>
+        </div>
+        <div class="flex flex-col space-y-6">
+          <div class="w-full">
+            <p>👐 it 🚗, 👐 it 🚗</p>
+            <p>☝️️ am ☝️ with the 🌀 and 🌌.</p>
+            <p>👐 it 🚗, 👐 it 🚗.</p>
+            <p>👇 🙅🏻 👀 ☝️️ 😭 .</p>
+            <p>👉 ☝️️ 🚶, and 👉 ☝️️ stay.</p>
+            <p>Let the ⚡ ❄️ 😡 on.</p>
+          </div>
+
+          <div class="w-full">
+            <p>☝️️ 💪 ❄️ through the 🌀 into the 🌎.</p>
+            <p>☝️️ 👤 is 🌀 in ❄️ ⛄️ fractals all 🔁.</p>
+            <p>And 1️⃣💡 💎 like an ❄️ 📢.</p>
+            <p>☝️️ 🙅🏻 🏃 back, the past is in the past.</p>
+          </div>
+
+          <div class="w-full">
+            <p>👐 it 🚗, 👐 it 🚗</p>
+            <p>And ☝️️ 🚀 like the 💔 of 🌌.</p>
+            <p>👐 it 🚗, 👐 it 🚗</p>
+            <p>That 💁 is 🚫.</p>
+            <p>Here ☝️️ 🚶, in the 🔦 of ☀️.</p>
+            <p>👐 the ⚡ ❄️ 😡 on,</p>
+            <p>The ❄️ ⛄️ 🙅🏻 bothered ☝️️ anyway.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mt-6 border-t pt-4">Poster</h2>
+      <div
+        class="flex flex-col space-y-4 md:space-y-0 md:flex-row items-center justify-center w-full"
+      >
+        <div class="w-full md:w-1/3">
+          <video
+            controls
+            src="/stem/happy-emoji.mp4"
+            poster="/stem/poster-image.png"
+            class="h-64 w-64 mx-auto mt-6"
+          ></video>
+        </div>
+        <p class="w-full md:w-1/3">
+          You can use the <code>poster</code> attribute to specify an image to
+          be shown when the video is loading and hasn't been played yet.
+        </p>
+        <img
+          src="/stem/poster-code.png"
+          alt="code to add a poster image"
+          class="w=full md:w-1/3"
+        />
+      </div>
     </div>
   </div>
 </template>
