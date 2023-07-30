@@ -55,9 +55,8 @@ export default {
   },
   methods: {
     showQuote() {
-      this.currentQuote = this.quotes[
-        Math.floor(Math.random() * this.quotes.length - 1)
-      ]
+      this.currentQuote =
+        this.quotes[Math.floor(Math.random() * this.quotes.length - 1)]
       this.imgSrc = `https://picsum.photos${
         this.imgOptions[Math.floor(Math.random() * this.imgOptions.length)]
       }`

@@ -30,7 +30,6 @@ So far, it contains:
 - [favorite podcasts list](https://nuxt-experiments.herokuapp.com/podcast-list)
 - [Lite Brite-inspired art app](https://nuxt-experiments.herokuapp.com/arts/lite-brite)
 
-Deployed at https://nuxt-experiments.herokuapp.com/
 
 ---
 

@@ -47,8 +47,7 @@ export default {
         {
           title: 'The Current Bush',
           author: 'Elder Hugh B. Brown',
-          url:
-            'https://www.churchofjesuschrist.org/study/new-era/1973/01/the-currant-bush?lang=eng',
+          url: 'https://www.churchofjesuschrist.org/study/new-era/1973/01/the-currant-bush?lang=eng',
           summary:
             '"It is a story that...has to do with an incident in my life when God showed me that he knew best."',
           imageSrc: '/story-images/current-bush.jpg',
@@ -56,16 +55,14 @@ export default {
         {
           title: 'Herman the Water Snake',
           author: 'President Thomas S. Monson',
-          url:
-            'https://www.churchofjesuschrist.org/study/general-conference/2002/10/peace-be-still?lang=eng',
+          url: 'https://www.churchofjesuschrist.org/study/general-conference/2002/10/peace-be-still?lang=eng',
           summary: '"I learned a lesson in patience and calmness."',
           imageSrc: '/story-images/snake.jpg',
         },
         {
           title: 'Blind Date',
           author: 'Elder Joseph B. Wirthlin',
-          url:
-            'https://www.churchofjesuschrist.org/study/general-conference/2008/10/come-what-may-and-love-it?lang=eng',
+          url: 'https://www.churchofjesuschrist.org/study/general-conference/2008/10/come-what-may-and-love-it?lang=eng',
           summary:
             '"The next time you’re tempted to groan, you might try to laugh instead. Come what may, and love it."',
           imageSrc: '/story-images/embarrassed.jpg',
@@ -73,8 +70,7 @@ export default {
         {
           title: 'Ear Wiggle',
           author: 'President Thomas S. Monson',
-          url:
-            'https://www.churchofjesuschrist.org/study/general-conference/2008/04/examples-of-righteousness?lang=eng',
+          url: 'https://www.churchofjesuschrist.org/study/general-conference/2008/04/examples-of-righteousness?lang=eng',
           summary:
             '"We should never permit ourselves to do anything that we are not willing to see our children do."',
           imageSrc: '/story-images/ear.jpg',
@@ -82,8 +78,7 @@ export default {
         {
           title: 'One Little Match',
           author: 'President Thomas S. Monson',
-          url:
-            'https://www.churchofjesuschrist.org/study/general-conference/2013/04/obedience-brings-blessings?lang=eng',
+          url: 'https://www.churchofjesuschrist.org/study/general-conference/2013/04/obedience-brings-blessings?lang=eng',
           summary:
             '"Many of us...learn through experience the wisdom of being obedient."',
           imageSrc: '/story-images/match.jpg',
@@ -91,8 +86,7 @@ export default {
         {
           title: 'Windows of Stone',
           author: 'Sharon Eubank',
-          url:
-            'https://www.churchofjesuschrist.org/study/general-conference/2019/04/42eubank?lang=eng',
+          url: 'https://www.churchofjesuschrist.org/study/general-conference/2019/04/42eubank?lang=eng',
           summary:
             '"With patience and faithful questions, Jesus can transform our windows of stone to glass and light.',
           imageSrc: '/story-images/gazebo.jpg',
@@ -100,8 +94,7 @@ export default {
         {
           title: 'Rattlesnake Rock',
           author: 'Elder Gary E. Stevenson',
-          url:
-            'https://www.churchofjesuschrist.org/study/general-conference/2017/04/how-does-the-holy-ghost-help-you?lang=eng',
+          url: 'https://www.churchofjesuschrist.org/study/general-conference/2017/04/how-does-the-holy-ghost-help-you?lang=eng',
           summary:
             '"I am forever grateful that my father listened to the still, small voice of the Holy Ghost, as it may have saved my life.',
           imageSrc: '/story-images/rattlesnake.jpg',
@@ -109,8 +102,7 @@ export default {
         {
           title: 'I Can Do the Rest',
           author: 'Bishop W. Christopher Waddell',
-          url:
-            'https://www.churchofjesuschrist.org/study/general-conference/2017/10/turn-to-the-lord?lang=eng',
+          url: 'https://www.churchofjesuschrist.org/study/general-conference/2017/10/turn-to-the-lord?lang=eng',
           summary:
             '"Hyrum Shumway’s life may have been changed by war, but he never doubted his divine nature and eternal potential.',
           imageSrc: '/story-images/socks.jpg',
