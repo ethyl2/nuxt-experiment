@@ -94,8 +94,7 @@ export default {
         },
         {
           id: 'possum',
-          url:
-            'https://sites.google.com/site/1stbalcombeheightscubs/home/camps/campfire-songs/song-im-a-little-possum',
+          url: 'https://sites.google.com/site/1stbalcombeheightscubs/home/camps/campfire-songs/song-im-a-little-possum',
           title: "I'm a Little Possum",
           tune: "I'm a Little Teapot",
           chorus: [
@@ -149,8 +148,7 @@ export default {
         },
         {
           id: 'nerves',
-          url:
-            'https://boyscouttrail.com/content/song/a_song_that_gets_on_everybodys_nerves-452.asp',
+          url: 'https://boyscouttrail.com/content/song/a_song_that_gets_on_everybodys_nerves-452.asp',
           tune: "John Brown's Body",
           title: "A Song That Gets On Everybody's Nerves",
           chorus: [

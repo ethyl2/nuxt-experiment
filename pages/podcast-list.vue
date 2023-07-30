@@ -252,8 +252,7 @@ export default {
         {
           title: 'Ridiculous History',
           category: 'History',
-          url:
-            'https://www.iheart.com/podcast/105-ridiculous-history-28588696/',
+          url: 'https://www.iheart.com/podcast/105-ridiculous-history-28588696/',
           thumbnail: '/podcasts/ridiculous-history.jpg',
           synopsis: `History is beautiful, brutal and, often, ridiculous. Join Ben
             Bowlin and Noel Brown as they dive into some of the weirdest stories

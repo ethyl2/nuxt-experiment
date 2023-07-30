@@ -118,13 +118,13 @@ export default {
       this.kebabCase = this.variableWords.replace(/\s/g, '-')
       this.snakeCase = this.variableWords.replace(/\s/g, '_')
       this.snakeCaseCapitalized = this.snakeCase.toUpperCase()
-      this.pascalCase = this.variableWords.replace(/(\w+)(?:\s+|$)/g, function (
-        _,
-        word
-      ) {
-        // uppercase first letter and add rest unchanged
-        return word.charAt(0).toUpperCase() + word.substr(1)
-      })
+      this.pascalCase = this.variableWords.replace(
+        /(\w+)(?:\s+|$)/g,
+        function (_, word) {
+          // uppercase first letter and add rest unchanged
+          return word.charAt(0).toUpperCase() + word.substr(1)
+        }
+      )
       this.camelCase =
         this.pascalCase.charAt(0).toLowerCase() + this.pascalCase.substr(1)
     },

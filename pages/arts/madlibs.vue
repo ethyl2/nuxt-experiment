@@ -103,7 +103,7 @@
         >. What do you think?
       </p>
     </div>
-    <div>
+    <div class="w-1/4">
       <img
         :src="
           currentStep !== steps.length + 1

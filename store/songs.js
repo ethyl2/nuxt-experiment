@@ -19,8 +19,7 @@ export const state = () => ({
     },
     {
       id: 'possum',
-      url:
-        'https://sites.google.com/site/1stbalcombeheightscubs/home/camps/campfire-songs/song-im-a-little-possum',
+      url: 'https://sites.google.com/site/1stbalcombeheightscubs/home/camps/campfire-songs/song-im-a-little-possum',
       title: "I'm a Little Possum",
       tune: "I'm a Little Teapot",
       chorus: [
@@ -74,8 +73,7 @@ export const state = () => ({
     },
     {
       id: 'nerves',
-      url:
-        'https://boyscouttrail.com/content/song/a_song_that_gets_on_everybodys_nerves-452.asp',
+      url: 'https://boyscouttrail.com/content/song/a_song_that_gets_on_everybodys_nerves-452.asp',
       tune: "John Brown's Body",
       title: "A Song That Gets On Everybody's Nerves",
       chorus: [
@@ -384,8 +382,7 @@ export const state = () => ({
     },
     {
       id: 'coneheads',
-      url:
-        'https://campfireseattle.org/wp-content/uploads/2015/06/Songbook.pdf',
+      url: 'https://campfireseattle.org/wp-content/uploads/2015/06/Songbook.pdf',
       title: 'Little Spaceship',
       chorus: [
         'Little spaceship in the sky.',
@@ -502,8 +499,7 @@ export const state = () => ({
     },
     {
       id: 'rain',
-      url:
-        'https://boyscouttrail.com/content/song/it_aint_gonna_rain_no_more-446.asp',
+      url: 'https://boyscouttrail.com/content/song/it_aint_gonna_rain_no_more-446.asp',
       title: "It Ain't Gonna Rain No More",
       image_url: 'song_images/no_rain.png',
       chorus: [
@@ -663,8 +659,7 @@ export const state = () => ({
     },
     {
       id: 'farm',
-      url:
-        'https://www.bethsnotesplus.com/2020/11/hinky-dinky-double-d-farm.html',
+      url: 'https://www.bethsnotesplus.com/2020/11/hinky-dinky-double-d-farm.html',
       title: 'Hinky Dinky Double D Farm',
       chorus: [
         'Mine eyes are dim;',
@@ -724,8 +719,7 @@ export const state = () => ({
     },
     {
       id: 'web',
-      url:
-        'https://www.bethsnotesplus.com/2013/03/be-kind-to-your-web-footed-friends.html',
+      url: 'https://www.bethsnotesplus.com/2013/03/be-kind-to-your-web-footed-friends.html',
       title: 'Be Kind to Your Web-Footed Friends',
       tune: 'Stars and Stripes Forever',
       chorus: [
@@ -749,8 +743,7 @@ export const state = () => ({
     },
     {
       id: 'boom',
-      url:
-        'https://www.bethsnotesplus.com/2013/03/boom-boom-aint-it-great-it-be-crazy.html',
+      url: 'https://www.bethsnotesplus.com/2013/03/boom-boom-aint-it-great-it-be-crazy.html',
       title: "Boom Boom, Ain't it Great to be Crazy",
       chorus: [
         "Boom, boom, ain't it great to be crazy!",
@@ -862,8 +855,7 @@ export const state = () => ({
     },
     {
       id: 'goin-crazy',
-      url:
-        'https://www.ultimatecampresource.com/camp-songs/silly-camp-songs/im-goin-crazy/',
+      url: 'https://www.ultimatecampresource.com/camp-songs/silly-camp-songs/im-goin-crazy/',
       title: "I'm Goin' Crazy",
       chorus: [
         'I’m goin’ crazy, why don’t you come along?',
@@ -936,8 +928,7 @@ export const state = () => ({
     },
     {
       id: 'mamas-soup',
-      url:
-        'https://www.scouterlife.com/songbook/2019/1/18/chicken-lips-and-lizard-hips',
+      url: 'https://www.scouterlife.com/songbook/2019/1/18/chicken-lips-and-lizard-hips',
       title: "Mama's Soup",
       tune: 'Supercalifragilisticexialidocious',
       chorus: [
@@ -965,8 +956,7 @@ export const state = () => ({
     },
     {
       id: 'bear',
-      url:
-        'https://www.scouterlife.com/songbook/2018/5/30/the-other-day-i-met-a-bear',
+      url: 'https://www.scouterlife.com/songbook/2018/5/30/the-other-day-i-met-a-bear',
       title: 'The Other Day, I Met a Bear',
       tune: 'Sipping Cider Through a Straw',
       verses: [
